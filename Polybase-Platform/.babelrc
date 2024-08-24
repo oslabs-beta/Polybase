@@ -1,0 +1,10 @@
+/* Transpiles: 
+- ES6+ syntax to ES5
+- JSX and other react syntax
+*/
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ]
+}
