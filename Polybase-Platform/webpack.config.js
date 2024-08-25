@@ -1,40 +1,66 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    entry: './client/index.js', // Entry point of application
+    entry: isProduction
+        ? './client/index.js'
+        : [
+            'webpack-hot-middleware/client?reload=true',
+            './client/index.js',
+        ],
     output: {
-        filename: 'bundle.js', // Output bundle file
-        path: path.resolve(__dirname, 'dist'), // Output directory
-        publicPath: '/', // Public URL of the output directory when referenced in a browser
+        filename: isProduction ? 'prodBundle.js' : 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/',
     },
     module: {
         rules: [
             {
-                test: /\.js$/, // Transpile .js and .jsx files using Babel
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                 },
             },
             {
-                test: /\.css$/, // Process CSS files
+                test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
         ],
     },
     resolve: {
-        extensions: ['.js', '.jsx'], // Resolve .js and .jsx files
+        extensions: ['.js', '.jsx'],
     },
     plugins: [
-        new Dotenv(), // Load environment variables from .env file
+        new Dotenv(),
+        new HtmlWebpackPlugin({
+            template: './client/index.html',
+            minify: isProduction ? true : false,
+        }),
+        ...(isProduction
+            ? [
+                new GenerateSW({
+                    clientsClaim: true,
+                    skipWaiting: true,
+                }),
+            ]
+            : [
+                new webpack.HotModuleReplacementPlugin(),
+            ]
+        ),
     ],
     devServer: {
-        contentBase: path.resolve(__dirname, 'dist'), // Directory to serve files from
-        historyApiFallback: true, // Serve index.html in place of 404 responses, useful for React Router
-        compress: true, // Enable gzip compression for everything served
-        port: 9000, // Development server port
-        open: true, // Open the browser automatically
+        contentBase: path.resolve(__dirname, 'dist'),
+        historyApiFallback: true,
+        compress: true,
+        port: 9000,
+        open: true,
+        hot: true,
     },
-    mode: 'development', // Default mode for Webpack
+    mode: isProduction ? 'production' : 'development',
 };

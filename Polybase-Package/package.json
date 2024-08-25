@@ -2,11 +2,17 @@
   "name": "polybase-package",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "test": "tests"
   },
   "scripts": {
+    "build": "rollup --config",
+    "watch": "rollup --config --watch",
+    "start": "live-server dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
