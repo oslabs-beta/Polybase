@@ -7,7 +7,9 @@
 
 const { configureMongoDBConnection, configureRedisConnection, configurePostgresConnection } = require('../service-utils/connection-pool');
 const { cliInterface } = require('./cli-interface');
+const { getConfig, validateConfig } = require('../service-utils/config-management');
 const { manageState } = require('../service-utils/state-utils');
+const { handleError } = require('../service-utils/error-handling');
 
 /**
  * Object holding the instance of Polybase 
@@ -64,8 +66,7 @@ async function configureDatabaseConnections(config) {
             //
             manageState(dbType, connection, dbConfig); 
         } catch (error) {
-            console.error(`Failed to connect to ${dbType}:`, error);
-            return null;
+            return handleError(`Failed to connect to ${dbType}: ${error.message}`, 500);
         }
     }
 
@@ -103,19 +104,21 @@ async function initPolybase(config) {
  * the databases they want to want Polybase to manage
  * @returns 
  */
-async function startPolybase(config) {
+async function startPolybase(config = null) {
+    const finalConfig = getConfig(config);
 
-    //Begins process of creating an instance of Polybase 
-    const polybase = await initPolybase(config);
-
-    //catch error trying to create these interfaces
-    if (!polybase) {
-        console.error('Failed to start Polybase');
-        return;
+    if (!validateConfig(finalConfig)) {
+        return handleError('Invalid configuration. Initialization aborted.', 400);
     }
 
-    //Enable command-line interaction for succesful Polybase instances
+    const polybase = await initPolybase(finalConfig);
+
+    if (!polybase) {
+        return handleError('Failed to start Polybase.', 500);
+    }
+
     cliInterface();
 }
+
 
 module.exports = { initPolybase, startPolybase };

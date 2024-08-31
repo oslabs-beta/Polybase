@@ -23,6 +23,34 @@ function validateInput(input) {
     //need to extend
 }
 
+/**
+ * handles errors by logging and returning standardized
+ * output
+ * 
+ * @param {Error|string} error The error object or message to handle
+ * @param {number} [code=500] Optional error code to include in the response
+ * @returns {Object} The standardized error response object
+ */
+function handleError(error, code = 500) {
+    if (typeof error === 'string') {
+        error = new Error(error);
+    }
+    logError(error);
+    return generateErrorResponse(error.message, code);
+}
+/**
+ * Logs errow with stack trace and detailed information 
+ * 
+ * @param {Error|string} error The error object or message to log
+ */
+function logError(error) {
+    //standardize format
+    const errorMessage = typeof error === 'string' ? error : error.message;
+    console.error(`[${new Date().toISOString()}] Error: ${errorMessage}`);
+    if (error.stack) {
+        console.error(error.stack);
+    }
+}
 
 /**
  * generateErrorResponse
@@ -48,5 +76,5 @@ function generateErrorResponse(message, code = 500, details = '') {
     };
 }
 
-module.exports = { generateErrorResponse, validateInput };
+module.exports = { logError, generateErrorResponse, validateInput };
 
