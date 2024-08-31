@@ -32,7 +32,6 @@ async function configureMongoDBConnection(config) {
         return db; 
     } catch (err) {
         throw handleError('MongoDB connection error: ' + error.message, 500);
-        throw err;
     }
 }
 
@@ -56,7 +55,7 @@ async function configurePostgresConnection(config) {
     try {
         const client = await pool.connect();
         console.log('Connected to PostgreSQL');
-        return client; // Return the pooled client
+        return client; //return pooled client
     } catch (err) {
         throw handleError('PostgreSQL connection error: ' + error.message, 500);
     }
