@@ -14,6 +14,8 @@
 const fs = require('fs');
 const path = require('path');
 const { handleError } = require('./error-handling');
+const { logInfo, logError, safeStringify } = require('./logging');
+
 
 /**
  * Loads configuration input (either as file or directly passed as an 
@@ -26,7 +28,7 @@ function getConfig(providedConfig = null) {
     
     //check if configuration object provided
     if (providedConfig) {
-        console.log('Using provided configuration object.');
+        logInfo('Using provided configuration object.');
         return providedConfig;
     }
 
@@ -40,8 +42,7 @@ function getConfig(providedConfig = null) {
             const fileContent = fs.readFileSync(configFilePath, 'utf-8');
             const config = JSON.parse(fileContent);
 
-            //inform user missing configuraiton file or path name error
-            console.log(`Loaded configuration from file: ${configFileName}`);
+            logInfo(`Loaded configuration from file: ${configFileName}`);
             return config;
         } else {
             return handleError(`Configuration file "${configFileName}" not found.`, 404);
@@ -53,13 +54,12 @@ function getConfig(providedConfig = null) {
 }
 
 /**
- * Validates the provided configuration object.
+ * Validates the confg object (or json file)
  * 
- * @param {Object} config - Configuration object to validate.
+ * @param {Object} config - Configuration object to validate
  * @returns {Boolean} - True if the configuration is valid, false otherwise.
  */
 function validateConfig(config) {
-    // Add validation logic here, e.g., checking required fields, types, etc.
     if (!config) {
         handleError('No configuration provided.', 400);
         return false;
@@ -67,6 +67,7 @@ function validateConfig(config) {
 
     // /**
     //  * @TODO add additional validation checks
+        //need to add validation logic here --checking required fields, types, etc.
     //  */
     // if (!config.mongo && !config.postgres) {
     //     handleError('At least one database configuration (mongo, postgres, etc.) must be provided.', 400);
@@ -84,8 +85,8 @@ function validateConfig(config) {
  * @returns {Boolean} - True if the update is successful, false otherwise.
  */
 function updateConfig(newConfig) {
-    // Implement dynamic configuration updates here (if needed in the future).
-    console.log('Dynamic configuration updates are not yet implemented.');
+    // Implement dynamic configuration updates here - mayb estretch feat
+    console.log('Dynamic configuration updates are yet availl.');
     return false;
 }
 

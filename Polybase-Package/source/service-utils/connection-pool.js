@@ -14,87 +14,129 @@ const { Pool: PostgresPool } = require('pg');
 const Redis = require('ioredis');
 const Influx = require('influx');
 const { handleError } = require('../service-utils/error-handling');
-
+const { logInfo } = require('../service-utils/logging');
 
 /**
  * Pooling mongoDB connection 
  * @param {Object} config Configuration object passed by user
  * @returns the connection to the database
  */
+// MongoDB connection
 async function configureMongoDBConnection(config) {
-    //initiates contact with URI, assumed formatting
+    // Show loading message in the console
+    logInfo('...Connecting to MongoDB...', {}, true);
+
     try {
         const client = await MongoClient.connect(config.uri, {
-            maxPoolSize: 10, 
+            maxPoolSize: 10,
         });
         const db = client.db(config.database);
-        console.log(`Connected to MongoDB: ${config.database}`);
-        return db; 
+
+        //log high-level status message in the terminal
+        logInfo('✔ Connection to MongoDB established.', { database: config.database }, true); // Display in console
+        //log detailed information into the file polybase.log that should auto populate in directory
+        logInfo(`Detailed: Connected to MongoDB: ${config.database}`, { config }, false); //only in file
+
+        return db;
     } catch (err) {
-        throw handleError('MongoDB connection error: ' + error.message, 500);
+        logError(`MongoDB connection error: ${err.message}`, { error: err });
+        throw handleError(`MongoDB connection error: ${err.message}`, 500);
     }
 }
 
-
 /**
- * Connecting to Postgres database 
- * @param {Object} config Configuration object passed by user 
- * @returns Connection result of establishing PostgreSQL pool
+ * Establishing postgres connection via connection pooling
+ * @param {Object} valid configuration object 
+ * @returns 
  */
 async function configurePostgresConnection(config) {
+    //show user that connection trying
+    logInfo('...Connecting to PostgreSQL...', {}, true);
+
     const pool = new PostgresPool({
         user: config.user,
         host: config.host,
         database: config.database,
         password: config.password,
         port: config.port,
-        max: 10, 
-        idleTimeoutMillis: 30000, //idle connections closed after 30sec
+        max: 10,
+        idleTimeoutMillis: 30000,
     });
 
     try {
         const client = await pool.connect();
-        console.log('Connected to PostgreSQL');
-        return client; //return pooled client
-    } catch (err) {
-        throw handleError('PostgreSQL connection error: ' + error.message, 500);
+
+        //log high-level message to console and detailed msg to .log file
+        logInfo('✔ Connection to PostgreSQL established.', { database: config.database }, true);
+        logInfo(`Detailed: Connected to PostgreSQL at ${config.host}`, { config }, false); 
+
+        return client;
+    } catch (error) {
+        logError(`PostgreSQL connection error: ${error.message}`, { error });
+        throw handleError(`PostgreSQL connection error: ${error.message}`, 500);
     }
 }
 
 /**
- * 
- * @param {*} config 
+ * Setting up redis conneciton -- very simplified version
+ * @param {Object} config object 
  * @returns 
  */
 function configureRedisConnection(config) {
+    //show loading message
+    logInfo('...Connecting to Redis...', {}, true);
+
+    /**
+     * @TODO need to figure out how we want to do this - accessing user memory
+     */
     return new Promise((resolve, reject) => {
         const redis = new Redis(config.url);
+
         redis.on('connect', () => {
-            console.log('Connected to Redis');
-            resolve(redis); // Return the Redis client
+            
+            logInfo('✔ Connection to Redis established.', { url: config.url }, true); 
+            logInfo(`Detailed: Connected to Redis at ${config.url}`, { config }, false); 
+
+            resolve(redis);
         });
-        redis.on('error', (err) => {
-            reject(handleError('Redis connection error: ' + error.message, 500));
+
+        redis.on('error', (error) => {
+            logError(`Redis connection error: ${error.message}`, { error });
+            reject(handleError(`Redis connection error: ${error.message}`, 500));
         });
     });
 }
 
-// InfluxDB connection (InfluxDB client handles its connections, no explicit pooling needed)
+/**
+ * Establish connection with InfluxDB
+ * @param {Object} config object 
+ * @returns 
+ */
 async function configureInfluxDBConnection(config) {
+
+    /*
+    * @TODO 
+    */
+    logInfo('...Connecting to InfluxDB...', {}, true);
+
     try {
         const influx = new Influx.InfluxDB({
             url: config.url,
             token: config.token,
         });
-        console.log('Connected to InfluxDB');
-        return influx; // Return the InfluxDB client
-    } catch (err) {
-        throw handleError('InfluxDB connection error: ' + error.message, 500);
+
+        logInfo('✔ Connection to InfluxDB established.', { url: config.url }, true); // Display in console
+        logInfo(`Detailed: Connected to InfluxDB at ${config.url}`, { config }, false); // Only in file
+
+        return influx;
+    } catch (error) {
+        logError(`InfluxDB connection error: ${error.message}`, { error });
+        throw handleError(`InfluxDB connection error: ${error.message}`, 500);
     }
 }
 
 
-// Export the functions for use in init.js
+
 module.exports = {
     configureMongoDBConnection,
     configureRedisConnection,

@@ -16,6 +16,8 @@
  */
 
 
+const { logInfo, logError, safeStringify } = require('./logging');
+
 const stateManager = {
     state: {
         connections: {},
@@ -24,6 +26,7 @@ const stateManager = {
 
     addConnection(dbType, connection) {
         this.state.connections[dbType] = connection;
+        logInfo(`Added connection for ${dbType}`, { dbType, connectionDetails: safeStringify(connection, 2) });
     },
 
     getConnection(dbType) {
@@ -32,6 +35,7 @@ const stateManager = {
 
     setConfig(dbType, config) {
         this.state.configs[dbType] = config;
+        logInfo(`Set config for ${dbType}`, { config });
     },
 
     getConfig(dbType) {
@@ -39,28 +43,50 @@ const stateManager = {
     },
 
     handleStateError(dbType, error) {
-        console.error(`State error for ${dbType}:`, error);
-        //need additional error-handling -e.g. reconfig connections
+        logError(`State error for ${dbType}`, { error: safeStringify(error, 2) });
     }
 };
 
+/**
+ * Managing different parts of state (dynamic info)
+ * @param {*} dbType the type of database related to
+ * @param {*} connection the status of the connection
+ * @param {*} config the configuration
+ */
 function manageState(dbType, connection, config) {
-    stateManager.addConnection(dbType, connection);
-    stateManager.setConfig(dbType, config);
-
+    try {
+        stateManager.addConnection(dbType, connection);
+        stateManager.setConfig(dbType, config);
+    } catch (error) {
+        stateManager.handleStateError(dbType, error);
+        throw new Error(`Failed to manage state for ${dbType}: ${error.message}`);
+    }
 }
 
 function getState(dbType) {
-    return {
-        connection: stateManager.getConnection(dbType),
-        config: stateManager.getConfig(dbType)
-    };
+    try {
+        return {
+            connection: stateManager.getConnection(dbType),
+            config: stateManager.getConfig(dbType)
+        };
+    } catch (error) {
+        stateManager.handleStateError(dbType, error);
+        throw new Error(`Failed to retrieve state for ${dbType}: ${error.message}`);
+    }
 }
-
+/**
+ * Connection error handling
+ * @param {*} dbType 
+ */
 function handleConnectionDrop(dbType) {
-    const state = getState(dbType);
-    stateManager.handleStateError(dbType, new Error('Connection dropped'));
-
+    try {
+        const state = getState(dbType);
+        stateManager.handleStateError(dbType, new Error('Connection dropped'));
+        //need to add recovery logic
+    } catch (error) {
+        stateManager.handleStateError(dbType, error);
+        throw new Error(`Failed to handle connection drop for ${dbType}: ${error.message}`);
+    }
 }
 
 module.exports = { stateManager, manageState, getState, handleConnectionDrop };
