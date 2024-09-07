@@ -81,8 +81,8 @@ async function initPolybase(config) {
     }
 
     PolyBaseInstance.init(interfaces); // init polybase with interfaces
-    logInfo('✔ polybase initialized with all configured interfaces.', {}, true);
-    console.log('polybase initialized successfully.');
+    logInfo('✔ polybase initialized with all configured interfaces.', { interfaces }, false);
+    console.log('polybase initialized successfully with interfaces:', interfaces); // Log interfaces to console
     return PolyBaseInstance;
 }
 

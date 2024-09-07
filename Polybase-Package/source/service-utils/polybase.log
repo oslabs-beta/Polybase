@@ -1,0 +1,3145 @@
+[2024-09-07T21:33:55.968Z] [INFO] CLI closed. Exiting program. {}
+[2024-09-07T21:34:02.780Z] [INFO] ...initializing polybase... {}
+[2024-09-07T21:34:02.782Z] [INFO] ...Connecting to MongoDB... {}
+[2024-09-07T21:34:03.532Z] [INFO] ✔ Connection to MongoDB established. {
+  "database": "polybase_mongo"
+}
+[2024-09-07T21:34:03.533Z] [INFO] Detailed: Connected to MongoDB: polybase_mongo {
+  "config": {
+    "uri": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+    "database": "polybase_mongo"
+  }
+}
+[2024-09-07T21:34:03.536Z] [INFO] Added connection for mongo {
+  "dbType": "mongo",
+  "connectionDetails": "{\n  \"s\": {\n    \"options\": {\n      \"enableUtf8Validation\": true,\n      \"forceServerObjectId\": false,\n      \"pkFactory\": {},\n      \"raw\": false,\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"retryWrites\": true,\n      \"writeConcern\": {\n        \"w\": \"majority\"\n      }\n    },\n    \"readPreference\": {\n      \"mode\": \"primary\"\n    },\n    \"bsonOptions\": {\n      \"raw\": false,\n      \"useBigInt64\": false,\n      \"promoteLongs\": true,\n      \"promoteValues\": true,\n      \"promoteBuffers\": false,\n      \"ignoreUndefined\": false,\n      \"bsonRegExp\": false,\n      \"serializeFunctions\": false,\n      \"fieldsAsRaw\": {},\n      \"enableUtf8Validation\": true\n    },\n    \"pkFactory\": \"[Circular]\",\n    \"writeConcern\": {\n      \"w\": \"majority\"\n    },\n    \"namespace\": {\n      \"db\": \"polybase_mongo\"\n    }\n  },\n  \"client\": {\n    \"_events\": {},\n    \"_eventsCount\": 0,\n    \"s\": {\n      \"url\": \"mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0\",\n      \"bsonOptions\": {\n        \"raw\": false,\n        \"useBigInt64\": false,\n        \"promoteLongs\": true,\n        \"promoteValues\": true,\n        \"promoteBuffers\": false,\n        \"ignoreUndefined\": false,\n        \"bsonRegExp\": false,\n        \"serializeFunctions\": false,\n        \"fieldsAsRaw\": \"[Circular]\",\n        \"enableUtf8Validation\": true\n      },\n      \"namespace\": {\n        \"db\": \"admin\"\n      },\n      \"hasBeenClosed\": false,\n      \"sessionPool\": {\n        \"client\": \"[Circular]\",\n        \"sessions\": {\n          \"count\": 0,\n          \"head\": {\n            \"next\": \"[Circular]\",\n            \"prev\": \"[Circular]\",\n            \"value\": null\n          }\n        }\n      },\n      \"activeSessions\": {},\n      \"authProviders\": {\n        \"existingProviders\": {}\n      },\n      \"options\": {\n        \"hosts\": [\n          {\n            \"host\": \"cluster-0-shard-00-02.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          },\n          {\n            \"host\": \"cluster-0-shard-00-00.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          },\n          {\n            \"host\": \"cluster-0-shard-00-01.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          }\n        ],\n        \"appName\": \"Cluster-0\",\n        \"credentials\": {\n          \"username\": \"davisknaub\",\n          \"password\": \"l0JMb9PGVU0K3jvE\",\n          \"source\": \"admin\",\n          \"mechanism\": \"DEFAULT\",\n          \"mechanismProperties\": {}\n        },\n        \"compressors\": [\n          \"none\"\n        ],\n        \"connectTimeoutMS\": 30000,\n        \"directConnection\": false,\n        \"driverInfo\": {},\n        \"enableUtf8Validation\": true,\n        \"forceServerObjectId\": false,\n        \"heartbeatFrequencyMS\": 10000,\n        \"loadBalanced\": false,\n        \"localThresholdMS\": 15,\n        \"maxConnecting\": 2,\n        \"maxIdleTimeMS\": 0,\n        \"maxPoolSize\": 10,\n        \"minPoolSize\": 0,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"monitorCommands\": false,\n        \"noDelay\": true,\n        \"pkFactory\": \"[Circular]\",\n        \"raw\": false,\n        \"readPreference\": {\n          \"mode\": \"primary\"\n        },\n        \"retryReads\": true,\n        \"retryWrites\": true,\n        \"serverMonitoringMode\": \"auto\",\n        \"serverSelectionTimeoutMS\": 30000,\n        \"socketTimeoutMS\": 0,\n        \"srvMaxHosts\": 0,\n        \"srvServiceName\": \"mongodb\",\n        \"writeConcern\": \"[Circular]\",\n        \"waitQueueTimeoutMS\": 0,\n        \"zlibCompressionLevel\": 0,\n        \"dbName\": \"test\",\n        \"userSpecifiedAuthSource\": false,\n        \"userSpecifiedReplicaSet\": false,\n        \"srvHost\": \"cluster-0.bbvjq.mongodb.net\",\n        \"tls\": true,\n        \"mongoLoggerOptions\": {\n          \"componentSeverities\": {\n            \"command\": \"off\",\n            \"topology\": \"off\",\n            \"serverSelection\": \"off\",\n            \"connection\": \"off\",\n            \"client\": \"off\",\n            \"default\": \"off\"\n          },\n          \"maxDocumentLength\": 1000,\n          \"logDestination\": {},\n          \"logDestinationIsStdErr\": true\n        },\n        \"metadata\": {\n          \"application\": {\n            \"name\": \"Cluster-0\"\n          },\n          \"driver\": {\n            \"name\": \"nodejs\",\n            \"version\": \"6.7.0\"\n          },\n          \"platform\": \"Node.js v22.7.0, LE\",\n          \"os\": {\n            \"name\": \"darwin\",\n            \"architecture\": \"arm64\",\n            \"version\": \"24.0.0\",\n            \"type\": \"Darwin\"\n          }\n        },\n        \"extendedMetadata\": {},\n        \"replicaSet\": \"atlas-31kw7f-shard-0\"\n      },\n      \"writeConcern\": \"[Circular]\",\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"isMongoClient\": true\n    },\n    \"topology\": {\n      \"_events\": {\n        \"topologyDescriptionChanged\": [\n          null,\n          null\n        ]\n      },\n      \"_eventsCount\": 26,\n      \"client\": \"[Circular]\",\n      \"s\": {\n        \"id\": 0,\n        \"options\": \"[Circular]\",\n        \"seedlist\": [\n          \"[Circular]\",\n          \"[Circular]\",\n          \"[Circular]\"\n        ],\n        \"state\": \"connected\",\n        \"description\": {\n          \"type\": \"ReplicaSetWithPrimary\",\n          \"servers\": {\n            \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSSecondary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"workloadType\": \"OPERATIONAL\",\n                \"provider\": \"AWS\",\n                \"region\": \"US_EAST_1\",\n                \"availabilityZone\": \"use1-az6\",\n                \"diskState\": \"READY\",\n                \"nodeType\": \"ELECTABLE\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 43,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 339910913,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-07T21:34:03Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66dac2ab383d38ec9efd0fd7\"\n                },\n                \"counter\": 3\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 202,\n              \"electionId\": null,\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1725744843,\n                    \"i\": 9\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 56,\n                    \"1\": 134,\n                    \"2\": 90,\n                    \"3\": 35,\n                    \"4\": 131,\n                    \"5\": 235,\n                    \"6\": 144,\n                    \"7\": 197,\n                    \"8\": 158,\n                    \"9\": 164,\n                    \"10\": 46,\n                    \"11\": 151,\n                    \"12\": 85,\n                    \"13\": 85,\n                    \"14\": 77,\n                    \"15\": 66,\n                    \"16\": 219,\n                    \"17\": 44,\n                    \"18\": 141,\n                    \"19\": 216\n                  },\n                  \"keyId\": 7346671611417723000\n                }\n              }\n            },\n            \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSSecondary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"provider\": \"AWS\",\n                \"diskState\": \"READY\",\n                \"workloadType\": \"OPERATIONAL\",\n                \"region\": \"US_EAST_1\",\n                \"availabilityZone\": \"use1-az2\",\n                \"nodeType\": \"ELECTABLE\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 51,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 339910916,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-07T21:34:03Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66dac15effb51c4dd8e4f0e7\"\n                },\n                \"counter\": 4\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 202,\n              \"electionId\": null,\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1725744843,\n                    \"i\": 9\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 56,\n                    \"1\": 134,\n                    \"2\": 90,\n                    \"3\": 35,\n                    \"4\": 131,\n                    \"5\": 235,\n                    \"6\": 144,\n                    \"7\": 197,\n                    \"8\": 158,\n                    \"9\": 164,\n                    \"10\": 46,\n                    \"11\": 151,\n                    \"12\": 85,\n                    \"13\": 85,\n                    \"14\": 77,\n                    \"15\": 66,\n                    \"16\": 219,\n                    \"17\": 44,\n                    \"18\": 141,\n                    \"19\": 216\n                  },\n                  \"keyId\": 7346671611417723000\n                }\n              }\n            },\n            \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSPrimary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"diskState\": \"READY\",\n                \"workloadType\": \"OPERATIONAL\",\n                \"region\": \"US_EAST_1\",\n                \"nodeType\": \"ELECTABLE\",\n                \"provider\": \"AWS\",\n                \"availabilityZone\": \"use1-az4\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 41,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 339910986,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-07T21:34:03Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66dac062f777513fbb624e67\"\n                },\n                \"counter\": 6\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 202,\n              \"electionId\": {\n                \"$oid\": \"7fffffff0000000000000193\"\n              },\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1725744843,\n                    \"i\": 10\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 56,\n                    \"1\": 134,\n                    \"2\": 90,\n                    \"3\": 35,\n                    \"4\": 131,\n                    \"5\": 235,\n                    \"6\": 144,\n                    \"7\": 197,\n                    \"8\": 158,\n                    \"9\": 164,\n                    \"10\": 46,\n                    \"11\": 151,\n                    \"12\": 85,\n                    \"13\": 85,\n                    \"14\": 77,\n                    \"15\": 66,\n                    \"16\": 219,\n                    \"17\": 44,\n                    \"18\": 141,\n                    \"19\": 216\n                  },\n                  \"keyId\": 7346671611417723000\n                }\n              }\n            }\n          },\n          \"stale\": false,\n          \"compatible\": true,\n          \"heartbeatFrequencyMS\": 10000,\n          \"localThresholdMS\": 15,\n          \"setName\": \"atlas-31kw7f-shard-0\",\n          \"maxElectionId\": {\n            \"$oid\": \"7fffffff0000000000000193\"\n          },\n          \"maxSetVersion\": 202,\n          \"commonWireVersion\": 0,\n          \"logicalSessionTimeoutMinutes\": 30\n        },\n        \"serverSelectionTimeoutMS\": 30000,\n        \"heartbeatFrequencyMS\": 10000,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"servers\": {},\n        \"credentials\": \"[Circular]\",\n        \"clusterTime\": {\n          \"clusterTime\": {\n            \"$timestamp\": \"7412017661925654538\"\n          },\n          \"signature\": {\n            \"hash\": {\n              \"type\": \"Buffer\",\n              \"data\": [\n                56,\n                134,\n                90,\n                35,\n                131,\n                235,\n                144,\n                197,\n                158,\n                164,\n                46,\n                151,\n                85,\n                85,\n                77,\n                66,\n                219,\n                44,\n                141,\n                216\n              ]\n            },\n            \"keyId\": {\n              \"low\": 44,\n              \"high\": 1710530280,\n              \"unsigned\": false\n            }\n          }\n        },\n        \"connectionTimers\": {},\n        \"srvPoller\": {\n          \"_events\": {},\n          \"_eventsCount\": 0,\n          \"srvHost\": \"cluster-0.bbvjq.mongodb.net\",\n          \"srvMaxHosts\": 0,\n          \"srvServiceName\": \"mongodb\",\n          \"rescanSrvIntervalMS\": 60000,\n          \"heartbeatFrequencyMS\": 10000,\n          \"haMode\": false,\n          \"generation\": 0\n        }\n      },\n      \"component\": \"topology\"\n    }\n  }\n}"
+}
+[2024-09-07T21:34:03.536Z] [INFO] Set config for mongo {
+  "config": {
+    "uri": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+    "database": "polybase_mongo"
+  }
+}
+[2024-09-07T21:34:03.536Z] [INFO] polybase instance initialized with interfaces {
+  "interfaces": {
+    "mongo": {
+      "s": {
+        "options": {
+          "enableUtf8Validation": true,
+          "forceServerObjectId": false,
+          "pkFactory": {},
+          "raw": false,
+          "readPreference": {
+            "mode": "primary"
+          },
+          "retryWrites": true,
+          "writeConcern": {
+            "w": "majority"
+          }
+        },
+        "readPreference": {
+          "mode": "primary"
+        },
+        "bsonOptions": {
+          "raw": false,
+          "useBigInt64": false,
+          "promoteLongs": true,
+          "promoteValues": true,
+          "promoteBuffers": false,
+          "ignoreUndefined": false,
+          "bsonRegExp": false,
+          "serializeFunctions": false,
+          "fieldsAsRaw": {},
+          "enableUtf8Validation": true
+        },
+        "pkFactory": "[Circular]",
+        "writeConcern": {
+          "w": "majority"
+        },
+        "namespace": {
+          "db": "polybase_mongo"
+        }
+      },
+      "client": {
+        "_events": {},
+        "_eventsCount": 0,
+        "s": {
+          "url": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+          "bsonOptions": {
+            "raw": false,
+            "useBigInt64": false,
+            "promoteLongs": true,
+            "promoteValues": true,
+            "promoteBuffers": false,
+            "ignoreUndefined": false,
+            "bsonRegExp": false,
+            "serializeFunctions": false,
+            "fieldsAsRaw": "[Circular]",
+            "enableUtf8Validation": true
+          },
+          "namespace": {
+            "db": "admin"
+          },
+          "hasBeenClosed": false,
+          "sessionPool": {
+            "client": "[Circular]",
+            "sessions": {
+              "count": 0,
+              "head": {
+                "next": "[Circular]",
+                "prev": "[Circular]",
+                "value": null
+              }
+            }
+          },
+          "activeSessions": {},
+          "authProviders": {
+            "existingProviders": {}
+          },
+          "options": {
+            "hosts": [
+              {
+                "host": "cluster-0-shard-00-02.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-00.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-01.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              }
+            ],
+            "appName": "Cluster-0",
+            "credentials": {
+              "username": "davisknaub",
+              "password": "l0JMb9PGVU0K3jvE",
+              "source": "admin",
+              "mechanism": "DEFAULT",
+              "mechanismProperties": {}
+            },
+            "compressors": [
+              "none"
+            ],
+            "connectTimeoutMS": 30000,
+            "directConnection": false,
+            "driverInfo": {},
+            "enableUtf8Validation": true,
+            "forceServerObjectId": false,
+            "heartbeatFrequencyMS": 10000,
+            "loadBalanced": false,
+            "localThresholdMS": 15,
+            "maxConnecting": 2,
+            "maxIdleTimeMS": 0,
+            "maxPoolSize": 10,
+            "minPoolSize": 0,
+            "minHeartbeatFrequencyMS": 500,
+            "monitorCommands": false,
+            "noDelay": true,
+            "pkFactory": "[Circular]",
+            "raw": false,
+            "readPreference": {
+              "mode": "primary"
+            },
+            "retryReads": true,
+            "retryWrites": true,
+            "serverMonitoringMode": "auto",
+            "serverSelectionTimeoutMS": 30000,
+            "socketTimeoutMS": 0,
+            "srvMaxHosts": 0,
+            "srvServiceName": "mongodb",
+            "writeConcern": "[Circular]",
+            "waitQueueTimeoutMS": 0,
+            "zlibCompressionLevel": 0,
+            "dbName": "test",
+            "userSpecifiedAuthSource": false,
+            "userSpecifiedReplicaSet": false,
+            "srvHost": "cluster-0.bbvjq.mongodb.net",
+            "tls": true,
+            "mongoLoggerOptions": {
+              "componentSeverities": {
+                "command": "off",
+                "topology": "off",
+                "serverSelection": "off",
+                "connection": "off",
+                "client": "off",
+                "default": "off"
+              },
+              "maxDocumentLength": 1000,
+              "logDestination": {},
+              "logDestinationIsStdErr": true
+            },
+            "metadata": {
+              "application": {
+                "name": "Cluster-0"
+              },
+              "driver": {
+                "name": "nodejs",
+                "version": "6.7.0"
+              },
+              "platform": "Node.js v22.7.0, LE",
+              "os": {
+                "name": "darwin",
+                "architecture": "arm64",
+                "version": "24.0.0",
+                "type": "Darwin"
+              }
+            },
+            "extendedMetadata": {},
+            "replicaSet": "atlas-31kw7f-shard-0"
+          },
+          "writeConcern": "[Circular]",
+          "readPreference": {
+            "mode": "primary"
+          },
+          "isMongoClient": true
+        },
+        "topology": {
+          "_events": {
+            "topologyDescriptionChanged": [
+              null,
+              null
+            ]
+          },
+          "_eventsCount": 26,
+          "client": "[Circular]",
+          "s": {
+            "id": 0,
+            "options": "[Circular]",
+            "seedlist": [
+              "[Circular]",
+              "[Circular]",
+              "[Circular]"
+            ],
+            "state": "connected",
+            "description": {
+              "type": "ReplicaSetWithPrimary",
+              "servers": {
+                "cluster-0-shard-00-02.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "workloadType": "OPERATIONAL",
+                    "provider": "AWS",
+                    "region": "US_EAST_1",
+                    "availabilityZone": "use1-az6",
+                    "diskState": "READY",
+                    "nodeType": "ELECTABLE"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 43,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 339910913,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:34:03Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac2ab383d38ec9efd0fd7"
+                    },
+                    "counter": 3
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744843,
+                        "i": 9
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 56,
+                        "1": 134,
+                        "2": 90,
+                        "3": 35,
+                        "4": 131,
+                        "5": 235,
+                        "6": 144,
+                        "7": 197,
+                        "8": 158,
+                        "9": 164,
+                        "10": 46,
+                        "11": 151,
+                        "12": 85,
+                        "13": 85,
+                        "14": 77,
+                        "15": 66,
+                        "16": 219,
+                        "17": 44,
+                        "18": 141,
+                        "19": 216
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-00.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "provider": "AWS",
+                    "diskState": "READY",
+                    "workloadType": "OPERATIONAL",
+                    "region": "US_EAST_1",
+                    "availabilityZone": "use1-az2",
+                    "nodeType": "ELECTABLE"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 51,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 339910916,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:34:03Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac15effb51c4dd8e4f0e7"
+                    },
+                    "counter": 4
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744843,
+                        "i": 9
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 56,
+                        "1": 134,
+                        "2": 90,
+                        "3": 35,
+                        "4": 131,
+                        "5": 235,
+                        "6": 144,
+                        "7": 197,
+                        "8": 158,
+                        "9": 164,
+                        "10": 46,
+                        "11": 151,
+                        "12": 85,
+                        "13": 85,
+                        "14": 77,
+                        "15": 66,
+                        "16": 219,
+                        "17": 44,
+                        "18": 141,
+                        "19": 216
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-01.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "type": "RSPrimary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "diskState": "READY",
+                    "workloadType": "OPERATIONAL",
+                    "region": "US_EAST_1",
+                    "nodeType": "ELECTABLE",
+                    "provider": "AWS",
+                    "availabilityZone": "use1-az4"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 41,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 339910986,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:34:03Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac062f777513fbb624e67"
+                    },
+                    "counter": 6
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": {
+                    "$oid": "7fffffff0000000000000193"
+                  },
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744843,
+                        "i": 10
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 56,
+                        "1": 134,
+                        "2": 90,
+                        "3": 35,
+                        "4": 131,
+                        "5": 235,
+                        "6": 144,
+                        "7": 197,
+                        "8": 158,
+                        "9": 164,
+                        "10": 46,
+                        "11": 151,
+                        "12": 85,
+                        "13": 85,
+                        "14": 77,
+                        "15": 66,
+                        "16": 219,
+                        "17": 44,
+                        "18": 141,
+                        "19": 216
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                }
+              },
+              "stale": false,
+              "compatible": true,
+              "heartbeatFrequencyMS": 10000,
+              "localThresholdMS": 15,
+              "setName": "atlas-31kw7f-shard-0",
+              "maxElectionId": {
+                "$oid": "7fffffff0000000000000193"
+              },
+              "maxSetVersion": 202,
+              "commonWireVersion": 0,
+              "logicalSessionTimeoutMinutes": 30
+            },
+            "serverSelectionTimeoutMS": 30000,
+            "heartbeatFrequencyMS": 10000,
+            "minHeartbeatFrequencyMS": 500,
+            "servers": {},
+            "credentials": "[Circular]",
+            "clusterTime": {
+              "clusterTime": {
+                "$timestamp": "7412017661925654538"
+              },
+              "signature": {
+                "hash": {
+                  "type": "Buffer",
+                  "data": [
+                    56,
+                    134,
+                    90,
+                    35,
+                    131,
+                    235,
+                    144,
+                    197,
+                    158,
+                    164,
+                    46,
+                    151,
+                    85,
+                    85,
+                    77,
+                    66,
+                    219,
+                    44,
+                    141,
+                    216
+                  ]
+                },
+                "keyId": {
+                  "low": 44,
+                  "high": 1710530280,
+                  "unsigned": false
+                }
+              }
+            },
+            "connectionTimers": {},
+            "srvPoller": {
+              "_events": {},
+              "_eventsCount": 0,
+              "srvHost": "cluster-0.bbvjq.mongodb.net",
+              "srvMaxHosts": 0,
+              "srvServiceName": "mongodb",
+              "rescanSrvIntervalMS": 60000,
+              "heartbeatFrequencyMS": 10000,
+              "haMode": false,
+              "generation": 0
+            }
+          },
+          "component": "topology"
+        }
+      }
+    }
+  }
+}
+[2024-09-07T21:34:03.537Z] [INFO] ✔ polybase initialized with all configured interfaces. {
+  "interfaces": {
+    "mongo": {
+      "s": {
+        "options": {
+          "enableUtf8Validation": true,
+          "forceServerObjectId": false,
+          "pkFactory": {},
+          "raw": false,
+          "readPreference": {
+            "mode": "primary"
+          },
+          "retryWrites": true,
+          "writeConcern": {
+            "w": "majority"
+          }
+        },
+        "readPreference": {
+          "mode": "primary"
+        },
+        "bsonOptions": {
+          "raw": false,
+          "useBigInt64": false,
+          "promoteLongs": true,
+          "promoteValues": true,
+          "promoteBuffers": false,
+          "ignoreUndefined": false,
+          "bsonRegExp": false,
+          "serializeFunctions": false,
+          "fieldsAsRaw": {},
+          "enableUtf8Validation": true
+        },
+        "pkFactory": "[Circular]",
+        "writeConcern": {
+          "w": "majority"
+        },
+        "namespace": {
+          "db": "polybase_mongo"
+        }
+      },
+      "client": {
+        "_events": {},
+        "_eventsCount": 0,
+        "s": {
+          "url": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+          "bsonOptions": {
+            "raw": false,
+            "useBigInt64": false,
+            "promoteLongs": true,
+            "promoteValues": true,
+            "promoteBuffers": false,
+            "ignoreUndefined": false,
+            "bsonRegExp": false,
+            "serializeFunctions": false,
+            "fieldsAsRaw": "[Circular]",
+            "enableUtf8Validation": true
+          },
+          "namespace": {
+            "db": "admin"
+          },
+          "hasBeenClosed": false,
+          "sessionPool": {
+            "client": "[Circular]",
+            "sessions": {
+              "count": 0,
+              "head": {
+                "next": "[Circular]",
+                "prev": "[Circular]",
+                "value": null
+              }
+            }
+          },
+          "activeSessions": {},
+          "authProviders": {
+            "existingProviders": {}
+          },
+          "options": {
+            "hosts": [
+              {
+                "host": "cluster-0-shard-00-02.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-00.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-01.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              }
+            ],
+            "appName": "Cluster-0",
+            "credentials": {
+              "username": "davisknaub",
+              "password": "l0JMb9PGVU0K3jvE",
+              "source": "admin",
+              "mechanism": "DEFAULT",
+              "mechanismProperties": {}
+            },
+            "compressors": [
+              "none"
+            ],
+            "connectTimeoutMS": 30000,
+            "directConnection": false,
+            "driverInfo": {},
+            "enableUtf8Validation": true,
+            "forceServerObjectId": false,
+            "heartbeatFrequencyMS": 10000,
+            "loadBalanced": false,
+            "localThresholdMS": 15,
+            "maxConnecting": 2,
+            "maxIdleTimeMS": 0,
+            "maxPoolSize": 10,
+            "minPoolSize": 0,
+            "minHeartbeatFrequencyMS": 500,
+            "monitorCommands": false,
+            "noDelay": true,
+            "pkFactory": "[Circular]",
+            "raw": false,
+            "readPreference": {
+              "mode": "primary"
+            },
+            "retryReads": true,
+            "retryWrites": true,
+            "serverMonitoringMode": "auto",
+            "serverSelectionTimeoutMS": 30000,
+            "socketTimeoutMS": 0,
+            "srvMaxHosts": 0,
+            "srvServiceName": "mongodb",
+            "writeConcern": "[Circular]",
+            "waitQueueTimeoutMS": 0,
+            "zlibCompressionLevel": 0,
+            "dbName": "test",
+            "userSpecifiedAuthSource": false,
+            "userSpecifiedReplicaSet": false,
+            "srvHost": "cluster-0.bbvjq.mongodb.net",
+            "tls": true,
+            "mongoLoggerOptions": {
+              "componentSeverities": {
+                "command": "off",
+                "topology": "off",
+                "serverSelection": "off",
+                "connection": "off",
+                "client": "off",
+                "default": "off"
+              },
+              "maxDocumentLength": 1000,
+              "logDestination": {},
+              "logDestinationIsStdErr": true
+            },
+            "metadata": {
+              "application": {
+                "name": "Cluster-0"
+              },
+              "driver": {
+                "name": "nodejs",
+                "version": "6.7.0"
+              },
+              "platform": "Node.js v22.7.0, LE",
+              "os": {
+                "name": "darwin",
+                "architecture": "arm64",
+                "version": "24.0.0",
+                "type": "Darwin"
+              }
+            },
+            "extendedMetadata": {},
+            "replicaSet": "atlas-31kw7f-shard-0"
+          },
+          "writeConcern": "[Circular]",
+          "readPreference": {
+            "mode": "primary"
+          },
+          "isMongoClient": true
+        },
+        "topology": {
+          "_events": {
+            "topologyDescriptionChanged": [
+              null,
+              null
+            ]
+          },
+          "_eventsCount": 26,
+          "client": "[Circular]",
+          "s": {
+            "id": 0,
+            "options": "[Circular]",
+            "seedlist": [
+              "[Circular]",
+              "[Circular]",
+              "[Circular]"
+            ],
+            "state": "connected",
+            "description": {
+              "type": "ReplicaSetWithPrimary",
+              "servers": {
+                "cluster-0-shard-00-02.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "workloadType": "OPERATIONAL",
+                    "provider": "AWS",
+                    "region": "US_EAST_1",
+                    "availabilityZone": "use1-az6",
+                    "diskState": "READY",
+                    "nodeType": "ELECTABLE"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 43,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 339910913,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:34:03Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac2ab383d38ec9efd0fd7"
+                    },
+                    "counter": 3
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744843,
+                        "i": 9
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 56,
+                        "1": 134,
+                        "2": 90,
+                        "3": 35,
+                        "4": 131,
+                        "5": 235,
+                        "6": 144,
+                        "7": 197,
+                        "8": 158,
+                        "9": 164,
+                        "10": 46,
+                        "11": 151,
+                        "12": 85,
+                        "13": 85,
+                        "14": 77,
+                        "15": 66,
+                        "16": 219,
+                        "17": 44,
+                        "18": 141,
+                        "19": 216
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-00.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "provider": "AWS",
+                    "diskState": "READY",
+                    "workloadType": "OPERATIONAL",
+                    "region": "US_EAST_1",
+                    "availabilityZone": "use1-az2",
+                    "nodeType": "ELECTABLE"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 51,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 339910916,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:34:03Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac15effb51c4dd8e4f0e7"
+                    },
+                    "counter": 4
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744843,
+                        "i": 9
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 56,
+                        "1": 134,
+                        "2": 90,
+                        "3": 35,
+                        "4": 131,
+                        "5": 235,
+                        "6": 144,
+                        "7": 197,
+                        "8": 158,
+                        "9": 164,
+                        "10": 46,
+                        "11": 151,
+                        "12": 85,
+                        "13": 85,
+                        "14": 77,
+                        "15": 66,
+                        "16": 219,
+                        "17": 44,
+                        "18": 141,
+                        "19": 216
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-01.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "type": "RSPrimary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "diskState": "READY",
+                    "workloadType": "OPERATIONAL",
+                    "region": "US_EAST_1",
+                    "nodeType": "ELECTABLE",
+                    "provider": "AWS",
+                    "availabilityZone": "use1-az4"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 41,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 339910986,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:34:03Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac062f777513fbb624e67"
+                    },
+                    "counter": 6
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": {
+                    "$oid": "7fffffff0000000000000193"
+                  },
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744843,
+                        "i": 10
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 56,
+                        "1": 134,
+                        "2": 90,
+                        "3": 35,
+                        "4": 131,
+                        "5": 235,
+                        "6": 144,
+                        "7": 197,
+                        "8": 158,
+                        "9": 164,
+                        "10": 46,
+                        "11": 151,
+                        "12": 85,
+                        "13": 85,
+                        "14": 77,
+                        "15": 66,
+                        "16": 219,
+                        "17": 44,
+                        "18": 141,
+                        "19": 216
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                }
+              },
+              "stale": false,
+              "compatible": true,
+              "heartbeatFrequencyMS": 10000,
+              "localThresholdMS": 15,
+              "setName": "atlas-31kw7f-shard-0",
+              "maxElectionId": {
+                "$oid": "7fffffff0000000000000193"
+              },
+              "maxSetVersion": 202,
+              "commonWireVersion": 0,
+              "logicalSessionTimeoutMinutes": 30
+            },
+            "serverSelectionTimeoutMS": 30000,
+            "heartbeatFrequencyMS": 10000,
+            "minHeartbeatFrequencyMS": 500,
+            "servers": {},
+            "credentials": "[Circular]",
+            "clusterTime": {
+              "clusterTime": {
+                "$timestamp": "7412017661925654538"
+              },
+              "signature": {
+                "hash": {
+                  "type": "Buffer",
+                  "data": [
+                    56,
+                    134,
+                    90,
+                    35,
+                    131,
+                    235,
+                    144,
+                    197,
+                    158,
+                    164,
+                    46,
+                    151,
+                    85,
+                    85,
+                    77,
+                    66,
+                    219,
+                    44,
+                    141,
+                    216
+                  ]
+                },
+                "keyId": {
+                  "low": 44,
+                  "high": 1710530280,
+                  "unsigned": false
+                }
+              }
+            },
+            "connectionTimers": {},
+            "srvPoller": {
+              "_events": {},
+              "_eventsCount": 0,
+              "srvHost": "cluster-0.bbvjq.mongodb.net",
+              "srvMaxHosts": 0,
+              "srvServiceName": "mongodb",
+              "rescanSrvIntervalMS": 60000,
+              "heartbeatFrequencyMS": 10000,
+              "haMode": false,
+              "generation": 0
+            }
+          },
+          "component": "topology"
+        }
+      }
+    }
+  }
+}
+[2024-09-07T21:34:35.645Z] [INFO] Processing user command... {
+  "command": "mongo find polybase_mongo_collection _id=\"66dcc19369d2d12812633326\" name"
+}
+[2024-09-07T21:34:35.647Z] [INFO] received query for mongo {
+  "query": {
+    "operation": "find",
+    "params": [
+      "polybase_mongo_collection",
+      "_id=\"66dcc19369d2d12812633326\"",
+      "name"
+    ]
+  }
+}
+[2024-09-07T21:34:35.701Z] [ERROR] failed to execute query for mongo: Failed to execute MongoDB query {
+  "stack": "\"Error: failed to execute query for mongo: Failed to execute MongoDB query\\n    at handleError (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at execQuery (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/db-interface.js:50:16)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\\n    at async handleClientRequest (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/cli-interface.js:63:12)\\n    at async /Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/cli-interface.js:23:34\""
+}
+[2024-09-07T21:34:35.702Z] [INFO] CLI command executed {
+  "request": {
+    "dbType": "mongo",
+    "query": {
+      "operation": "find",
+      "params": [
+        "polybase_mongo_collection",
+        "_id=\"66dcc19369d2d12812633326\"",
+        "name"
+      ]
+    }
+  },
+  "response": {
+    "success": false,
+    "error": {
+      "message": "failed to execute query for mongo: Failed to execute MongoDB query",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-09-07T21:34:35.702Z"
+    }
+  }
+}
+[2024-09-07T21:36:11.424Z] [INFO] CLI closed. Exiting program. {}
+[2024-09-07T21:36:13.488Z] [INFO] ...initializing polybase... {}
+[2024-09-07T21:36:13.490Z] [INFO] ...Connecting to MongoDB... {}
+[2024-09-07T21:36:14.156Z] [INFO] ✔ Connection to MongoDB established. {
+  "database": "polybase_mongo"
+}
+[2024-09-07T21:36:14.157Z] [INFO] Detailed: Connected to MongoDB: polybase_mongo {
+  "config": {
+    "uri": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+    "database": "polybase_mongo"
+  }
+}
+[2024-09-07T21:36:14.161Z] [INFO] Added connection for mongo {
+  "dbType": "mongo",
+  "connectionDetails": "{\n  \"s\": {\n    \"options\": {\n      \"enableUtf8Validation\": true,\n      \"forceServerObjectId\": false,\n      \"pkFactory\": {},\n      \"raw\": false,\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"retryWrites\": true,\n      \"writeConcern\": {\n        \"w\": \"majority\"\n      }\n    },\n    \"readPreference\": {\n      \"mode\": \"primary\"\n    },\n    \"bsonOptions\": {\n      \"raw\": false,\n      \"useBigInt64\": false,\n      \"promoteLongs\": true,\n      \"promoteValues\": true,\n      \"promoteBuffers\": false,\n      \"ignoreUndefined\": false,\n      \"bsonRegExp\": false,\n      \"serializeFunctions\": false,\n      \"fieldsAsRaw\": {},\n      \"enableUtf8Validation\": true\n    },\n    \"pkFactory\": \"[Circular]\",\n    \"writeConcern\": {\n      \"w\": \"majority\"\n    },\n    \"namespace\": {\n      \"db\": \"polybase_mongo\"\n    }\n  },\n  \"client\": {\n    \"_events\": {},\n    \"_eventsCount\": 0,\n    \"s\": {\n      \"url\": \"mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0\",\n      \"bsonOptions\": {\n        \"raw\": false,\n        \"useBigInt64\": false,\n        \"promoteLongs\": true,\n        \"promoteValues\": true,\n        \"promoteBuffers\": false,\n        \"ignoreUndefined\": false,\n        \"bsonRegExp\": false,\n        \"serializeFunctions\": false,\n        \"fieldsAsRaw\": \"[Circular]\",\n        \"enableUtf8Validation\": true\n      },\n      \"namespace\": {\n        \"db\": \"admin\"\n      },\n      \"hasBeenClosed\": false,\n      \"sessionPool\": {\n        \"client\": \"[Circular]\",\n        \"sessions\": {\n          \"count\": 0,\n          \"head\": {\n            \"next\": \"[Circular]\",\n            \"prev\": \"[Circular]\",\n            \"value\": null\n          }\n        }\n      },\n      \"activeSessions\": {},\n      \"authProviders\": {\n        \"existingProviders\": {}\n      },\n      \"options\": {\n        \"hosts\": [\n          {\n            \"host\": \"cluster-0-shard-00-00.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          },\n          {\n            \"host\": \"cluster-0-shard-00-01.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          },\n          {\n            \"host\": \"cluster-0-shard-00-02.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          }\n        ],\n        \"appName\": \"Cluster-0\",\n        \"credentials\": {\n          \"username\": \"davisknaub\",\n          \"password\": \"l0JMb9PGVU0K3jvE\",\n          \"source\": \"admin\",\n          \"mechanism\": \"DEFAULT\",\n          \"mechanismProperties\": {}\n        },\n        \"compressors\": [\n          \"none\"\n        ],\n        \"connectTimeoutMS\": 30000,\n        \"directConnection\": false,\n        \"driverInfo\": {},\n        \"enableUtf8Validation\": true,\n        \"forceServerObjectId\": false,\n        \"heartbeatFrequencyMS\": 10000,\n        \"loadBalanced\": false,\n        \"localThresholdMS\": 15,\n        \"maxConnecting\": 2,\n        \"maxIdleTimeMS\": 0,\n        \"maxPoolSize\": 10,\n        \"minPoolSize\": 0,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"monitorCommands\": false,\n        \"noDelay\": true,\n        \"pkFactory\": \"[Circular]\",\n        \"raw\": false,\n        \"readPreference\": {\n          \"mode\": \"primary\"\n        },\n        \"retryReads\": true,\n        \"retryWrites\": true,\n        \"serverMonitoringMode\": \"auto\",\n        \"serverSelectionTimeoutMS\": 30000,\n        \"socketTimeoutMS\": 0,\n        \"srvMaxHosts\": 0,\n        \"srvServiceName\": \"mongodb\",\n        \"writeConcern\": \"[Circular]\",\n        \"waitQueueTimeoutMS\": 0,\n        \"zlibCompressionLevel\": 0,\n        \"dbName\": \"test\",\n        \"userSpecifiedAuthSource\": false,\n        \"userSpecifiedReplicaSet\": false,\n        \"srvHost\": \"cluster-0.bbvjq.mongodb.net\",\n        \"tls\": true,\n        \"mongoLoggerOptions\": {\n          \"componentSeverities\": {\n            \"command\": \"off\",\n            \"topology\": \"off\",\n            \"serverSelection\": \"off\",\n            \"connection\": \"off\",\n            \"client\": \"off\",\n            \"default\": \"off\"\n          },\n          \"maxDocumentLength\": 1000,\n          \"logDestination\": {},\n          \"logDestinationIsStdErr\": true\n        },\n        \"metadata\": {\n          \"application\": {\n            \"name\": \"Cluster-0\"\n          },\n          \"driver\": {\n            \"name\": \"nodejs\",\n            \"version\": \"6.7.0\"\n          },\n          \"platform\": \"Node.js v22.7.0, LE\",\n          \"os\": {\n            \"name\": \"darwin\",\n            \"architecture\": \"arm64\",\n            \"version\": \"24.0.0\",\n            \"type\": \"Darwin\"\n          }\n        },\n        \"extendedMetadata\": {},\n        \"replicaSet\": \"atlas-31kw7f-shard-0\"\n      },\n      \"writeConcern\": \"[Circular]\",\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"isMongoClient\": true\n    },\n    \"topology\": {\n      \"_events\": {\n        \"topologyDescriptionChanged\": [\n          null,\n          null\n        ]\n      },\n      \"_eventsCount\": 26,\n      \"client\": \"[Circular]\",\n      \"s\": {\n        \"id\": 0,\n        \"options\": \"[Circular]\",\n        \"seedlist\": [\n          \"[Circular]\",\n          \"[Circular]\",\n          \"[Circular]\"\n        ],\n        \"state\": \"connected\",\n        \"description\": {\n          \"type\": \"ReplicaSetWithPrimary\",\n          \"servers\": {\n            \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSSecondary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"diskState\": \"READY\",\n                \"provider\": \"AWS\",\n                \"region\": \"US_EAST_1\",\n                \"availabilityZone\": \"use1-az2\",\n                \"workloadType\": \"OPERATIONAL\",\n                \"nodeType\": \"ELECTABLE\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 46,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 340041638,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-07T21:36:13Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66dac15effb51c4dd8e4f0e7\"\n                },\n                \"counter\": 4\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 202,\n              \"electionId\": null,\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1725744973,\n                    \"i\": 55\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 19,\n                    \"1\": 85,\n                    \"2\": 50,\n                    \"3\": 174,\n                    \"4\": 202,\n                    \"5\": 202,\n                    \"6\": 107,\n                    \"7\": 213,\n                    \"8\": 108,\n                    \"9\": 218,\n                    \"10\": 33,\n                    \"11\": 168,\n                    \"12\": 190,\n                    \"13\": 126,\n                    \"14\": 3,\n                    \"15\": 196,\n                    \"16\": 27,\n                    \"17\": 119,\n                    \"18\": 130,\n                    \"19\": 2\n                  },\n                  \"keyId\": 7346671611417723000\n                }\n              }\n            },\n            \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSPrimary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"diskState\": \"READY\",\n                \"availabilityZone\": \"use1-az4\",\n                \"region\": \"US_EAST_1\",\n                \"workloadType\": \"OPERATIONAL\",\n                \"provider\": \"AWS\",\n                \"nodeType\": \"ELECTABLE\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 47,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 340041632,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-07T21:36:13Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66dac062f777513fbb624e67\"\n                },\n                \"counter\": 6\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 202,\n              \"electionId\": {\n                \"$oid\": \"7fffffff0000000000000193\"\n              },\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1725744973,\n                    \"i\": 55\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 19,\n                    \"1\": 85,\n                    \"2\": 50,\n                    \"3\": 174,\n                    \"4\": 202,\n                    \"5\": 202,\n                    \"6\": 107,\n                    \"7\": 213,\n                    \"8\": 108,\n                    \"9\": 218,\n                    \"10\": 33,\n                    \"11\": 168,\n                    \"12\": 190,\n                    \"13\": 126,\n                    \"14\": 3,\n                    \"15\": 196,\n                    \"16\": 27,\n                    \"17\": 119,\n                    \"18\": 130,\n                    \"19\": 2\n                  },\n                  \"keyId\": 7346671611417723000\n                }\n              }\n            },\n            \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSSecondary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"diskState\": \"READY\",\n                \"availabilityZone\": \"use1-az6\",\n                \"provider\": \"AWS\",\n                \"workloadType\": \"OPERATIONAL\",\n                \"region\": \"US_EAST_1\",\n                \"nodeType\": \"ELECTABLE\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 39,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 340041705,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-07T21:36:13Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66dac2ab383d38ec9efd0fd7\"\n                },\n                \"counter\": 3\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 202,\n              \"electionId\": null,\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1725744973,\n                    \"i\": 57\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 19,\n                    \"1\": 85,\n                    \"2\": 50,\n                    \"3\": 174,\n                    \"4\": 202,\n                    \"5\": 202,\n                    \"6\": 107,\n                    \"7\": 213,\n                    \"8\": 108,\n                    \"9\": 218,\n                    \"10\": 33,\n                    \"11\": 168,\n                    \"12\": 190,\n                    \"13\": 126,\n                    \"14\": 3,\n                    \"15\": 196,\n                    \"16\": 27,\n                    \"17\": 119,\n                    \"18\": 130,\n                    \"19\": 2\n                  },\n                  \"keyId\": 7346671611417723000\n                }\n              }\n            }\n          },\n          \"stale\": false,\n          \"compatible\": true,\n          \"heartbeatFrequencyMS\": 10000,\n          \"localThresholdMS\": 15,\n          \"setName\": \"atlas-31kw7f-shard-0\",\n          \"maxElectionId\": {\n            \"$oid\": \"7fffffff0000000000000193\"\n          },\n          \"maxSetVersion\": 202,\n          \"commonWireVersion\": 0,\n          \"logicalSessionTimeoutMinutes\": 30\n        },\n        \"serverSelectionTimeoutMS\": 30000,\n        \"heartbeatFrequencyMS\": 10000,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"servers\": {},\n        \"credentials\": \"[Circular]\",\n        \"clusterTime\": {\n          \"clusterTime\": {\n            \"$timestamp\": \"7412018220271403065\"\n          },\n          \"signature\": {\n            \"hash\": {\n              \"type\": \"Buffer\",\n              \"data\": [\n                19,\n                85,\n                50,\n                174,\n                202,\n                202,\n                107,\n                213,\n                108,\n                218,\n                33,\n                168,\n                190,\n                126,\n                3,\n                196,\n                27,\n                119,\n                130,\n                2\n              ]\n            },\n            \"keyId\": {\n              \"low\": 44,\n              \"high\": 1710530280,\n              \"unsigned\": false\n            }\n          }\n        },\n        \"connectionTimers\": {},\n        \"srvPoller\": {\n          \"_events\": {},\n          \"_eventsCount\": 0,\n          \"srvHost\": \"cluster-0.bbvjq.mongodb.net\",\n          \"srvMaxHosts\": 0,\n          \"srvServiceName\": \"mongodb\",\n          \"rescanSrvIntervalMS\": 60000,\n          \"heartbeatFrequencyMS\": 10000,\n          \"haMode\": false,\n          \"generation\": 0\n        }\n      },\n      \"component\": \"topology\"\n    }\n  }\n}"
+}
+[2024-09-07T21:36:14.162Z] [INFO] Set config for mongo {
+  "config": {
+    "uri": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+    "database": "polybase_mongo"
+  }
+}
+[2024-09-07T21:36:14.162Z] [INFO] polybase instance initialized with interfaces {
+  "interfaces": {
+    "mongo": {
+      "s": {
+        "options": {
+          "enableUtf8Validation": true,
+          "forceServerObjectId": false,
+          "pkFactory": {},
+          "raw": false,
+          "readPreference": {
+            "mode": "primary"
+          },
+          "retryWrites": true,
+          "writeConcern": {
+            "w": "majority"
+          }
+        },
+        "readPreference": {
+          "mode": "primary"
+        },
+        "bsonOptions": {
+          "raw": false,
+          "useBigInt64": false,
+          "promoteLongs": true,
+          "promoteValues": true,
+          "promoteBuffers": false,
+          "ignoreUndefined": false,
+          "bsonRegExp": false,
+          "serializeFunctions": false,
+          "fieldsAsRaw": {},
+          "enableUtf8Validation": true
+        },
+        "pkFactory": "[Circular]",
+        "writeConcern": {
+          "w": "majority"
+        },
+        "namespace": {
+          "db": "polybase_mongo"
+        }
+      },
+      "client": {
+        "_events": {},
+        "_eventsCount": 0,
+        "s": {
+          "url": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+          "bsonOptions": {
+            "raw": false,
+            "useBigInt64": false,
+            "promoteLongs": true,
+            "promoteValues": true,
+            "promoteBuffers": false,
+            "ignoreUndefined": false,
+            "bsonRegExp": false,
+            "serializeFunctions": false,
+            "fieldsAsRaw": "[Circular]",
+            "enableUtf8Validation": true
+          },
+          "namespace": {
+            "db": "admin"
+          },
+          "hasBeenClosed": false,
+          "sessionPool": {
+            "client": "[Circular]",
+            "sessions": {
+              "count": 0,
+              "head": {
+                "next": "[Circular]",
+                "prev": "[Circular]",
+                "value": null
+              }
+            }
+          },
+          "activeSessions": {},
+          "authProviders": {
+            "existingProviders": {}
+          },
+          "options": {
+            "hosts": [
+              {
+                "host": "cluster-0-shard-00-00.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-01.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-02.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              }
+            ],
+            "appName": "Cluster-0",
+            "credentials": {
+              "username": "davisknaub",
+              "password": "l0JMb9PGVU0K3jvE",
+              "source": "admin",
+              "mechanism": "DEFAULT",
+              "mechanismProperties": {}
+            },
+            "compressors": [
+              "none"
+            ],
+            "connectTimeoutMS": 30000,
+            "directConnection": false,
+            "driverInfo": {},
+            "enableUtf8Validation": true,
+            "forceServerObjectId": false,
+            "heartbeatFrequencyMS": 10000,
+            "loadBalanced": false,
+            "localThresholdMS": 15,
+            "maxConnecting": 2,
+            "maxIdleTimeMS": 0,
+            "maxPoolSize": 10,
+            "minPoolSize": 0,
+            "minHeartbeatFrequencyMS": 500,
+            "monitorCommands": false,
+            "noDelay": true,
+            "pkFactory": "[Circular]",
+            "raw": false,
+            "readPreference": {
+              "mode": "primary"
+            },
+            "retryReads": true,
+            "retryWrites": true,
+            "serverMonitoringMode": "auto",
+            "serverSelectionTimeoutMS": 30000,
+            "socketTimeoutMS": 0,
+            "srvMaxHosts": 0,
+            "srvServiceName": "mongodb",
+            "writeConcern": "[Circular]",
+            "waitQueueTimeoutMS": 0,
+            "zlibCompressionLevel": 0,
+            "dbName": "test",
+            "userSpecifiedAuthSource": false,
+            "userSpecifiedReplicaSet": false,
+            "srvHost": "cluster-0.bbvjq.mongodb.net",
+            "tls": true,
+            "mongoLoggerOptions": {
+              "componentSeverities": {
+                "command": "off",
+                "topology": "off",
+                "serverSelection": "off",
+                "connection": "off",
+                "client": "off",
+                "default": "off"
+              },
+              "maxDocumentLength": 1000,
+              "logDestination": {},
+              "logDestinationIsStdErr": true
+            },
+            "metadata": {
+              "application": {
+                "name": "Cluster-0"
+              },
+              "driver": {
+                "name": "nodejs",
+                "version": "6.7.0"
+              },
+              "platform": "Node.js v22.7.0, LE",
+              "os": {
+                "name": "darwin",
+                "architecture": "arm64",
+                "version": "24.0.0",
+                "type": "Darwin"
+              }
+            },
+            "extendedMetadata": {},
+            "replicaSet": "atlas-31kw7f-shard-0"
+          },
+          "writeConcern": "[Circular]",
+          "readPreference": {
+            "mode": "primary"
+          },
+          "isMongoClient": true
+        },
+        "topology": {
+          "_events": {
+            "topologyDescriptionChanged": [
+              null,
+              null
+            ]
+          },
+          "_eventsCount": 26,
+          "client": "[Circular]",
+          "s": {
+            "id": 0,
+            "options": "[Circular]",
+            "seedlist": [
+              "[Circular]",
+              "[Circular]",
+              "[Circular]"
+            ],
+            "state": "connected",
+            "description": {
+              "type": "ReplicaSetWithPrimary",
+              "servers": {
+                "cluster-0-shard-00-00.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "diskState": "READY",
+                    "provider": "AWS",
+                    "region": "US_EAST_1",
+                    "availabilityZone": "use1-az2",
+                    "workloadType": "OPERATIONAL",
+                    "nodeType": "ELECTABLE"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 46,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340041638,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:36:13Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac15effb51c4dd8e4f0e7"
+                    },
+                    "counter": 4
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744973,
+                        "i": 55
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 19,
+                        "1": 85,
+                        "2": 50,
+                        "3": 174,
+                        "4": 202,
+                        "5": 202,
+                        "6": 107,
+                        "7": 213,
+                        "8": 108,
+                        "9": 218,
+                        "10": 33,
+                        "11": 168,
+                        "12": 190,
+                        "13": 126,
+                        "14": 3,
+                        "15": 196,
+                        "16": 27,
+                        "17": 119,
+                        "18": 130,
+                        "19": 2
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-01.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "type": "RSPrimary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "diskState": "READY",
+                    "availabilityZone": "use1-az4",
+                    "region": "US_EAST_1",
+                    "workloadType": "OPERATIONAL",
+                    "provider": "AWS",
+                    "nodeType": "ELECTABLE"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 47,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340041632,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:36:13Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac062f777513fbb624e67"
+                    },
+                    "counter": 6
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": {
+                    "$oid": "7fffffff0000000000000193"
+                  },
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744973,
+                        "i": 55
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 19,
+                        "1": 85,
+                        "2": 50,
+                        "3": 174,
+                        "4": 202,
+                        "5": 202,
+                        "6": 107,
+                        "7": 213,
+                        "8": 108,
+                        "9": 218,
+                        "10": 33,
+                        "11": 168,
+                        "12": 190,
+                        "13": 126,
+                        "14": 3,
+                        "15": 196,
+                        "16": 27,
+                        "17": 119,
+                        "18": 130,
+                        "19": 2
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-02.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "diskState": "READY",
+                    "availabilityZone": "use1-az6",
+                    "provider": "AWS",
+                    "workloadType": "OPERATIONAL",
+                    "region": "US_EAST_1",
+                    "nodeType": "ELECTABLE"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 39,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340041705,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:36:13Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac2ab383d38ec9efd0fd7"
+                    },
+                    "counter": 3
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744973,
+                        "i": 57
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 19,
+                        "1": 85,
+                        "2": 50,
+                        "3": 174,
+                        "4": 202,
+                        "5": 202,
+                        "6": 107,
+                        "7": 213,
+                        "8": 108,
+                        "9": 218,
+                        "10": 33,
+                        "11": 168,
+                        "12": 190,
+                        "13": 126,
+                        "14": 3,
+                        "15": 196,
+                        "16": 27,
+                        "17": 119,
+                        "18": 130,
+                        "19": 2
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                }
+              },
+              "stale": false,
+              "compatible": true,
+              "heartbeatFrequencyMS": 10000,
+              "localThresholdMS": 15,
+              "setName": "atlas-31kw7f-shard-0",
+              "maxElectionId": {
+                "$oid": "7fffffff0000000000000193"
+              },
+              "maxSetVersion": 202,
+              "commonWireVersion": 0,
+              "logicalSessionTimeoutMinutes": 30
+            },
+            "serverSelectionTimeoutMS": 30000,
+            "heartbeatFrequencyMS": 10000,
+            "minHeartbeatFrequencyMS": 500,
+            "servers": {},
+            "credentials": "[Circular]",
+            "clusterTime": {
+              "clusterTime": {
+                "$timestamp": "7412018220271403065"
+              },
+              "signature": {
+                "hash": {
+                  "type": "Buffer",
+                  "data": [
+                    19,
+                    85,
+                    50,
+                    174,
+                    202,
+                    202,
+                    107,
+                    213,
+                    108,
+                    218,
+                    33,
+                    168,
+                    190,
+                    126,
+                    3,
+                    196,
+                    27,
+                    119,
+                    130,
+                    2
+                  ]
+                },
+                "keyId": {
+                  "low": 44,
+                  "high": 1710530280,
+                  "unsigned": false
+                }
+              }
+            },
+            "connectionTimers": {},
+            "srvPoller": {
+              "_events": {},
+              "_eventsCount": 0,
+              "srvHost": "cluster-0.bbvjq.mongodb.net",
+              "srvMaxHosts": 0,
+              "srvServiceName": "mongodb",
+              "rescanSrvIntervalMS": 60000,
+              "heartbeatFrequencyMS": 10000,
+              "haMode": false,
+              "generation": 0
+            }
+          },
+          "component": "topology"
+        }
+      }
+    }
+  }
+}
+[2024-09-07T21:36:14.164Z] [INFO] ✔ polybase initialized with all configured interfaces. {
+  "interfaces": {
+    "mongo": {
+      "s": {
+        "options": {
+          "enableUtf8Validation": true,
+          "forceServerObjectId": false,
+          "pkFactory": {},
+          "raw": false,
+          "readPreference": {
+            "mode": "primary"
+          },
+          "retryWrites": true,
+          "writeConcern": {
+            "w": "majority"
+          }
+        },
+        "readPreference": {
+          "mode": "primary"
+        },
+        "bsonOptions": {
+          "raw": false,
+          "useBigInt64": false,
+          "promoteLongs": true,
+          "promoteValues": true,
+          "promoteBuffers": false,
+          "ignoreUndefined": false,
+          "bsonRegExp": false,
+          "serializeFunctions": false,
+          "fieldsAsRaw": {},
+          "enableUtf8Validation": true
+        },
+        "pkFactory": "[Circular]",
+        "writeConcern": {
+          "w": "majority"
+        },
+        "namespace": {
+          "db": "polybase_mongo"
+        }
+      },
+      "client": {
+        "_events": {},
+        "_eventsCount": 0,
+        "s": {
+          "url": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+          "bsonOptions": {
+            "raw": false,
+            "useBigInt64": false,
+            "promoteLongs": true,
+            "promoteValues": true,
+            "promoteBuffers": false,
+            "ignoreUndefined": false,
+            "bsonRegExp": false,
+            "serializeFunctions": false,
+            "fieldsAsRaw": "[Circular]",
+            "enableUtf8Validation": true
+          },
+          "namespace": {
+            "db": "admin"
+          },
+          "hasBeenClosed": false,
+          "sessionPool": {
+            "client": "[Circular]",
+            "sessions": {
+              "count": 0,
+              "head": {
+                "next": "[Circular]",
+                "prev": "[Circular]",
+                "value": null
+              }
+            }
+          },
+          "activeSessions": {},
+          "authProviders": {
+            "existingProviders": {}
+          },
+          "options": {
+            "hosts": [
+              {
+                "host": "cluster-0-shard-00-00.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-01.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-02.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              }
+            ],
+            "appName": "Cluster-0",
+            "credentials": {
+              "username": "davisknaub",
+              "password": "l0JMb9PGVU0K3jvE",
+              "source": "admin",
+              "mechanism": "DEFAULT",
+              "mechanismProperties": {}
+            },
+            "compressors": [
+              "none"
+            ],
+            "connectTimeoutMS": 30000,
+            "directConnection": false,
+            "driverInfo": {},
+            "enableUtf8Validation": true,
+            "forceServerObjectId": false,
+            "heartbeatFrequencyMS": 10000,
+            "loadBalanced": false,
+            "localThresholdMS": 15,
+            "maxConnecting": 2,
+            "maxIdleTimeMS": 0,
+            "maxPoolSize": 10,
+            "minPoolSize": 0,
+            "minHeartbeatFrequencyMS": 500,
+            "monitorCommands": false,
+            "noDelay": true,
+            "pkFactory": "[Circular]",
+            "raw": false,
+            "readPreference": {
+              "mode": "primary"
+            },
+            "retryReads": true,
+            "retryWrites": true,
+            "serverMonitoringMode": "auto",
+            "serverSelectionTimeoutMS": 30000,
+            "socketTimeoutMS": 0,
+            "srvMaxHosts": 0,
+            "srvServiceName": "mongodb",
+            "writeConcern": "[Circular]",
+            "waitQueueTimeoutMS": 0,
+            "zlibCompressionLevel": 0,
+            "dbName": "test",
+            "userSpecifiedAuthSource": false,
+            "userSpecifiedReplicaSet": false,
+            "srvHost": "cluster-0.bbvjq.mongodb.net",
+            "tls": true,
+            "mongoLoggerOptions": {
+              "componentSeverities": {
+                "command": "off",
+                "topology": "off",
+                "serverSelection": "off",
+                "connection": "off",
+                "client": "off",
+                "default": "off"
+              },
+              "maxDocumentLength": 1000,
+              "logDestination": {},
+              "logDestinationIsStdErr": true
+            },
+            "metadata": {
+              "application": {
+                "name": "Cluster-0"
+              },
+              "driver": {
+                "name": "nodejs",
+                "version": "6.7.0"
+              },
+              "platform": "Node.js v22.7.0, LE",
+              "os": {
+                "name": "darwin",
+                "architecture": "arm64",
+                "version": "24.0.0",
+                "type": "Darwin"
+              }
+            },
+            "extendedMetadata": {},
+            "replicaSet": "atlas-31kw7f-shard-0"
+          },
+          "writeConcern": "[Circular]",
+          "readPreference": {
+            "mode": "primary"
+          },
+          "isMongoClient": true
+        },
+        "topology": {
+          "_events": {
+            "topologyDescriptionChanged": [
+              null,
+              null
+            ]
+          },
+          "_eventsCount": 26,
+          "client": "[Circular]",
+          "s": {
+            "id": 0,
+            "options": "[Circular]",
+            "seedlist": [
+              "[Circular]",
+              "[Circular]",
+              "[Circular]"
+            ],
+            "state": "connected",
+            "description": {
+              "type": "ReplicaSetWithPrimary",
+              "servers": {
+                "cluster-0-shard-00-00.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "diskState": "READY",
+                    "provider": "AWS",
+                    "region": "US_EAST_1",
+                    "availabilityZone": "use1-az2",
+                    "workloadType": "OPERATIONAL",
+                    "nodeType": "ELECTABLE"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 46,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340041638,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:36:13Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac15effb51c4dd8e4f0e7"
+                    },
+                    "counter": 4
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744973,
+                        "i": 55
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 19,
+                        "1": 85,
+                        "2": 50,
+                        "3": 174,
+                        "4": 202,
+                        "5": 202,
+                        "6": 107,
+                        "7": 213,
+                        "8": 108,
+                        "9": 218,
+                        "10": 33,
+                        "11": 168,
+                        "12": 190,
+                        "13": 126,
+                        "14": 3,
+                        "15": 196,
+                        "16": 27,
+                        "17": 119,
+                        "18": 130,
+                        "19": 2
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-01.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "type": "RSPrimary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "diskState": "READY",
+                    "availabilityZone": "use1-az4",
+                    "region": "US_EAST_1",
+                    "workloadType": "OPERATIONAL",
+                    "provider": "AWS",
+                    "nodeType": "ELECTABLE"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 47,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340041632,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:36:13Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac062f777513fbb624e67"
+                    },
+                    "counter": 6
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": {
+                    "$oid": "7fffffff0000000000000193"
+                  },
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744973,
+                        "i": 55
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 19,
+                        "1": 85,
+                        "2": 50,
+                        "3": 174,
+                        "4": 202,
+                        "5": 202,
+                        "6": 107,
+                        "7": 213,
+                        "8": 108,
+                        "9": 218,
+                        "10": 33,
+                        "11": 168,
+                        "12": 190,
+                        "13": 126,
+                        "14": 3,
+                        "15": 196,
+                        "16": 27,
+                        "17": 119,
+                        "18": 130,
+                        "19": 2
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-02.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "diskState": "READY",
+                    "availabilityZone": "use1-az6",
+                    "provider": "AWS",
+                    "workloadType": "OPERATIONAL",
+                    "region": "US_EAST_1",
+                    "nodeType": "ELECTABLE"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 39,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340041705,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:36:13Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac2ab383d38ec9efd0fd7"
+                    },
+                    "counter": 3
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725744973,
+                        "i": 57
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 19,
+                        "1": 85,
+                        "2": 50,
+                        "3": 174,
+                        "4": 202,
+                        "5": 202,
+                        "6": 107,
+                        "7": 213,
+                        "8": 108,
+                        "9": 218,
+                        "10": 33,
+                        "11": 168,
+                        "12": 190,
+                        "13": 126,
+                        "14": 3,
+                        "15": 196,
+                        "16": 27,
+                        "17": 119,
+                        "18": 130,
+                        "19": 2
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                }
+              },
+              "stale": false,
+              "compatible": true,
+              "heartbeatFrequencyMS": 10000,
+              "localThresholdMS": 15,
+              "setName": "atlas-31kw7f-shard-0",
+              "maxElectionId": {
+                "$oid": "7fffffff0000000000000193"
+              },
+              "maxSetVersion": 202,
+              "commonWireVersion": 0,
+              "logicalSessionTimeoutMinutes": 30
+            },
+            "serverSelectionTimeoutMS": 30000,
+            "heartbeatFrequencyMS": 10000,
+            "minHeartbeatFrequencyMS": 500,
+            "servers": {},
+            "credentials": "[Circular]",
+            "clusterTime": {
+              "clusterTime": {
+                "$timestamp": "7412018220271403065"
+              },
+              "signature": {
+                "hash": {
+                  "type": "Buffer",
+                  "data": [
+                    19,
+                    85,
+                    50,
+                    174,
+                    202,
+                    202,
+                    107,
+                    213,
+                    108,
+                    218,
+                    33,
+                    168,
+                    190,
+                    126,
+                    3,
+                    196,
+                    27,
+                    119,
+                    130,
+                    2
+                  ]
+                },
+                "keyId": {
+                  "low": 44,
+                  "high": 1710530280,
+                  "unsigned": false
+                }
+              }
+            },
+            "connectionTimers": {},
+            "srvPoller": {
+              "_events": {},
+              "_eventsCount": 0,
+              "srvHost": "cluster-0.bbvjq.mongodb.net",
+              "srvMaxHosts": 0,
+              "srvServiceName": "mongodb",
+              "rescanSrvIntervalMS": 60000,
+              "heartbeatFrequencyMS": 10000,
+              "haMode": false,
+              "generation": 0
+            }
+          },
+          "component": "topology"
+        }
+      }
+    }
+  }
+}
+[2024-09-07T21:36:30.998Z] [INFO] Processing user command... {
+  "command": "mongo find polybase_mongo_collection _id=\"66dcc19369d2d12812633326\" name"
+}
+[2024-09-07T21:36:30.999Z] [INFO] received query for mongo {
+  "query": {
+    "operation": "find",
+    "params": [
+      "polybase_mongo_collection",
+      "_id=\"66dcc19369d2d12812633326\"",
+      "name"
+    ]
+  }
+}
+[2024-09-07T21:36:31.051Z] [ERROR] failed to execute query for mongo: Failed to execute MongoDB query {
+  "stack": "\"Error: failed to execute query for mongo: Failed to execute MongoDB query\\n    at handleError (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at execQuery (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/db-interface.js:49:16)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\\n    at async handleClientRequest (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/cli-interface.js:63:12)\\n    at async /Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/cli-interface.js:23:34\""
+}
+[2024-09-07T21:36:31.051Z] [INFO] CLI command executed {
+  "request": {
+    "dbType": "mongo",
+    "query": {
+      "operation": "find",
+      "params": [
+        "polybase_mongo_collection",
+        "_id=\"66dcc19369d2d12812633326\"",
+        "name"
+      ]
+    }
+  },
+  "response": {
+    "success": false,
+    "error": {
+      "message": "failed to execute query for mongo: Failed to execute MongoDB query",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-09-07T21:36:31.051Z"
+    }
+  }
+}
+[2024-09-07T21:37:38.902Z] [INFO] CLI closed. Exiting program. {}
+[2024-09-07T21:38:35.166Z] [INFO] ...initializing polybase... {}
+[2024-09-07T21:38:35.170Z] [INFO] ...Connecting to MongoDB... {}
+[2024-09-07T21:38:35.773Z] [INFO] ✔ Connection to MongoDB established. {
+  "database": "polybase_mongo"
+}
+[2024-09-07T21:38:35.774Z] [INFO] Detailed: Connected to MongoDB: polybase_mongo {
+  "config": {
+    "uri": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+    "database": "polybase_mongo"
+  }
+}
+[2024-09-07T21:38:35.778Z] [INFO] Added connection for mongo {
+  "dbType": "mongo",
+  "connectionDetails": "{\n  \"s\": {\n    \"options\": {\n      \"enableUtf8Validation\": true,\n      \"forceServerObjectId\": false,\n      \"pkFactory\": {},\n      \"raw\": false,\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"retryWrites\": true,\n      \"writeConcern\": {\n        \"w\": \"majority\"\n      }\n    },\n    \"readPreference\": {\n      \"mode\": \"primary\"\n    },\n    \"bsonOptions\": {\n      \"raw\": false,\n      \"useBigInt64\": false,\n      \"promoteLongs\": true,\n      \"promoteValues\": true,\n      \"promoteBuffers\": false,\n      \"ignoreUndefined\": false,\n      \"bsonRegExp\": false,\n      \"serializeFunctions\": false,\n      \"fieldsAsRaw\": {},\n      \"enableUtf8Validation\": true\n    },\n    \"pkFactory\": \"[Circular]\",\n    \"writeConcern\": {\n      \"w\": \"majority\"\n    },\n    \"namespace\": {\n      \"db\": \"polybase_mongo\"\n    }\n  },\n  \"client\": {\n    \"_events\": {},\n    \"_eventsCount\": 0,\n    \"s\": {\n      \"url\": \"mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0\",\n      \"bsonOptions\": {\n        \"raw\": false,\n        \"useBigInt64\": false,\n        \"promoteLongs\": true,\n        \"promoteValues\": true,\n        \"promoteBuffers\": false,\n        \"ignoreUndefined\": false,\n        \"bsonRegExp\": false,\n        \"serializeFunctions\": false,\n        \"fieldsAsRaw\": \"[Circular]\",\n        \"enableUtf8Validation\": true\n      },\n      \"namespace\": {\n        \"db\": \"admin\"\n      },\n      \"hasBeenClosed\": false,\n      \"sessionPool\": {\n        \"client\": \"[Circular]\",\n        \"sessions\": {\n          \"count\": 0,\n          \"head\": {\n            \"next\": \"[Circular]\",\n            \"prev\": \"[Circular]\",\n            \"value\": null\n          }\n        }\n      },\n      \"activeSessions\": {},\n      \"authProviders\": {\n        \"existingProviders\": {}\n      },\n      \"options\": {\n        \"hosts\": [\n          {\n            \"host\": \"cluster-0-shard-00-00.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          },\n          {\n            \"host\": \"cluster-0-shard-00-01.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          },\n          {\n            \"host\": \"cluster-0-shard-00-02.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          }\n        ],\n        \"appName\": \"Cluster-0\",\n        \"credentials\": {\n          \"username\": \"davisknaub\",\n          \"password\": \"l0JMb9PGVU0K3jvE\",\n          \"source\": \"admin\",\n          \"mechanism\": \"DEFAULT\",\n          \"mechanismProperties\": {}\n        },\n        \"compressors\": [\n          \"none\"\n        ],\n        \"connectTimeoutMS\": 30000,\n        \"directConnection\": false,\n        \"driverInfo\": {},\n        \"enableUtf8Validation\": true,\n        \"forceServerObjectId\": false,\n        \"heartbeatFrequencyMS\": 10000,\n        \"loadBalanced\": false,\n        \"localThresholdMS\": 15,\n        \"maxConnecting\": 2,\n        \"maxIdleTimeMS\": 0,\n        \"maxPoolSize\": 10,\n        \"minPoolSize\": 0,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"monitorCommands\": false,\n        \"noDelay\": true,\n        \"pkFactory\": \"[Circular]\",\n        \"raw\": false,\n        \"readPreference\": {\n          \"mode\": \"primary\"\n        },\n        \"retryReads\": true,\n        \"retryWrites\": true,\n        \"serverMonitoringMode\": \"auto\",\n        \"serverSelectionTimeoutMS\": 30000,\n        \"socketTimeoutMS\": 0,\n        \"srvMaxHosts\": 0,\n        \"srvServiceName\": \"mongodb\",\n        \"writeConcern\": \"[Circular]\",\n        \"waitQueueTimeoutMS\": 0,\n        \"zlibCompressionLevel\": 0,\n        \"dbName\": \"test\",\n        \"userSpecifiedAuthSource\": false,\n        \"userSpecifiedReplicaSet\": false,\n        \"srvHost\": \"cluster-0.bbvjq.mongodb.net\",\n        \"tls\": true,\n        \"mongoLoggerOptions\": {\n          \"componentSeverities\": {\n            \"command\": \"off\",\n            \"topology\": \"off\",\n            \"serverSelection\": \"off\",\n            \"connection\": \"off\",\n            \"client\": \"off\",\n            \"default\": \"off\"\n          },\n          \"maxDocumentLength\": 1000,\n          \"logDestination\": {},\n          \"logDestinationIsStdErr\": true\n        },\n        \"metadata\": {\n          \"application\": {\n            \"name\": \"Cluster-0\"\n          },\n          \"driver\": {\n            \"name\": \"nodejs\",\n            \"version\": \"6.7.0\"\n          },\n          \"platform\": \"Node.js v22.7.0, LE\",\n          \"os\": {\n            \"name\": \"darwin\",\n            \"architecture\": \"arm64\",\n            \"version\": \"24.0.0\",\n            \"type\": \"Darwin\"\n          }\n        },\n        \"extendedMetadata\": {},\n        \"replicaSet\": \"atlas-31kw7f-shard-0\"\n      },\n      \"writeConcern\": \"[Circular]\",\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"isMongoClient\": true\n    },\n    \"topology\": {\n      \"_events\": {\n        \"topologyDescriptionChanged\": [\n          null,\n          null\n        ]\n      },\n      \"_eventsCount\": 26,\n      \"client\": \"[Circular]\",\n      \"s\": {\n        \"id\": 0,\n        \"options\": \"[Circular]\",\n        \"seedlist\": [\n          \"[Circular]\",\n          \"[Circular]\",\n          \"[Circular]\"\n        ],\n        \"state\": \"connected\",\n        \"description\": {\n          \"type\": \"ReplicaSetWithPrimary\",\n          \"servers\": {\n            \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSSecondary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"region\": \"US_EAST_1\",\n                \"availabilityZone\": \"use1-az2\",\n                \"nodeType\": \"ELECTABLE\",\n                \"provider\": \"AWS\",\n                \"diskState\": \"READY\",\n                \"workloadType\": \"OPERATIONAL\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 54,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 340183250,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-07T21:38:35Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66dac15effb51c4dd8e4f0e7\"\n                },\n                \"counter\": 4\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 202,\n              \"electionId\": null,\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1725745115,\n                    \"i\": 28\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 160,\n                    \"1\": 126,\n                    \"2\": 24,\n                    \"3\": 210,\n                    \"4\": 100,\n                    \"5\": 126,\n                    \"6\": 98,\n                    \"7\": 80,\n                    \"8\": 142,\n                    \"9\": 53,\n                    \"10\": 208,\n                    \"11\": 120,\n                    \"12\": 89,\n                    \"13\": 190,\n                    \"14\": 0,\n                    \"15\": 134,\n                    \"16\": 79,\n                    \"17\": 151,\n                    \"18\": 69,\n                    \"19\": 10\n                  },\n                  \"keyId\": 7346671611417723000\n                }\n              }\n            },\n            \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSPrimary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"nodeType\": \"ELECTABLE\",\n                \"region\": \"US_EAST_1\",\n                \"diskState\": \"READY\",\n                \"workloadType\": \"OPERATIONAL\",\n                \"availabilityZone\": \"use1-az4\",\n                \"provider\": \"AWS\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 42,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 340183244,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-07T21:38:35Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66dac062f777513fbb624e67\"\n                },\n                \"counter\": 6\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 202,\n              \"electionId\": {\n                \"$oid\": \"7fffffff0000000000000193\"\n              },\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1725745115,\n                    \"i\": 28\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 160,\n                    \"1\": 126,\n                    \"2\": 24,\n                    \"3\": 210,\n                    \"4\": 100,\n                    \"5\": 126,\n                    \"6\": 98,\n                    \"7\": 80,\n                    \"8\": 142,\n                    \"9\": 53,\n                    \"10\": 208,\n                    \"11\": 120,\n                    \"12\": 89,\n                    \"13\": 190,\n                    \"14\": 0,\n                    \"15\": 134,\n                    \"16\": 79,\n                    \"17\": 151,\n                    \"18\": 69,\n                    \"19\": 10\n                  },\n                  \"keyId\": 7346671611417723000\n                }\n              }\n            },\n            \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSSecondary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"workloadType\": \"OPERATIONAL\",\n                \"nodeType\": \"ELECTABLE\",\n                \"region\": \"US_EAST_1\",\n                \"diskState\": \"READY\",\n                \"availabilityZone\": \"use1-az6\",\n                \"provider\": \"AWS\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 34,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 340183304,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-07T21:38:35Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66dac2ab383d38ec9efd0fd7\"\n                },\n                \"counter\": 3\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 202,\n              \"electionId\": null,\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1725745115,\n                    \"i\": 32\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 160,\n                    \"1\": 126,\n                    \"2\": 24,\n                    \"3\": 210,\n                    \"4\": 100,\n                    \"5\": 126,\n                    \"6\": 98,\n                    \"7\": 80,\n                    \"8\": 142,\n                    \"9\": 53,\n                    \"10\": 208,\n                    \"11\": 120,\n                    \"12\": 89,\n                    \"13\": 190,\n                    \"14\": 0,\n                    \"15\": 134,\n                    \"16\": 79,\n                    \"17\": 151,\n                    \"18\": 69,\n                    \"19\": 10\n                  },\n                  \"keyId\": 7346671611417723000\n                }\n              }\n            }\n          },\n          \"stale\": false,\n          \"compatible\": true,\n          \"heartbeatFrequencyMS\": 10000,\n          \"localThresholdMS\": 15,\n          \"setName\": \"atlas-31kw7f-shard-0\",\n          \"maxElectionId\": {\n            \"$oid\": \"7fffffff0000000000000193\"\n          },\n          \"maxSetVersion\": 202,\n          \"commonWireVersion\": 0,\n          \"logicalSessionTimeoutMinutes\": 30\n        },\n        \"serverSelectionTimeoutMS\": 30000,\n        \"heartbeatFrequencyMS\": 10000,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"servers\": {},\n        \"credentials\": \"[Circular]\",\n        \"clusterTime\": {\n          \"clusterTime\": {\n            \"$timestamp\": \"7412018830156759072\"\n          },\n          \"signature\": {\n            \"hash\": {\n              \"type\": \"Buffer\",\n              \"data\": [\n                160,\n                126,\n                24,\n                210,\n                100,\n                126,\n                98,\n                80,\n                142,\n                53,\n                208,\n                120,\n                89,\n                190,\n                0,\n                134,\n                79,\n                151,\n                69,\n                10\n              ]\n            },\n            \"keyId\": {\n              \"low\": 44,\n              \"high\": 1710530280,\n              \"unsigned\": false\n            }\n          }\n        },\n        \"connectionTimers\": {},\n        \"srvPoller\": {\n          \"_events\": {},\n          \"_eventsCount\": 0,\n          \"srvHost\": \"cluster-0.bbvjq.mongodb.net\",\n          \"srvMaxHosts\": 0,\n          \"srvServiceName\": \"mongodb\",\n          \"rescanSrvIntervalMS\": 60000,\n          \"heartbeatFrequencyMS\": 10000,\n          \"haMode\": false,\n          \"generation\": 0\n        }\n      },\n      \"component\": \"topology\"\n    }\n  }\n}"
+}
+[2024-09-07T21:38:35.778Z] [INFO] Set config for mongo {
+  "config": {
+    "uri": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+    "database": "polybase_mongo"
+  }
+}
+[2024-09-07T21:38:35.778Z] [INFO] polybase instance initialized with interfaces {
+  "interfaces": {
+    "mongo": {
+      "s": {
+        "options": {
+          "enableUtf8Validation": true,
+          "forceServerObjectId": false,
+          "pkFactory": {},
+          "raw": false,
+          "readPreference": {
+            "mode": "primary"
+          },
+          "retryWrites": true,
+          "writeConcern": {
+            "w": "majority"
+          }
+        },
+        "readPreference": {
+          "mode": "primary"
+        },
+        "bsonOptions": {
+          "raw": false,
+          "useBigInt64": false,
+          "promoteLongs": true,
+          "promoteValues": true,
+          "promoteBuffers": false,
+          "ignoreUndefined": false,
+          "bsonRegExp": false,
+          "serializeFunctions": false,
+          "fieldsAsRaw": {},
+          "enableUtf8Validation": true
+        },
+        "pkFactory": "[Circular]",
+        "writeConcern": {
+          "w": "majority"
+        },
+        "namespace": {
+          "db": "polybase_mongo"
+        }
+      },
+      "client": {
+        "_events": {},
+        "_eventsCount": 0,
+        "s": {
+          "url": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+          "bsonOptions": {
+            "raw": false,
+            "useBigInt64": false,
+            "promoteLongs": true,
+            "promoteValues": true,
+            "promoteBuffers": false,
+            "ignoreUndefined": false,
+            "bsonRegExp": false,
+            "serializeFunctions": false,
+            "fieldsAsRaw": "[Circular]",
+            "enableUtf8Validation": true
+          },
+          "namespace": {
+            "db": "admin"
+          },
+          "hasBeenClosed": false,
+          "sessionPool": {
+            "client": "[Circular]",
+            "sessions": {
+              "count": 0,
+              "head": {
+                "next": "[Circular]",
+                "prev": "[Circular]",
+                "value": null
+              }
+            }
+          },
+          "activeSessions": {},
+          "authProviders": {
+            "existingProviders": {}
+          },
+          "options": {
+            "hosts": [
+              {
+                "host": "cluster-0-shard-00-00.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-01.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-02.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              }
+            ],
+            "appName": "Cluster-0",
+            "credentials": {
+              "username": "davisknaub",
+              "password": "l0JMb9PGVU0K3jvE",
+              "source": "admin",
+              "mechanism": "DEFAULT",
+              "mechanismProperties": {}
+            },
+            "compressors": [
+              "none"
+            ],
+            "connectTimeoutMS": 30000,
+            "directConnection": false,
+            "driverInfo": {},
+            "enableUtf8Validation": true,
+            "forceServerObjectId": false,
+            "heartbeatFrequencyMS": 10000,
+            "loadBalanced": false,
+            "localThresholdMS": 15,
+            "maxConnecting": 2,
+            "maxIdleTimeMS": 0,
+            "maxPoolSize": 10,
+            "minPoolSize": 0,
+            "minHeartbeatFrequencyMS": 500,
+            "monitorCommands": false,
+            "noDelay": true,
+            "pkFactory": "[Circular]",
+            "raw": false,
+            "readPreference": {
+              "mode": "primary"
+            },
+            "retryReads": true,
+            "retryWrites": true,
+            "serverMonitoringMode": "auto",
+            "serverSelectionTimeoutMS": 30000,
+            "socketTimeoutMS": 0,
+            "srvMaxHosts": 0,
+            "srvServiceName": "mongodb",
+            "writeConcern": "[Circular]",
+            "waitQueueTimeoutMS": 0,
+            "zlibCompressionLevel": 0,
+            "dbName": "test",
+            "userSpecifiedAuthSource": false,
+            "userSpecifiedReplicaSet": false,
+            "srvHost": "cluster-0.bbvjq.mongodb.net",
+            "tls": true,
+            "mongoLoggerOptions": {
+              "componentSeverities": {
+                "command": "off",
+                "topology": "off",
+                "serverSelection": "off",
+                "connection": "off",
+                "client": "off",
+                "default": "off"
+              },
+              "maxDocumentLength": 1000,
+              "logDestination": {},
+              "logDestinationIsStdErr": true
+            },
+            "metadata": {
+              "application": {
+                "name": "Cluster-0"
+              },
+              "driver": {
+                "name": "nodejs",
+                "version": "6.7.0"
+              },
+              "platform": "Node.js v22.7.0, LE",
+              "os": {
+                "name": "darwin",
+                "architecture": "arm64",
+                "version": "24.0.0",
+                "type": "Darwin"
+              }
+            },
+            "extendedMetadata": {},
+            "replicaSet": "atlas-31kw7f-shard-0"
+          },
+          "writeConcern": "[Circular]",
+          "readPreference": {
+            "mode": "primary"
+          },
+          "isMongoClient": true
+        },
+        "topology": {
+          "_events": {
+            "topologyDescriptionChanged": [
+              null,
+              null
+            ]
+          },
+          "_eventsCount": 26,
+          "client": "[Circular]",
+          "s": {
+            "id": 0,
+            "options": "[Circular]",
+            "seedlist": [
+              "[Circular]",
+              "[Circular]",
+              "[Circular]"
+            ],
+            "state": "connected",
+            "description": {
+              "type": "ReplicaSetWithPrimary",
+              "servers": {
+                "cluster-0-shard-00-00.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "region": "US_EAST_1",
+                    "availabilityZone": "use1-az2",
+                    "nodeType": "ELECTABLE",
+                    "provider": "AWS",
+                    "diskState": "READY",
+                    "workloadType": "OPERATIONAL"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 54,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340183250,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:38:35Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac15effb51c4dd8e4f0e7"
+                    },
+                    "counter": 4
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725745115,
+                        "i": 28
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 160,
+                        "1": 126,
+                        "2": 24,
+                        "3": 210,
+                        "4": 100,
+                        "5": 126,
+                        "6": 98,
+                        "7": 80,
+                        "8": 142,
+                        "9": 53,
+                        "10": 208,
+                        "11": 120,
+                        "12": 89,
+                        "13": 190,
+                        "14": 0,
+                        "15": 134,
+                        "16": 79,
+                        "17": 151,
+                        "18": 69,
+                        "19": 10
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-01.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "type": "RSPrimary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "nodeType": "ELECTABLE",
+                    "region": "US_EAST_1",
+                    "diskState": "READY",
+                    "workloadType": "OPERATIONAL",
+                    "availabilityZone": "use1-az4",
+                    "provider": "AWS"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 42,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340183244,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:38:35Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac062f777513fbb624e67"
+                    },
+                    "counter": 6
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": {
+                    "$oid": "7fffffff0000000000000193"
+                  },
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725745115,
+                        "i": 28
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 160,
+                        "1": 126,
+                        "2": 24,
+                        "3": 210,
+                        "4": 100,
+                        "5": 126,
+                        "6": 98,
+                        "7": 80,
+                        "8": 142,
+                        "9": 53,
+                        "10": 208,
+                        "11": 120,
+                        "12": 89,
+                        "13": 190,
+                        "14": 0,
+                        "15": 134,
+                        "16": 79,
+                        "17": 151,
+                        "18": 69,
+                        "19": 10
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-02.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "workloadType": "OPERATIONAL",
+                    "nodeType": "ELECTABLE",
+                    "region": "US_EAST_1",
+                    "diskState": "READY",
+                    "availabilityZone": "use1-az6",
+                    "provider": "AWS"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 34,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340183304,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:38:35Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac2ab383d38ec9efd0fd7"
+                    },
+                    "counter": 3
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725745115,
+                        "i": 32
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 160,
+                        "1": 126,
+                        "2": 24,
+                        "3": 210,
+                        "4": 100,
+                        "5": 126,
+                        "6": 98,
+                        "7": 80,
+                        "8": 142,
+                        "9": 53,
+                        "10": 208,
+                        "11": 120,
+                        "12": 89,
+                        "13": 190,
+                        "14": 0,
+                        "15": 134,
+                        "16": 79,
+                        "17": 151,
+                        "18": 69,
+                        "19": 10
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                }
+              },
+              "stale": false,
+              "compatible": true,
+              "heartbeatFrequencyMS": 10000,
+              "localThresholdMS": 15,
+              "setName": "atlas-31kw7f-shard-0",
+              "maxElectionId": {
+                "$oid": "7fffffff0000000000000193"
+              },
+              "maxSetVersion": 202,
+              "commonWireVersion": 0,
+              "logicalSessionTimeoutMinutes": 30
+            },
+            "serverSelectionTimeoutMS": 30000,
+            "heartbeatFrequencyMS": 10000,
+            "minHeartbeatFrequencyMS": 500,
+            "servers": {},
+            "credentials": "[Circular]",
+            "clusterTime": {
+              "clusterTime": {
+                "$timestamp": "7412018830156759072"
+              },
+              "signature": {
+                "hash": {
+                  "type": "Buffer",
+                  "data": [
+                    160,
+                    126,
+                    24,
+                    210,
+                    100,
+                    126,
+                    98,
+                    80,
+                    142,
+                    53,
+                    208,
+                    120,
+                    89,
+                    190,
+                    0,
+                    134,
+                    79,
+                    151,
+                    69,
+                    10
+                  ]
+                },
+                "keyId": {
+                  "low": 44,
+                  "high": 1710530280,
+                  "unsigned": false
+                }
+              }
+            },
+            "connectionTimers": {},
+            "srvPoller": {
+              "_events": {},
+              "_eventsCount": 0,
+              "srvHost": "cluster-0.bbvjq.mongodb.net",
+              "srvMaxHosts": 0,
+              "srvServiceName": "mongodb",
+              "rescanSrvIntervalMS": 60000,
+              "heartbeatFrequencyMS": 10000,
+              "haMode": false,
+              "generation": 0
+            }
+          },
+          "component": "topology"
+        }
+      }
+    }
+  }
+}
+[2024-09-07T21:38:35.779Z] [INFO] ✔ polybase initialized with all configured interfaces. {
+  "interfaces": {
+    "mongo": {
+      "s": {
+        "options": {
+          "enableUtf8Validation": true,
+          "forceServerObjectId": false,
+          "pkFactory": {},
+          "raw": false,
+          "readPreference": {
+            "mode": "primary"
+          },
+          "retryWrites": true,
+          "writeConcern": {
+            "w": "majority"
+          }
+        },
+        "readPreference": {
+          "mode": "primary"
+        },
+        "bsonOptions": {
+          "raw": false,
+          "useBigInt64": false,
+          "promoteLongs": true,
+          "promoteValues": true,
+          "promoteBuffers": false,
+          "ignoreUndefined": false,
+          "bsonRegExp": false,
+          "serializeFunctions": false,
+          "fieldsAsRaw": {},
+          "enableUtf8Validation": true
+        },
+        "pkFactory": "[Circular]",
+        "writeConcern": {
+          "w": "majority"
+        },
+        "namespace": {
+          "db": "polybase_mongo"
+        }
+      },
+      "client": {
+        "_events": {},
+        "_eventsCount": 0,
+        "s": {
+          "url": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+          "bsonOptions": {
+            "raw": false,
+            "useBigInt64": false,
+            "promoteLongs": true,
+            "promoteValues": true,
+            "promoteBuffers": false,
+            "ignoreUndefined": false,
+            "bsonRegExp": false,
+            "serializeFunctions": false,
+            "fieldsAsRaw": "[Circular]",
+            "enableUtf8Validation": true
+          },
+          "namespace": {
+            "db": "admin"
+          },
+          "hasBeenClosed": false,
+          "sessionPool": {
+            "client": "[Circular]",
+            "sessions": {
+              "count": 0,
+              "head": {
+                "next": "[Circular]",
+                "prev": "[Circular]",
+                "value": null
+              }
+            }
+          },
+          "activeSessions": {},
+          "authProviders": {
+            "existingProviders": {}
+          },
+          "options": {
+            "hosts": [
+              {
+                "host": "cluster-0-shard-00-00.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-01.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              },
+              {
+                "host": "cluster-0-shard-00-02.bbvjq.mongodb.net",
+                "port": 27017,
+                "isIPv6": false
+              }
+            ],
+            "appName": "Cluster-0",
+            "credentials": {
+              "username": "davisknaub",
+              "password": "l0JMb9PGVU0K3jvE",
+              "source": "admin",
+              "mechanism": "DEFAULT",
+              "mechanismProperties": {}
+            },
+            "compressors": [
+              "none"
+            ],
+            "connectTimeoutMS": 30000,
+            "directConnection": false,
+            "driverInfo": {},
+            "enableUtf8Validation": true,
+            "forceServerObjectId": false,
+            "heartbeatFrequencyMS": 10000,
+            "loadBalanced": false,
+            "localThresholdMS": 15,
+            "maxConnecting": 2,
+            "maxIdleTimeMS": 0,
+            "maxPoolSize": 10,
+            "minPoolSize": 0,
+            "minHeartbeatFrequencyMS": 500,
+            "monitorCommands": false,
+            "noDelay": true,
+            "pkFactory": "[Circular]",
+            "raw": false,
+            "readPreference": {
+              "mode": "primary"
+            },
+            "retryReads": true,
+            "retryWrites": true,
+            "serverMonitoringMode": "auto",
+            "serverSelectionTimeoutMS": 30000,
+            "socketTimeoutMS": 0,
+            "srvMaxHosts": 0,
+            "srvServiceName": "mongodb",
+            "writeConcern": "[Circular]",
+            "waitQueueTimeoutMS": 0,
+            "zlibCompressionLevel": 0,
+            "dbName": "test",
+            "userSpecifiedAuthSource": false,
+            "userSpecifiedReplicaSet": false,
+            "srvHost": "cluster-0.bbvjq.mongodb.net",
+            "tls": true,
+            "mongoLoggerOptions": {
+              "componentSeverities": {
+                "command": "off",
+                "topology": "off",
+                "serverSelection": "off",
+                "connection": "off",
+                "client": "off",
+                "default": "off"
+              },
+              "maxDocumentLength": 1000,
+              "logDestination": {},
+              "logDestinationIsStdErr": true
+            },
+            "metadata": {
+              "application": {
+                "name": "Cluster-0"
+              },
+              "driver": {
+                "name": "nodejs",
+                "version": "6.7.0"
+              },
+              "platform": "Node.js v22.7.0, LE",
+              "os": {
+                "name": "darwin",
+                "architecture": "arm64",
+                "version": "24.0.0",
+                "type": "Darwin"
+              }
+            },
+            "extendedMetadata": {},
+            "replicaSet": "atlas-31kw7f-shard-0"
+          },
+          "writeConcern": "[Circular]",
+          "readPreference": {
+            "mode": "primary"
+          },
+          "isMongoClient": true
+        },
+        "topology": {
+          "_events": {
+            "topologyDescriptionChanged": [
+              null,
+              null
+            ]
+          },
+          "_eventsCount": 26,
+          "client": "[Circular]",
+          "s": {
+            "id": 0,
+            "options": "[Circular]",
+            "seedlist": [
+              "[Circular]",
+              "[Circular]",
+              "[Circular]"
+            ],
+            "state": "connected",
+            "description": {
+              "type": "ReplicaSetWithPrimary",
+              "servers": {
+                "cluster-0-shard-00-00.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "region": "US_EAST_1",
+                    "availabilityZone": "use1-az2",
+                    "nodeType": "ELECTABLE",
+                    "provider": "AWS",
+                    "diskState": "READY",
+                    "workloadType": "OPERATIONAL"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 54,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340183250,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:38:35Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac15effb51c4dd8e4f0e7"
+                    },
+                    "counter": 4
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725745115,
+                        "i": 28
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 160,
+                        "1": 126,
+                        "2": 24,
+                        "3": 210,
+                        "4": 100,
+                        "5": 126,
+                        "6": 98,
+                        "7": 80,
+                        "8": 142,
+                        "9": 53,
+                        "10": 208,
+                        "11": 120,
+                        "12": 89,
+                        "13": 190,
+                        "14": 0,
+                        "15": 134,
+                        "16": 79,
+                        "17": 151,
+                        "18": 69,
+                        "19": 10
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-01.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "type": "RSPrimary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "nodeType": "ELECTABLE",
+                    "region": "US_EAST_1",
+                    "diskState": "READY",
+                    "workloadType": "OPERATIONAL",
+                    "availabilityZone": "use1-az4",
+                    "provider": "AWS"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 42,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340183244,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:38:35Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac062f777513fbb624e67"
+                    },
+                    "counter": 6
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": {
+                    "$oid": "7fffffff0000000000000193"
+                  },
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725745115,
+                        "i": 28
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 160,
+                        "1": 126,
+                        "2": 24,
+                        "3": 210,
+                        "4": 100,
+                        "5": 126,
+                        "6": 98,
+                        "7": 80,
+                        "8": 142,
+                        "9": 53,
+                        "10": 208,
+                        "11": 120,
+                        "12": 89,
+                        "13": 190,
+                        "14": 0,
+                        "15": 134,
+                        "16": 79,
+                        "17": 151,
+                        "18": 69,
+                        "19": 10
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                },
+                "cluster-0-shard-00-02.bbvjq.mongodb.net:27017": {
+                  "address": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "type": "RSSecondary",
+                  "hosts": [
+                    "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                    "cluster-0-shard-00-02.bbvjq.mongodb.net:27017"
+                  ],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {
+                    "workloadType": "OPERATIONAL",
+                    "nodeType": "ELECTABLE",
+                    "region": "US_EAST_1",
+                    "diskState": "READY",
+                    "availabilityZone": "use1-az6",
+                    "provider": "AWS"
+                  },
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 34,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 340183304,
+                  "lastWriteDate": {
+                    "$date": "2024-09-07T21:38:35Z"
+                  },
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "66dac2ab383d38ec9efd0fd7"
+                    },
+                    "counter": 3
+                  },
+                  "setName": "atlas-31kw7f-shard-0",
+                  "setVersion": 202,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+                  "me": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+                  "$clusterTime": {
+                    "clusterTime": {
+                      "$timestamp": {
+                        "t": 1725745115,
+                        "i": 32
+                      }
+                    },
+                    "signature": {
+                      "hash": {
+                        "0": 160,
+                        "1": 126,
+                        "2": 24,
+                        "3": 210,
+                        "4": 100,
+                        "5": 126,
+                        "6": 98,
+                        "7": 80,
+                        "8": 142,
+                        "9": 53,
+                        "10": 208,
+                        "11": 120,
+                        "12": 89,
+                        "13": 190,
+                        "14": 0,
+                        "15": 134,
+                        "16": 79,
+                        "17": 151,
+                        "18": 69,
+                        "19": 10
+                      },
+                      "keyId": 7346671611417723000
+                    }
+                  }
+                }
+              },
+              "stale": false,
+              "compatible": true,
+              "heartbeatFrequencyMS": 10000,
+              "localThresholdMS": 15,
+              "setName": "atlas-31kw7f-shard-0",
+              "maxElectionId": {
+                "$oid": "7fffffff0000000000000193"
+              },
+              "maxSetVersion": 202,
+              "commonWireVersion": 0,
+              "logicalSessionTimeoutMinutes": 30
+            },
+            "serverSelectionTimeoutMS": 30000,
+            "heartbeatFrequencyMS": 10000,
+            "minHeartbeatFrequencyMS": 500,
+            "servers": {},
+            "credentials": "[Circular]",
+            "clusterTime": {
+              "clusterTime": {
+                "$timestamp": "7412018830156759072"
+              },
+              "signature": {
+                "hash": {
+                  "type": "Buffer",
+                  "data": [
+                    160,
+                    126,
+                    24,
+                    210,
+                    100,
+                    126,
+                    98,
+                    80,
+                    142,
+                    53,
+                    208,
+                    120,
+                    89,
+                    190,
+                    0,
+                    134,
+                    79,
+                    151,
+                    69,
+                    10
+                  ]
+                },
+                "keyId": {
+                  "low": 44,
+                  "high": 1710530280,
+                  "unsigned": false
+                }
+              }
+            },
+            "connectionTimers": {},
+            "srvPoller": {
+              "_events": {},
+              "_eventsCount": 0,
+              "srvHost": "cluster-0.bbvjq.mongodb.net",
+              "srvMaxHosts": 0,
+              "srvServiceName": "mongodb",
+              "rescanSrvIntervalMS": 60000,
+              "heartbeatFrequencyMS": 10000,
+              "haMode": false,
+              "generation": 0
+            }
+          },
+          "component": "topology"
+        }
+      }
+    }
+  }
+}
+[2024-09-07T21:38:39.540Z] [INFO] Processing user command... {
+  "command": "mongo find polybase_mongo_collection _id=\"66dcc19369d2d12812633326\" name"
+}
+[2024-09-07T21:38:39.541Z] [INFO] received query for mongo {
+  "query": {
+    "operation": "find",
+    "params": [
+      "polybase_mongo_collection",
+      "_id=\"66dcc19369d2d12812633326\"",
+      "name"
+    ]
+  }
+}
+[2024-09-07T21:38:39.578Z] [ERROR] failed to execute query for mongo: Failed to execute MongoDB query {
+  "stack": "\"Error: failed to execute query for mongo: Failed to execute MongoDB query\\n    at handleError (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at execQuery (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/db-interface.js:49:16)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\\n    at async handleClientRequest (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/cli-interface.js:63:12)\\n    at async /Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/cli-interface.js:23:34\""
+}
+[2024-09-07T21:38:39.578Z] [INFO] CLI command executed {
+  "request": {
+    "dbType": "mongo",
+    "query": {
+      "operation": "find",
+      "params": [
+        "polybase_mongo_collection",
+        "_id=\"66dcc19369d2d12812633326\"",
+        "name"
+      ]
+    }
+  },
+  "response": {
+    "success": false,
+    "error": {
+      "message": "failed to execute query for mongo: Failed to execute MongoDB query",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-09-07T21:38:39.578Z"
+    }
+  }
+}
+[2024-09-07T21:42:25.725Z] [INFO] CLI closed. Exiting program. {}

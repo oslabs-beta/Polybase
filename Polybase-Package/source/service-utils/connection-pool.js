@@ -31,7 +31,7 @@ async function configureMongoDBConnection(config) {
             maxPoolSize: 10,
         });
         const db = client.db(config.database);
-
+       
         //log high-level status message in the terminal
         logInfo('✔ Connection to MongoDB established.', { database: config.database }, true); // Display in console
         //log detailed information into the file polybase.log that should auto populate in directory
@@ -41,6 +41,25 @@ async function configureMongoDBConnection(config) {
     } catch (err) {
         logError(`MongoDB connection error: ${err.message}`, { error: err });
         throw handleError(`MongoDB connection error: ${err.message}`, 500);
+    }
+}
+
+// Function to fetch the schema from MongoDB
+async function getMongoSchema(db) {
+    try {
+        const collections = await db.listCollections().toArray();
+        const schema = {};
+
+        for (let collection of collections) {
+            const sampleDocument = await db.collection(collection.name).findOne();
+            schema[collection.name] = sampleDocument ? Object.keys(sampleDocument) : 'Empty collection';
+        }
+
+        logInfo('Fetched MongoDB schema', { schema });
+        return schema;
+    } catch (error) {
+        logError('Error fetching MongoDB schema', { error });
+        throw new Error('Failed to fetch MongoDB schema');
     }
 }
 

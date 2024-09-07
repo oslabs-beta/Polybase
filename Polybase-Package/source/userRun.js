@@ -14,14 +14,14 @@ const PORT = 3000;
 (async () => {
     //dummy funcy
     const config = {
-        mongo: { uri: 'mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0', database: 'listingsAndReviews' },
-        postgres: {
-            user: 'postgres.veodgvmkvklvxobkjrfh',
-            host: 'aws-0-us-west-1.pooler.supabase.com',
-            database: 'polybase_postgres',
-            password: 'lukeiamyourfather',
-            port: 6543
-        }
+        mongo: { uri: 'mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0', database: 'polybase_mongo' },
+        // postgres: {
+        //     user: 'postgres.veodgvmkvklvxobkjrfh',
+        //     host: 'aws-0-us-west-1.pooler.supabase.com',
+        //     database: 'polybase_postgres',
+        //     password: 'lukeiamyourfather',
+        //     port: 6543
+        // }
     };
 
     //init polybase (e.g. Polybase.conenct)
@@ -45,44 +45,55 @@ const PORT = 3000;
         res.json(databaseStates); 
     });
 
-    //temporary: getting schemas from mongo and posetgres 
-    app.get('/schemas', async (req, res) => {
-        const schemas = {};
+// app.get('/schemas', async (req, res) => {
+//     const schemas = {};
 
-        //
-        if (polybaseInstance.interfaces.mongo) {
-            const mongoDb = polybaseInstance.interfaces.mongo;
-            const collections = await mongoDb.db.listCollections().toArray();
-            schemas.mongo = {};
+//     // MongoDB schema retrieval
+//     if (polybaseInstance.interfaces.mongo) {
+//         const mongoDb = polybaseInstance.interfaces.mongo; // Assuming this is the correct database instance
+//         try {
+//             const collections = await mongoDb.listCollections().toArray(); // No need for `mongoDb.db`
+//             schemas.mongo = {};
 
-            for (let collection of collections) {
-                const sampleDocument = await mongoDb.db.collection(collection.name).findOne();
-                schemas.mongo[collection.name] = sampleDocument ? Object.keys(sampleDocument) : 'Empty collection';
-            }
-        }
+//             for (let collection of collections) {
+//                 const sampleDocument = await mongoDb.collection(collection.name).findOne();
+//                 schemas.mongo[collection.name] = sampleDocument ? Object.keys(sampleDocument) : 'Empty collection';
+//             }
+//         } catch (error) {
+//             console.error('Error fetching MongoDB schema:', error);
+//             res.status(500).json({ error: 'Failed to fetch MongoDB schema' });
+//             return;
+//         }
+//     }
 
-    
-        if (polybaseInstance.interfaces.postgres) {
-            const postgresClient = polybaseInstance.interfaces.postgres;
-            const result = await postgresClient.query(`
-                SELECT table_name, column_name, data_type 
-                FROM information_schema.columns 
-                WHERE table_schema = 'public'
-            `);
-            schemas.postgres = result.rows.reduce((schema, row) => {
-                if (!schema[row.table_name]) {
-                    schema[row.table_name] = [];
-                }
-                schema[row.table_name].push({
-                    column: row.column_name,
-                    type: row.data_type
-                });
-                return schema;
-            }, {});
-        }
+//     // PostgreSQL schema retrieval
+//     if (polybaseInstance.interfaces.postgres) {
+//         const postgresClient = polybaseInstance.interfaces.postgres;
+//         try {
+//             const result = await postgresClient.query(`
+//                 SELECT table_name, column_name, data_type 
+//                 FROM information_schema.columns 
+//                 WHERE table_schema = 'public'
+//             `);
+//             schemas.postgres = result.rows.reduce((schema, row) => {
+//                 if (!schema[row.table_name]) {
+//                     schema[row.table_name] = [];
+//                 }
+//                 schema[row.table_name].push({
+//                     column: row.column_name,
+//                     type: row.data_type
+//                 });
+//                 return schema;
+//             }, {});
+//         } catch (error) {
+//             console.error('Error fetching PostgreSQL schema:', error);
+//             res.status(500).json({ error: 'Failed to fetch PostgreSQL schema' });
+//             return;
+//         }
+//     }
 
-        res.json(schemas); 
-    });
+//     res.json(schemas); 
+// });
 
     //start express server
     app.listen(PORT, () => {
