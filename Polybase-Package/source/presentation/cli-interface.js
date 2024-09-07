@@ -1,47 +1,54 @@
 const { execQuery } = require('../presentation/db-interface');
 const { validateInput, generateErrorResponse } = require('../service-utils/error-handling');
+const { logInfo, logError } = require('../service-utils/logging');
 
 /**
  * Manages I/O interface for user queries after
  * polybase initialized
  */
 async function cliInterface() {
-    //create new I/O interface piped to readLine stream
     const rl = require('readline').createInterface({
         input: process.stdin,
         output: process.stdout
     });
 
-    /**
-     * Continuously re-prompt user via CLI
-     * after they've made new instance of Polybase
-     * and succesfully connected database
-     */
     function promptUser() {
-        
-        //block and wait for user CLI query
+        //show $Polybase prompt and wait for input
         rl.question('$Polybase: ', async (command) => {
-            //tokenize command string to object and init handling
             try {
+                //log out user details (only to file)
+                logInfo('Processing user command...', { command }, false);  
+
                 const request = parseCommand(command);
                 const response = await handleClientRequest(request);
+
+                //display results
                 console.log(response);
+
+                //lot out details of the response 
+                logInfo('CLI command executed', { request, response }, false);
             } catch (error) {
-                console.error('promptUser() error occurred:', error.message);
+                const errorResponse = handleError(`CLI error occurred: ${error.message}`, 500);
+                console.error(errorResponse.error.message);
             }
-            //reprompt
+            //show $polybase CLI again
             promptUser();
         });
     }
 
+    //Separator between I/o
+    console.log('$Polybase: Polybase initialized successfully.');
+
+
     promptUser();
 
-    //when close signal received from CLI, stop execution
     rl.on('close', () => {
-        console.log('CLI closed. Exiting program.');
+        logInfo('CLI closed. Exiting program.', {}, true);
         process.exit(0);
     });
 }
+
+
 
 /**
  * Routes 
@@ -49,9 +56,9 @@ async function cliInterface() {
  * @returns 
  */
 async function handleClientRequest(request) {
-    if (!validateInput(request)) {
-        return generateErrorResponse('Invalid request format', 400);
-    }
+  if (!validateInput(request)) {
+    return handleError('Invalid request format', 400);
+}
 
     return await execQuery(request.dbType, request.query);
 }

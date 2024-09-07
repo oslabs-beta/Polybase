@@ -67,5 +67,3 @@
   - They ensure that the application operates securely, reliably, and efficiently, regardless of the specific operations being performed.
 
 ### **Summary**
-
-In summary, the data flow in your application starts with user input via the CLI, passes through the presentation layer where it is structured, then into the core logic layer where the query is processed and validated. If needed, the query undergoes data transformation before being executed by the appropriate database adapter in the transformation layer. The results are then returned through the core logic layer, up to the presentation layer, and finally back to the user. Throughout this process, cross-cutting concerns like state management, logging, and error handling ensure that the application runs smoothly and securely.

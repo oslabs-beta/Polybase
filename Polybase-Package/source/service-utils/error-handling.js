@@ -9,9 +9,10 @@
  * (stretch) - facilates recovery mechanisms in case of errors - help maintain stability.
  */
 
+const { logInfo, logError, safeStringify } = require('./logging');
 
 /**
- * Validates that the provided that parsed command is a non-empty
+ * validates that the provided that parsed command is a non-empty
  * object with at least 1 key
  * 
  * @param {*} input The input to validate
@@ -19,8 +20,22 @@
  */
 function validateInput(input) {
     return typeof input === 'object' && input !== null && Object.keys(input).length > 0;
+}
 
-    //need to extend
+/**
+ * handles errors by logging and returning standardized
+ * output
+ * 
+ * @param {Error|string} error The error object or message to handle
+ * @param {number} [code=500] Optional error code to include in the response
+ * @returns {Object} The standardized error response object
+ */
+function handleError(error, code = 500) {
+    if (typeof error === 'string') {
+        error = new Error(error);
+    }
+    logError(error.message, { stack: safeStringify(error.stack) });
+    return generateErrorResponse(error.message, code);
 }
 
 
@@ -48,5 +63,5 @@ function generateErrorResponse(message, code = 500, details = '') {
     };
 }
 
-module.exports = { generateErrorResponse, validateInput };
+module.exports = { logError, handleError, generateErrorResponse, validateInput };
 
