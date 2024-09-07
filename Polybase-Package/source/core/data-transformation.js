@@ -14,7 +14,7 @@
  * @returns {Object} - Transformed query ready for execution.
  */
 function transformData(dbType, data) {
-    console.log('core/data-transformation | running transformData with: ', { dbType, data });
+    // console.log('core/data-transformation | running transformData with: ', { dbType, data });
 
     let transformedQuery = {};
 
@@ -48,7 +48,7 @@ function transformData(dbType, data) {
     //     transformedQuery = `SELECT * FROM ${data[0]} WHERE ${data[1]};`; // Basic SQL example
     // }
 
-    console.log('Transformed query:', transformedQuery);
+    // console.log('Transformed query:', transformedQuery);
     return transformedQuery;
 }
 

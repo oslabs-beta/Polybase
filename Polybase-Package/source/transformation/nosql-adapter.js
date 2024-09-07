@@ -5,7 +5,6 @@
  * Manages document-based queries, operations, and NoSQL-specific error handling.
  */
 
-
 /**
 /**
  * Handles MongoDB operations like find, insert, update, delete.
@@ -20,17 +19,22 @@ async function mongoQuery(db, operation, params) {
         const { collectionName, filter, projection, updateData } = params;
 
         const collection = db.collection(collectionName);
+        
+        let result; 
 
         switch (operation) {
             case 'find':
-                const x = await collection.find(filter || {}).project(projection || {}).toArray();
-                console.log(x);
+                result = await collection.find(filter || {}).project(projection || {}).toArray();
+                return result;
             case 'insert':
-                return await collection.insertOne(updateData);
+                result = await collection.insertOne(updateData);
+                return result;
             case 'update':
-                return await collection.updateOne(filter, { $set: updateData }); 
+                result = await collection.updateOne(filter, { $set: updateData });
+                return result;
             case 'delete':
-                return await collection.deleteOne(filter);
+                result = await collection.deleteOne(filter);
+                return result;
             default:
                 throw new Error(`Unsupported operation: ${operation}`);
         }

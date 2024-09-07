@@ -39,7 +39,7 @@ async function execQuery(dbType, query) {
         }
 
 
-        console.log('Query Result:', queryResult);
+        console.log('Query Result:', queryResult, '\n\n');
         const syncResult = synchronizeData(dbType, 'targetDB'); //sync data
         const transactionStatus = manageTransaction([query]); //manage transaction 
         

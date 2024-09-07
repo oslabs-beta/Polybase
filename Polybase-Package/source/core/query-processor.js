@@ -49,7 +49,7 @@ function validateQuery(dbType, operation, params) {
  * @returns {Object} - Clearly partitioned execution plan or validation error message.
  */
 function processQuery(dbType, query) {
-    console.log('src/core/query-processor | running processQuery with:', { dbType, query });
+    // console.log('src/core/query-processor | running processQuery with:', { dbType, query });
 
     //validate query format
     const { operation, params } = query;

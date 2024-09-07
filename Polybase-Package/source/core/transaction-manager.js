@@ -7,7 +7,7 @@
  */
 
 function manageTransaction(operations) {
-    console.log('source/transaction-manager | running manageTransactions with: ', operations);
+    // console.log('source/transaction-manager | running manageTransactions with: ', operations);
     //simulating transaction management 
     return { status: 'Transaction committed' };
 }

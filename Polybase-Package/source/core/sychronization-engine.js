@@ -7,7 +7,7 @@
  */
 
 function synchronizeData(source, target) {
-    console.log('source/synchronization-engines | running synchronizeData from', source, 'to', target);
+    // console.log('source/synchronization-engines | running synchronizeData from', source, 'to', target);
     //simulating synchronization
     return { syncResult: `Sync completed between ${source} and ${target}` };
 }
