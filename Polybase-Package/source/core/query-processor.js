@@ -9,14 +9,6 @@
 const { getState } = require('../service-utils/state-utils');
 
 /**
- * query-processor.js
- * 
- * Handles the processing and validation of database queries.
- * Breaks down queries into components, validates them, and preps them for 
- * execution in the corresponding adapter in the transformation layer.
- */
-
-/**
  * Validates the query based on the connected databases in the state manager.
  * @param {String} dbType - The database type (e.g., mongo, redis, postgres, influxdb).
  * @param {String} operation - The requested database operation.
@@ -67,7 +59,7 @@ function processQuery(dbType, query) {
         return { error: 'Query validation failed. Please ensure your query follows the standard format.' };
     }
 
-    // Simulating query processing (if validation passes)
+    //sim query processing (if validation passes)
     return { executionPlan: `Plan for ${operation} on ${dbType}` };
 }
 
