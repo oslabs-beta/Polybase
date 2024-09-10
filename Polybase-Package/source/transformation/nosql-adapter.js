@@ -5,30 +5,43 @@
  * Manages document-based queries, operations, and NoSQL-specific error handling.
  */
 
-const { MongoClient } = require('mongodb');
-
-// Create a MongoDB client
-const client = new MongoClient('mongodb://localhost:27017', { useNewUrlParser: true, useUnifiedTopology: true });
-
 /**
- * Executes a MongoDB query.
- * @param {String} collectionName - The collection to query.
- * @param {Object} query - The query object.
- * @returns {Array} - The query result.
+/**
+ * Handles MongoDB operations like find, insert, update, delete.
+ * @param {Object} db - The MongoDB database object.
+ * @param {String} operation - The operation to be performed (e.g., 'find', 'insert', etc.).
+ * @param {Object} params - The parameters for the query, including collection name, filter, projection, and update data.
+ * @returns {Object} - The result of the MongoDB query.
  */
-async function executeNoSQLQuery(collectionName, query) {
+async function mongoQuery(db, operation, params) {
     try {
-        await client.connect();
-        const db = client.db('yourDatabase');
+        //destructuring the transformed params object
+        const { collectionName, filter, projection, updateData } = params;
+
         const collection = db.collection(collectionName);
-        const result = await collection.find(query).toArray();
-        return result;
+
+        let result;
+
+        switch (operation) {
+            case 'find':
+                result = await collection.find(filter || {}).project(projection || {}).toArray();
+                return result;
+            case 'insert':
+                result = await collection.insertOne(updateData);
+                return result;
+            case 'update':
+                result = await collection.updateOne(filter, { $set: updateData });
+                return result;
+            case 'delete':
+                result = await collection.deleteOne(filter);
+                return result;
+            default:
+                throw new Error(`Unsupported operation: ${operation}`);
+        }
     } catch (error) {
-        console.error('NoSQL Query Execution Error:', error);
-        throw new Error('Failed to execute NoSQL query');
-    } finally {
-        await client.close();
+        console.error('MongoDB query error:', error);
+        throw new Error('Failed to execute MongoDB query');
     }
 }
 
-module.exports = { executeNoSQLQuery };
+module.exports = { mongoQuery };

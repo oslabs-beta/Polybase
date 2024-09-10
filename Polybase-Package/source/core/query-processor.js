@@ -8,18 +8,61 @@
  * Layman's: It takes apart and checks database questions (queries) to make sure they’re correct, then gets them ready to be run by the system that handles the actual data.
  */
 
+const { getState } = require('../service-utils/state-utils');
 
 /**
- * Receives a parsed query from presentation layer and inits an execution
- * plan for the query based on requirements 
- * @param {String} query Operation requesed by user
- * @returns {Object} Clearly-partitioned execution plan 
+ * Validates the query based on the connected databases in the state manager.
+ * @param {String} dbType - The database type (e.g., mongo, redis, postgres, influxdb).
+ * @param {String} operation - The requested database operation.
+ * @param {Object} params - Parameters provided with the query (e.g., collection name, SQL conditions).
+ * @returns {Boolean} - Whether the query is valid or not.
  */
-function processQuery(query) {
-    console.log('src/core/query-processor | running processQuery with:', query);
-    //siimulating query processing
-    return { executionPlan: `Plan for ${query.operation}` };
+function validateQuery(dbType, operation, params) {
+    const state = getState(dbType);
+    const connection = state.connection;
+    const validOperations = ['find', 'get', 'select', 'query'];
+
+    //checking if the dbtype is one of the dbs that is currently connected
+    if (!connection) {
+        console.log(`Invalid dbType: ${dbType}. No active connection found.`);
+        return false;
+    }
+
+    if (!validOperations.includes(operation)) {
+        console.log(`Invalid operation: ${operation}. Expected one of: ${validOperations.join(', ')}`);
+        return false;
+    }
+
+    if (!params || typeof params !== 'object') {
+        console.log(`Invalid parameters: ${params}. Expected a valid object with query details.`);
+        return false;
+    }
+
+    console.log('Query validation successful.');
+    return true;
+}
+
+/**
+ * Receives a parsed query from the presentation layer and initializes an execution
+ * plan for the query based on requirements. Also validates the query against the
+ * connected databases in state.
+ * @param {String} dbType - The database type (e.g., mongo, postgres).
+ * @param {Object} query - The query object containing the operation and params.
+ * @returns {Object} - Clearly partitioned execution plan or validation error message.
+ */
+function processQuery(dbType, query) {
+    // console.log('src/core/query-processor | running processQuery with:', { dbType, query });
+
+    //validate query format
+    const { operation, params } = query;
+    const isValid = validateQuery(dbType, operation, params);
+
+    if (!isValid) {
+        return { error: 'Query validation failed. Please ensure your query follows the standard format.' };
+    }
+
+    //sim query processing (if validation passes)
+    return { executionPlan: `Plan for ${operation} on ${dbType}` };
 }
 
 module.exports = { processQuery };
-

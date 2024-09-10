@@ -44,6 +44,25 @@ async function configureMongoDBConnection(config) {
     }
 }
 
+// Function to fetch the schema from MongoDB
+async function getMongoSchema(db) {
+    try {
+        const collections = await db.listCollections().toArray();
+        const schema = {};
+
+        for (let collection of collections) {
+            const sampleDocument = await db.collection(collection.name).findOne();
+            schema[collection.name] = sampleDocument ? Object.keys(sampleDocument) : 'Empty collection';
+        }
+
+        logInfo('Fetched MongoDB schema', { schema });
+        return schema;
+    } catch (error) {
+        logError('Error fetching MongoDB schema', { error });
+        throw new Error('Failed to fetch MongoDB schema');
+    }
+}
+
 /**
  * Establishing postgres connection via connection pooling
  * @param {Object} valid configuration object 
@@ -68,7 +87,7 @@ async function configurePostgresConnection(config) {
 
         //log high-level message to console and detailed msg to .log file
         logInfo('✔ Connection to PostgreSQL established.', { database: config.database }, true);
-        logInfo(`Detailed: Connected to PostgreSQL at ${config.host}`, { config }, false); 
+        logInfo(`Detailed: Connected to PostgreSQL at ${config.host}`, { config }, false);
 
         return client;
     } catch (error) {
@@ -93,9 +112,9 @@ function configureRedisConnection(config) {
         const redis = new Redis(config.url);
 
         redis.on('connect', () => {
-            
-            logInfo('✔ Connection to Redis established.', { url: config.url }, true); 
-            logInfo(`Detailed: Connected to Redis at ${config.url}`, { config }, false); 
+
+            logInfo('✔ Connection to Redis established.', { url: config.url }, true);
+            logInfo(`Detailed: Connected to Redis at ${config.url}`, { config }, false);
 
             resolve(redis);
         });

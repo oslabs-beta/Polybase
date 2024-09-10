@@ -24,7 +24,8 @@ Each query entered into the Polybase CLI follows this general format:
 ### 1. **MongoDB** 
 
     ```bash
-    mongo find users name="Harley Davidson"
+    # mongo find users name="Harley Davidson"
+    $Polybase: mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" name
     ```
 
 ### 2. **Redis**: 

@@ -1,0 +1,79 @@
+[2024-09-07T22:04:12.493Z] [INFO] Processing user command... {
+  "command": "mongo find polybase_mongo_collection _id=\"66dcc19369d2d12812633326\" name"
+}
+[2024-09-07T22:04:12.495Z] [INFO] received query for mongo {
+  "query": {
+    "operation": "find",
+    "params": [
+      "polybase_mongo_collection",
+      "_id=\"66dcc19369d2d12812633326\"",
+      "name"
+    ]
+  }
+}
+[2024-09-07T22:04:12.545Z] [INFO] Executed query for mongo {
+  "executionPlan": {
+    "executionPlan": "Plan for find on mongo"
+  },
+  "transformedQuery": {
+    "collectionName": "polybase_mongo_collection",
+    "filter": {
+      "_id": "66dcc19369d2d12812633326"
+    },
+    "projection": {
+      "name": 1,
+      "_id": 0
+    }
+  },
+  "syncResult": {
+    "syncResult": "Sync completed between mongo and targetDB"
+  },
+  "transactionStatus": {
+    "status": "Transaction committed"
+  },
+  "queryResult": [
+    {
+      "name": "Davis"
+    }
+  ]
+}
+[2024-09-07T22:04:12.546Z] [INFO] CLI command executed {
+  "request": {
+    "dbType": "mongo",
+    "query": {
+      "operation": "find",
+      "params": [
+        "polybase_mongo_collection",
+        "_id=\"66dcc19369d2d12812633326\"",
+        "name"
+      ]
+    }
+  },
+  "response": {
+    "executionPlan": {
+      "executionPlan": "Plan for find on mongo"
+    },
+    "transformedQuery": {
+      "collectionName": "polybase_mongo_collection",
+      "filter": {
+        "_id": "66dcc19369d2d12812633326"
+      },
+      "projection": {
+        "name": 1,
+        "_id": 0
+      }
+    },
+    "syncResult": {
+      "syncResult": "Sync completed between mongo and targetDB"
+    },
+    "transactionStatus": {
+      "status": "Transaction committed"
+    },
+    "result": [
+      {
+        "name": "Davis"
+      }
+    ]
+  }
+}
+[2024-09-07T22:04:41.805Z] [INFO] CLI closed. Exiting program. {}
