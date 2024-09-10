@@ -9,16 +9,16 @@
 const { getState } = require('../service-utils/state-utils');
 
 /**
- * Validates the query based on the connected databases in the state manager.
- * @param {String} dbType - The database type (e.g., mongo, redis, postgres, influxdb).
- * @param {String} operation - The requested database operation.
- * @param {Object} params - Parameters provided with the query (e.g., collection name, SQL conditions).
- * @returns {Boolean} - Whether the query is valid or not.
+ * Validates the query based on the connected databases in state manager
+ * @param {String} dbType - The database type (e.g., mongo, redis, postgres, influxdb)
+ * @param {String} operation - The requested database operation
+ * @param {Object} params - Parameters provided with the query (e.g., collection name, SQL conditions)
+ * @returns {Boolean} - Whether the query valid or not
  */
 function validateQuery(dbType, operation, params) {
     const state = getState(dbType);
     const connection = state.connection;
-    const validOperations = ['find', 'get', 'select', 'query'];
+    const validOperations = ['find', 'get', 'select', 'query', 'json.get'];
 
     //checking if the dbtype is one of the dbs that is currently connected
     if (!connection) {

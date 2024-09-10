@@ -14,14 +14,20 @@ const PORT = 3000;
 (async () => {
     //dummy funcy
     const config = {
-        mongo: { uri: 'mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0', database: 'polybase_mongo' },
+        // mongo: { uri: 'mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0', database: 'polybase_mongo' },
         // postgres: {
         //     user: 'postgres.veodgvmkvklvxobkjrfh',
         //     host: 'aws-0-us-west-1.pooler.supabase.com',
-        //     database: 'polybase_postgres',
+        //     database: 'postgres',
         //     password: 'lukeiamyourfather',
-        //     port: 6543
-        // }
+        //     port: 5432
+        // },
+        redis: {
+            host: 'redis-13782.c329.us-east4-1.gce.redns.redis-cloud.com',
+            port: 13782,
+            username: 'default',
+            password: 'D0UPgd4SyZKVyUv7uEwGyKc7Q5eJKl3V',
+        }
     };
 
     //init polybase (e.g. Polybase.conenct)

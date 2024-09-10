@@ -38,8 +38,33 @@ function transformData(dbType, data) {
             filter,
             projection: projectionField ? { [projectionField]: 1, _id: 0 } : {}, //iprojection if neede
             updateData //including update data if user given
-        };
+    };
+        
+    } else if (dbType === 'postgres') {
+        const tableName = data[0];
+        const condition = data[1]; // e.g., customer_id=8
+        const fields = data[2] ? data[2].split(',') : ['*']; //select * fields or specifics
+        const updateData = data[3];
+
+        transformedQuery = { tableName, condition, fields, updateData };
     }
+        /**
+         * @TODO need to decide what all we want to support with Redis
+         */
+    else if (dbType === 'redis') {
+        const key = data[0];  //redis key
+        const value = data[1];  //optional val for set ops (?)
+        transformedQuery = { key, value };
+
+        console.log(transformedQuery)
+    }
+
+
+    return transformedQuery;
+}
+
+module.exports = { transformData };
+    
 
 
     // //
@@ -48,8 +73,3 @@ function transformData(dbType, data) {
     //     transformedQuery = `SELECT * FROM ${data[0]} WHERE ${data[1]};`; // Basic SQL example
     // }
 
-    // console.log('Transformed query:', transformedQuery);
-    return transformedQuery;
-}
-
-module.exports = { transformData };

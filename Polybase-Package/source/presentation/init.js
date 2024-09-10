@@ -73,7 +73,7 @@ async function configureDatabaseConnections(config) {
  * @returns initialized polybase instance
  */
 async function initPolybase(config) {
-    logInfo('...initializing polybase...', {}, true); // show in console
+    logInfo('Initializing polybase with', { config }, false);
     const interfaces = await configureDatabaseConnections(config);
 
     if (!interfaces) {
@@ -81,8 +81,8 @@ async function initPolybase(config) {
     }
 
     PolyBaseInstance.init(interfaces); // init polybase with interfaces
-    logInfo('✔ polybase initialized with all configured interfaces.', { interfaces }, false);
-    console.log('polybase initialized successfully with interfaces:', interfaces); // Log interfaces to console
+    logInfo('✔ polybase initialized with configured interfaces.', { interfaces }, false);
+    console.log('✔ polybase initialized with configured interfaces:', Object.keys(interfaces)); // Log interfaces to console
     return PolyBaseInstance;
 }
 

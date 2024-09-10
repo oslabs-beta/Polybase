@@ -31,18 +31,18 @@ Each query entered into the Polybase CLI follows this general format:
 ### 2. **Redis**: 
 
     ```bash
-    postgres select * from users where id=69
+    $Polybase: redis json.get sample_bicycle:1001
     ```
 
 ## 3. **PostgreSQL**:
 
-    ```bash
-    influxdb query 'SELECT withdrawss FROM user_acounts WHERE time > now() - 1h'
+      ```bash
+    $Polybase: postgres select customers customer_id=7 name
     ```
 
 ## 4. **InfluxDB** 
 
     ```bash
-    mongo find users name="Mia Khalifa"
+
     ```
 

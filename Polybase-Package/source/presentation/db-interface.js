@@ -5,6 +5,8 @@ const { manageTransaction } = require('../core/transaction-manager');
 const { handleError } = require('../service-utils/error-handling');
 const { logInfo, logError } = require('../service-utils/logging');
 const { mongoQuery } = require('../transformation/nosql-adapter');
+const { redisQuery } = require('../transformation/kvstore-adapter');
+const { postgresQuery } = require('../transformation/sql-adapter');
 const { getState } = require('../service-utils/state-utils');
 /**
  * executes db query by routing through core modules (query processor, transformation, etc.)
@@ -31,15 +33,33 @@ async function execQuery(dbType, query) {
             if (!db) {
                 throw new Error('No MongoDB connection found.');
             }
-
-            console.log('MongoDB connection established. Executing query...');
-
+            // console.log('MongoDB connection established. Executing query...');
             //pass the transformed query to the MongoDB adapter
             queryResult = await mongoQuery(db, query.operation, transformedQuery); // Execute the MongoDB query
         }
+          else if (dbType === 'postgres') {
+            const state = getState(dbType);
+            const client = state.connection;
+
+            if (!client) {
+                throw new Error('No PostgreSQL connection found.');
+            }
+            queryResult = await postgresQuery(client, query.operation, transformedQuery);
+        }
+            else if (dbType === 'redis') {
+                const state = getState(dbType);
+                const client = state.connection;
+
+            if (!client) {
+                throw new Error('No Redis connection found.');
+            }
+
+            queryResult = await redisQuery(client, query.operation, transformedQuery);
+            // console.log(queryResult);
+    }
 
 
-        console.log('Query Result:', queryResult, '\n\n');
+        // console.log('Query Result:', queryResult, '\n\n');
         const syncResult = synchronizeData(dbType, 'targetDB'); //sync data
         const transactionStatus = manageTransaction([query]); //manage transaction 
         

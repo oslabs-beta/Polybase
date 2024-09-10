@@ -97,26 +97,26 @@ async function configurePostgresConnection(config) {
 }
 
 /**
- * Setting up redis conneciton -- very simplified version
- * @param {Object} config object 
- * @returns 
+ * Sets up Redis connection -- using ioredis
+ * @param {Object} config - Redis configuration object passed by user
+ * @returns {Object} - Redis client instance
  */
 function configureRedisConnection(config) {
-    //show loading message
+    // Show loading message
     logInfo('...Connecting to Redis...', {}, true);
 
-    /**
-     * @TODO need to figure out how we want to do this - accessing user memory
-     */
     return new Promise((resolve, reject) => {
-        const redis = new Redis(config.url);
+        const redis = new Redis({
+            host: config.host,
+            port: config.port,
+            username: config.username,  //optional - only if password protected
+            password: config.password,  //optional 
+        });
 
         redis.on('connect', () => {
-            
-            logInfo('✔ Connection to Redis established.', { url: config.url }, true); 
-            logInfo(`Detailed: Connected to Redis at ${config.url}`, { config }, false); 
-
-            resolve(redis);
+            logInfo('✔ Connection to Redis established.', { host: config.host, port: config.port }, true);
+            logInfo(`Detailed: Connected to Redis at ${config.host}:${config.port}`, { config }, false);
+            resolve(redis);  //return redic client 
         });
 
         redis.on('error', (error) => {
