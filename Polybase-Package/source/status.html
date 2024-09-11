@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Status</title>
+</head>
+<body>
+    <h1>Database States</h1>
+    <pre id="status"></pre>
+    <script>
+        function fetchStatus() {
+            fetch('/status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('status').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => console.error('Error fetching status:', error));
+        }
+        setInterval(fetchStatus, 5000);
+        fetchStatus(); 
+    </script>
+</body>
+</html>
