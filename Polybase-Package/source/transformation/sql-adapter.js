@@ -14,6 +14,7 @@ const { getState } = require('../service-utils/state-utils');
  * @param {Object} params - The parameters for the query, including table name, conditions, and update data.
  * @returns {Object} - The result of the PostgreSQL query.
  */
+
 async function postgresQuery(client, operation, params) {
     try {
         const { tableName, condition, fields, updateData } = params;

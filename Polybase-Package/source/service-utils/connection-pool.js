@@ -11,10 +11,57 @@
  */
 const { MongoClient } = require('mongodb');
 const { Pool: PostgresPool } = require('pg');
+const neo4j = require('neo4j-driver');
 const Redis = require('ioredis');
 const Influx = require('influx');
 const { handleError } = require('../service-utils/error-handling');
-const { logInfo } = require('../service-utils/logging');
+const { logInfo, logError } = require('../service-utils/logging');
+
+
+/**
+ * Establishes connection to neo4j via pooling
+ * @param {*} config object provided by user 
+ */
+async function configureNeo4jConnection(config) {
+    logInfo('...Connecting to Neo4j...', {}, true);
+
+    try {
+        //@NOTE creating Driver instance provide info on *how* to access the database, 
+        //but does not actually establish cnx - deferred until time of first query execc
+        const driver = neo4j.driver(
+            config.uri,
+            neo4j.auth.basic(config.username, config.password), {
+            maxConnectionPoolSize: 10,
+            connecitonTimeout: 30000,
+        }
+        );
+
+        // console.log('Cnx established');
+        //verify immediately that driveer CAN connect valid creds, compatible version, et al
+        const serverInfo = await driver.getServerInfo();
+        console.log(serverInfo);
+        const session = driver.session();
+        await session.run('RETURN 1');
+        await session.close();
+        // console.log(session);
+        //log high-level status message in the terminal
+        logInfo('✔ Connection to Neo4j established.', { database: config.database }, true); // Display in console
+        //log detailed information into the file polybase.log that should auto populate in directory
+        logInfo(`Detailed: Connected to Neo4j: ${config.database}`, { config }, false); //only in file
+        return driver
+        
+        //TODO: when to use driver.close() ? 
+      
+    }
+    catch (err) {
+        logError(`Neo4j connection error: ${err.message}`, { error: err });
+        throw handleError(`MongoDB connection error: ${err.message}`, 500);
+        console.log(`Neo4j connection error\n${err}\nCause: ${err.cause}`);
+
+
+    }
+}
+
 
 /**
  * Pooling mongoDB connection 
@@ -157,6 +204,7 @@ async function configureInfluxDBConnection(config) {
 
 
 module.exports = {
+    configureNeo4jConnection,
     configureMongoDBConnection,
     configureRedisConnection,
     configureInfluxDBConnection,

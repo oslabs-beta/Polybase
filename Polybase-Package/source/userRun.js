@@ -10,6 +10,9 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
+//1 - USER PROVIDES CONFIGURATION OBJECT: 
+//for each database they want to work with, they provide information about how polybase should 'connect' to each of them so that 
+//the user doesn't do it itself
 //immediately invoked function ---> as if user didn't exist
 (async () => {
     //dummy funcy
@@ -27,7 +30,12 @@ const PORT = 3000;
             port: 13782,
             username: 'default',
             password: 'D0UPgd4SyZKVyUv7uEwGyKc7Q5eJKl3V',
-        }
+        },
+          neo4j : {
+            uri: 'bolt://localhost:7687',
+            username: 'neo4j',
+            password: 'neo4j'
+}
     };
 
     //init polybase (e.g. Polybase.conenct)
@@ -110,3 +118,6 @@ const PORT = 3000;
     require('./presentation/cli-interface').cliInterface();
 
 })();
+
+
+

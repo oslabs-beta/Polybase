@@ -18,6 +18,8 @@ function transformData(dbType, data) {
 
     let transformedQuery = {};
 
+    //mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" name
+
     //handling mongodb transformation
     if (dbType === 'mongo') {
         const collectionName = data[0]; //first element - collection name
@@ -58,7 +60,68 @@ function transformData(dbType, data) {
 
         console.log(transformedQuery)
     }
+        // TEMPLATE: MATCH (n:Customer) WHERE n.customer_id = '8' RETURN n
 
+    else if (dbType === 'neo4j') {
+        //parts of neo4j command
+        //label, condition, fields, data to updated
+        const label = date[0];
+        const condition = data[1];
+        //which fields/properties of the query need to be returned
+        //3rd elem basic implementation - "name, age, email"  what the user wants to retriveve
+        //if user provided --split into multiple different fields if there are more than 1, else 
+        //just use select all wildcard toreturn all fields (works with neo4j??)
+        const fields = data[2] ? data[2].split(',') : "*";
+       
+        //data for updating nodes
+        const updateData = data[3];
+
+        //parsing condition string into cypher clause
+        let whereClause = '';
+
+        if (condition && condition.includes('=')) {
+            const [field, value] = condition.split('=');
+        }
+
+        //Not yet done 
+    }
+
+    // handling influxDB transformation 
+    
+    /*
+    from(bucket: "my-bucket")
+    |> range(start: -1h)  // Last 1 hour
+    |> filter(fn: (r) => r._measurement == "cpu_usage")
+    |> filter(fn: (r) => r._field == "usage_user")
+    |> filter(fn: (r) => r.host == "server01")
+
+    influx write
+    influx delete
+    influx bucket create 
+
+*/
+
+    else if (dbType === 'influx'){
+
+        const measurement = data[0]; // measurement name (ex. "cpu")
+        const tagKey = data[1]; // tag key (ex. "host")
+        const tagValue = data[2]; // tag value (ex. "server1")
+        const fieldKey = data[3]; // field key (ex. "usage_user")
+        const fieldValue = data[4]; // field value (ex. "15.8")
+        const timestamp = data[5]; // optional timestamp for the data point 
+
+        transformedQuery = {
+            measurement, 
+            tag: {
+                [tagKey]: tagValue
+            },
+            fields: {
+                [fieldKey]: fieldValue
+            },
+            timestamp: timestamp || Date.now() // if no timestamp is provided, current time is used 
+        };
+
+    }
 
     return transformedQuery;
 }

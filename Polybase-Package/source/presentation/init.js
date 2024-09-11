@@ -5,12 +5,12 @@
  * Sets up the necessary configurations, establishing connections to the specified databases.
  */
 
-const { configureMongoDBConnection, configureRedisConnection, configurePostgresConnection } = require('../service-utils/connection-pool');
+const { configureMongoDBConnection, configureRedisConnection, configurePostgresConnection, configureNeo4jConnection, configureInfluxDBConnection } = require('../service-utils/connection-pool');
 const { cliInterface } = require('./cli-interface');
 const { getConfig, validateConfig } = require('../service-utils/config-management');
 const { manageState } = require('../service-utils/state-utils');
 const { handleError } = require('../service-utils/error-handling');
-const { logInfo } = require('../service-utils/logging');
+const { logInfo, logError } = require('../service-utils/logging');
 
 /** 
  * manages initialization and state of polybase 
@@ -49,7 +49,10 @@ async function configureDatabaseConnections(config) {
                     connection = await configureRedisConnection(dbConfig);  
                     break;
                 case 'influxdb':
-                    connection = {}; // placeholder for influx
+                    connection = await configureInfluxDBConnection(dbConfig);
+                    break;
+                case 'neo4j':
+                    connection = await configureNeo4jConnection(dbConfig);
                     break;
                 case 'postgres':
                     connection = await configurePostgresConnection(dbConfig);  
@@ -68,6 +71,11 @@ async function configureDatabaseConnections(config) {
 }
 
 /**
+ * 2 - user's config object lands heere -- polybase begins to 
+ * make 'interfaces' for each type of database
+ *  ---> each database is different, so we need to be able to differentiate between them 
+ * and have different 'interfaces' to interact with
+ * 
  * initializes polybase with user config
  * @param {Object} config user's config object (dbs to manage)
  * @returns initialized polybase instance
