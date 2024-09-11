@@ -37,7 +37,7 @@ Each query entered into the Polybase CLI follows this general format:
 ## 3. **PostgreSQL**:
 
       ```bash
-    $Polybase: postgres select customers customer_id=7 name
+    $Polybase: postgres select polybase_postgres customer_id=7 name
     ```
 
 ## 4. **InfluxDB** 
