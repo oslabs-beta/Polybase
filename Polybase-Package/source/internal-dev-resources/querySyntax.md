@@ -25,9 +25,9 @@ Each query entered into the Polybase CLI follows this general format:
 
     ```bash
     # mongo find users name="Harley Davidson"
-    [target database] [operation] [specific collection] [filter]
     $Polybase: mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" name
     ```
+
 
 ### 2. **Redis**: 
 
@@ -44,6 +44,20 @@ Each query entered into the Polybase CLI follows this general format:
 ## 4. **InfluxDB** 
 
     ```bash
+    QUERY
+    $Polybase: influx query air_temp_degc station_id=41052 _value
+
+    # WRITE
+    # $Polybase: influx write air_temp_degc station_id=41052 station_name="South of St. John, VI" _value=-2.5
+
+    # DELETE
+    # $Polybase: influx delete air_temp_degc station_id=41052 start=2024-09-10T00:00:00Z stop=2024-09-11T00:00:00Z
 
     ```
 
+### 5. **Neo4j** 
+
+    ```bash
+    # mongo find users name="Harley Davidson"
+    $Polybase: neo4j match Movie title="Joker"
+    ```

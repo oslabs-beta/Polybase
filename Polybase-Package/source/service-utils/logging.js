@@ -43,7 +43,7 @@ const logConfig = {
  */
 function log(level, message, meta = {}, isConsoleMessage = false) {
     const timestamp = new Date().toISOString();
-    const logEntry = `[${timestamp}] [${level}] ${message} ${safeStringify(meta)}`;
+    const logEntry = `[${timestamp}] [${level}] ${message} ${safeStringify(meta)} \n`;
 
     //log high-level messages in the console only if specified
     if (isConsoleMessage && logConfig.logToConsole) {

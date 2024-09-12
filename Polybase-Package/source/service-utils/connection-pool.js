@@ -13,7 +13,7 @@ const { MongoClient } = require('mongodb');
 const { Pool: PostgresPool } = require('pg');
 const neo4j = require('neo4j-driver');
 const Redis = require('ioredis');
-const Influx = require('influx');
+const InfluxDB = require('influx');
 const { handleError } = require('../service-utils/error-handling');
 const { logInfo, logError } = require('../service-utils/logging');
 
@@ -23,7 +23,6 @@ const { logInfo, logError } = require('../service-utils/logging');
  * @param {*} config object provided by user 
  */
 async function configureNeo4jConnection(config) {
-    logInfo('...Connecting to Neo4j...', {}, true);
 
     try {
         //@NOTE creating Driver instance provide info on *how* to access the database, 
@@ -45,8 +44,8 @@ async function configureNeo4jConnection(config) {
         await session.close();
         // console.log(session);
         //log high-level status message in the terminal
-        logInfo('✔ Connection to Neo4j established.', { database: config.database }, true); // Display in console
-        //log detailed information into the file polybase.log that should auto populate in directory
+        logInfo('✔ Connection to Neo4j established.', { config }, true); // Display in console
+        //log detailed information into the file polyog that should auto populate in directory
         logInfo(`Detailed: Connected to Neo4j: ${config.database}`, { config }, false); //only in file
         return driver
         
@@ -69,9 +68,8 @@ async function configureNeo4jConnection(config) {
  * @returns the connection to the database
  */
 // MongoDB connection
-async function configureMongoDBConnection(config) {
+async function configureMongoConnection(config) {
     // Show loading message in the console
-    logInfo('...Connecting to MongoDB...', {}, true);
 
     try {
         const client = await MongoClient.connect(config.uri, {
@@ -117,7 +115,6 @@ async function getMongoSchema(db) {
  */
 async function configurePostgresConnection(config) {
     //show user that connection trying
-    logInfo('...Connecting to PostgreSQL...', {}, true);
 
     const pool = new PostgresPool({
         user: config.user,
@@ -150,7 +147,7 @@ async function configurePostgresConnection(config) {
  */
 function configureRedisConnection(config) {
     // Show loading message
-    logInfo('...Connecting to Redis...', {}, true);
+    logInfo('Attempting to connect to Redis...', {}, false);
 
     return new Promise((resolve, reject) => {
         const redis = new Redis({
@@ -178,26 +175,29 @@ function configureRedisConnection(config) {
  * @param {Object} config object 
  * @returns 
  */
-async function configureInfluxDBConnection(config) {
-
-    /*
-    * @TODO 
-    */
-    logInfo('...Connecting to InfluxDB...', {}, true);
+async function configureInfluxConnection(config) {
 
     try {
-        const influx = new Influx.InfluxDB({
+        const influxDB = new InfluxDB({ 
             url: config.url,
-            token: config.token,
+            token: config.token 
         });
 
-        logInfo('✔ Connection to InfluxDB established.', { url: config.url }, true); // Display in console
-        logInfo(`Detailed: Connected to InfluxDB at ${config.url}`, { config }, false); // Only in file
+        const healthAPI = new HealthAPI(influxDB);
+        const health = await healthAPI.getHealth();
+       
+        console.log('health status is', health.status);
+        if (!health) {
+            throw new Error('Failed to connect to InfluxDB');
+        }
 
-        return influx;
-    } catch (error) {
-        logError(`InfluxDB connection error: ${error.message}`, { error });
-        throw handleError(`InfluxDB connection error: ${error.message}`, 500);
+        logInfo('✔ Connection to InfluxDB established.', { url: config.url }, true);
+        logInfo(`Detailed: Connected to InfluxDB at ${config.url}`, { config }, false);
+
+        return influxDB;
+    } catch (err) {
+        logError(`InfluxDB connection error: ${err.message}`, { error: err });
+        throw handleError(`InfluxDB connection error: ${err.message}`, 500);
     }
 }
 
@@ -205,8 +205,8 @@ async function configureInfluxDBConnection(config) {
 
 module.exports = {
     configureNeo4jConnection,
-    configureMongoDBConnection,
+    configureMongoConnection,
     configureRedisConnection,
-    configureInfluxDBConnection,
+    configureInfluxConnection,
     configurePostgresConnection
 };

@@ -4,8 +4,7 @@
  * Responsible for initializing the Polybase environment
  * Sets up the necessary configurations, establishing connections to the specified databases.
  */
-
-const { configureMongoDBConnection, configureRedisConnection, configurePostgresConnection, configureNeo4jConnection, configureInfluxDBConnection } = require('../service-utils/connection-pool');
+const { configureMongoConnection, configureRedisConnection, configurePostgresConnection, configureNeo4jConnection, configureInfluxConnection } = require('../service-utils/connection-pool');
 const { cliInterface } = require('./cli-interface');
 const { getConfig, validateConfig } = require('../service-utils/config-management');
 const { manageState } = require('../service-utils/state-utils');
@@ -13,16 +12,16 @@ const { handleError } = require('../service-utils/error-handling');
 const { logInfo, logError } = require('../service-utils/logging');
 
 /** 
- * manages initialization and state of polybase 
+ * Manages initialization and state of Polybase 
  * (connections, configurations, etc.)
  */
 const PolyBaseInstance = {
     interfaces: {}, // stores db interfaces connected in session
 
-    // initializes polybase with provided interfaces
+    // initializes Polybase with provided interfaces
     init(interfaces) {
         this.interfaces = interfaces;
-        logInfo('polybase instance initialized with interfaces', { interfaces });
+        logInfo('Polybase instance initialized with interfaces', { interfaces });
     },
 
     // retrieves interface for a specific db type
@@ -32,9 +31,9 @@ const PolyBaseInstance = {
 };
 
 /**
- * establishes connections for each database in user config
- * @param {Object} config user's config object (dbs to manage)
- * @returns interfaces for connected dbs
+ * Establishes connections for each database in user config
+ * @param {Object} config - User's configuration object (databases to manage)
+ * @returns interfaces for connected databases
  */
 async function configureDatabaseConnections(config) {
     const interfaces = {};
@@ -43,73 +42,71 @@ async function configureDatabaseConnections(config) {
             let connection;
             switch (dbType) {
                 case 'mongo':
-                    connection = await configureMongoDBConnection(dbConfig);  
+                    connection = await configureMongoConnection(dbConfig);
                     break;
                 case 'redis':
-                    connection = await configureRedisConnection(dbConfig);  
+                    connection = await configureRedisConnection(dbConfig);
                     break;
-                case 'influxdb':
-                    connection = await configureInfluxDBConnection(dbConfig);
+                case 'influx':
+                    connection = await configureInfluxConnection(dbConfig);
                     break;
                 case 'neo4j':
                     connection = await configureNeo4jConnection(dbConfig);
                     break;
                 case 'postgres':
-                    connection = await configurePostgresConnection(dbConfig);  
+                    connection = await configurePostgresConnection(dbConfig);
                     break;
                 default:
-                    throw new Error(`unsupported database type: ${dbType}`);
+                    throw new Error(`Unsupported database type: ${dbType}`);
             }
-            interfaces[dbType] = connection; // store connection
-            manageState(dbType, connection, dbConfig); // manage state (each db connection has a slice)
+            interfaces[dbType] = connection; // Store connection
+            manageState(dbType, connection, dbConfig); // Manage state (each db connection has a slice)
         } catch (error) {
-            logError(`failed to connect to ${dbType}`, { error });
-            return handleError(`failed to connect to ${dbType}: ${error.message}`, 500);
+            logError(`Failed to connect to ${dbType}`, { error });
+            return handleError(`Failed to connect to ${dbType}: ${error.message}`, 500);
         }
     }
     return interfaces;
 }
 
 /**
- * 2 - user's config object lands heere -- polybase begins to 
- * make 'interfaces' for each type of database
- *  ---> each database is different, so we need to be able to differentiate between them 
- * and have different 'interfaces' to interact with
- * 
- * initializes polybase with user config
- * @param {Object} config user's config object (dbs to manage)
- * @returns initialized polybase instance
+ * Initializes Polybase with user config and starts necessary services
+ * @param {Object} config - User's configuration object
+ * @returns Initialized Polybase instance
  */
 async function initPolybase(config) {
-    logInfo('Initializing polybase with', { config }, false);
-    const interfaces = await configureDatabaseConnections(config);
 
+    const interfaces = await configureDatabaseConnections(config);
     if (!interfaces) {
-        throw handleError('failed to initialize database connections', 500);
+        throw handleError('Failed to initialize database connections', 500);
     }
 
-    PolyBaseInstance.init(interfaces); // init polybase with interfaces
-    logInfo('✔ polybase initialized with configured interfaces.', { interfaces }, false);
-    console.log('✔ polybase initialized with configured interfaces:', Object.keys(interfaces)); // Log interfaces to console
+    PolyBaseInstance.init(interfaces); // Initialize Polybase with interfaces
+
+    logInfo('✔ Polybase initialized with configured interfaces.', { interfaces });
+    console.log('✔ Polybase initialized with configured interfaces:', Object.keys(interfaces)); // Log interfaces to console
+
+    //after successful initialization, start the CLI
+    cliInterface();
+
     return PolyBaseInstance;
 }
 
 /**
- * starts polybase with the given config
- * @param {Object} config user's config object (optional)
+ * Starts Polybase with the given config
+ * @param {Object} config - User's configuration object (optional)
  */
 async function startPolybase(config = null) {
     const finalConfig = getConfig(config);
     if (!validateConfig(finalConfig)) {
-        return handleError('invalid configuration. initialization aborted.', 400); // handle bad config
+        return handleError('Invalid configuration. Initialization aborted.', 400); // Handle bad config
     }
 
     const polybase = await initPolybase(finalConfig);
     if (!polybase) {
-        return handleError('failed to start polybase.', 500);
+        return handleError('Failed to start Polybase.', 500);
     }
-
-    cliInterface(); //starting CLI after initialization --user able to interact with polybase
 }
+
 
 module.exports = { initPolybase, startPolybase };

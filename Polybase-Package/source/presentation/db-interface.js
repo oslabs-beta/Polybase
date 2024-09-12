@@ -9,6 +9,7 @@ const { redisQuery } = require('../transformation/kvstore-adapter');
 const { postgresQuery } = require('../transformation/sql-adapter');
 const { influxQuery } = require('../transformation/timeseries-adapter');
 const { getState } = require('../service-utils/state-utils');
+const { neo4jQuery } = require('../transformation/graph-adapter');
 
 /**
  * executes db query by routing through core modules (query processor, transformation, etc.)
@@ -58,7 +59,16 @@ async function execQuery(dbType, query) {
 
             queryResult = await redisQuery(client, query.operation, transformedQuery);
             // console.log(queryResult);
-    }
+        }
+            
+        else if (dbType === 'neo4j') {
+            const state = getState(dbType);
+            const driver = state.connection;
+            if (!driver) throw new Error('No Neo4j connection found.');
+            const session = driver.session();
+            queryResult = await neo4jQuery(session, query.operation, transformedQuery);
+            await session.close();
+        }
 
         // handling InfluxDB query
         else if (dbType === 'influx') {
