@@ -25,7 +25,7 @@ Each query entered into the Polybase CLI follows this general format:
 
     ```bash
     # mongo find users name="Harley Davidson"
-    $Polybase: mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" name
+    $Polybase: mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" namem
     ```
 
 
@@ -46,6 +46,8 @@ Each query entered into the Polybase CLI follows this general format:
     ```bash
     QUERY
     $Polybase: influx query air_temp_degc station_id=41052 _value
+
+    polybase find user_id name="davis"
 
     # WRITE
     # $Polybase: influx write air_temp_degc station_id=41052 station_name="South of St. John, VI" _value=-2.5

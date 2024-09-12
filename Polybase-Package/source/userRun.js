@@ -36,7 +36,7 @@ const PORT = 3000;
         username: 'polybase-neo4j',
         password: 'polybase'
         },
-         influx: {
+        influx: {
             url: 'https://us-east-1-1.aws.cloud2.influxdata.com',
             token: 'oVd4p0TiPWtMPeIY9Tdhjulf1BUMf2GrlihlDeBUsV1Rj9egHGiHAkj4Pxstr5bFqveCGPvC32qwa0cJTALC5A==',
             bucket: 'Influx-Sample-Buoy',
@@ -124,7 +124,7 @@ app.get('/schemas', async (req, res) => {
     require('./presentation/cli-interface').cliInterface();
 
 })();
-// const Polybase = require('./connect.js');
+const Polybase = require('./connect.js');
 
 // // Configuration object provided by the user
 // const config = {
@@ -160,4 +160,3 @@ app.get('/schemas', async (req, res) => {
 
 // // Initialize Polybase by passing the config object
 // Polybase.connect(config);
-
