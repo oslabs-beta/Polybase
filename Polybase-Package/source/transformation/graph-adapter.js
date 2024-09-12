@@ -24,8 +24,6 @@ async function neo4jQuery(session, operation, params) {
         switch (operation) {
             case 'match':
                 const fieldsToReturn = fields.includes('*') ? 'n' : fields.join(', ');
-
-                
                 cypherQuery = `MATCH (n:${label}) WHERE ${whereClause} RETURN ${fieldsToReturn};`;
                 result = await session.run(cypherQuery);
                 break;
