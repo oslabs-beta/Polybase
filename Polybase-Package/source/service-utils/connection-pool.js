@@ -13,7 +13,7 @@ const { MongoClient } = require('mongodb');
 const { Pool: PostgresPool } = require('pg');
 const neo4j = require('neo4j-driver');
 const Redis = require('ioredis');
-const InfluxDB = require('influx');
+const { InfluxDB } = require('influx'); 
 const { handleError } = require('../service-utils/error-handling');
 const { logInfo, logError } = require('../service-utils/logging');
 
@@ -31,7 +31,7 @@ async function configureNeo4jConnection(config) {
             config.uri,
             neo4j.auth.basic(config.username, config.password), {
             maxConnectionPoolSize: 10,
-            connecitonTimeout: 30000,
+            connectionTimeout: 30000,
         }
         );
 
@@ -47,15 +47,14 @@ async function configureNeo4jConnection(config) {
         logInfo('✔ Connection to Neo4j established.', { config }, true); // Display in console
         //log detailed information into the file polyog that should auto populate in directory
         logInfo(`Detailed: Connected to Neo4j: ${config.database}`, { config }, false); //only in file
-        return driver
+        return driver;
         
         //TODO: when to use driver.close() ? 
       
     }
     catch (err) {
         logError(`Neo4j connection error: ${err.message}`, { error: err });
-        throw handleError(`MongoDB connection error: ${err.message}`, 500);
-        console.log(`Neo4j connection error\n${err}\nCause: ${err.cause}`);
+        throw handleError(`Neo4j connection error: ${err.message}`, 500);
 
 
     }
@@ -176,30 +175,26 @@ function configureRedisConnection(config) {
  * @returns 
  */
 async function configureInfluxConnection(config) {
-
     try {
-        const influxDB = new InfluxDB({ 
+        // Create a new InfluxDB instance using the provided URL and token
+        const influxDB = new InfluxDB({
             url: config.url,
-            token: config.token 
+            token: config.token
         });
 
-        const healthAPI = new HealthAPI(influxDB);
-        const health = await healthAPI.getHealth();
-       
-        console.log('health status is', health.status);
-        if (!health) {
-            throw new Error('Failed to connect to InfluxDB');
-        }
+        // Logging successful connection message
+        logInfo('✔ Connection to InfluxDB initialized.', { url: config.url }, true);
+        logInfo(`Detailed: Connected to InfluxDB at ${config.url} using bucket ${config.bucket}`, { config }, false);
 
-        logInfo('✔ Connection to InfluxDB established.', { url: config.url }, true);
-        logInfo(`Detailed: Connected to InfluxDB at ${config.url}`, { config }, false);
-
+        // Return the InfluxDB instance for later use
         return influxDB;
     } catch (err) {
+        // Log and handle any errors during the connection process
         logError(`InfluxDB connection error: ${err.message}`, { error: err });
         throw handleError(`InfluxDB connection error: ${err.message}`, 500);
     }
 }
+
 
 
 
