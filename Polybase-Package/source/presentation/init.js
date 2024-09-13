@@ -10,6 +10,7 @@ const { getConfig, validateConfig } = require('../service-utils/config-managemen
 const { manageState } = require('../service-utils/state-utils');
 const { handleError } = require('../service-utils/error-handling');
 const { logInfo, logError } = require('../service-utils/logging');
+const { getMongoSchema, getInfluxMeasurements, getPostgresSchema, getNeo4jMetadata, getRedisKeyspace } = require('../service-utils/schema-generator');
 
 /** 
  * Manages initialization and state of Polybase 
@@ -39,22 +40,33 @@ async function configureDatabaseConnections(config) {
     const interfaces = {};
     for (const [dbType, dbConfig] of Object.entries(config)) {
         try {
+            let schema;
             let connection;
             switch (dbType) {
                 case 'mongo':
                     connection = await configureMongoConnection(dbConfig);
+                    schema = await getMongoSchema(connection);
+                    console.log('mongo schema is :', schema);
                     break;
                 case 'redis':
                     connection = await configureRedisConnection(dbConfig);
+                    schema = await getRedisKeyspace(connection);
+                    console.log('Redis schema is', schema);
                     break;
                 case 'influx':
                     connection = await configureInfluxConnection(dbConfig);
+                    schema = await getInfluxMeasurements(connection);
+                    console.log('Influx schema is:', schema)
                     break;
                 case 'neo4j':
                     connection = await configureNeo4jConnection(dbConfig);
+                    schema = await getNeo4jMetadata(connection);
+                    console.log('Neo4j MetaData is:', schema)
                     break;
                 case 'postgres':
                     connection = await configurePostgresConnection(dbConfig);
+                    schema = await getPostgresSchema(connection);
+                    console.log('Postgres Schema is:', schema)
                     break;
                 default:
                     throw new Error(`Unsupported database type: ${dbType}`);

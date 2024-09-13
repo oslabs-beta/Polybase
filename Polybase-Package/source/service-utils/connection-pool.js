@@ -13,7 +13,33 @@ const { MongoClient } = require('mongodb');
 const { Pool: PostgresPool } = require('pg');
 const neo4j = require('neo4j-driver');
 const Redis = require('ioredis');
-const { InfluxDB } = require('influx'); 
+const { InfluxDB } = require('@influxdata/influxdb-client');
+
+/**
+ * Establish connection with InfluxDB 2.x
+ * @param {Object} config object 
+ * @returns {InfluxDB} instance
+ */
+async function configureInfluxConnection(config) {
+    try {
+        // Create a new InfluxDB client instance
+        const influxDB = new InfluxDB({
+            url: config.url,
+            token: config.token
+        });
+
+        // Log the successful connection message
+        logInfo('✔ Connection to InfluxDB initialized.', { url: config.url }, true);
+        logInfo(`Detailed: Connected to InfluxDB at ${config.url} using bucket ${config.bucket}`, { config }, false);
+
+        // Return the InfluxDB instance for later use
+        return influxDB;
+    } catch (err) {
+        // Log and handle any errors during the connection process
+        logError(`InfluxDB connection error: ${err.message}`, { error: err });
+        throw handleError(`InfluxDB connection error: ${err.message}`, 500);
+    }
+}
 const { handleError } = require('../service-utils/error-handling');
 const { logInfo, logError } = require('../service-utils/logging');
 
