@@ -25,6 +25,7 @@ Each query entered into the Polybase CLI follows this general format:
 
     ```bash
     # mongo find users name="Harley Davidson"
+    [target database] [operation] [specific collection] [filter]
     $Polybase: mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" name
     ```
 
@@ -32,7 +33,7 @@ Each query entered into the Polybase CLI follows this general format:
 
     ```bash
     $Polybase: redis json.get sample_bicycle:1001
-    ```
+    ``
 
 ## 3. **PostgreSQL**:
 
