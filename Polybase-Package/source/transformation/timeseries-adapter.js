@@ -109,7 +109,7 @@
 /**
  * influx-adapter.js
  * 
- * Manages interactions with InfluxDB, a time-series database.
+ * manages interactions w InfluxDB -- time-series database.
  * Handles query execution and InfluxDB-specific operations such as writing data points,
  * querying time-series data, and managing buckets.
  */
@@ -154,7 +154,6 @@ async function influxQuery(influxDB, operation, params) {
                 });
                 return result;
 
-            // Write Operation
             case 'write':
                 if (!measurement || !tag || !fields) {
                     throw new Error('Missing required parameters for InfluxDB write operation');
