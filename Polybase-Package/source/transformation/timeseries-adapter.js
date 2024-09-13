@@ -113,7 +113,7 @@
  * Handles query execution and InfluxDB-specific operations such as writing data points,
  * querying time-series data, and managing buckets.
  */
-
+const { Point, InfluxDB } = require('@influxdata/influxdb-client');
 const { getState } = require('../service-utils/state-utils');
 
 /**
@@ -125,49 +125,52 @@ const { getState } = require('../service-utils/state-utils');
  */
 async function influxQuery(influxDB, operation, params) {
     try {
-        const { measurement, tag, fields, timestamp } = params;
-        let query;
+        const { measurement, tag, fields, timestamp, bucket, org, fluxQuery } = params;
+        const queryApi = influxDB.getQueryApi(org); 
+        const writeApi = influxDB.getWriteApi(org, bucket); 
         let result;
 
         switch (operation) {
+            // Query Operation
             case 'query':
-                query = `
-                    from(bucket: "${params.bucket}")
-                    |> range(start: ${params.range})
-                    |> filter(fn: (r) => r._measurement == "${measurement}")
-                    |> filter(fn: (r) => r.${Object.keys(tag)[0]} == "${Object.values(tag)[0]}")
-                    |> filter(fn: (r) => r._field == "${Object.keys(fields)[0]}")
-                `;
-                result = await influxDB.query(query).toArray();
-                break;
-
-            case 'write':
-                result = await influxDB.writePoints([{
-                    measurement,
-                    tags: tag,
-                    fields: fields,
-                    timestamp: timestamp || Date.now()
-                }]);
-                break;
-
-            case 'delete':
-                result = await influxDB.delete({
-                    bucket: params.bucket,
-                    predicate: `_measurement="${measurement}" AND ${Object.keys(tag)[0]}="${Object.values(tag)[0]}"`,
-                    start: params.start,
-                    stop: params.stop
+                result = [];
+                await queryApi.queryRows(fluxQuery, {
+                    next(row, tableMeta) {
+                        const o = tableMeta.toObject(row);
+                        result.push(o);
+                    },
+                    error(error) {
+                        console.error('InfluxDB query error: ', error);
+                        throw new Error('Failed to execute InfluxDB query');
+                    },
+                    complete() {
+                        console.log('Query completed');
+                    },
                 });
-                break;
+                return result;
 
+            // Write Operation
+            case 'write':
+                const point = new Point(measurement)
+                    .tag(Object.keys(tag)[0], Object.values(tag)[0])
+                    .field(Object.keys(fields)[0], Object.values(fields)[0])
+                    .timestamp(timestamp || Date.now());
+                writeApi.writePoint(point);
+                await writeApi.flush();
+                return { success: true, message: 'Data inserted successfully' };
+
+            // Delete Operation (Note: Needs REST API call)
+            case 'delete':
+                throw new Error('Delete operation not supported directly in client library. Please use the InfluxDB Delete API.');
+            
             default:
                 throw new Error(`Unsupported InfluxDB operation: ${operation}`);
         }
-
-        return result;
     } catch (error) {
-        console.error('InfluxDB query error:', error);
-        throw new Error('Failed to execute InfluxDB query');
+        console.error('InfluxDB operation error: ', error);
+        throw new Error('Failed to execute InfluxDB operation');
     }
 }
+
 
 module.exports = { influxQuery };
