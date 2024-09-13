@@ -1880,3 +1880,356 @@
   }
 } 
 
+[2024-09-13T00:22:26.743Z] [INFO] ✔ Connection to MongoDB established. {
+  "database": "polybase_mongo"
+} 
+
+[2024-09-13T00:22:26.748Z] [INFO] Detailed: Connected to MongoDB: polybase_mongo {
+  "config": {
+    "uri": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+    "database": "polybase_mongo"
+  }
+} 
+
+[2024-09-13T00:22:26.829Z] [INFO] Fetched MongoDB schema {
+  "schema": {
+    "polybase_mongo_collection": [
+      "_id",
+      "name"
+    ]
+  }
+} 
+
+[2024-09-13T00:22:26.836Z] [INFO] Added connection for mongo {
+  "dbType": "mongo",
+  "connectionDetails": "{\n  \"s\": {\n    \"options\": {\n      \"enableUtf8Validation\": true,\n      \"forceServerObjectId\": false,\n      \"pkFactory\": {},\n      \"raw\": false,\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"retryWrites\": true,\n      \"writeConcern\": {\n        \"w\": \"majority\"\n      }\n    },\n    \"readPreference\": {\n      \"mode\": \"primary\"\n    },\n    \"bsonOptions\": {\n      \"raw\": false,\n      \"useBigInt64\": false,\n      \"promoteLongs\": true,\n      \"promoteValues\": true,\n      \"promoteBuffers\": false,\n      \"ignoreUndefined\": false,\n      \"bsonRegExp\": false,\n      \"serializeFunctions\": false,\n      \"fieldsAsRaw\": {},\n      \"enableUtf8Validation\": true\n    },\n    \"pkFactory\": \"[Circular]\",\n    \"writeConcern\": {\n      \"w\": \"majority\"\n    },\n    \"namespace\": {\n      \"db\": \"polybase_mongo\"\n    }\n  },\n  \"client\": {\n    \"_events\": {},\n    \"_eventsCount\": 0,\n    \"s\": {\n      \"url\": \"mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0\",\n      \"bsonOptions\": {\n        \"raw\": false,\n        \"useBigInt64\": false,\n        \"promoteLongs\": true,\n        \"promoteValues\": true,\n        \"promoteBuffers\": false,\n        \"ignoreUndefined\": false,\n        \"bsonRegExp\": false,\n        \"serializeFunctions\": false,\n        \"fieldsAsRaw\": \"[Circular]\",\n        \"enableUtf8Validation\": true\n      },\n      \"namespace\": {\n        \"db\": \"admin\"\n      },\n      \"hasBeenClosed\": false,\n      \"sessionPool\": {\n        \"client\": \"[Circular]\",\n        \"sessions\": {\n          \"count\": 1,\n          \"head\": {\n            \"next\": {\n              \"next\": \"[Circular]\",\n              \"prev\": \"[Circular]\",\n              \"value\": {\n                \"id\": {\n                  \"id\": \"eDNe6ZEOTaqfcD0gpjl5Yg==\"\n                },\n                \"lastUse\": 782012328,\n                \"txnNumber\": 0,\n                \"isDirty\": false\n              }\n            },\n            \"prev\": \"[Circular]\",\n            \"value\": null\n          }\n        }\n      },\n      \"activeSessions\": {},\n      \"authProviders\": {\n        \"existingProviders\": {}\n      },\n      \"options\": {\n        \"hosts\": [\n          {\n            \"host\": \"cluster-0-shard-00-01.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          },\n          {\n            \"host\": \"cluster-0-shard-00-02.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          },\n          {\n            \"host\": \"cluster-0-shard-00-00.bbvjq.mongodb.net\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          }\n        ],\n        \"appName\": \"Cluster-0\",\n        \"credentials\": {\n          \"username\": \"davisknaub\",\n          \"password\": \"l0JMb9PGVU0K3jvE\",\n          \"source\": \"admin\",\n          \"mechanism\": \"DEFAULT\",\n          \"mechanismProperties\": {}\n        },\n        \"compressors\": [\n          \"none\"\n        ],\n        \"connectTimeoutMS\": 30000,\n        \"directConnection\": false,\n        \"driverInfo\": {},\n        \"enableUtf8Validation\": true,\n        \"forceServerObjectId\": false,\n        \"heartbeatFrequencyMS\": 10000,\n        \"loadBalanced\": false,\n        \"localThresholdMS\": 15,\n        \"maxConnecting\": 2,\n        \"maxIdleTimeMS\": 0,\n        \"maxPoolSize\": 10,\n        \"minPoolSize\": 0,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"monitorCommands\": false,\n        \"noDelay\": true,\n        \"pkFactory\": \"[Circular]\",\n        \"raw\": false,\n        \"readPreference\": {\n          \"mode\": \"primary\"\n        },\n        \"retryReads\": true,\n        \"retryWrites\": true,\n        \"serverMonitoringMode\": \"auto\",\n        \"serverSelectionTimeoutMS\": 30000,\n        \"socketTimeoutMS\": 0,\n        \"srvMaxHosts\": 0,\n        \"srvServiceName\": \"mongodb\",\n        \"writeConcern\": \"[Circular]\",\n        \"waitQueueTimeoutMS\": 0,\n        \"zlibCompressionLevel\": 0,\n        \"dbName\": \"test\",\n        \"userSpecifiedAuthSource\": false,\n        \"userSpecifiedReplicaSet\": false,\n        \"srvHost\": \"cluster-0.bbvjq.mongodb.net\",\n        \"tls\": true,\n        \"mongoLoggerOptions\": {\n          \"componentSeverities\": {\n            \"command\": \"off\",\n            \"topology\": \"off\",\n            \"serverSelection\": \"off\",\n            \"connection\": \"off\",\n            \"client\": \"off\",\n            \"default\": \"off\"\n          },\n          \"maxDocumentLength\": 1000,\n          \"logDestination\": {},\n          \"logDestinationIsStdErr\": true\n        },\n        \"metadata\": {\n          \"application\": {\n            \"name\": \"Cluster-0\"\n          },\n          \"driver\": {\n            \"name\": \"nodejs\",\n            \"version\": \"6.7.0\"\n          },\n          \"platform\": \"Node.js v22.7.0, LE\",\n          \"os\": {\n            \"name\": \"darwin\",\n            \"architecture\": \"arm64\",\n            \"version\": \"24.0.0\",\n            \"type\": \"Darwin\"\n          }\n        },\n        \"extendedMetadata\": {},\n        \"replicaSet\": \"atlas-31kw7f-shard-0\"\n      },\n      \"writeConcern\": \"[Circular]\",\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"isMongoClient\": true\n    },\n    \"topology\": {\n      \"_events\": {\n        \"topologyDescriptionChanged\": [\n          null,\n          null\n        ]\n      },\n      \"_eventsCount\": 26,\n      \"client\": \"[Circular]\",\n      \"s\": {\n        \"id\": 0,\n        \"options\": \"[Circular]\",\n        \"seedlist\": [\n          \"[Circular]\",\n          \"[Circular]\",\n          \"[Circular]\"\n        ],\n        \"state\": \"connected\",\n        \"description\": {\n          \"type\": \"ReplicaSetWithPrimary\",\n          \"servers\": {\n            \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSPrimary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"nodeType\": \"ELECTABLE\",\n                \"provider\": \"AWS\",\n                \"region\": \"US_EAST_1\",\n                \"workloadType\": \"OPERATIONAL\",\n                \"availabilityZone\": \"use1-az4\",\n                \"diskState\": \"READY\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 42,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 782011972,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-13T00:22:26Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66e30cc28c8d5d4ad292beea\"\n                },\n                \"counter\": 6\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 208,\n              \"electionId\": {\n                \"$oid\": \"7fffffff0000000000000197\"\n              },\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1726186946,\n                    \"i\": 16\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 12,\n                    \"1\": 245,\n                    \"2\": 35,\n                    \"3\": 120,\n                    \"4\": 234,\n                    \"5\": 94,\n                    \"6\": 222,\n                    \"7\": 170,\n                    \"8\": 66,\n                    \"9\": 23,\n                    \"10\": 99,\n                    \"11\": 216,\n                    \"12\": 29,\n                    \"13\": 127,\n                    \"14\": 147,\n                    \"15\": 7,\n                    \"16\": 88,\n                    \"17\": 13,\n                    \"18\": 59,\n                    \"19\": 70\n                  },\n                  \"keyId\": 7380052273335894000\n                }\n              }\n            },\n            \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSSecondary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"provider\": \"AWS\",\n                \"availabilityZone\": \"use1-az6\",\n                \"nodeType\": \"ELECTABLE\",\n                \"workloadType\": \"OPERATIONAL\",\n                \"region\": \"US_EAST_1\",\n                \"diskState\": \"READY\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 42,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 782011977,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-13T00:22:26Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66e30ef1f772de06c2e02872\"\n                },\n                \"counter\": 3\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 208,\n              \"electionId\": null,\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1726186946,\n                    \"i\": 16\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 12,\n                    \"1\": 245,\n                    \"2\": 35,\n                    \"3\": 120,\n                    \"4\": 234,\n                    \"5\": 94,\n                    \"6\": 222,\n                    \"7\": 170,\n                    \"8\": 66,\n                    \"9\": 23,\n                    \"10\": 99,\n                    \"11\": 216,\n                    \"12\": 29,\n                    \"13\": 127,\n                    \"14\": 147,\n                    \"15\": 7,\n                    \"16\": 88,\n                    \"17\": 13,\n                    \"18\": 59,\n                    \"19\": 70\n                  },\n                  \"keyId\": 7380052273335894000\n                }\n              }\n            },\n            \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\": {\n              \"address\": \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n              \"type\": \"RSSecondary\",\n              \"hosts\": [\n                \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n                \"cluster-0-shard-00-02.bbvjq.mongodb.net:27017\"\n              ],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {\n                \"workloadType\": \"OPERATIONAL\",\n                \"region\": \"US_EAST_1\",\n                \"availabilityZone\": \"use1-az2\",\n                \"diskState\": \"READY\",\n                \"nodeType\": \"ELECTABLE\",\n                \"provider\": \"AWS\"\n              },\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 35,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 782012026,\n              \"lastWriteDate\": {\n                \"$date\": \"2024-09-13T00:22:26Z\"\n              },\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"66e30db8a0bca4d2782a6ebd\"\n                },\n                \"counter\": 4\n              },\n              \"setName\": \"atlas-31kw7f-shard-0\",\n              \"setVersion\": 208,\n              \"electionId\": null,\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": \"cluster-0-shard-00-01.bbvjq.mongodb.net:27017\",\n              \"me\": \"cluster-0-shard-00-00.bbvjq.mongodb.net:27017\",\n              \"$clusterTime\": {\n                \"clusterTime\": {\n                  \"$timestamp\": {\n                    \"t\": 1726186946,\n                    \"i\": 17\n                  }\n                },\n                \"signature\": {\n                  \"hash\": {\n                    \"0\": 12,\n                    \"1\": 245,\n                    \"2\": 35,\n                    \"3\": 120,\n                    \"4\": 234,\n                    \"5\": 94,\n                    \"6\": 222,\n                    \"7\": 170,\n                    \"8\": 66,\n                    \"9\": 23,\n                    \"10\": 99,\n                    \"11\": 216,\n                    \"12\": 29,\n                    \"13\": 127,\n                    \"14\": 147,\n                    \"15\": 7,\n                    \"16\": 88,\n                    \"17\": 13,\n                    \"18\": 59,\n                    \"19\": 70\n                  },\n                  \"keyId\": 7380052273335894000\n                }\n              }\n            }\n          },\n          \"stale\": false,\n          \"compatible\": true,\n          \"heartbeatFrequencyMS\": 10000,\n          \"localThresholdMS\": 15,\n          \"setName\": \"atlas-31kw7f-shard-0\",\n          \"maxElectionId\": {\n            \"$oid\": \"7fffffff0000000000000197\"\n          },\n          \"maxSetVersion\": 208,\n          \"commonWireVersion\": 0,\n          \"logicalSessionTimeoutMinutes\": 30\n        },\n        \"serverSelectionTimeoutMS\": 30000,\n        \"heartbeatFrequencyMS\": 10000,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"servers\": {},\n        \"credentials\": \"[Circular]\",\n        \"clusterTime\": {\n          \"clusterTime\": {\n            \"$timestamp\": \"7413916479852118041\"\n          },\n          \"signature\": {\n            \"hash\": \"DPUjeOpe3qpCF2PYHX+TB1gNO0Y=\",\n            \"keyId\": {\n              \"low\": 45,\n              \"high\": 1718302321,\n              \"unsigned\": false\n            }\n          }\n        },\n        \"connectionTimers\": {},\n        \"srvPoller\": {\n          \"_events\": {},\n          \"_eventsCount\": 0,\n          \"srvHost\": \"cluster-0.bbvjq.mongodb.net\",\n          \"srvMaxHosts\": 0,\n          \"srvServiceName\": \"mongodb\",\n          \"rescanSrvIntervalMS\": 60000,\n          \"heartbeatFrequencyMS\": 10000,\n          \"haMode\": false,\n          \"generation\": 0\n        }\n      },\n      \"component\": \"topology\"\n    }\n  }\n}"
+} 
+
+[2024-09-13T00:22:26.836Z] [INFO] Set config for mongo {
+  "config": {
+    "uri": "mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0",
+    "database": "polybase_mongo"
+  }
+} 
+
+[2024-09-13T00:22:27.318Z] [INFO] ✔ Connection to PostgreSQL established. {
+  "database": "postgres"
+} 
+
+[2024-09-13T00:22:27.318Z] [INFO] Detailed: Connected to PostgreSQL at aws-0-us-west-1.pooler.supabase.com {
+  "config": {
+    "user": "postgres.veodgvmkvklvxobkjrfh",
+    "host": "aws-0-us-west-1.pooler.supabase.com",
+    "database": "postgres",
+    "password": "lukeiamyourfather",
+    "port": 5432
+  }
+} 
+
+[2024-09-13T00:22:27.542Z] [INFO] Fetched PostgreSQL schema {
+  "schema": {
+    "polybase_postgres": [
+      {
+        "column": "customer_id",
+        "type": "bigint"
+      },
+      {
+        "column": "signup_date",
+        "type": "timestamp with time zone"
+      },
+      {
+        "column": "account_balance",
+        "type": "double precision"
+      },
+      {
+        "column": "name",
+        "type": "text"
+      },
+      {
+        "column": "email",
+        "type": "text"
+      }
+    ]
+  }
+} 
+
+[2024-09-13T00:22:27.544Z] [INFO] Added connection for postgres {
+  "dbType": "postgres",
+  "connectionDetails": "{\n  \"_events\": {},\n  \"_eventsCount\": 0,\n  \"connectionParameters\": {\n    \"user\": \"postgres.veodgvmkvklvxobkjrfh\",\n    \"database\": \"postgres\",\n    \"port\": 5432,\n    \"host\": \"aws-0-us-west-1.pooler.supabase.com\",\n    \"binary\": false,\n    \"ssl\": false,\n    \"client_encoding\": \"\",\n    \"isDomainSocket\": false,\n    \"statement_timeout\": false,\n    \"lock_timeout\": false,\n    \"idle_in_transaction_session_timeout\": false,\n    \"query_timeout\": false,\n    \"connect_timeout\": 0\n  },\n  \"user\": \"postgres.veodgvmkvklvxobkjrfh\",\n  \"database\": \"postgres\",\n  \"port\": 5432,\n  \"host\": \"aws-0-us-west-1.pooler.supabase.com\",\n  \"_types\": {\n    \"_types\": {\n      \"arrayParser\": {},\n      \"builtins\": {\n        \"BOOL\": 16,\n        \"BYTEA\": 17,\n        \"CHAR\": 18,\n        \"INT8\": 20,\n        \"INT2\": 21,\n        \"INT4\": 23,\n        \"REGPROC\": 24,\n        \"TEXT\": 25,\n        \"OID\": 26,\n        \"TID\": 27,\n        \"XID\": 28,\n        \"CID\": 29,\n        \"JSON\": 114,\n        \"XML\": 142,\n        \"PG_NODE_TREE\": 194,\n        \"SMGR\": 210,\n        \"PATH\": 602,\n        \"POLYGON\": 604,\n        \"CIDR\": 650,\n        \"FLOAT4\": 700,\n        \"FLOAT8\": 701,\n        \"ABSTIME\": 702,\n        \"RELTIME\": 703,\n        \"TINTERVAL\": 704,\n        \"CIRCLE\": 718,\n        \"MACADDR8\": 774,\n        \"MONEY\": 790,\n        \"MACADDR\": 829,\n        \"INET\": 869,\n        \"ACLITEM\": 1033,\n        \"BPCHAR\": 1042,\n        \"VARCHAR\": 1043,\n        \"DATE\": 1082,\n        \"TIME\": 1083,\n        \"TIMESTAMP\": 1114,\n        \"TIMESTAMPTZ\": 1184,\n        \"INTERVAL\": 1186,\n        \"TIMETZ\": 1266,\n        \"BIT\": 1560,\n        \"VARBIT\": 1562,\n        \"NUMERIC\": 1700,\n        \"REFCURSOR\": 1790,\n        \"REGPROCEDURE\": 2202,\n        \"REGOPER\": 2203,\n        \"REGOPERATOR\": 2204,\n        \"REGCLASS\": 2205,\n        \"REGTYPE\": 2206,\n        \"UUID\": 2950,\n        \"TXID_SNAPSHOT\": 2970,\n        \"PG_LSN\": 3220,\n        \"PG_NDISTINCT\": 3361,\n        \"PG_DEPENDENCIES\": 3402,\n        \"TSVECTOR\": 3614,\n        \"TSQUERY\": 3615,\n        \"GTSVECTOR\": 3642,\n        \"REGCONFIG\": 3734,\n        \"REGDICTIONARY\": 3769,\n        \"JSONB\": 3802,\n        \"REGNAMESPACE\": 4089,\n        \"REGROLE\": 4096\n      }\n    },\n    \"text\": {},\n    \"binary\": {}\n  },\n  \"_ending\": false,\n  \"_ended\": false,\n  \"_connecting\": false,\n  \"_connected\": true,\n  \"_connectionError\": false,\n  \"_queryable\": true,\n  \"connection\": {\n    \"_events\": {},\n    \"_eventsCount\": 23,\n    \"stream\": {\n      \"connecting\": false,\n      \"_hadError\": false,\n      \"_parent\": null,\n      \"_host\": \"aws-0-us-west-1.pooler.supabase.com\",\n      \"_closeAfterHandlingError\": false,\n      \"_events\": {\n        \"end\": [\n          null,\n          null\n        ]\n      },\n      \"_readableState\": {\n        \"highWaterMark\": 65536,\n        \"buffer\": [],\n        \"bufferIndex\": 0,\n        \"length\": 0,\n        \"pipes\": [],\n        \"awaitDrainWriters\": null\n      },\n      \"_writableState\": {\n        \"highWaterMark\": 65536,\n        \"length\": 0,\n        \"corked\": 0,\n        \"writelen\": 0,\n        \"bufferedIndex\": 0,\n        \"pendingcb\": 0\n      },\n      \"allowHalfOpen\": false,\n      \"_eventsCount\": 4,\n      \"_sockname\": null,\n      \"_pendingData\": null,\n      \"_pendingEncoding\": \"\",\n      \"server\": null,\n      \"_server\": null,\n      \"autoSelectFamilyAttemptedAddresses\": [\n        \"52.8.172.168:5432\"\n      ]\n    },\n    \"_keepAlive\": false,\n    \"_keepAliveInitialDelayMillis\": 0,\n    \"lastBuffer\": false,\n    \"parsedStatements\": {},\n    \"ssl\": false,\n    \"_ending\": false,\n    \"_emitMessage\": false,\n    \"_connecting\": true\n  },\n  \"queryQueue\": [],\n  \"binary\": false,\n  \"processID\": 1313814392,\n  \"secretKey\": 1172412849,\n  \"ssl\": false,\n  \"_connectionTimeoutMillis\": 0,\n  \"_connectionCallback\": null,\n  \"saslSession\": null,\n  \"activeQuery\": null,\n  \"readyForQuery\": true,\n  \"hasExecuted\": true\n}"
+} 
+
+[2024-09-13T00:22:27.544Z] [INFO] Set config for postgres {
+  "config": {
+    "user": "postgres.veodgvmkvklvxobkjrfh",
+    "host": "aws-0-us-west-1.pooler.supabase.com",
+    "database": "postgres",
+    "password": "lukeiamyourfather",
+    "port": 5432
+  }
+} 
+
+[2024-09-13T00:22:27.545Z] [INFO] Attempting to connect to Redis... {} 
+
+[2024-09-13T00:22:27.640Z] [INFO] ✔ Connection to Redis established. {
+  "host": "redis-13782.c329.us-east4-1.gce.redns.redis-cloud.com",
+  "port": 13782
+} 
+
+[2024-09-13T00:22:27.641Z] [INFO] Detailed: Connected to Redis at redis-13782.c329.us-east4-1.gce.redns.redis-cloud.com:13782 {
+  "config": {
+    "host": "redis-13782.c329.us-east4-1.gce.redns.redis-cloud.com",
+    "port": 13782,
+    "username": "default",
+    "password": "D0UPgd4SyZKVyUv7uEwGyKc7Q5eJKl3V"
+  }
+} 
+
+[2024-09-13T00:22:27.714Z] [INFO] Fetched Redis keyspace {
+  "keys": [
+    "sample_bicycle:1104",
+    "sample_bicycle:1071",
+    "sample_bicycle:1052",
+    "sample_restaurant:33",
+    "sample_bicycle:1063",
+    "sample_bicycle:1029",
+    "sample_bicycle:1008",
+    "sample_restaurant:9",
+    "sample_restaurant:11",
+    "sample_restaurant:14",
+    "sample_bicycle:1014",
+    "sample_bicycle:1031",
+    "sample_bicycle:1051",
+    "sample_bicycle:1068",
+    "sample_bicycle:1017",
+    "sample_restaurant:13",
+    "sample_restaurant:46",
+    "sample_restaurant:15",
+    "sample_bicycle:1045",
+    "sample_bicycle:1061",
+    "sample_restaurant:41",
+    "sample_bicycle:1032",
+    "sample_bicycle:1042",
+    "sample_bicycle:1078",
+    "sample_restaurant:30",
+    "sample_bicycle:1041",
+    "sample_bicycle:1087",
+    "sample_restaurant:40",
+    "sample_restaurant:28",
+    "sample_bicycle:1015",
+    "sample_restaurant:45",
+    "sample_bicycle:1102",
+    "sample_bicycle:1065",
+    "sample_session:678901234",
+    "sample_bicycle:1006",
+    "sample_bicycle:1097",
+    "sample_bicycle:1069",
+    "sample_bicycle:1010",
+    "sample_restaurant:25",
+    "sample_restaurant:39",
+    "sample_bicycle:1076",
+    "sample_bicycle:1043",
+    "sample_session:556677889",
+    "sample_bicycle:1024",
+    "sample_jobQueue:ticket:102",
+    "sample_restaurant:35",
+    "sample_bicycle:1060",
+    "sample_bicycle:1106",
+    "sample_bicycle:1103",
+    "sample_session:345678901",
+    "sample_bicycle:1101",
+    "sample_restaurant:23",
+    "sample_session:567890123",
+    "sample_restaurant:20",
+    "sample_bicycle:1105",
+    "sample_session:123456789",
+    "sample_bicycle:1056",
+    "sample_restaurant:34",
+    "sample_bicycle:1082",
+    "sample_restaurant:38",
+    "sample_bicycle:1005",
+    "sample_restaurant:43",
+    "sample_bicycle:1086",
+    "sample_bicycle:1054",
+    "sample_bicycle:1040",
+    "sample_session:890123456",
+    "sample_bicycle:1039",
+    "sample_bicycle:1037",
+    "sample_bicycle:1038",
+    "sample_bicycle:1096",
+    "sample_restaurant:26",
+    "sample_restaurant:37",
+    "sample_bicycle:1044",
+    "sample_bicycle:1049",
+    "sample_bicycle:1055",
+    "sample_session:789012345",
+    "sample_bicycle:1036",
+    "sample_bicycle:1074",
+    "sample_bicycle:1094",
+    "sample_bicycle:1058",
+    "sample_bicycle:1001",
+    "sample_session:901234567",
+    "sample_bicycle:1046",
+    "sample_bicycle:1091",
+    "sample_restaurant:3",
+    "sample_session:234567890",
+    "sample_bicycle:1067",
+    "sample_session:778899001",
+    "sample_restaurant:21",
+    "sample_session:456789012",
+    "sample_bicycle:1072",
+    "sample_bicycle:1025",
+    "sample_jobQueue:waitingList",
+    "sample_bicycle:1035",
+    "sample_bicycle:1077",
+    "sample_restaurant:22",
+    "sample_bicycle:1062",
+    "sample_restaurant:50",
+    "sample_restaurant:48",
+    "sample_bicycle:1019",
+    "sample_bicycle:1026",
+    "sample_bicycle:1100",
+    "sample_restaurant:49",
+    "sample_bicycle:1066",
+    "sample_session:112233445",
+    "sample_bicycle:1023",
+    "sample_bicycle:1053",
+    "sample_bicycle:1012",
+    "sample_bicycle:1013",
+    "sample_bicycle:1030",
+    "sample_bicycle:1095",
+    "sample_bicycle:1079",
+    "sample_restaurant:42",
+    "sample_bicycle:1073",
+    "sample_bicycle:1034",
+    "sample_bicycle:1090",
+    "sample_bicycle:1093",
+    "sample_restaurant:44",
+    "sample_session:990011223",
+    "sample_restaurant:12",
+    "sample_restaurant:8",
+    "sample_leaderboard:tetris",
+    "sample_bicycle:1011",
+    "sample_bicycle:1027",
+    "sample_restaurant:47",
+    "sample_restaurant:17",
+    "sample_bicycle:1070",
+    "sample_restaurant:2",
+    "sample_bicycle:1092",
+    "sample_restaurant:29",
+    "sample_session:334455667",
+    "sample_jobQueue:ticket:101",
+    "sample_restaurant:16",
+    "sample_bicycle:1016",
+    "sample_session:012345678",
+    "sample_restaurant:5",
+    "sample_bicycle:1088",
+    "sample_jobQueue:ticket:103",
+    "sample_bicycle:1033",
+    "sample_restaurant:27",
+    "sample_restaurant:19",
+    "sample_bicycle:1098",
+    "sample_restaurant:7",
+    "sample_bicycle:1004",
+    "sample_restaurant:36",
+    "sample_bicycle:1075",
+    "sample_bicycle:1089",
+    "sample_bicycle:1020",
+    "sample_restaurant:4",
+    "sample_bicycle:1080",
+    "sample_bicycle:1084",
+    "sample_restaurant:32",
+    "sample_bicycle:1003",
+    "sample_bicycle:1009",
+    "sample_restaurant:31",
+    "sample_bicycle:1083",
+    "sample_bicycle:1057",
+    "sample_bicycle:1064",
+    "sample_bicycle:1047",
+    "sample_bicycle:1085",
+    "sample_bicycle:1059",
+    "sample_bicycle:1002",
+    "sample_bicycle:1007",
+    "sample_bicycle:1081",
+    "sample_restaurant:24",
+    "sample_restaurant:6",
+    "sample_restaurant:1",
+    "sample_bicycle:1099",
+    "sample_bicycle:1028",
+    "sample_bicycle:1021",
+    "sample_restaurant:18",
+    "sample_restaurant:10",
+    "sample_bicycle:1022",
+    "sample_bicycle:1050",
+    "sample_bicycle:1048",
+    "sample_bicycle:1018"
+  ]
+} 
+
+[2024-09-13T00:22:27.716Z] [INFO] Added connection for redis {
+  "dbType": "redis",
+  "connectionDetails": "{\n  \"options\": {\n    \"host\": \"redis-13782.c329.us-east4-1.gce.redns.redis-cloud.com\",\n    \"port\": 13782,\n    \"username\": \"default\",\n    \"password\": \"D0UPgd4SyZKVyUv7uEwGyKc7Q5eJKl3V\",\n    \"family\": 4,\n    \"connectTimeout\": 10000,\n    \"disconnectTimeout\": 2000,\n    \"keepAlive\": 0,\n    \"noDelay\": true,\n    \"connectionName\": null,\n    \"sentinels\": null,\n    \"name\": null,\n    \"role\": \"master\",\n    \"natMap\": null,\n    \"enableTLSForSentinelMode\": false,\n    \"updateSentinels\": true,\n    \"failoverDetector\": false,\n    \"db\": 0,\n    \"enableOfflineQueue\": true,\n    \"enableReadyCheck\": true,\n    \"autoResubscribe\": true,\n    \"autoResendUnfulfilledCommands\": true,\n    \"lazyConnect\": false,\n    \"keyPrefix\": \"\",\n    \"reconnectOnError\": null,\n    \"readOnly\": false,\n    \"stringNumbers\": false,\n    \"maxRetriesPerRequest\": 20,\n    \"maxLoadingRetryTime\": 10000,\n    \"enableAutoPipelining\": false,\n    \"autoPipeliningIgnoredCommands\": [],\n    \"sentinelMaxConnections\": 10\n  },\n  \"scriptsSet\": {},\n  \"addedBuiltinSet\": {},\n  \"status\": \"ready\",\n  \"isCluster\": false,\n  \"reconnectTimeout\": null,\n  \"connectionEpoch\": 1,\n  \"retryAttempts\": 0,\n  \"manuallyClosing\": false,\n  \"_autoPipelines\": {},\n  \"_runningAutoPipelines\": {},\n  \"_events\": {},\n  \"_eventsCount\": 2,\n  \"commandQueue\": {\n    \"_head\": 3,\n    \"_tail\": 3,\n    \"_capacityMask\": 3,\n    \"_list\": [\n      null,\n      null,\n      null,\n      null\n    ]\n  },\n  \"offlineQueue\": {\n    \"_head\": 0,\n    \"_tail\": 0,\n    \"_capacityMask\": 3,\n    \"_list\": [\n      null,\n      null,\n      null,\n      null\n    ]\n  },\n  \"connector\": {\n    \"connecting\": true,\n    \"disconnectTimeout\": 2000,\n    \"options\": \"[Circular]\",\n    \"stream\": {\n      \"connecting\": false,\n      \"_hadError\": false,\n      \"_parent\": null,\n      \"_host\": \"redis-13782.c329.us-east4-1.gce.redns.redis-cloud.com\",\n      \"_closeAfterHandlingError\": false,\n      \"_events\": {\n        \"error\": [\n          null,\n          null\n        ]\n      },\n      \"_readableState\": {\n        \"highWaterMark\": 65536,\n        \"buffer\": [],\n        \"bufferIndex\": 0,\n        \"length\": 0,\n        \"pipes\": [],\n        \"awaitDrainWriters\": null\n      },\n      \"_writableState\": {\n        \"highWaterMark\": 65536,\n        \"length\": 0,\n        \"corked\": 0,\n        \"writelen\": 0,\n        \"bufferedIndex\": 0,\n        \"pendingcb\": 0\n      },\n      \"allowHalfOpen\": false,\n      \"_eventsCount\": 5,\n      \"_sockname\": null,\n      \"_pendingData\": null,\n      \"_pendingEncoding\": \"\",\n      \"server\": null,\n      \"_server\": null,\n      \"timeout\": 0\n    }\n  },\n  \"condition\": {\n    \"select\": 0,\n    \"auth\": [\n      \"default\",\n      \"D0UPgd4SyZKVyUv7uEwGyKc7Q5eJKl3V\"\n    ],\n    \"subscriber\": false\n  },\n  \"stream\": \"[Circular]\"\n}"
+} 
+
+[2024-09-13T00:22:27.716Z] [INFO] Set config for redis {
+  "config": {
+    "host": "redis-13782.c329.us-east4-1.gce.redns.redis-cloud.com",
+    "port": 13782,
+    "username": "default",
+    "password": "D0UPgd4SyZKVyUv7uEwGyKc7Q5eJKl3V"
+  }
+} 
+
+[2024-09-13T00:22:27.730Z] [ERROR] Neo4j connection error: Failed to connect to server. Please ensure that your database is listening on the correct host and port and that you have compatible encryption settings both on Neo4j server and driver. Note that the default encryption setting has changed in Neo4j 4.0. {
+  "error": {
+    "code": "ServiceUnavailable",
+    "name": "Neo4jError",
+    "retriable": true
+  }
+} 
+
+[2024-09-13T00:22:27.730Z] [ERROR] Neo4j connection error: Failed to connect to server. Please ensure that your database is listening on the correct host and port and that you have compatible encryption settings both on Neo4j server and driver. Note that the default encryption setting has changed in Neo4j 4.0. {
+  "stack": "\"Error: Neo4j connection error: Failed to connect to server. Please ensure that your database is listening on the correct host and port and that you have compatible encryption settings both on Neo4j server and driver. Note that the default encryption setting has changed in Neo4j 4.0.\\n    at handleError (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at configureNeo4jConnection (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/service-utils/connection-pool.js:83:15)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\\n    at async configureDatabaseConnections (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/init.js:62:34)\\n    at async initPolybase (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/init.js:91:24)\\n    at async /Users/davisknaub/Desktop/Polybase/Polybase-Package/source/userRun.js:48:30\""
+} 
+
+[2024-09-13T00:22:27.731Z] [ERROR] Failed to connect to neo4j {
+  "error": {
+    "success": false,
+    "error": {
+      "message": "Neo4j connection error: Failed to connect to server. Please ensure that your database is listening on the correct host and port and that you have compatible encryption settings both on Neo4j server and driver. Note that the default encryption setting has changed in Neo4j 4.0.",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-09-13T00:22:27.730Z"
+    }
+  }
+} 
+
+[2024-09-13T00:22:27.731Z] [ERROR] Failed to connect to neo4j: undefined {
+  "stack": "\"Error: Failed to connect to neo4j: undefined\\n    at handleError (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at configureDatabaseConnections (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/init.js:78:20)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\\n    at async initPolybase (/Users/davisknaub/Desktop/Polybase/Polybase-Package/source/presentation/init.js:91:24)\\n    at async /Users/davisknaub/Desktop/Polybase/Polybase-Package/source/userRun.js:48:30\""
+} 
+
+[2024-09-13T00:22:27.731Z] [INFO] Polybase instance initialized with interfaces {
+  "interfaces": {
+    "success": false,
+    "error": {
+      "message": "Failed to connect to neo4j: undefined",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-09-13T00:22:27.731Z"
+    }
+  }
+} 
+
+[2024-09-13T00:22:27.731Z] [INFO] ✔ Polybase initialized with configured interfaces. {
+  "interfaces": {
+    "success": false,
+    "error": {
+      "message": "Failed to connect to neo4j: undefined",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-09-13T00:22:27.731Z"
+    }
+  }
+} 
+
+[2024-09-13T00:23:21.397Z] [INFO] CLI closed. Exiting program. {} 
+
