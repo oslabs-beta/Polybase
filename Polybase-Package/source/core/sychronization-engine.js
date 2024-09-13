@@ -47,7 +47,7 @@ Batch synchronization: Data is synced at periodic intervals, such as once a day,
  * 
  */
 
-/*
+/*           
 
 User Story: Task Management App
 As a user, I want to manage my tasks efficiently, so I can track my progress, collaborate with teammates, and prioritize my work.
@@ -55,7 +55,7 @@ As a user, I want to manage my tasks efficiently, so I can track my progress, co
 Databases and Their Roles with CRUD Operations
 
 1. PostgreSQL (Relational Database for Task Data)
-
+    
 Role: Storing task details like task name, due date, and completion status.
 CRUD Operations:
     - Create: Add a new task with task_name, due_date, and status.
@@ -140,7 +140,7 @@ Flow:
 
 
 
-// /* 
+// /* Amazon User Story 
 
 // As an Amazon customer, I want my checkout process to be fast and reliable, so that I can complete my purchase quickly and securely.
 
