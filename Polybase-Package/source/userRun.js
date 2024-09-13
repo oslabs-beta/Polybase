@@ -31,19 +31,18 @@ const app = express();
             username: 'default',
             password: 'D0UPgd4SyZKVyUv7uEwGyKc7Q5eJKl3V',
         },
-        neo4j: {
-        uri: 'bolt://localhost:7687',
-        username: 'polybase-neo4j',
-        password: 'polybase'
-        },
-         influx: {
+        influx: {
             url: 'https://us-east-1-1.aws.cloud2.influxdata.com',
             token: 'oVd4p0TiPWtMPeIY9Tdhjulf1BUMf2GrlihlDeBUsV1Rj9egHGiHAkj4Pxstr5bFqveCGPvC32qwa0cJTALC5A==',
+            org: 'Dev Testing',
             bucket: 'Influx-Sample-Buoy',
-            org: 'Dev Testing'
         }
     };
-
+    // neo4j: {
+        //     uri: 'neo4j+ss://3f5f8b25.databases.neo4j.io:7687',
+        //     username: 'neo4j',
+        //     password: 'neo4j'
+        // },
     //init polybase (e.g. Polybase.conenct)
     const polybaseInstance = await initPolybase(config);
 
@@ -124,7 +123,7 @@ const app = express();
     // require('./presentation/cli-interface').cliInterface();
 
 })();
-const Polybase = require('./connect.js');
+// const Polybase = require('./connect.js');
 
 // // Configuration object provided by the user
 // const config = {

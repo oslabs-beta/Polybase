@@ -166,36 +166,6 @@ async function configurePostgresConnection(config) {
 }
 
 /**
- * Sets up Redis connection -- using ioredis
- * @param {Object} config - Redis configuration object passed by user
- * @returns {Object} - Redis client instance
- */
-function configureRedisConnection(config) {
-    // Show loading message
-    logInfo('Attempting to connect to Redis...', {}, false);
-
-    return new Promise((resolve, reject) => {
-        const redis = new Redis({
-            host: config.host,
-            port: config.port,
-            username: config.username,  //optional - only if password protected
-            password: config.password,  //optional 
-        });
-
-        redis.on('connect', () => {
-            logInfo('✔ Connection to Redis established.', { host: config.host, port: config.port }, true);
-            logInfo(`Detailed: Connected to Redis at ${config.host}:${config.port}`, { config }, false);
-            resolve(redis);  //return redic client 
-        });
-
-        redis.on('error', (error) => {
-            logError(`Redis connection error: ${error.message}`, { error });
-            reject(handleError(`Redis connection error: ${error.message}`, 500));
-        });
-    });
-}
-
-/**
  * Establish connection with InfluxDB
  * @param {Object} config object 
  * @returns 
@@ -220,6 +190,39 @@ async function configureInfluxConnection(config) {
         throw handleError(`InfluxDB connection error: ${err.message}`, 500);
     }
 }
+
+/**
+ * Sets up Redis connection -- using ioredis
+ * @param {Object} config - Redis configuration object passed by user
+ * @returns {Object} - Redis client instance
+ */
+function configureRedisConnection(config) {
+   
+    logInfo('Attempting to connect to Redis...', {}, false);
+
+    return new Promise((resolve, reject) => {
+        const redis = new Redis({
+            host: config.host,
+            port: config.port,
+            username: config.username,  //optional - only if password protected
+            password: config.password,  //optional 
+        });
+
+        redis.on('connect', () => {
+            logInfo('✔ Connection to Redis established.', { host: config.host, port: config.port }, true);
+            logInfo(`Detailed: Connected to Redis at ${config.host}:${config.port}`, { config }, false);
+            resolve(redis);  //return redic client 
+        });
+
+        redis.on('error', (error) => {
+            logError(`Redis connection error: ${error.message}`, { error });
+            reject(handleError(`Redis connection error: ${error.message}`, 500));
+        });
+    });
+}
+
+
+
 
 
 

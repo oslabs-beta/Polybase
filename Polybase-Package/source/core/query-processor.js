@@ -67,3 +67,67 @@ function processQuery(dbType, query) {
 }
 
 module.exports = { processQuery };
+
+
+// EXAMPLE: 
+
+
+// A mock database schema and query definitions
+const supportedDatabases = {
+    sql: ['PostgreSQL', 'MySQL'],
+    nosql: ['MongoDB', 'CouchDB'],
+    kvstore: ['Redis'],
+    graph: ['Neo4j']
+};
+
+// Sample query structure example
+// query = {
+//   operation: 'SELECT',
+//   fields: ['name', 'age'],
+//   conditions: { id: 1001 },
+//   databases: ['MongoDB', 'PostgreSQL']
+// };
+
+// // Function to parse the query and split it across databases
+// function processQuery(query) {
+//     const parsedQueries = [];
+
+//     query.databases.forEach(db => {
+//         if (supportedDatabases.sql.includes(db)) {
+//             parsedQueries.push({
+//                 dbType: 'sql',
+//                 database: db,
+//                 operation: query.operation,
+//                 fields: query.fields,
+//                 conditions: query.conditions
+//             });
+//         } else if (supportedDatabases.nosql.includes(db)) {
+//             parsedQueries.push({
+//                 dbType: 'nosql',
+//                 database: db,
+//                 operation: query.operation,
+//                 fields: query.fields,
+//                 conditions: query.conditions
+//             });
+//         } else if (supportedDatabases.kvstore.includes(db)) {
+//             parsedQueries.push({
+//                 dbType: 'kvstore',
+//                 database: db,
+//                 operation: query.operation,
+//                 key: query.conditions.id  // Key-value stores typically query by key
+//             });
+//         } else if (supportedDatabases.graph.includes(db)) {
+//             parsedQueries.push({
+//                 dbType: 'graph',
+//                 database: db,
+//                 operation: query.operation,
+//                 node: query.conditions.id  // Assuming node traversal in graph databases
+//             });
+//         }
+//     });
+
+//     return parsedQueries;
+// }
+
+// // Export the query processor for use in the synchronization engine
+// module.exports = { processQuery };

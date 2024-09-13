@@ -5,8 +5,6 @@
 Living doc to outline CLI-query structure used in Polybase CLI interface. 
 
 
-- 08/31: Current setup designed to handle mock database operations only --simulating unconnected interactions with the various database types such as MongoDB, Redis, PostgreSQL, and InfluxDB.
-
 ## Query Structure
 
 Each query entered into the Polybase CLI follows this general format:
@@ -19,6 +17,7 @@ Each query entered into the Polybase CLI follows this general format:
 
 - **`params...`**: any additional para s required to execute the operatioin -e.g. collection names, query conditions, SQL statements, etc.
 
+find user_id where username ='davis' 
 ## Example Queries
 
 ### 1. **MongoDB** 
@@ -28,7 +27,7 @@ Each query entered into the Polybase CLI follows this general format:
     $Polybase: mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" namem
     ```
 
-
+    find user_id
 ### 2. **Redis**: 
 
     ```bash
@@ -40,20 +39,14 @@ Each query entered into the Polybase CLI follows this general format:
       ```bash
     $Polybase: postgres select polybase_postgres customer_id=7 name
     ```
-
+da a
+bda 
 ## 4. **InfluxDB** 
 
     ```bash
     QUERY
     $Polybase: influx query air_temp_degc station_id=41052 _value
 
-    polybase find user_id name="davis"
-
-    # WRITE
-    # $Polybase: influx write air_temp_degc station_id=41052 station_name="South of St. John, VI" _value=-2.5
-
-    # DELETE
-    # $Polybase: influx delete air_temp_degc station_id=41052 start=2024-09-10T00:00:00Z stop=2024-09-11T00:00:00Z
 
     ```
 
