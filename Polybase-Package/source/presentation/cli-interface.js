@@ -6,7 +6,7 @@ const { handleError } = require('../service-utils/error-handling');
 const { getState } = require('../service-utils/state-utils');
 const { displayStatus, displayHelp } = require('../service-utils/support-commands');
 /**
- * Manages I/O interface for user queries after
+ * manages I/O interface for user queries after
  * polybase initialized
  */
 async function cliInterface() {
