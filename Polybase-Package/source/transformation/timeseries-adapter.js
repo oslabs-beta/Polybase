@@ -126,6 +126,11 @@ const { getState } = require('../service-utils/state-utils');
 async function influxQuery(influxDB, operation, params) {
     try {
         const { measurement, tag, fields, timestamp, bucket, org, fluxQuery } = params;
+         
+        if (!bucket || !org) {
+            throw new Error('Missing required InfluxDB parameters: org or bucket');
+         }
+        
         const queryApi = influxDB.getQueryApi(org); 
         const writeApi = influxDB.getWriteApi(org, bucket); 
         let result;
@@ -151,6 +156,9 @@ async function influxQuery(influxDB, operation, params) {
 
             // Write Operation
             case 'write':
+                if (!measurement || !tag || !fields) {
+                    throw new Error('Missing required parameters for InfluxDB write operation');
+                }
                 const point = new Point(measurement)
                     .tag(Object.keys(tag)[0], Object.values(tag)[0])
                     .field(Object.keys(fields)[0], Object.values(fields)[0])

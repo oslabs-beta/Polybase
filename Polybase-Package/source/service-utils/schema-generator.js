@@ -18,7 +18,7 @@ async function getMongoSchema(db) {
     }
 }
 
-module.exports = { getMongoSchema };
+
 
 
 async function getPostgresSchema(client) {
@@ -47,6 +47,7 @@ async function getPostgresSchema(client) {
 
 
 
+
 async function getNeo4jMetadata(driver) {
     const session = driver.session();
 
@@ -69,6 +70,7 @@ async function getNeo4jMetadata(driver) {
     }
 }
 
+
 /**
  * Fetcjes all the measurements (in liu(lieu?) of schema he specified bucket.
  * @param {Object} influxDB - influxd client instance.
@@ -84,13 +86,10 @@ async function getInfluxMeasurements(influxDB, bucket, org) {
 
         const result = [];
         
-        /**
-         * need to stream results of query since influx doesn't open cnxn
-         */
         await queryApi.queryRows(query, {
             next(row, tableMeta) {
                 const o = tableMeta.toObject(row);
-                result.push(o._value); //extract  name
+                result.push(o._value); // Extract measurement name
             },
             error(error) {
                 logError('Error fetching InfluxDB measurements', { error });
@@ -110,9 +109,10 @@ async function getInfluxMeasurements(influxDB, bucket, org) {
 }
 
 
+
 async function getRedisKeyspace(redis) {
     try {
-        const keys = await redis.keys('*'); //fetch all keys
+        const keys = await redis.keys('*'); // Fetch all keys
         logInfo('Fetched Redis keyspace', { keys });
         return keys;
     } catch (error) {
@@ -120,6 +120,7 @@ async function getRedisKeyspace(redis) {
         throw new Error('Failed to fetch Redis keyspace');
     }
 }
+
 
 
 module.exports = { getInfluxMeasurements, getNeo4jMetadata, getPostgresSchema, getMongoSchema, getRedisKeyspace };

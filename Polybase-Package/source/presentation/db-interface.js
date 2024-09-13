@@ -24,7 +24,7 @@ async function execQuery(dbType, query) {
         // console.log(`database interface: received query for ${dbType}`); 
 
         // console.log('...simulating database query processing.');
-         const executionPlan = processQuery(dbType, query); // Generate execution plan
+        const executionPlan = processQuery(dbType, query); // Generate execution plan
         const transformedQuery = transformData(dbType, query.params); 
 
         //executing MongoDB query if dbType is set to mongo
@@ -79,7 +79,7 @@ async function execQuery(dbType, query) {
             if (!influxDB) {
                 throw new Error('No InfluxDB connection found.')
             }
-
+            console.log('influxdb');
             queryResult = await influxQuery(influxDB, query.operation, transformedQuery); 
 
         }
