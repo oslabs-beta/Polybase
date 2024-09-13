@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@supabase/supabase-js": "^2.45.2",
+    "cors": "^2.8.5",
     "mongodb": "^6.8.0",
     "mongoose": "^8.6.1",
     "neo4j-driver": "^5.24.0",
