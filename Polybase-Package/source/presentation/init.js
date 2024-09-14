@@ -12,7 +12,7 @@ const { handleError } = require('../service-utils/error-handling');
 const { logInfo, logError } = require('../service-utils/logging');
 
 /** 
- * Manages initialization and state of Polybase 
+ * manages initialization and state of Polybase 
  * (connections, configurations, etc.)
  */
 const PolyBaseInstance = {
@@ -31,7 +31,7 @@ const PolyBaseInstance = {
 };
 
 /**
- * Establishes connections for each database in user config
+ * est connections for each database in user config
  * @param {Object} config - User's configuration object (databases to manage)
  * @returns interfaces for connected databases
  */
@@ -81,7 +81,7 @@ async function configureDatabaseConnections(config) {
 }
 
 /**
- * Initializes Polybase with user config and starts necessary services
+ * init Polybase with user config and starts necessary services
  * @param {Object} config - User's configuration object
  * @returns Initialized Polybase instance
  */
@@ -92,7 +92,7 @@ async function initPolybase(config) {
         throw handleError('Failed to initialize database connections', 500);
     }
 
-    PolyBaseInstance.init(interfaces); // Initialize Polybase with interfaces
+    PolyBaseInstance.init(interfaces); // init Polybase with interfaces
 
     logInfo('✔ Polybase initialized with configured interfaces.', { interfaces });
     console.log('✔ Polybase initialized with configured interfaces:', Object.keys(interfaces)); // Log interfaces to console
@@ -105,14 +105,41 @@ async function initPolybase(config) {
 
 /**
  * Starts Polybase with the given config
- * @param {Object} config - User's configuration object (optional)
+ * @param {Object} config - User's configuration object
  */
+const fs = require('fs');
+const path = require('path');
+
 async function startPolybase(config = null) {
-    const finalConfig = getConfig(config);
-    if (!validateConfig(finalConfig)) {
-        return handleError('Invalid configuration. Initialization aborted.', 400); // Handle bad config
+    let finalConfig;
+
+    // if config is a string, like fp and load json 
+    if (typeof config === 'string') {
+        const configFilePath = path.resolve(process.cwd(), config);
+        if (fs.existsSync(configFilePath)) {
+            const fileContent = fs.readFileSync(configFilePath, 'utf-8');
+            finalConfig = JSON.parse(fileContent);  // Parse the JSON config file
+            console.log('Configuration loaded from file:', configFilePath);
+        } else {
+            return handleError('Configuration file not found.', 400);
+        }
+    }
+    //if config obj, use it directly
+    else if (typeof config === 'object' && config !== null) {
+        finalConfig = config;
+        console.log('Configuration object provided directly.');
+    }
+    //if no valid config, log
+    else {
+        return handleError('No valid configuration provided.', 400);
     }
 
+    //valiudate config file
+    if (!validateConfig(finalConfig)) {
+        return handleError('Invalid configuration. Initialization aborted.', 400); //handle bad config
+    }
+
+    //init pb with final validated config (doesn't mean will connect )
     const polybase = await initPolybase(finalConfig);
     if (!polybase) {
         return handleError('Failed to start Polybase.', 500);
@@ -120,4 +147,5 @@ async function startPolybase(config = null) {
 }
 
 
-module.exports = { initPolybase, startPolybase };
+
+module.exports = { initPolybase, startPolybase, configureDatabaseConnections };

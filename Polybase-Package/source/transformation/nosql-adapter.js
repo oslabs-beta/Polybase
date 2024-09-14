@@ -13,7 +13,7 @@
  * @param {Object} params - The parameters for the query, including collection name, filter, projection, and update data.
  * - collectionName: name of the MongoDB collection to operate on. 
  * - filter: query filter to apply (for 'find', 'update', etc)
- * - projection: fields to return for a find query
+ * - projection: fields to return for a find query s
  * - updateData: data to insert or update in the documents
  * @returns {Object} - The result of the MongoDB query.
  */
