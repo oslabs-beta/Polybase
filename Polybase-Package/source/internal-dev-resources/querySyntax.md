@@ -24,7 +24,7 @@ find user_id where username ='davis'
 
     ```bash
     # mongo find users name="Harley Davidson"
-    $Polybase: mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" namem
+    $Polybase: mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" name
     ```
 
     find user_id

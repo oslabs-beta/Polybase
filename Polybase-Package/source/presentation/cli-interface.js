@@ -5,6 +5,8 @@ const { getInfluxMeasurements, getMongoSchema, getPostgresSchema, getNeo4jMetada
 const { handleError } = require('../service-utils/error-handling');
 const { getState } = require('../service-utils/state-utils');
 const { displayStatus, displayHelp } = require('../service-utils/support-commands');
+
+
 /**
  * manages I/O interface for user queries after
  * polybase initialized
@@ -25,9 +27,14 @@ async function cliInterface() {
                     const status = await displayStatus();
                     console.log(status);
                 } else {
+
+                    // console.log('command', command);
+                    // console.log('typeof command', typeof command);
+                    // console.log(Object.keys(command));
+                    // return;
                     //log out user details (only to file)
                     logInfo('Processing user command...', { command }, false);
-                    const request = parseCommand(command);
+                    const request = parseCommand(command);                    
                     const response = await handleClientRequest(request);
                     logInfo('CLI command executed', { request, response }, false);
 
@@ -126,4 +133,4 @@ function parseCommand(command) {
 
 // cliInterface();
 
-module.exports = { cliInterface, handleClientRequest };
+module.exports = { cliInterface, handleClientRequest, parseCommand };
