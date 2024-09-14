@@ -29,7 +29,7 @@ app.get('/redis-leaderboard', async (req, res) => {
             await redisClient.connect();
         }
 
-        const leaderboard = await redisClient.zRangeWithScores('userleaderboard', 0, -1);
+        const leaderboard = await redisClient.zRangeWithScores('userLeaderboard', 0, -1);
         res.json(leaderboard);
     } catch(err) {
         console.error('error fetching redis leaderboarrd', err);

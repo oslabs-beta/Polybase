@@ -26,7 +26,7 @@ const updateRedisLeaderboard = async () => {
     console.log("Leaderboard updated in redis");
 
     // retrieve and log the leaderboard from redis
-    const leaderboard = await redisClient.zRangeWithScores('userLeaderboard", 0, -1');
+    const leaderboard = await redisClient.zRangeWithScores('userLeaderboard', 0, -1);
 
     console.log('Current redis leaderboard:');
     leaderboard.forEach((entry, index) => {

@@ -91,9 +91,9 @@ function App() {
 
       <h2>Redis Leaderboard</h2>
       <ol>
-        {redisLeaderboard.map((entry, index) => {
+        {redisLeaderboard.map((entry, index) => (
           <li key={index}>{entry.value} - {entry.score} followers</li>
-        })}
+        ))}
       </ol>
     </div>
   );
