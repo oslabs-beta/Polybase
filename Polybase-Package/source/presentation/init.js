@@ -109,11 +109,12 @@ async function initPolybase(config) {
  */
 const fs = require('fs');
 const path = require('path');
+const { config } = require('process');
 
 async function startPolybase(config = null) {
     let finalConfig;
 
-    // if config is a string, like fp and load json 
+    // ifd config is a string, like fp and load json 
     if (typeof config === 'string') {
         const configFilePath = path.resolve(process.cwd(), config);
         if (fs.existsSync(configFilePath)) {
