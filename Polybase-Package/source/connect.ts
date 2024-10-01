@@ -1,5 +1,7 @@
 const { initPolybase } = require('./presentation/init');
 
+
+
 /**
  * Polybase module exposing the `connect` method.
  */
@@ -9,7 +11,7 @@ const Polybase = {
      * Init database and starts CLI
      * @param {Object} config - The config object containing database connection det.
      */
-    async connect(config) {
+    async connect(config: any){
         try {
             console.log('Initializing Polybase...');
             await initPolybase(config);  //use the config to initialize Polybase

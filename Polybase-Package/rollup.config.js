@@ -10,10 +10,12 @@ export default {
         {
             file: pkg.main,
             format: 'cjs',
+            sourcemap: true, 
         },
         {
             file: pkg.module,
             format: 'esm',
+            sourcemap: true,
         },
         {
             file: 'dist/index.umd.js',
@@ -22,12 +24,15 @@ export default {
             globals: {
                 lodash: '_',
             },
+            sourcemap: true,
         },
     ],
     plugins: [
         resolve(),
         commonjs(),
-        typescript(),
+        typescript({
+            tsconfig: './tsconfig.json',
+        }),
         babel({
             exclude: 'node_modules/**',
             babelHelpers: 'bundled',

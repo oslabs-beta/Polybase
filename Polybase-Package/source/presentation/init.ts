@@ -11,12 +11,19 @@ const { manageState } = require('../service-utils/state-utils');
 const { handleError } = require('../service-utils/error-handling');
 const { logInfo, logError } = require('../service-utils/logging');
 
+
+// Define general config interface for each database type
+interface DatabaseConfig {
+    [dbType: string]: any;
+}
+
+
 /** 
  * manages initialization and state of Polybase 
  * (connections, configurations, etc.)
  */
 const PolyBaseInstance = {
-    interfaces: {}, // stores db interfaces connected in session
+    interfaces: {},// stores db interfaces connected in session
 
     // initializes Polybase with provided interfaces
     init(interfaces) {
