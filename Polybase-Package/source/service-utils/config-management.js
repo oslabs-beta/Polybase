@@ -25,7 +25,7 @@ const { logInfo, logError, safeStringify } = require('./logging');
  * @returns {Object|null} Config object or null if loading failure
  */
 function getConfig(providedConfig = null) {
-    
+
     //check if configuration object provided
     if (providedConfig) {
         logInfo('Using provided configuration object.');
@@ -67,7 +67,7 @@ function validateConfig(config) {
 
     // /**
     //  * @TODO add additional validation checks
-        //need to add validation logic here --checking required fields, types, etc.
+    //need to add validation logic here --checking required fields, types, etc.
     //  */
     // if (!config.mongo && !config.postgres) {
     //     handleError('At least one database configuration (mongo, postgres, etc.) must be provided.', 400);
