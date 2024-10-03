@@ -122,7 +122,7 @@ async function startPolybase(config: string | DatabaseConfig | null = null): Pro
             finalConfig = JSON.parse(fileContent); // Parse the JSON config file
             console.log('Configuration loaded from file:', configFilePath);
         } else {
-            return handleError('Configuration file not found.', 400);
+             handleError('Configuration file not found.', 400);
         }
     } 
     // if config object, use it directly
@@ -132,18 +132,18 @@ async function startPolybase(config: string | DatabaseConfig | null = null): Pro
     } 
     // if no valid config, log
     else {
-        return handleError('No valid configuration provided.', 400);
+         handleError('No valid configuration provided.', 400);
     }
 
     // Validate config file
     if (!validateConfig(finalConfig)) {
-        return handleError('Invalid configuration. Initialization aborted.', 400); // Handle bad config
+         handleError('Invalid configuration. Initialization aborted.', 400); // Handle bad config
     }
 
     // Init Polybase with final validated config (doesn't mean will connect)
     const polybase = await initPolybase(finalConfig);
     if (!polybase) {
-        return handleError('Failed to start Polybase.', 500);
+         handleError('Failed to start Polybase.', 500);
     }
 }
 
