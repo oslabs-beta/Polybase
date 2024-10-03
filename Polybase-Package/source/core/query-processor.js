@@ -11,16 +11,19 @@
 const { getState } = require('../service-utils/state-utils');
 
 /**
- * Validates the query based on the connected databases in the state manager.
- * @param {String} dbType - The database type (e.g., mongo, redis, postgres, influxdb).
- * @param {String} operation - The requested database operation.
- * @param {Object} params - Parameters provided with the query (e.g., collection name, SQL conditions).
- * @returns {Boolean} - Whether the query is valid or not.
+ * Validates the query based on the connected databases in state manager
+ * @param {String} dbType - The db type (e.g., mongo, redis, postgres, influxdb)
+ * @param {String} operation - The req'd database operation
+ * @param {Object} params - Parameters provided with the query (e.g., collection name, SQL conditions)
+ * @returns {Boolean} - if the query valid or not
  */
 function validateQuery(dbType, operation, params) {
     const state = getState(dbType);
     const connection = state.connection;
-    const validOperations = ['find', 'get', 'select', 'query'];
+    /**
+     * @TODO: Add only when tested
+     */
+    const validOperations = ['find', 'match', 'get', 'select', 'query', 'json.get'];
 
     //checking if the dbtype is one of the dbs that is currently connected
     if (!connection) {
@@ -66,3 +69,67 @@ function processQuery(dbType, query) {
 }
 
 module.exports = { processQuery };
+
+
+// EXAMPLE: 
+
+
+// A mock database schema and query definitions
+const supportedDatabases = {
+    sql: ['PostgreSQL', 'MySQL'],
+    nosql: ['MongoDB', 'CouchDB'],
+    kvstore: ['Redis'],
+    graph: ['Neo4j']
+};
+
+// Sample query structure example
+// query = {
+//   operation: 'SELECT',
+//   fields: ['name', 'age'],
+//   conditions: { id: 1001 },
+//   databases: ['MongoDB', 'PostgreSQL']
+// };
+
+// // Function to parse the query and split it across databases
+// function processQuery(query) {
+//     const parsedQueries = [];
+
+//     query.databases.forEach(db => {
+//         if (supportedDatabases.sql.includes(db)) {
+//             parsedQueries.push({
+//                 dbType: 'sql',
+//                 database: db,
+//                 operation: query.operation,
+//                 fields: query.fields,
+//                 conditions: query.conditions
+//             });
+//         } else if (supportedDatabases.nosql.includes(db)) {
+//             parsedQueries.push({
+//                 dbType: 'nosql',
+//                 database: db,
+//                 operation: query.operation,
+//                 fields: query.fields,
+//                 conditions: query.conditions
+//             });
+//         } else if (supportedDatabases.kvstore.includes(db)) {
+//             parsedQueries.push({
+//                 dbType: 'kvstore',
+//                 database: db,
+//                 operation: query.operation,
+//                 key: query.conditions.id  // Key-value stores typically query by key
+//             });
+//         } else if (supportedDatabases.graph.includes(db)) {
+//             parsedQueries.push({
+//                 dbType: 'graph',
+//                 database: db,
+//                 operation: query.operation,
+//                 node: query.conditions.id  // Assuming node traversal in graph databases
+//             });
+//         }
+//     });
+
+//     return parsedQueries;
+// }
+
+// // Export the query processor for use in the synchronization engine
+// module.exports = { processQuery };
