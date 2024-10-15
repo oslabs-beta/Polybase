@@ -83,34 +83,34 @@ async function testWithConfigObject() {
     } catch (error) {
         console.error('Error starting Polybase with direct config:', error);
     }
-// async function find(dbType, collectionName, filter, projection) {
-// }mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" name
+    // async function find(dbType, collectionName, filter, projection) {
+    // }mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" name
 
-            const resulta = await find(
-                'mongo', 
-                'polybase_mongo_collection', 
-                { _id: '66dcc19369d2d12812633326' }, 
-                'name'
-            );
-                
-                console.log(resulta);
-                
+    const resulta = await find(
+        'mongo',
+        'polybase_mongo_collection',
+        { _id: '66dcc19369d2d12812633326' },
+        'name'
+    );
 
-                const resultb = await find(
-                'redis', 
-                '',  // Redis doesn't use collectionName in this case
-                'sample_bicycle:1001'
-            );
-                console.log(resultb);
-                
+    console.log(resulta);
 
-                const resultc = await find(
-                'postgres', 
-                'polybase_postgres', 
-                { customer_id: 7 }, 
-                'name'
-            );
-            console.log(resultc);
+
+    const resultb = await find(
+        'redis',
+        '',  // Redis doesn't use collectionName in this case
+        'sample_bicycle:1001'
+    );
+    console.log(resultb);
+
+
+    const resultc = await find(
+        'postgres',
+        'polybase_postgres',
+        { customer_id: 7 },
+        'name'
+    );
+    console.log(resultc);
 
 
 

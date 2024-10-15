@@ -5,27 +5,6 @@
  * Handles basic key-value operations and more complex data structures.
  */
 
-<<<<<<< HEAD
-const Redis = require('ioredis');
-const redis = new Redis(); // Assumes Redis is running locally
-
-/**
- * Executes basic key-value operations on Redis.
- * @param {String} command - The Redis command (e.g., "set", "get").
- * @param {Array} params - Parameters for the Redis command.
- * @returns {Promise} - The result of the Redis operation.
- */
-async function executeKVOperation(command, ...params) {
-    try {
-        return await redis[command](...params);
-    } catch (error) {
-        console.error('KV Store Operation Error:', error);
-        throw new Error('Failed to execute key-value store operation');
-    }
-}
-
-module.exports = { executeKVOperation };
-=======
 
 /**
  * Executes Redis key-value operations.
@@ -41,17 +20,17 @@ async function redisQuery(client, operation, params) {
 
 
         switch (operation) {
-           // TODO: need to figure out how to specify key type - json, seet, etc. t 
-          case 'get':
+            // TODO: need to figure out how to specify key type - json, seet, etc. t 
+            case 'get':
                 result = await client.get(key);
                 if (result) {
-                    result = JSON.parse(result);  
+                    result = JSON.parse(result);
                 }
                 break;
-        case 'json.get':  //HANDLING WITH REDIS JSON
-            result = await client.call('JSON.GET', key);  
-            result = JSON.parse(result); 
-            break;
+            case 'json.get':  //HANDLING WITH REDIS JSON
+                result = await client.call('JSON.GET', key);
+                result = JSON.parse(result);
+                break;
             case 'set':
                 result = await client.set(key, JSON.stringify(value), options);  //stromgofu
                 break;
@@ -87,4 +66,3 @@ async function redisQuery(client, operation, params) {
 module.exports = { redisQuery };
 
 
->>>>>>> library-features

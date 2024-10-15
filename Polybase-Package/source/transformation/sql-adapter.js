@@ -5,39 +5,6 @@
  * Handles connection management, query execution, and SQL-specific error handling.
  */
 
-<<<<<<< HEAD
-const { Pool } = require('pg');
-
-// Create a PostgreSQL connection pool
-const pool = new Pool({
-    user: 'username',
-    host: 'localhost',
-    database: 'yourDatabase',
-    password: 'password',
-    port: 5432,
-});
-
-/**
- * Executes a SQL query.
- * @param {String} query - The SQL query to execute.
- * @param {Array} params - The query parameters.
- * @returns {Array} - The query result.
- */
-async function executeSQLQuery(query, params = []) {
-    try {
-        const client = await pool.connect();
-        const result = await client.query(query, params);
-        return result.rows;
-    } catch (error) {
-        console.error('SQL Query Execution Error:', error);
-        throw new Error('Failed to execute SQL query');
-    } finally {
-        client.release();
-    }
-}
-
-module.exports = { executeSQLQuery };
-=======
 const { getState } = require('../service-utils/state-utils');
 
 /**
@@ -78,7 +45,7 @@ async function postgresQuery(client, operation, params) {
         }
 
         const result = await client.query(queryText, values);
-        return result.rows; 
+        return result.rows;
     } catch (error) {
         console.error('PostgreSQL query error:', error);
         throw new Error('Failed to execute PostgreSQL query');
@@ -86,4 +53,3 @@ async function postgresQuery(client, operation, params) {
 }
 
 module.exports = { postgresQuery };
->>>>>>> library-features
