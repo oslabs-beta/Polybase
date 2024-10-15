@@ -17,17 +17,67 @@
 
 import { logInfo, logError, safeStringify } from './logging';
 
-// Define types for database connections and configurations
-interface Connection {
-    // Define the shape of a connection (this can be updated to be more specific)
-    [key: string]: any;
+// define specific types for the connection and configuration for each database
+interface MongoConnection {
+    client: object; 
+    dbName: string;
 }
 
-interface Config {
-    // Define the shape of a configuration (this can be updated to be more specific)
-    [key: string]: any;
+interface PostgresConnection {
+    client: object; 
 }
 
+interface Neo4jConnection {
+    session: object; 
+}
+
+interface RedisConnection {
+    client: object; 
+}
+
+interface InfluxConnection {
+    client: object; 
+}
+
+// specific types for the configurations of each database
+interface MongoConfig {
+    uri: string;
+    database: string;
+}
+
+interface PostgresConfig {
+    user: string;
+    host: string;
+    database: string;
+    password: string;
+    port: number;
+}
+
+interface Neo4jConfig {
+    uri: string;
+    username: string;
+    password: string;
+    database: string;
+}
+
+interface RedisConfig {
+    host: string;
+    port: number;
+    username?: string;
+    password?: string;
+}
+
+interface InfluxConfig {
+    url: string;
+    token: string;
+    bucket: string;
+}
+
+// Unified types for connection and config objects
+type Connection = MongoConnection | PostgresConnection | Neo4jConnection | RedisConnection | InfluxConnection;
+type Config = MongoConfig | PostgresConfig | Neo4jConfig | RedisConfig | InfluxConfig;
+
+// Define a global state interface that tracks database connections and configurations
 interface State {
     connections: { [dbType: string]: Connection };
     configs: { [dbType: string]: Config };
@@ -48,29 +98,29 @@ const stateManager: StateManager = {
         configs: {}
     },
 
-    // Adds a new database connection
+    // add new database connection
     addConnection(dbType: string, connection: Connection): void {
         this.state.connections[dbType] = connection;
         logInfo(`Added connection for ${dbType}`, { dbType, connectionDetails: safeStringify(connection, 2) });
     },
 
-    // Retrieves a connection for the given database type
+    // retrieve a connection for the given database type
     getConnection(dbType: string): Connection | undefined {
         return this.state.connections[dbType];
     },
 
-    // Sets a configuration for the given database type
+    // set a configuration for the given database type
     setConfig(dbType: string, config: Config): void {
         this.state.configs[dbType] = config;
         logInfo(`Set config for ${dbType}`, { config });
     },
 
-    // Retrieves a configuration for the given database type
+    // retrieve a configuration for the given database type
     getConfig(dbType: string): Config | undefined {
         return this.state.configs[dbType];
     },
 
-    // Handles state-related errors
+    // handle state related errors
     handleStateError(dbType: string, error: Error): void {
         logError(`State error for ${dbType}`, { error: safeStringify(error, 2) });
     }
@@ -82,7 +132,7 @@ const stateManager: StateManager = {
  * @param {Connection} connection - The status of the connection
  * @param {Config} config - The configuration
  */
-function manageState(dbType: string, connection: Connection, config: Config): void {
+function manageState(dbType: string, connection: any, config: Config): void {
     try {
         stateManager.addConnection(dbType, connection);
         stateManager.setConfig(dbType, config);
@@ -117,7 +167,7 @@ function handleConnectionDrop(dbType: string): void {
     try {
         const state = getState(dbType);
         stateManager.handleStateError(dbType, new Error('Connection dropped'));
-        // Need to add recovery logic
+        // Add recovery logic for the dropped connection here
     } catch (error) {
         stateManager.handleStateError(dbType, error as Error);
         throw new Error(`Failed to handle connection drop for ${dbType}: ${(error as Error).message}`);
@@ -125,3 +175,4 @@ function handleConnectionDrop(dbType: string): void {
 }
 
 export { stateManager, manageState, getState, handleConnectionDrop };
+

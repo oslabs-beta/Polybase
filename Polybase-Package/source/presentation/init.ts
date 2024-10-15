@@ -19,9 +19,13 @@ import { logInfo, logError } from '../service-utils/logging';
 import fs from 'fs';
 import path from 'path';
 
-// Define general config interface for each database type
+// Define a more specific config interface for each database type
 interface DatabaseConfig {
-    [dbType: string]: any; // Change 'any' to a more specific type if possible
+    mongo?: any; // Specify MongoDB config structure
+    redis?: any; // Specify Redis config structure
+    influx?: any; // Specify InfluxDB config structure
+    neo4j?: any; // Specify Neo4j config structure
+    postgres?: any; // Specify PostgreSQL config structure
 }
 
 interface PolyBaseInstance {
@@ -79,7 +83,7 @@ async function configureDatabaseConnections(config: DatabaseConfig): Promise<{ [
             manageState(dbType, connection, dbConfig); // Manage state (each db connection has a slice)
         } catch (error) {
             logError(`Failed to connect to ${dbType}`, { error });
-            return handleError(`Failed to connect to ${dbType}: ${error.message}`, 500);
+            throw new Error(`Failed to connect to ${dbType}: ${error.message}`);
         }
     }
     return interfaces;
@@ -122,7 +126,7 @@ async function startPolybase(config: string | DatabaseConfig | null = null): Pro
             finalConfig = JSON.parse(fileContent); // Parse the JSON config file
             console.log('Configuration loaded from file:', configFilePath);
         } else {
-             handleError('Configuration file not found.', 400);
+            throw handleError('Configuration file not found.', 400);
         }
     } 
     // if config object, use it directly
@@ -132,18 +136,18 @@ async function startPolybase(config: string | DatabaseConfig | null = null): Pro
     } 
     // if no valid config, log
     else {
-         handleError('No valid configuration provided.', 400);
+        throw handleError('No valid configuration provided.', 400);
     }
 
     // Validate config file
     if (!validateConfig(finalConfig)) {
-         handleError('Invalid configuration. Initialization aborted.', 400); // Handle bad config
+        throw handleError('Invalid configuration. Initialization aborted.', 400); // Handle bad config
     }
 
     // Init Polybase with final validated config (doesn't mean will connect)
     const polybase = await initPolybase(finalConfig);
     if (!polybase) {
-         handleError('Failed to start Polybase.', 500);
+        throw handleError('Failed to start Polybase.', 500);
     }
 }
 

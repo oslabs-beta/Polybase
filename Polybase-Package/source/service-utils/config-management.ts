@@ -1,13 +1,10 @@
 /**
  * config-management.ts
  * 
- * Manages retrieval/updating of specifically the configuration settings across the system.
+ * Manages retrieval/updating of configuration settings across the system.
  * Maintains a centralized configuration store accessible by all modules.
- * Validates config changes before applying them to ensure no invalid config changes screw 
- * up operations (before they try to occur).
+ * Validates config changes before applying them to ensure no invalid config changes disrupt operations.
  * (Stretch) Dynamic configuration -- allow updates to be applied on-the-fly without requiring system restart.
- * Ensures Polybase operates according to the settings the user
- * defines and then adapts to changes in the configuration as needed. 
  */
 
 import fs from 'fs';
@@ -17,12 +14,26 @@ import { logInfo, logError, safeStringify } from './logging';
 
 // Define interface for configuration object
 interface Config {
-    // Add fields for the configuration. Here's an example:
     mongo?: {
         uri: string;
     };
     postgres?: {
         connectionString: string;
+    };
+    redis?: {
+        host: string;
+        port: number;
+    };
+    neo4j?: {
+        uri: string;
+        username: string;
+        password: string;
+    };
+    influx?: {
+        uri: string;
+        token: string;
+        org: string;
+        bucket: string;
     };
     [key: string]: any; // Allow additional properties
 }
@@ -34,23 +45,20 @@ interface Config {
  * @returns {Config | null} - Config object or null if loading fails.
  */
 function getConfig(providedConfig: Config | null = null): Config | null {
-    // Check if configuration object provided
     if (providedConfig) {
         logInfo('Using provided configuration object.');
         return providedConfig;
     }
 
-    // Standardized Polybase configuration file.
     const configFileName = 'Polybase-Config.json';
     const configFilePath = path.resolve(__dirname, configFileName);
 
-    // Resolve path in current directory and parse as a config object
     try {
         if (fs.existsSync(configFilePath)) {
             const fileContent = fs.readFileSync(configFilePath, 'utf-8');
             const config: Config = JSON.parse(fileContent);
 
-            logInfo(`Loaded configuration from file: ${configFileName}`);
+            logInfo(`Loaded configuration from file: ${configFileName}`, { config: safeStringify(config) });
             return config;
         } else {
             return handleError(`Configuration file "${configFileName}" not found.`, 404) as null;
@@ -72,12 +80,11 @@ function validateConfig(config: Config | null): boolean {
         return false;
     }
 
-    // Add additional validation checks here, such as required fields and types.
-    // For example:
-    // if (!config.mongo && !config.postgres) {
-    //     handleError('At least one database configuration (mongo, postgres, etc.) must be provided.', 400);
-    //     return false;
-    // }
+    // Add additional validation checks here
+    if (!config.mongo && !config.postgres) {
+        handleError('At least one database configuration (mongo, postgres, etc.) must be provided.', 400);
+        return false;
+    }
 
     return true;
 }
@@ -89,7 +96,6 @@ function validateConfig(config: Config | null): boolean {
  * @returns {boolean} - True if the update is successful, false otherwise.
  */
 function updateConfig(newConfig: Config): boolean {
-    // Implement dynamic configuration updates here (stretch feature).
     console.log('Dynamic configuration updates are not yet available.');
     return false;
 }

@@ -86,11 +86,8 @@ export async function configureNeo4jConnection(config: Neo4jConfig): Promise<Dri
             }
         );
 
-        const serverInfo = await driver.getServerInfo();
-        console.log(serverInfo);
-
         const session: Session = driver.session();
-        await session.run('RETURN 1');
+        await session.run('RETURN 1'); // Test connection
         await session.close();
 
         logInfo('✔ Connection to Neo4j established.', { config }, true);
@@ -202,11 +199,3 @@ export function configureRedisConnection(config: RedisConfig): Promise<RedisClie
         });
     });
 }
-
-// export {
-//     configureInfluxConnection,
-//     configureNeo4jConnection,
-//     configureMongoConnection,
-//     configurePostgresConnection,
-//     configureRedisConnection,
-// };
