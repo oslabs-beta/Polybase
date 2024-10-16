@@ -4,6 +4,9 @@
  * manages data transformation to make sure data is compatible across diff 
  * databases. Applies the schema mapping rules and performs data conversions 
  * during synchronization or migration between databases w/ different models.
+ * 
+ * Layman's: It manages changing the data so it fits correctly between different databases, making sure everything lines up and works smoothly when moving or syncing information between them.
+ *
  */
 
 
@@ -17,6 +20,8 @@ function transformData(dbType, data) {
     // console.log('core/data-transformation | running transformData with: ', { dbType, data });
 
     let transformedQuery = {};
+
+    //mongo find polybase_mongo_collection _id="66dcc19369d2d12812633326" name
 
     //handling mongodb transformation
     if (dbType === 'mongo') {
@@ -58,7 +63,46 @@ function transformData(dbType, data) {
 
         console.log(transformedQuery)
     }
+        // TEMPLATE: MATCH (n:Customer) WHERE n.customer_id = '8' RETURN n
 
+    else if (dbType === 'neo4j') {
+        const label = data[0];
+        const condition = data[1];
+        const fields = data[2] ? data[2].split(',') : ['*'];
+        const updateData = data[3];
+
+        let whereClause = '';
+        if (condition && condition.includes('=')) {
+            const [field, value] = condition.split('=');
+            whereClause = `n.${field} = '${value.replace(/"/g, '')}'`;
+        }
+
+        transformedQuery = { label, whereClause, fields, updateData };
+    }
+
+    else if (dbType === 'influx'){
+
+        const measurement = data[0]; // measurement name (ex. "cpu")
+        const tagKey = data[1]; // tag key (ex. "host")
+        const tagValue = data[2]; // tag value (ex. "server1")
+        const fieldKey = data[3]; // field key (ex. "usage_user")
+        const fieldValue = data[4]; // field value (ex. "15.8")
+        const timestamp = data[5]; // optional timestamp for the data point 
+        const range = data[6];       //time rnage for query data
+
+        transformedQuery = {
+            measurement, 
+            tag: {
+                [tagKey]: tagValue
+            },
+            fields: {
+                [fieldKey]: fieldValue
+            },
+            timestamp: timestamp || Date.now(), // if no timestamp is provided, current time is used 
+            range: range || '-1h'
+        };
+
+    }
 
     return transformedQuery;
 }

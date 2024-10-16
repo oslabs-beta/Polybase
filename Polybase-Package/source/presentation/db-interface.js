@@ -7,7 +7,10 @@ const { logInfo, logError } = require('../service-utils/logging');
 const { mongoQuery } = require('../transformation/nosql-adapter');
 const { redisQuery } = require('../transformation/kvstore-adapter');
 const { postgresQuery } = require('../transformation/sql-adapter');
+const { influxQuery } = require('../transformation/timeseries-adapter');
 const { getState } = require('../service-utils/state-utils');
+const { neo4jQuery } = require('../transformation/graph-adapter');
+
 /**
  * executes db query by routing through core modules (query processor, transformation, etc.)
  * @param {String} dbType type of database (e.g., mongo, postgres)
@@ -18,16 +21,16 @@ async function execQuery(dbType, query) {
     try {
         //logging execution request to the file, and confirm receipt to user via console
         logInfo(`received query for ${dbType}`, { query });
-        console.log(`database interface: received query for ${dbType}`); 
+        // console.log(`database interface: received query for ${dbType}`); 
 
         // console.log('...simulating database query processing.');
-         const executionPlan = processQuery(dbType, query); // Generate execution plan
+        const executionPlan = processQuery(dbType, query); // Generate execution plan
         const transformedQuery = transformData(dbType, query.params); 
 
         //executing MongoDB query if dbType is set to mongo
         let queryResult;
         if (dbType === 'mongo') {
-            const state = getState(dbType); //getting entire connnection objwct
+            const state = getState(dbType); //getting entire connnection object
             const db = state.connection;    //getting the mongodb 
 
             if (!db) {
@@ -56,8 +59,30 @@ async function execQuery(dbType, query) {
 
             queryResult = await redisQuery(client, query.operation, transformedQuery);
             // console.log(queryResult);
-    }
+        }
+            
+        else if (dbType === 'neo4j') {
+            const state = getState(dbType);
+            const driver = state.connection;
+            if (!driver) throw new Error('No Neo4j connection found.');
+            const session = driver.session();
+            queryResult = await neo4jQuery(session, query.operation, transformedQuery);
+            await session.close();
+        }
 
+        // handling InfluxDB query
+        else if (dbType === 'influx') {
+
+            const state = getState(dbType);
+            const influxDB = state.connection;
+
+            if (!influxDB) {
+                throw new Error('No InfluxDB connection found.')
+            }
+            console.log('influxdb');
+            queryResult = await influxQuery(influxDB, query.operation, transformedQuery); 
+
+        }
 
         // console.log('Query Result:', queryResult, '\n\n');
         const syncResult = synchronizeData(dbType, 'targetDB'); //sync data

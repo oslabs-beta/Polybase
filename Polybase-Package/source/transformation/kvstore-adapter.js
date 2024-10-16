@@ -5,14 +5,6 @@
  * Handles basic key-value operations and more complex data structures.
  */
 
-/**
- * kvstore-adapter.js
- * 
- * Manages interactions with key-value stores, (MVP - Redis).
- * Handles basic key-value operations and more complex data structures.
- */
-
-const { getState } = require('../service-utils/state-utils');
 
 /**
  * Executes Redis key-value operations.
@@ -28,17 +20,17 @@ async function redisQuery(client, operation, params) {
 
 
         switch (operation) {
-           // TODO: need to figure out how to specify key type - json, seet, etc. t 
-          case 'get':
+            // TODO: need to figure out how to specify key type - json, seet, etc. t 
+            case 'get':
                 result = await client.get(key);
                 if (result) {
-                    result = JSON.parse(result);  
+                    result = JSON.parse(result);
                 }
                 break;
-        case 'json.get':  //HANDLING WITH REDIS JSON
-            result = await client.call('JSON.GET', key);  
-            result = JSON.parse(result); 
-            break;
+            case 'json.get':  //HANDLING WITH REDIS JSON
+                result = await client.call('JSON.GET', key);
+                result = JSON.parse(result);
+                break;
             case 'set':
                 result = await client.set(key, JSON.stringify(value), options);  //stromgofu
                 break;
@@ -72,3 +64,5 @@ async function redisQuery(client, operation, params) {
 }
 
 module.exports = { redisQuery };
+
+

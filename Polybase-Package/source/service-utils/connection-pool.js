@@ -11,10 +11,81 @@
  */
 const { MongoClient } = require('mongodb');
 const { Pool: PostgresPool } = require('pg');
+const neo4j = require('neo4j-driver');
 const Redis = require('ioredis');
-const Influx = require('influx');
+const { InfluxDB } = require('@influxdata/influxdb-client');
+
+/**
+ * Establish connection with InfluxDB 2.x
+ * @param {Object} config object 
+ * @returns {InfluxDB} instance
+ */
+async function configureInfluxConnection(config) {
+    try {
+        // Create a new InfluxDB client instance
+        const influxDB = new InfluxDB({
+            url: config.url,
+            token: config.token
+        });
+
+        // Log the successful connection message
+        logInfo('✔ Connection to InfluxDB initialized.', { url: config.url }, true);
+        logInfo(`Detailed: Connected to InfluxDB at ${config.url} using bucket ${config.bucket}`, { config }, false);
+
+        // Return the InfluxDB instance for later use
+        return influxDB;
+    } catch (err) {
+        // Log and handle any errors during the connection process
+        logError(`InfluxDB connection error: ${err.message}`, { error: err });
+        throw handleError(`InfluxDB connection error: ${err.message}`, 500);
+    }
+}
 const { handleError } = require('../service-utils/error-handling');
-const { logInfo } = require('../service-utils/logging');
+const { logInfo, logError } = require('../service-utils/logging');
+
+
+/**
+ * Establishes connection to neo4j via pooling
+ * @param {*} config object provided by user 
+ */
+async function configureNeo4jConnection(config) {
+
+    try {
+        //@NOTE creating Driver instance provide info on *how* to access the database, 
+        //but does not actually establish cnx - deferred until time of first query execc
+        const driver = neo4j.driver(
+            config.uri,
+            neo4j.auth.basic(config.username, config.password), {
+            maxConnectionPoolSize: 10,
+            connectionTimeout: 30000,
+        }
+        );
+
+        // console.log('Cnx established');
+        //verify immediately that driveer CAN connect valid creds, compatible version, et al
+        const serverInfo = await driver.getServerInfo();
+        console.log(serverInfo);
+        const session = driver.session();
+        await session.run('RETURN 1');
+        await session.close();
+        // console.log(session);
+        //log high-level status message in the terminal
+        logInfo('✔ Connection to Neo4j established.', { config }, true); // Display in console
+        //log detailed information into the file polyog that should auto populate in directory
+        logInfo(`Detailed: Connected to Neo4j: ${config.database}`, { config }, false); //only in file
+        return driver;
+
+        //TODO: when to use driver.close() ? 
+
+    }
+    catch (err) {
+        logError(`Neo4j connection error: ${err.message}`, { error: err });
+        throw handleError(`Neo4j connection error: ${err.message}`, 500);
+
+
+    }
+}
+
 
 /**
  * Pooling mongoDB connection 
@@ -22,16 +93,15 @@ const { logInfo } = require('../service-utils/logging');
  * @returns the connection to the database
  */
 // MongoDB connection
-async function configureMongoDBConnection(config) {
+async function configureMongoConnection(config) {
     // Show loading message in the console
-    logInfo('...Connecting to MongoDB...', {}, true);
 
     try {
         const client = await MongoClient.connect(config.uri, {
             maxPoolSize: 10,
         });
         const db = client.db(config.database);
-       
+
         //log high-level status message in the terminal
         logInfo('✔ Connection to MongoDB established.', { database: config.database }, true); // Display in console
         //log detailed information into the file polybase.log that should auto populate in directory
@@ -70,7 +140,6 @@ async function getMongoSchema(db) {
  */
 async function configurePostgresConnection(config) {
     //show user that connection trying
-    logInfo('...Connecting to PostgreSQL...', {}, true);
 
     const pool = new PostgresPool({
         user: config.user,
@@ -87,7 +156,7 @@ async function configurePostgresConnection(config) {
 
         //log high-level message to console and detailed msg to .log file
         logInfo('✔ Connection to PostgreSQL established.', { database: config.database }, true);
-        logInfo(`Detailed: Connected to PostgreSQL at ${config.host}`, { config }, false); 
+        logInfo(`Detailed: Connected to PostgreSQL at ${config.host}`, { config }, false);
 
         return client;
     } catch (error) {
@@ -97,13 +166,39 @@ async function configurePostgresConnection(config) {
 }
 
 /**
+ * Establish connection with InfluxDB
+ * @param {Object} config object 
+ * @returns 
+ */
+async function configureInfluxConnection(config) {
+    try {
+        // Create a new InfluxDB instance using the provided URL and token
+        const influxDB = new InfluxDB({
+            url: config.url,
+            token: config.token
+        });
+
+        // Logging successful connection message
+        logInfo('✔ Connection to InfluxDB initialized.', { url: config.url }, true);
+        logInfo(`Detailed: Connected to InfluxDB at ${config.url} using bucket ${config.bucket}`, { config }, false);
+
+        // Return the InfluxDB instance for later use
+        return influxDB;
+    } catch (err) {
+        // Log and handle any errors during the connection process
+        logError(`InfluxDB connection error: ${err.message}`, { error: err });
+        throw handleError(`InfluxDB connection error: ${err.message}`, 500);
+    }
+}
+
+/**
  * Sets up Redis connection -- using ioredis
  * @param {Object} config - Redis configuration object passed by user
  * @returns {Object} - Redis client instance
  */
 function configureRedisConnection(config) {
-    // Show loading message
-    logInfo('...Connecting to Redis...', {}, true);
+
+    logInfo('Attempting to connect to Redis...', {}, false);
 
     return new Promise((resolve, reject) => {
         const redis = new Redis({
@@ -126,39 +221,16 @@ function configureRedisConnection(config) {
     });
 }
 
-/**
- * Establish connection with InfluxDB
- * @param {Object} config object 
- * @returns 
- */
-async function configureInfluxDBConnection(config) {
 
-    /*
-    * @TODO 
-    */
-    logInfo('...Connecting to InfluxDB...', {}, true);
 
-    try {
-        const influx = new Influx.InfluxDB({
-            url: config.url,
-            token: config.token,
-        });
 
-        logInfo('✔ Connection to InfluxDB established.', { url: config.url }, true); // Display in console
-        logInfo(`Detailed: Connected to InfluxDB at ${config.url}`, { config }, false); // Only in file
-
-        return influx;
-    } catch (error) {
-        logError(`InfluxDB connection error: ${error.message}`, { error });
-        throw handleError(`InfluxDB connection error: ${error.message}`, 500);
-    }
-}
 
 
 
 module.exports = {
-    configureMongoDBConnection,
+    configureNeo4jConnection,
+    configureMongoConnection,
     configureRedisConnection,
-    configureInfluxDBConnection,
+    configureInfluxConnection,
     configurePostgresConnection
 };
