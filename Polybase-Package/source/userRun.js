@@ -1,4 +1,4 @@
-const { startPolybase } = require('./presentation/init');
+const { startPolybase } = require('./presentation/init.ts');
 const { create } = require('./presentation/create-configFile');
 const { find } = require('./presentation/static-Interface');
 const fs = require('fs');
