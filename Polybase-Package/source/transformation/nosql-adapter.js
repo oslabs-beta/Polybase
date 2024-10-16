@@ -25,9 +25,9 @@ async function mongoQuery(db, operation, params) {
 
         //get the collection from the mongodb -- all ops will be performed on this collection
         const collection = db.collection(collectionName);
-        
+
         //init variable to hold the result of database op
-        let result; 
+        let result;
 
         //determine operation type base on the operation param and execute the corresponding mongodb action
         switch (operation) {
@@ -36,25 +36,25 @@ async function mongoQuery(db, operation, params) {
                 //convert cursor to an array and return the result
                 result = await collection.find(filter || {}).project(projection || {}).toArray();
                 return result;
-            
+
             case 'insert':
                 //perform insert operation, inserting single docyument based on the updateData
                 // return the result of the insertion which includess insertID and other metadata
                 result = await collection.insertOne(updateData);
                 return result;
-            
+
             case 'update':
                 //perform update operation, updating first doc that matches filter
                 //the $set operator is used to update
                 result = await collection.updateOne(filter, { $set: updateData });
                 return result;
-            
+
             case 'delete':
                 //perform delete operation, deleting a single document that matches to filter
                 //return the result of the delet operation
                 result = await collection.deleteOne(filter);
                 return result;
-            
+
             default:
                 throw new Error(`Unsupported operation: ${operation}`);
         }

@@ -74,9 +74,9 @@ async function configureNeo4jConnection(config) {
         //log detailed information into the file polyog that should auto populate in directory
         logInfo(`Detailed: Connected to Neo4j: ${config.database}`, { config }, false); //only in file
         return driver;
-        
+
         //TODO: when to use driver.close() ? 
-      
+
     }
     catch (err) {
         logError(`Neo4j connection error: ${err.message}`, { error: err });
@@ -101,7 +101,7 @@ async function configureMongoConnection(config) {
             maxPoolSize: 10,
         });
         const db = client.db(config.database);
-       
+
         //log high-level status message in the terminal
         logInfo('✔ Connection to MongoDB established.', { database: config.database }, true); // Display in console
         //log detailed information into the file polybase.log that should auto populate in directory
@@ -156,7 +156,7 @@ async function configurePostgresConnection(config) {
 
         //log high-level message to console and detailed msg to .log file
         logInfo('✔ Connection to PostgreSQL established.', { database: config.database }, true);
-        logInfo(`Detailed: Connected to PostgreSQL at ${config.host}`, { config }, false); 
+        logInfo(`Detailed: Connected to PostgreSQL at ${config.host}`, { config }, false);
 
         return client;
     } catch (error) {
@@ -197,7 +197,7 @@ async function configureInfluxConnection(config) {
  * @returns {Object} - Redis client instance
  */
 function configureRedisConnection(config) {
-   
+
     logInfo('Attempting to connect to Redis...', {}, false);
 
     return new Promise((resolve, reject) => {

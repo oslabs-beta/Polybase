@@ -45,7 +45,7 @@ async function postgresQuery(client, operation, params) {
         }
 
         const result = await client.query(queryText, values);
-        return result.rows; 
+        return result.rows;
     } catch (error) {
         console.error('PostgreSQL query error:', error);
         throw new Error('Failed to execute PostgreSQL query');

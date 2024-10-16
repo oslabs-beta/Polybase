@@ -4,6 +4,8 @@
  * handles the processing and validation of database queries.
  * Breaks down queries into components, validates them, and preps them for 
  * execution in the corresponding adapter in the transformation layer.
+ * 
+ * Layman's: It takes apart and checks database questions (queries) to make sure they’re correct, then gets them ready to be run by the system that handles the actual data.
  */
 
 const { getState } = require('../service-utils/state-utils');

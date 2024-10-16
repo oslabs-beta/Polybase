@@ -126,13 +126,13 @@ const { getState } = require('../service-utils/state-utils');
 async function influxQuery(influxDB, operation, params) {
     try {
         const { measurement, tag, fields, timestamp, bucket, org, fluxQuery } = params;
-         
+
         if (!bucket || !org) {
             throw new Error('Missing required InfluxDB parameters: org or bucket');
-         }
-        
-        const queryApi = influxDB.getQueryApi(org); 
-        const writeApi = influxDB.getWriteApi(org, bucket); 
+        }
+
+        const queryApi = influxDB.getQueryApi(org);
+        const writeApi = influxDB.getWriteApi(org, bucket);
         let result;
 
         switch (operation) {
@@ -169,7 +169,7 @@ async function influxQuery(influxDB, operation, params) {
             // Delete Operation (Note: Needs REST API call)
             case 'delete':
                 throw new Error('Delete operation not supported directly in client library. Please use the InfluxDB Delete API.');
-            
+
             default:
                 throw new Error(`Unsupported InfluxDB operation: ${operation}`);
         }
