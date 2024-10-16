@@ -74,9 +74,9 @@ async function configureNeo4jConnection(config) {
         //log detailed information into the file polyog that should auto populate in directory
         logInfo(`Detailed: Connected to Neo4j: ${config.database}`, { config }, false); //only in file
         return driver;
-        
+
         //TODO: when to use driver.close() ? 
-      
+
     }
     catch (err) {
         logError(`Neo4j connection error: ${err.message}`, { error: err });
@@ -197,7 +197,7 @@ async function configureInfluxConnection(config) {
  * @returns {Object} - Redis client instance
  */
 function configureRedisConnection(config) {
-   
+
     logInfo('Attempting to connect to Redis...', {}, false);
 
     return new Promise((resolve, reject) => {
@@ -209,17 +209,9 @@ function configureRedisConnection(config) {
         });
 
         redis.on('connect', () => {
-<<<<<<< HEAD
-
-            logInfo('✔ Connection to Redis established.', { url: config.url }, true);
-            logInfo(`Detailed: Connected to Redis at ${config.url}`, { config }, false);
-
-            resolve(redis);
-=======
             logInfo('✔ Connection to Redis established.', { host: config.host, port: config.port }, true);
             logInfo(`Detailed: Connected to Redis at ${config.host}:${config.port}`, { config }, false);
             resolve(redis);  //return redic client 
->>>>>>> library-features
         });
 
         redis.on('error', (error) => {
