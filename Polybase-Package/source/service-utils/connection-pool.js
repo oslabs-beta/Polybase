@@ -17,6 +17,11 @@ const { InfluxDB } = require("@influxdata/influxdb-client");
 const { handleError } = require("../service-utils/error-handling");
 const { logInfo, logError } = require("../service-utils/logging");
 
+/*
+* TaskQueue manages tasks when all worker threads are busy. Adds them to a queue. 
+* Ensures tasks are executed in order once a worker thread becomes available,
+* effectively preventling overload.
+*/
 class TaskQueue {
   constructor() {
     this.queue = [];
@@ -36,7 +41,12 @@ class TaskQueue {
   }
 }
 
-// Worker pool ot manage threads
+/*
+* WorkerPool manages a limited number of worker threads that can run tasks concurrently.
+* If all workers are busy, tasks are added to the task queue. 
+* Once a worker finishes task, it checks the queue for pending tasks and runs the next one, 
+* ensuring efficient task processing without exceeding the worker limit. 
+*/
 class WorkerPool {
   constructor(maxWorkers) {
     this.maxWorkers = maxWorkers;
@@ -66,8 +76,7 @@ class WorkerPool {
     }
   }
 }
-
-// create a pool for each db type
+// creates seperate worker pool for each db type with a limit of 10 workers per pool
 const mongoPool = new WorkerPool(10);
 const postgresPool = new WorkerPool(10);
 const neo4jPool = new WorkerPool(10);
@@ -75,7 +84,9 @@ const redisPool = new WorkerPool(10);
 const influxPool = new WorkerPool(10);
 
 /**
- * Establishes connection to neo4j via pooling
+ * Configures and establishes a connection to a Neo4j database using connection pooling.
+ * It verifies the credentials, runs a test query, and logs the connection status.
+ * 
  * @param {*} config object provided by user
  */
 async function configureNeo4jConnection(config) {
@@ -116,7 +127,9 @@ async function configureNeo4jConnection(config) {
 }
 
 /**
- * Pooling mongoDB connection
+ * Configures and establishes a connection to the MongoDB database.
+ * Runs the connection setup in a task from the mongoPool and handles errors appropriately.
+ * 
  * @param {Object} config Configuration object passed by user
  * @returns the connection to the database
  */
