@@ -14,6 +14,22 @@ const { Pool: PostgresPool } = require('pg');
 const neo4j = require('neo4j-driver');
 const Redis = require('ioredis');
 const { InfluxDB } = require('@influxdata/influxdb-client');
+const { handleError } = require('../service-utils/error-handling');
+const { logInfo, logError } = require('../service-utils/logging');
+
+// Helper function to set up a timeout and re-authentication requirement
+function setupConnectionTimeout(databaseType, config, timeout, reauthenticate) {
+
+    setTimeout(() => {
+
+        const message = `Connection pool timeout for ${databaseType} has expired. User re-authentication is required.`;
+        logInfo(message, { databaseType, config }, true);
+        logError(`Detailed: ${message}`, { config }, false);
+        reauthentication();
+
+    }, timeout);
+}
+
 
 /**
  * Establish connection with InfluxDB 2.x
@@ -40,8 +56,7 @@ async function configureInfluxConnection(config) {
         throw handleError(`InfluxDB connection error: ${err.message}`, 500);
     }
 }
-const { handleError } = require('../service-utils/error-handling');
-const { logInfo, logError } = require('../service-utils/logging');
+
 
 
 /**
@@ -65,14 +80,23 @@ async function configureNeo4jConnection(config) {
         //verify immediately that driveer CAN connect valid creds, compatible version, et al
         const serverInfo = await driver.getServerInfo();
         console.log(serverInfo);
+
         const session = driver.session();
         await session.run('RETURN 1');
         await session.close();
         // console.log(session);
+
         //log high-level status message in the terminal
         logInfo('✔ Connection to Neo4j established.', { config }, true); // Display in console
         //log detailed information into the file polyog that should auto populate in directory
         logInfo(`Detailed: Connected to Neo4j: ${config.database}`, { config }, false); //only in file
+
+        // Set up a timeout for Neo4j connection
+        setupConnectionTimeout('Neo4j', config, config.timeout || 30000, () => {
+            // Re-authentication logic
+            console.log("User must re-authenticate for Neo4j");
+        });
+
         return driver;
 
         //TODO: when to use driver.close() ? 
@@ -92,6 +116,8 @@ async function configureNeo4jConnection(config) {
  * @param {Object} config Configuration object passed by user
  * @returns the connection to the database
  */
+
+
 // MongoDB connection
 async function configureMongoConnection(config) {
     // Show loading message in the console
@@ -106,6 +132,10 @@ async function configureMongoConnection(config) {
         logInfo('✔ Connection to MongoDB established.', { database: config.database }, true); // Display in console
         //log detailed information into the file polybase.log that should auto populate in directory
         logInfo(`Detailed: Connected to MongoDB: ${config.database}`, { config }, false); //only in file
+
+        setupConnectionTimeout('MongoDB', config, config.timeout || 30000, () => {
+            console.log("User must re-authenticate for MongoDB.");
+        });
 
         return db;
     } catch (err) {
@@ -220,10 +250,6 @@ function configureRedisConnection(config) {
         });
     });
 }
-
-
-
-
 
 
 
