@@ -1,18 +1,46 @@
-/**
- * transaction-manager.js
- * 
- * responsible for ensuring atomicity/consistency of operations (single or multi-DB)
- * manages transaction scopes, handles commit/rollback logic, and takes care recovering from 
- * transaction failures to keep data integrity.
- * 
- * Layman's: It makes sure that all parts of a database operation are completed correctly, or none at all, by managing how changes are saved or undone, 
- * and fixing issues if something goes wrong, to keep the data accurate and reliable.
- */
+/*
 
-function manageTransaction(operations) {
-    // console.log('source/transaction-manager | running manageTransactions with: ', operations);
-    //simulating transaction management 
-    return { status: 'Transaction committed' };
+- Manages transactions to ensure atomicity and consistency of operations across single or multiple databases.
+- Handles transaction scopes: ensures all operations in a transaction are either completed successfully or rolled back.
+- Manages commit/rollback logic to maintain data integrity.
+- Recovers from transaction failures and ensures data remains consistent even in the case of errors.
+- Supports multi-database transactions to coordinate operations across different database systems.
+
+*/
+
+function beginTransaction(db) {
+    console.log(`Transaction started on ${db.name}`);
+    db.startTransaction();
+}
+
+function commitTransaction(db) {
+    console.log(`Transaction committed on ${db.name}`);
+    db.commit();
+}
+
+function rollbackTransaction(db) {
+    console.log(`Transaction rolled back on ${db.name}`);
+    db.rollback();
+}
+
+function manageTransaction(operations, databases) {
+    try {
+        databases.forEach(db => beginTransaction(db));
+
+        operations.forEach(operation => {
+            console.log(`Executing operation: ${operation.description}`);
+            operation.execute();
+        });
+
+        databases.forEach(db => commitTransaction(db));
+
+        return { status: 'Transaction committed successfully' };
+    } catch (error) {
+        console.error(`Transaction failed: ${error.message}`);
+        databases.forEach(db => rollbackTransaction(db));
+
+        return { status: 'Transaction rolled back due to an error', error: error.message };
+    }
 }
 
 module.exports = { manageTransaction };

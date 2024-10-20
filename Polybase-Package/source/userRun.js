@@ -52,21 +52,21 @@ async function testWithConfigFile() {
 async function testWithConfigObject() {
     const config = {
         mongo: {
-            uri: 'mongodb+srv://davisknaub:l0JMb9PGVU0K3jvE@cluster-0.bbvjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-0',
+            uri: 'mongodb://localhost:27017',
             database: 'polybase_mongo'
         },
         postgres: {
-            user: 'postgres.veodgvmkvklvxobkjrfh',
-            host: 'aws-0-us-west-1.pooler.supabase.com',
+            user: 'postgresql://postgres.vjunztugzgtcwovqtcri:[Polybase@123]@aws-0-us-east-1.pooler.supabase.com:6543/postgres',
+            host: 'aws-0-us-east-1.pooler.supabase.com',
             database: 'postgres',
-            password: 'lukeiamyourfather',
-            port: 5432
+            password: 'Polybase@123',
+            port: 6543
         },
         redis: {
-            host: 'redis-13782.c329.us-east4-1.gce.redns.redis-cloud.com',
-            port: 13782,
+            host: 'redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com',
+            port: 17909,
             username: 'default',
-            password: 'D0UPgd4SyZKVyUv7uEwGyKc7Q5eJKl3V'
+            password: '9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn'
         },
         influx: {
             url: 'https://us-east-1-1.aws.cloud2.influxdata.com',
@@ -175,3 +175,4 @@ function startServer(polybaseInstance) {
 testWithConfigObject();
 
 
+// Neo4j Password: jecxapWBr9Zh2oOM988CLCvo5EN6b7FLFH65yNHl4vk
