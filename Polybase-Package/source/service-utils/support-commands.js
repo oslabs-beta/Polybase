@@ -1,8 +1,14 @@
-/**
- * support-commands.js
- * 
- * Additinoal 'helper' methods for user to call for instructions
- */
+/*
+
+ - Provides additional helper methods for users to call for instructions.
+ - `displayHelp` shows available commands for supported databases and operations.
+ - Lists commands for MongoDB, Postgres, Redis, InfluxDB, and Neo4j.
+ - Displays example commands for each database type.
+ - `displayStatus` fetches and displays the connection status of all configured databases.
+ - Retrieves state information for each database, showing URL and connection status.
+ - Handles errors in retrieving the status and logs errors when they occur.
+
+*/
 
 const { getState } = require('./state-utils');
 const { logError, logInfo } = require('./logging');
@@ -28,7 +34,6 @@ function displayHelp() {
     - InfluxDB: influx query temperature station_id=1234
     `);
 }
-
 
 async function displayStatus() {
 

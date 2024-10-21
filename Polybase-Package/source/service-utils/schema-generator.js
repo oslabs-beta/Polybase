@@ -1,3 +1,15 @@
+/*
+
+ - Provides methods for fetching schema or metadata from various databases.
+ - `getMongoSchema`: Retrieves schema from MongoDB by inspecting collections and sample documents.
+ - `getPostgresSchema`: Fetches schema details from PostgreSQL using `information_schema` columns.
+ - `getNeo4jMetadata`: Retrieves metadata from Neo4j, including labels and relationship types.
+ - `getInfluxMeasurements`: Queries InfluxDB to retrieve measurements from a specified bucket.
+ - `getRedisKeyspace`: Fetches all keys from Redis, representing the keyspace.
+ - Logs successes and errors for each operation to facilitate debugging and system monitoring.
+
+ */
+
 const { logInfo, logError } = require('../service-utils/logging');
 
 async function getMongoSchema(db) {
@@ -17,9 +29,6 @@ async function getMongoSchema(db) {
         throw new Error('Failed to fetch MongoDB schema');
     }
 }
-
-
-
 
 async function getPostgresSchema(client) {
     try {
@@ -45,9 +54,6 @@ async function getPostgresSchema(client) {
     }
 }
 
-
-
-
 async function getNeo4jMetadata(driver) {
     const session = driver.session();
 
@@ -70,14 +76,6 @@ async function getNeo4jMetadata(driver) {
     }
 }
 
-
-/**
- * Fetcjes all the measurements (in liu(lieu?) of schema he specified bucket.
- * @param {Object} influxDB - influxd client instance.
- * @param {String} bucket - bucket name 
- * @param {String} org - organization ID / name associ'd with the InfluxDB bucket.
- * @returns {Array} - List of measurements found in bucket
- */
 async function getInfluxMeasurements(influxDB, bucket, org) {
     try {
         const queryApi = influxDB.getQueryApi(org);
@@ -85,11 +83,11 @@ async function getInfluxMeasurements(influxDB, bucket, org) {
                        v1.measurements(bucket: "${bucket}")`;
 
         const result = [];
-        
+
         await queryApi.queryRows(query, {
             next(row, tableMeta) {
                 const o = tableMeta.toObject(row);
-                result.push(o._value); // Extract measurement name
+                result.push(o._value);
             },
             error(error) {
                 logError('Error fetching InfluxDB measurements', { error });
@@ -108,11 +106,9 @@ async function getInfluxMeasurements(influxDB, bucket, org) {
     }
 }
 
-
-
 async function getRedisKeyspace(redis) {
     try {
-        const keys = await redis.keys('*'); // Fetch all keys
+        const keys = await redis.keys('*');
         logInfo('Fetched Redis keyspace', { keys });
         return keys;
     } catch (error) {
@@ -120,7 +116,5 @@ async function getRedisKeyspace(redis) {
         throw new Error('Failed to fetch Redis keyspace');
     }
 }
-
-
 
 module.exports = { getInfluxMeasurements, getNeo4jMetadata, getPostgresSchema, getMongoSchema, getRedisKeyspace };
