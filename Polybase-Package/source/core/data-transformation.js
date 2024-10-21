@@ -7,7 +7,6 @@
 
 */
 
-
 function transformData(dbType, data) {
 
     let transformedQuery = {};
