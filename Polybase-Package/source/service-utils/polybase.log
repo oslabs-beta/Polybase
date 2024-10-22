@@ -720,3 +720,184 @@
   "stack": "\"Error: failed to execute query for postgres: No PostgreSQL connection found.\\n    at handleError (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at execQuery (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/db-interface.js:94:16)\\n    at handleClientRequest (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/cli-interface.js:121:18)\\n    at find (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/static-Interface.js:48:28)\\n    at testWithConfigObject (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/userRun.js:107:27)\""
 } 
 
+[2024-10-19T17:44:56.569Z] [INFO] Starting task, active workers: {
+  "activeWorkers": 1
+} 
+
+[2024-10-19T17:45:26.667Z] [ERROR] MongoDB connection error: 000C32EF01000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:../deps/openssl/openssl/ssl/record/rec_layer_s3.c:1590:SSL alert number 80
+ {
+  "error": {
+    "reason": {
+      "type": "ReplicaSetNoPrimary",
+      "servers": {
+        "cluster-0-shard-00-01.bbvjq.mongodb.net:27017": {
+          "address": "cluster-0-shard-00-01.bbvjq.mongodb.net:27017",
+          "type": "Unknown",
+          "hosts": [],
+          "passives": [],
+          "arbiters": [],
+          "tags": {},
+          "minWireVersion": 0,
+          "maxWireVersion": 0,
+          "roundTripTime": -1,
+          "minRoundTripTime": 0,
+          "lastUpdateTime": 744647814,
+          "lastWriteDate": 0,
+          "error": {},
+          "topologyVersion": null,
+          "setName": null,
+          "setVersion": null,
+          "electionId": null,
+          "logicalSessionTimeoutMinutes": null,
+          "primary": null,
+          "me": null,
+          "$clusterTime": null
+        },
+        "cluster-0-shard-00-02.bbvjq.mongodb.net:27017": {
+          "address": "cluster-0-shard-00-02.bbvjq.mongodb.net:27017",
+          "type": "Unknown",
+          "hosts": [],
+          "passives": [],
+          "arbiters": [],
+          "tags": {},
+          "minWireVersion": 0,
+          "maxWireVersion": 0,
+          "roundTripTime": -1,
+          "minRoundTripTime": 0,
+          "lastUpdateTime": 744647824,
+          "lastWriteDate": 0,
+          "error": {},
+          "topologyVersion": null,
+          "setName": null,
+          "setVersion": null,
+          "electionId": null,
+          "logicalSessionTimeoutMinutes": null,
+          "primary": null,
+          "me": null,
+          "$clusterTime": null
+        },
+        "cluster-0-shard-00-00.bbvjq.mongodb.net:27017": {
+          "address": "cluster-0-shard-00-00.bbvjq.mongodb.net:27017",
+          "type": "Unknown",
+          "hosts": [],
+          "passives": [],
+          "arbiters": [],
+          "tags": {},
+          "minWireVersion": 0,
+          "maxWireVersion": 0,
+          "roundTripTime": -1,
+          "minRoundTripTime": 0,
+          "lastUpdateTime": 744647813,
+          "lastWriteDate": 0,
+          "error": {},
+          "topologyVersion": null,
+          "setName": null,
+          "setVersion": null,
+          "electionId": null,
+          "logicalSessionTimeoutMinutes": null,
+          "primary": null,
+          "me": null,
+          "$clusterTime": null
+        }
+      },
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": "atlas-31kw7f-shard-0",
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  }
+} 
+
+[2024-10-19T17:45:26.670Z] [ERROR] MongoDB connection error: 000C32EF01000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:../deps/openssl/openssl/ssl/record/rec_layer_s3.c:1590:SSL alert number 80
+ {
+  "stack": "\"Error: MongoDB connection error: 000C32EF01000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:../deps/openssl/openssl/ssl/record/rec_layer_s3.c:1590:SSL alert number 80\\n\\n    at handleError (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at /Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/connection-pool.js:151:13\\n    at async WorkerPool.runTask (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/connection-pool.js:63:7)\\n    at async configureMongoConnection (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/connection-pool.js:139:3)\\n    at async configureDatabaseConnections (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/init.js:45:34)\\n    at async initPolybase (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/init.js:90:24)\\n    at async startPolybase (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/init.js:144:22)\\n    at async testWithConfigObject (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/userRun.js:80:34)\""
+} 
+
+[2024-10-19T17:45:26.670Z] [ERROR] Failed to connect to mongo {
+  "error": {
+    "success": false,
+    "error": {
+      "message": "MongoDB connection error: 000C32EF01000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:../deps/openssl/openssl/ssl/record/rec_layer_s3.c:1590:SSL alert number 80\n",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-10-19T17:45:26.670Z"
+    }
+  }
+} 
+
+[2024-10-19T17:45:26.670Z] [ERROR] Failed to connect to mongo: undefined {
+  "stack": "\"Error: Failed to connect to mongo: undefined\\n    at handleError (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at configureDatabaseConnections (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/init.js:77:20)\\n    at async initPolybase (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/init.js:90:24)\\n    at async startPolybase (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/init.js:144:22)\\n    at async testWithConfigObject (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/userRun.js:80:34)\""
+} 
+
+[2024-10-19T17:45:26.670Z] [INFO] Polybase instance initialized with interfaces {
+  "interfaces": {
+    "success": false,
+    "error": {
+      "message": "Failed to connect to mongo: undefined",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-10-19T17:45:26.670Z"
+    }
+  }
+} 
+
+[2024-10-19T17:45:26.670Z] [INFO] ✔ Polybase initialized with configured interfaces. {
+  "interfaces": {
+    "success": false,
+    "error": {
+      "message": "Failed to connect to mongo: undefined",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-10-19T17:45:26.670Z"
+    }
+  }
+} 
+
+[2024-10-19T17:45:26.677Z] [INFO] received query for mongo {
+  "query": {
+    "operation": "find",
+    "params": [
+      "polybase_mongo_collection",
+      "_id=\"66dcc19369d2d12812633326\"",
+      "name"
+    ]
+  }
+} 
+
+[2024-10-19T17:45:26.678Z] [ERROR] failed to execute query for mongo: No MongoDB connection found. {
+  "stack": "\"Error: failed to execute query for mongo: No MongoDB connection found.\\n    at handleError (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at execQuery (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/db-interface.js:94:16)\\n    at handleClientRequest (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/cli-interface.js:121:18)\\n    at find (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/static-Interface.js:48:28)\\n    at testWithConfigObject (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/userRun.js:89:27)\""
+} 
+
+[2024-10-19T17:45:26.679Z] [INFO] received query for redis {
+  "query": {
+    "operation": "json.get",
+    "params": [
+      "sample_bicycle:1001"
+    ]
+  }
+} 
+
+[2024-10-19T17:45:26.679Z] [ERROR] failed to execute query for redis: No Redis connection found. {
+  "stack": "\"Error: failed to execute query for redis: No Redis connection found.\\n    at handleError (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at execQuery (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/db-interface.js:94:16)\\n    at handleClientRequest (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/cli-interface.js:121:18)\\n    at find (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/static-Interface.js:48:28)\\n    at testWithConfigObject (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/userRun.js:99:27)\""
+} 
+
+[2024-10-19T17:45:26.680Z] [INFO] received query for postgres {
+  "query": {
+    "operation": "select",
+    "params": [
+      "polybase_postgres",
+      "customer_id=7",
+      "name"
+    ]
+  }
+} 
+
+[2024-10-19T17:45:26.680Z] [ERROR] failed to execute query for postgres: No PostgreSQL connection found. {
+  "stack": "\"Error: failed to execute query for postgres: No PostgreSQL connection found.\\n    at handleError (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at execQuery (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/db-interface.js:94:16)\\n    at handleClientRequest (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/cli-interface.js:121:18)\\n    at find (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/static-Interface.js:48:28)\\n    at testWithConfigObject (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/userRun.js:107:27)\""
+} 
+
