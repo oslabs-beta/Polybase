@@ -24,7 +24,6 @@ async function create() {
 
   const configFilePath = path.resolve(process.cwd(), 'Polybase-Config.json');
 
-
   fs.writeFileSync(configFilePath, JSON.stringify(defaultConfig, null, 2), 'utf-8');
 }
 

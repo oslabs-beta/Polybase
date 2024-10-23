@@ -32,6 +32,8 @@ async function cliInterface() {
                 } else if (command.trim() === 'status') {
                     const status = await displayStatus();
                     console.log(status);
+                } else if (command.trim() === 'clear') {
+                    console.clear();
                 } else {
                     logInfo('Processing user command...', { command }, false);
                     const request = parseCommand(command);
