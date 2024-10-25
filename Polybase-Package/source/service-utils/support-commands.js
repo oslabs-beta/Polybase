@@ -41,9 +41,12 @@ async function displayStatus() {
     console.log(config);
     try {
         const configState = getState('all');
+
         let statusMessage = 'Current Database Setup:\n';
+
         for (const [dbType, state] of Object.entries(configState)) {
             const { connection, config } = state;
+
             const isConnected = connection ? 'Connected' : 'Not Connected';
             statusMessage += `
             - ${dbType.toUpperCase()}:
@@ -51,11 +54,41 @@ async function displayStatus() {
                 - Status: ${isConnected}
             `;
         }
+
         return statusMessage;
+
     } catch (error) {
         logError('Error displaying status', { error });
         return handleError(`Failed to retrieve status: ${error.message}`, 500);
     }
 }
 
-module.exports = { displayHelp, displayStatus };
+
+async function displayConnections() {
+
+    const databases = ['mongo', 'postgres', 'redis', 'neo4j', 'influx'];
+    let statusSummary = [];
+
+    for (const dbType of databases) {
+
+        try {
+            const state = getState(dbType);
+            const connection = state.connection;
+
+            if (connection) {
+                statusSummary.push(`${dbType.toUpperCase()}: Connection successful`);
+            } else {
+                statusSummary.push(`${dbType.toUpperCase()}: Configuration failed or no connection found`);
+            }
+        } catch (error) {
+            statusSummary.push(`${dbType.toUpperCase()}: Error checking status - ${error.message}`);
+        }
+
+    }
+
+    console.log('Connection check complete. Status summary: ', statusSummary);  // Debugging line
+    return statusSummary.join('\n');
+
+}
+
+module.exports = { displayHelp, displayStatus, displayConnections };

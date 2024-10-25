@@ -14,7 +14,7 @@ const { logInfo, logError } = require('../service-utils/logging');
 const { getInfluxMeasurements, getMongoSchema, getPostgresSchema, getNeo4jMetadata, getRedisKeyspace } = require('../service-utils/schema-generator');
 const { handleError } = require('../service-utils/error-handling');
 const { getState } = require('../service-utils/state-utils');
-const { displayStatus, displayHelp } = require('../service-utils/support-commands');
+const { displayStatus, displayHelp, displayConnections } = require('../service-utils/support-commands');
 
 
 async function cliInterface() {
@@ -34,6 +34,9 @@ async function cliInterface() {
                     console.log(status);
                 } else if (command.trim() === 'clear') {
                     console.clear();
+                } else if (command.trim() === 'configs') {
+                    const connections = await displayConnections();
+                    console.log(connections);
                 } else {
                     logInfo('Processing user command...', { command }, false);
                     const request = parseCommand(command);

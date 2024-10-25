@@ -11,12 +11,11 @@
 const { startPolybase } = require('./presentation/init');
 const { create } = require('./presentation/create-configFile');
 const { find } = require('./presentation/static-Interface');
-import { createClient } from 'redis';
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // Creates a config file for Polybase
 async function createConfigFile() {
@@ -27,13 +26,11 @@ async function createConfigFile() {
 // Tests Polybase setup using a configuration file
 async function testWithConfigFile() {
     try {
-        // Check if the config file exists
         const configFilePath = path.resolve(process.cwd(), 'Polybase-Config.json');
         if (!fs.existsSync(configFilePath)) {
             throw new Error('Config file not found. Please create the config file first.');
         }
 
-        // Check if the user has filled in the config (basic validation for placeholders)
         const fileContent = fs.readFileSync(configFilePath, 'utf-8');
         const config = JSON.parse(fileContent);
         if (!config.mongo.uri || config.mongo.uri.includes('your_mongo_uri')) {
@@ -50,14 +47,20 @@ async function testWithConfigFile() {
     }
 }
 
+// Load and parse the configuration file
+function loadConfig(configFilePath) {
+    const fileContent = fs.readFileSync(configFilePath, 'utf-8');
+    return JSON.parse(fileContent);
+}
+
 // Tests Polybase setup with a direct configuration object
 async function testWithConfigObject() {
     const config = {
-        // mongo: {
-        //     uri: 'mongodb://localhost:27017',
-        //     database: 'polybase_mongo'
-        // }
-        // ,
+        mongo: {
+            uri: 'mongodb://localhost:27017',
+            database: 'polybase_mongo'
+        }
+        ,
         postgres: {
             user: 'postgresql://postgres.vjunztugzgtcwovqtcri:Polybase@123@aws-0-us-east-1.pooler.supabase.com:6543/postgres',
             host: 'aws-0-us-east-1.pooler.supabase.com',
@@ -65,24 +68,24 @@ async function testWithConfigObject() {
             password: 'Polybase@123',
             port: 6543
         }
-        // ,
-        // redis: {
-        //     host: 'redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com',
-        //     port: 17909,
-        //     username: 'default',
-        //     password: '9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn'
-        // },
-        // influx: {
-        //     url: 'https://us-east-1-1.aws.cloud2.influxdata.com',
-        //     token: 'Uvj-fDGE8SoRZadtfffle8cmOV2PajiOmL5szIPuuVPkXMSPMhsT1FkM5E2n9KZg3ECwNVK9Ql7--3l280e8TA==',
-        //     org: 'polybase-testing',
-        //     bucket: 'polybase-testing'
-        // },
-        // neo4j: {
-        //     uri: "neo4j+s://c463fa49.databases.neo4j.io",
-        //     username: "neo4j",
-        //     password: "neo4j"
-        // }
+        ,
+        redis: {
+            host: 'redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com',
+            port: 17909,
+            username: 'default',
+            password: '9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn'
+        },
+        influx: {
+            url: 'https://us-east-1-1.aws.cloud2.influxdata.com',
+            token: 'Uvj-fDGE8SoRZadtfffle8cmOV2PajiOmL5szIPuuVPkXMSPMhsT1FkM5E2n9KZg3ECwNVK9Ql7--3l280e8TA==',
+            org: 'polybase-testing',
+            bucket: 'polybase-testing'
+        },
+        neo4j: {
+            uri: "neo4j+s://c463fa49.databases.neo4j.io",
+            username: "neo4j",
+            password: "neo4j"
+        }
     }
 
     try {
@@ -155,6 +158,9 @@ async function testWithConfigObject() {
     }
 
 }
+
+
+const configPath = path.join(__dirname, 'Polybase-Config.json');
 
 // Uncomment the function you want to test:
 
