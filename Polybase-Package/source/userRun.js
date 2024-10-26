@@ -15,6 +15,8 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const app = express();
+const dotenv = require('dotenv')
+dotenv.config()
 const PORT = 3001;
 
 // Creates a config file for Polybase
@@ -57,34 +59,34 @@ function loadConfig(configFilePath) {
 async function testWithConfigObject() {
     const config = {
         mongo: {
-            uri: 'mongodb://localhost:27017',
-            database: 'polybase_mongo'
+            uri: process.env.MONGO_URI,
+            database: process.env.MONGO_DATABASE
         }
         ,
         postgres: {
-            user: 'postgresql://postgres.vjunztugzgtcwovqtcri:Polybase@123@aws-0-us-east-1.pooler.supabase.com:6543/postgres',
-            host: 'aws-0-us-east-1.pooler.supabase.com',
-            database: 'postgres',
-            password: 'Polybase@123',
-            port: 6543
+            user: process.env.POSTGRES_USER,
+            host: process.env.POSTGRES_HOST,
+            database: process.env.POSTGRES_DATABASE,
+            password: process.env.POSTGRES_PASSWORD,
+            port: process.env.POSTGRES_PORT
         }
         ,
         redis: {
-            host: 'redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com',
-            port: 17909,
-            username: 'default',
-            password: '9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn'
+            host: process.env.REDIS_HOST,
+            port: process.env.REDIS_PORT,
+            username: process.env.REDIS_USERNAME,
+            password: process.env.REDIS_PASSWORD
         },
         influx: {
-            url: 'https://us-east-1-1.aws.cloud2.influxdata.com',
-            token: 'Uvj-fDGE8SoRZadtfffle8cmOV2PajiOmL5szIPuuVPkXMSPMhsT1FkM5E2n9KZg3ECwNVK9Ql7--3l280e8TA==',
-            org: 'polybase-testing',
-            bucket: 'polybase-testing'
+            url: process.env.INFLUX_URL,
+            token: process.env.INFLUX_TOKEN,
+            org: process.env.INFLUX_ORG,
+            bucket: process.env.INFLUX_BUCKET
         },
         neo4j: {
-            uri: "neo4j+s://c463fa49.databases.neo4j.io",
-            username: "neo4j",
-            password: "neo4j"
+            uri: process.env.NEO4J_URI,
+            username: process.env.NNEO4J_USERNAME,
+            password: process.env.NEO4J_PASSWORD
         }
     }
 
