@@ -29,7 +29,7 @@
 - **Query Execution Process**:
   - receives query in the presentation layer (static or CLI).
   - proess and validates the query using `query-processor.js`.
-  - (stretch) transofmr the query based on the target database using `data-transformation.js`.
+  - (stretch) transforms the query based on the target database using `data-transformation.js`.
   - execs the query on the corresponding database.
 
 - **Adapters for Databases**:

@@ -1,18 +1,13 @@
-/**
- * state-manager.js
- * 
- * manges **dyanmic** state of Polybase system like active connections,
- * ongoing transactions, any other run-time data we need. 
- * 
- * Servers as a centralz store that can be accessed & 
- * modified by modules within the Polybase
- * 
- * Refining Tasks
- * - tracks current state of database connections and configurations.
- * - provide methods for adding, retrieving, and updating state info that other modules
- *  can use.
- * - handle state-related errors
- * - ensuring there is consistency & stability across all components.
+/*
+
+ - Manages dynamic state of the Polybase system (e.g., connections, transactions).
+ - Serves as a centralized store accessible and modifiable by various modules.
+ - Tracks the current state of database connections and configurations.
+ - Provides methods for adding, retrieving, and updating state information.
+ - Handles state-related errors, ensuring consistency and stability across components.
+ - Includes error handling for connection drops and state management failures.
+ - Logs state changes and errors for debugging and tracking purposes.
+
  */
 
 
@@ -47,12 +42,6 @@ const stateManager = {
     }
 };
 
-/**
- * Managing different parts of state (dynamic info)
- * @param {*} dbType the type of database related to
- * @param {*} connection the status of the connection
- * @param {*} config the configuration
- */
 function manageState(dbType, connection, config) {
     try {
         stateManager.addConnection(dbType, connection);
@@ -74,15 +63,11 @@ function getState(dbType) {
         throw new Error(`Failed to retrieve state for ${dbType}: ${error.message}`);
     }
 }
-/**
- * Connection error handling
- * @param {*} dbType 
- */
+
 function handleConnectionDrop(dbType) {
     try {
         const state = getState(dbType);
         stateManager.handleStateError(dbType, new Error('Connection dropped'));
-        //need to add recovery logic
     } catch (error) {
         stateManager.handleStateError(dbType, error);
         throw new Error(`Failed to handle connection drop for ${dbType}: ${error.message}`);

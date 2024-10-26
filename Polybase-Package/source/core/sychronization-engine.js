@@ -42,7 +42,6 @@ function synchronizeData(sourceDb, targetDb) {
     const targetData = targetDb.getData();
 
     const resolvedData = resolveConflicts(sourceData, targetData);
-
     const syncPlan = generateSyncPlan(resolvedData, targetData);
 
     applySyncPlan(syncPlan, targetDb);
