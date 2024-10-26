@@ -20,6 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "@influxdata/influxdb-client": "^1.35.0",
+    "dotenv": "^16.4.5",
+    "env": "^0.0.2",
     "express": "^4.21.1",
     "influx": "^5.9.3",
     "ioredis": "^5.4.1",
