@@ -1,0 +1,80 @@
+[2024-10-28T00:53:54.001Z] [INFO] Starting task, active workers: {
+  "activeWorkers": 1
+} 
+
+[2024-10-28T00:53:54.072Z] [INFO] ✔ Connection to MongoDB established. {
+  "database": "polybase_mongo"
+} 
+
+[2024-10-28T00:53:54.074Z] [INFO] Task finished, returning worker {
+  "activeWorkers": 0
+} 
+
+[2024-10-28T00:53:54.074Z] [INFO] Added connection for mongo {
+  "dbType": "mongo"
+} 
+
+[2024-10-28T00:53:54.074Z] [INFO] Set config for mongo {
+  "config": {
+    "uri": "mongodb://localhost:27017",
+    "database": "polybase_mongo"
+  }
+} 
+
+[2024-10-28T00:53:54.270Z] [ERROR] PostgreSQL connection error: Tenant or user not found {
+  "error": {
+    "length": 52,
+    "name": "error",
+    "severity": "FATAL",
+    "code": "XX000"
+  }
+} 
+
+[2024-10-28T00:53:54.272Z] [ERROR] PostgreSQL connection error: Tenant or user not found {
+  "stack": "\"Error: PostgreSQL connection error: Tenant or user not found\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at configurePostgresConnection (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/connection-pool.js:127:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at async configureDatabaseConnections (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:54:34)\\n    at async initPolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:70:24)\\n    at async initializePolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/userRun.js:305:30)\""
+} 
+
+[2024-10-28T00:53:54.272Z] [ERROR] Failed to connect to postgres {
+  "error": {
+    "success": false,
+    "error": {
+      "message": "PostgreSQL connection error: Tenant or user not found",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-10-28T00:53:54.272Z"
+    }
+  }
+} 
+
+[2024-10-28T00:53:54.273Z] [ERROR] Failed to connect to postgres: undefined {
+  "stack": "\"Error: Failed to connect to postgres: undefined\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at configureDatabaseConnections (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:63:20)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at async initPolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:70:24)\\n    at async initializePolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/userRun.js:305:30)\""
+} 
+
+[2024-10-28T00:53:54.273Z] [INFO] Polybase instance initialized with interfaces {
+  "interfaces": {
+    "success": false,
+    "error": {
+      "message": "Failed to connect to postgres: undefined",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-10-28T00:53:54.273Z"
+    }
+  }
+} 
+
+[2024-10-28T00:53:54.273Z] [INFO] ✔ Polybase initialized with configured interfaces. {
+  "interfaces": {
+    "success": false,
+    "error": {
+      "message": "Failed to connect to postgres: undefined",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-10-28T00:53:54.273Z"
+    }
+  }
+} 
+
+[2024-10-28T00:53:54.282Z] [INFO] Polybase initialized successfully. Please fill in the .env file with your database configuration. {} 
+
+[2024-10-28T03:08:37.113Z] [INFO] CLI closed. Exiting program. {} 
+
