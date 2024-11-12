@@ -901,3 +901,117 @@
   "stack": "\"Error: failed to execute query for postgres: No PostgreSQL connection found.\\n    at handleError (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/error-handling.js:35:17)\\n    at execQuery (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/db-interface.js:94:16)\\n    at handleClientRequest (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/cli-interface.js:121:18)\\n    at find (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/static-Interface.js:48:28)\\n    at testWithConfigObject (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/userRun.js:107:27)\""
 } 
 
+[2024-11-12T01:54:24.599Z] [INFO] Success: The .env file was created with placeholder values. {} 
+
+[2024-11-12T01:54:24.604Z] [INFO] Starting task, active workers: {
+  "activeWorkers": 1
+} 
+
+[2024-11-12T01:54:24.657Z] [INFO] ✔ Connection to MongoDB established. {
+  "database": "polybase_mongo"
+} 
+
+[2024-11-12T01:54:24.658Z] [INFO] Task finished, returning worker {
+  "activeWorkers": 0
+} 
+
+[2024-11-12T01:54:24.658Z] [INFO] Added connection for mongo {
+  "dbType": "mongo"
+} 
+
+[2024-11-12T01:54:24.658Z] [INFO] Set config for mongo {
+  "config": {
+    "uri": "mongodb://localhost:27017",
+    "database": "polybase_mongo"
+  }
+} 
+
+[2024-11-12T01:54:24.895Z] [ERROR] PostgreSQL connection error: Tenant or user not found {
+  "error": {
+    "length": 52,
+    "name": "error",
+    "severity": "FATAL",
+    "code": "XX000"
+  }
+} 
+
+[2024-11-12T01:54:24.897Z] [ERROR] PostgreSQL connection error: Tenant or user not found {
+  "stack": "\"Error: PostgreSQL connection error: Tenant or user not found\\n    at handleError (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at configurePostgresConnection (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/connection-pool.js:127:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at async configureDatabaseConnections (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/init.js:54:34)\\n    at async initPolybase (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/init.js:70:24)\\n    at async initializePolybase (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/userRun.js:305:30)\""
+} 
+
+[2024-11-12T01:54:24.897Z] [ERROR] Failed to connect to postgres {
+  "error": {
+    "success": false,
+    "error": {
+      "message": "PostgreSQL connection error: Tenant or user not found",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-12T01:54:24.897Z"
+    }
+  }
+} 
+
+[2024-11-12T01:54:24.897Z] [ERROR] Failed to connect to postgres: undefined {
+  "stack": "\"Error: Failed to connect to postgres: undefined\\n    at handleError (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at configureDatabaseConnections (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/init.js:63:20)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at async initPolybase (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/init.js:70:24)\\n    at async initializePolybase (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/userRun.js:305:30)\""
+} 
+
+[2024-11-12T01:54:24.898Z] [INFO] Polybase instance initialized with interfaces {
+  "interfaces": {
+    "success": false,
+    "error": {
+      "message": "Failed to connect to postgres: undefined",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-12T01:54:24.898Z"
+    }
+  }
+} 
+
+[2024-11-12T01:54:24.898Z] [INFO] ✔ Polybase initialized with configured interfaces. {
+  "interfaces": {
+    "success": false,
+    "error": {
+      "message": "Failed to connect to postgres: undefined",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-12T01:54:24.898Z"
+    }
+  }
+} 
+
+[2024-11-12T01:54:24.907Z] [INFO] Polybase initialized successfully. Please fill in the .env file with your database configuration. {} 
+
+[2024-11-12T01:54:29.437Z] [INFO] Processing user command... {
+  "command": "connections"
+} 
+
+[2024-11-12T01:54:29.437Z] [INFO] received query for connections {
+  "query": {
+    "params": []
+  }
+} 
+
+[2024-11-12T01:54:29.438Z] [ERROR] failed to execute query for connections: Cannot read properties of undefined (reading 'forEach') {
+  "stack": "\"Error: failed to execute query for connections: Cannot read properties of undefined (reading 'forEach')\\n    at handleError (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at execQuery (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/db-interface.js:98:16)\\n    at handleClientRequest (/Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/cli-interface.js:111:18)\\n    at /Users/nathan/Desktop/CODESMITH/OSP/Polybase/Polybase-Package/source/presentation/cli-interface.js:43:44\\n    at [_onLine] [as _onLine] (node:internal/readline/interface:415:7)\\n    at [_line] [as _line] (node:internal/readline/interface:888:18)\\n    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1266:22)\\n    at ReadStream.onkeypress (node:internal/readline/interface:265:20)\\n    at ReadStream.emit (node:events:519:28)\\n    at emitKeys (node:internal/readline/utils:371:14)\""
+} 
+
+[2024-11-12T01:54:29.438Z] [INFO] CLI command executed {
+  "request": {
+    "dbType": "connections",
+    "query": {
+      "params": []
+    }
+  },
+  "response": {
+    "success": false,
+    "error": {
+      "message": "failed to execute query for connections: Cannot read properties of undefined (reading 'forEach')",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-12T01:54:29.438Z"
+    }
+  }
+} 
+
+[2024-11-12T01:54:40.817Z] [INFO] CLI closed. Exiting program. {} 
+

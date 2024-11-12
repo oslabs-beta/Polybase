@@ -1,38 +1,43 @@
-/**
- * query-processor.js
- * 
- * handles the processing and validation of database queries.
- * Breaks down queries into components, validates them, and preps them for 
- * execution in the corresponding adapter in the transformation layer.
- * 
- * Layman's: It takes apart and checks database questions (queries) to make sure they’re correct, then gets them ready to be run by the system that handles the actual data.
- */
+/*
+
+ - Processes and validates queries for different databases.
+ - Breaks down queries into components, checks for correctness, and prepares them for execution by the corresponding database adapter.
+ - Supports multiple database types: SQL, NoSQL, Key-Value stores, and Graph databases.
+ - Creates detailed execution plans based on the database type and operation.
+
+*/
 
 const { getState } = require('../service-utils/state-utils');
 
-/**
- * Validates the query based on the connected databases in state manager
- * @param {String} dbType - The db type (e.g., mongo, redis, postgres, influxdb)
- * @param {String} operation - The req'd database operation
- * @param {Object} params - Parameters provided with the query (e.g., collection name, SQL conditions)
- * @returns {Boolean} - if the query valid or not
- */
+// Supported databases categorized by type
+const supportedDatabases = {
+    sql: ['PostgreSQL', 'MySQL'],
+    nosql: ['MongoDB', 'CouchDB'],
+    kvstore: ['Redis'],
+    graph: ['Neo4j']
+};
+
+// Valid operations for each type of database
+const validOperations = {
+    sql: ['select', 'insert', 'update', 'delete'],
+    nosql: ['find', 'insert', 'update', 'delete'],
+    kvstore: ['get', 'set', 'delete'],
+    graph: ['match', 'create', 'delete']
+};
+
+// Validate if the query matches the database type and supported operations
 function validateQuery(dbType, operation, params) {
     const state = getState(dbType);
-    const connection = state.connection;
-    /**
-     * @TODO: Add only when tested
-     */
-    const validOperations = ['find', 'match', 'get', 'select', 'query', 'json.get'];
+    const connection = state?.connection;
 
-    //checking if the dbtype is one of the dbs that is currently connected
     if (!connection) {
         console.log(`Invalid dbType: ${dbType}. No active connection found.`);
         return false;
     }
 
-    if (!validOperations.includes(operation)) {
-        console.log(`Invalid operation: ${operation}. Expected one of: ${validOperations.join(', ')}`);
+    const validOps = validOperations[dbType] || [];
+    if (!validOps.includes(operation.toLowerCase())) {
+        console.log(`Invalid operation: ${operation}. Expected one of: ${validOps.join(', ')}`);
         return false;
     }
 
@@ -45,91 +50,54 @@ function validateQuery(dbType, operation, params) {
     return true;
 }
 
-/**
- * Receives a parsed query from the presentation layer and initializes an execution
- * plan for the query based on requirements. Also validates the query against the
- * connected databases in state.
- * @param {String} dbType - The database type (e.g., mongo, postgres).
- * @param {Object} query - The query object containing the operation and params.
- * @returns {Object} - Clearly partitioned execution plan or validation error message.
- */
-function processQuery(dbType, query) {
-    // console.log('src/core/query-processor | running processQuery with:', { dbType, query });
-
-    //validate query format
-    const { operation, params } = query;
+// Process a single query for the specified database type
+function processSingleQuery(dbType, operation, params) {
     const isValid = validateQuery(dbType, operation, params);
 
     if (!isValid) {
-        return { error: 'Query validation failed. Please ensure your query follows the standard format.' };
+        return { error: `Query validation failed for ${dbType}. Please ensure the query follows the standard format.` };
     }
 
-    //sim query processing (if validation passes)
-    return { executionPlan: `Plan for ${operation} on ${dbType}` };
+    return { executionPlan: `Plan for ${operation.toUpperCase()} on ${dbType}` };
 }
 
-module.exports = { processQuery };
+// Process queries across multiple databases
+function processQuery(query) {
+    const { operation, params, databases } = query;
+    const parsedQueries = [];
 
+    // Process each database specified in the query
+    databases.forEach(db => {
+        if (supportedDatabases.sql.includes(db)) {
+            parsedQueries.push({
+                dbType: 'sql',
+                database: db,
+                ...processSingleQuery('sql', operation, params)
+            });
+        } else if (supportedDatabases.nosql.includes(db)) {
+            parsedQueries.push({
+                dbType: 'nosql',
+                database: db,
+                ...processSingleQuery('nosql', operation, params)
+            });
+        } else if (supportedDatabases.kvstore.includes(db)) {
+            parsedQueries.push({
+                dbType: 'kvstore',
+                database: db,
+                ...processSingleQuery('kvstore', operation, { key: params.key })
+            });
+        } else if (supportedDatabases.graph.includes(db)) {
+            parsedQueries.push({
+                dbType: 'graph',
+                database: db,
+                ...processSingleQuery('graph', operation, { node: params.node })
+            });
+        } else {
+            parsedQueries.push({ error: `Unsupported database: ${db}` });
+        }
+    });
 
-// EXAMPLE: 
+    return parsedQueries;
+}
 
-
-// A mock database schema and query definitions
-const supportedDatabases = {
-    sql: ['PostgreSQL', 'MySQL'],
-    nosql: ['MongoDB', 'CouchDB'],
-    kvstore: ['Redis'],
-    graph: ['Neo4j']
-};
-
-// Sample query structure example
-// query = {
-//   operation: 'SELECT',
-//   fields: ['name', 'age'],
-//   conditions: { id: 1001 },
-//   databases: ['MongoDB', 'PostgreSQL']
-// };
-
-// // Function to parse the query and split it across databases
-// function processQuery(query) {
-//     const parsedQueries = [];
-
-//     query.databases.forEach(db => {
-//         if (supportedDatabases.sql.includes(db)) {
-//             parsedQueries.push({
-//                 dbType: 'sql',
-//                 database: db,
-//                 operation: query.operation,
-//                 fields: query.fields,
-//                 conditions: query.conditions
-//             });
-//         } else if (supportedDatabases.nosql.includes(db)) {
-//             parsedQueries.push({
-//                 dbType: 'nosql',
-//                 database: db,
-//                 operation: query.operation,
-//                 fields: query.fields,
-//                 conditions: query.conditions
-//             });
-//         } else if (supportedDatabases.kvstore.includes(db)) {
-//             parsedQueries.push({
-//                 dbType: 'kvstore',
-//                 database: db,
-//                 operation: query.operation,
-//                 key: query.conditions.id  // Key-value stores typically query by key
-//             });
-//         } else if (supportedDatabases.graph.includes(db)) {
-//             parsedQueries.push({
-//                 dbType: 'graph',
-//                 database: db,
-//                 operation: query.operation,
-//                 node: query.conditions.id  // Assuming node traversal in graph databases
-//             });
-//         }
-//     });
-
-//     return parsedQueries;
-// }
-
-// // Export the query processor for use in the synchronization engine
-// module.exports = { processQuery };
+module.exports = { processQuery, processSingleQuery };

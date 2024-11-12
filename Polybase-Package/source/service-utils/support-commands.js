@@ -1,8 +1,14 @@
-/**
- * support-commands.js
- * 
- * Additinoal 'helper' methods for user to call for instructions
- */
+/*
+
+ - Provides additional helper methods for users to call for instructions.
+ - `displayHelp` shows available commands for supported databases and operations.
+ - Lists commands for MongoDB, Postgres, Redis, InfluxDB, and Neo4j.
+ - Displays example commands for each database type.
+ - `displayStatus` fetches and displays the connection status of all configured databases.
+ - Retrieves state information for each database, showing URL and connection status.
+ - Handles errors in retrieving the status and logs errors when they occur.
+
+*/
 
 const { getState } = require('./state-utils');
 const { logError, logInfo } = require('./logging');
@@ -29,16 +35,18 @@ function displayHelp() {
     `);
 }
 
-
 async function displayStatus() {
 
     const config = getConfig();
     console.log(config);
     try {
         const configState = getState('all');
+
         let statusMessage = 'Current Database Setup:\n';
+
         for (const [dbType, state] of Object.entries(configState)) {
             const { connection, config } = state;
+
             const isConnected = connection ? 'Connected' : 'Not Connected';
             statusMessage += `
             - ${dbType.toUpperCase()}:
@@ -46,11 +54,41 @@ async function displayStatus() {
                 - Status: ${isConnected}
             `;
         }
+
         return statusMessage;
+
     } catch (error) {
         logError('Error displaying status', { error });
         return handleError(`Failed to retrieve status: ${error.message}`, 500);
     }
 }
 
-module.exports = { displayHelp, displayStatus };
+
+async function displayConnections() {
+
+    const databases = ['mongo', 'postgres', 'redis', 'neo4j', 'influx'];
+    let statusSummary = [];
+
+    for (const dbType of databases) {
+
+        try {
+            const state = getState(dbType);
+            const connection = state.connection;
+
+            if (connection) {
+                statusSummary.push(`${dbType.toUpperCase()}: Connection successful`);
+            } else {
+                statusSummary.push(`${dbType.toUpperCase()}: Configuration failed or no connection found`);
+            }
+        } catch (error) {
+            statusSummary.push(`${dbType.toUpperCase()}: Error checking status - ${error.message}`);
+        }
+
+    }
+
+    console.log('Connection check complete. Status summary: ', statusSummary);  // Debugging line
+    return statusSummary.join('\n');
+
+}
+
+module.exports = { displayHelp, displayStatus, displayConnections };
