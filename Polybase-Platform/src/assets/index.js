@@ -1,10 +1,13 @@
 import brainwave from "./brainwave.svg";
+import polybased from "./polybased.png";
 import postgres from "./postgres.png";
 import cassandra from "./cassandra.png";
 import influx from "./influx.png";
 import mongo from "./mongo.png";
 import mysql from "./mysql.png";
 import redis from "./redis.png";
+import oracle from "./oracle.png";
+import sqlite from "./sqlite.png";
 import nathan from "./nathan.jpeg";
 import alazar from "./alazar.jpeg";
 import polybase from "./polybase.png";
@@ -87,6 +90,9 @@ import twitter from "./socials/twitter.svg";
 
 export {
   brainwave,
+  polybased,
+  oracle,
+  sqlite,
   cassandra,
   influx, 
   mysql,

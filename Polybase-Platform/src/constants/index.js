@@ -13,20 +13,13 @@ import {
     benefitImage2,
     chromecast,
     disc02,
-    discord,
     discordBlack,
     facebook,
-    figma,
     file02,
-    framer,
     homeSmile,
     instagram,
     notification2,
-    notion,
-    photoshop,
     plusSquare,
-    protopie,
-    raindrop,
     recording01,
     recording03,
     roadmap1,
@@ -34,7 +27,6 @@ import {
     roadmap3,
     roadmap4,
     searchMd,
-    slack,
     sliders04,
     telegram,
     twitter,
@@ -45,6 +37,8 @@ import {
     cassandra, 
     influx, 
     mongo, 
+    sqlite,
+    oracle, 
   } from "../../src/assets";
   
   export const navigation = [
@@ -122,7 +116,7 @@ import {
   ];
   
   export const collabText =
-    "With smart automation and top-notch security, it's the perfect solution for teams looking to work smarter.";
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it.";
   
   export const collabContent = [
     {
@@ -183,20 +177,20 @@ import {
       width: 40,
       height: 42,
     },
-    // {
-    //   id: "6",
-    //   title: "Framer",
-    //   icon: framer,
-    //   width: 26,
-    //   height: 34,
-    // },
-    // {
-    //   id: "7",
-    //   title: "Raindrop",
-    //   icon: raindrop,
-    //   width: 38,
-    //   height: 32,
-    // },
+    {
+      id: "6",
+      title: "sqlite",
+      icon: sqlite,
+      width: 26,
+      height: 34,
+    },
+    {
+      id: "7",
+      title: "oracle",
+      icon: oracle,
+      width: 46,
+      height: 38,
+    },
   ];
   
   export const pricing = [
