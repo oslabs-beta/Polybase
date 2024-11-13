@@ -1,4 +1,4 @@
-import { curve, robot, heroBackground } from "../assets";
+import { curve, robot, database, heroBackground } from "../assets";
 import Button from "./Button";
 import Section from "./Section";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
@@ -7,7 +7,7 @@ import { ScrollParallax } from "react-just-parallax";
 import { useRef } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
-import CompanyLogos from "./CompanyLogos";
+// import CompanyLogos from "./CompanyLogos";
 
 const Hero = () => {
   const parallaxRef = useRef(null);
@@ -60,11 +60,11 @@ const Hero = () => {
               <div className="h-[1.4rem] bg-n-10 rounded-t-[0.9rem]" />
               <div className="aspect-[33/40] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490]">
                 <img
-                  src={robot}
+                  src={database}
                   className="w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:translate-y-[10%] lg:-translate-y-[23%]"
                   width={1024}
                   height={490}
-                  alt="AI"
+                  alt="database image"
                 />
 
                 <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem]
@@ -94,7 +94,7 @@ const Hero = () => {
 
             <Gradient />
           </div>
-          <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
+          {/* <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
             <img
               src={heroBackground}
               className="w-full"
@@ -102,11 +102,11 @@ const Hero = () => {
               height={1800}
               alt="hero"
             />
-          </div>
+          </div> */}
 
           <BackgroundCircles />
         </div>
-        <CompanyLogos className="hidden relative z-10 mt-20 lg:block"/>
+        {/* <CompanyLogos className="hidden relative z-10 mt-20 lg:block"/> */}
       </div>
       <BottomLine />
     </Section>

@@ -37,7 +37,7 @@ const Services = () => {
               <p className="body-2 mb-[3rem] text-n-3">
                 Brainwave unlocks the potential of AI-powered applications
               </p>
-              <ul className="body-2">
+              {/* <ul className="body-2">
                 {brainwaveServices.map((item, index) => (
                   <li
                     key={index}
@@ -47,7 +47,7 @@ const Services = () => {
                     <p className="ml-4">{item}</p>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
 
             <Generating className="absolute left-4 right-4 bottom-4 border-n-1/10 border lg:left-1/2 lg-right-auto lg:bottom-8 lg:-translate-x-1/2" />

@@ -1,4 +1,12 @@
 import brainwave from "./brainwave.svg";
+import postgres from "./postgres.png";
+import cassandra from "./cassandra.png";
+import influx from "./influx.png";
+import mongo from "./mongo.png";
+import mysql from "./mysql.png";
+import redis from "./redis.png";
+import nathan from "./nathan.jpeg";
+import alazar from "./alazar.jpeg";
 import polybase from "./polybase.png";
 import check from "./check.svg";
 import brainwaveSymbol from "./brainwave-symbol.svg";
@@ -24,6 +32,7 @@ import background from "./background.jpg";
 
 import curve from "./hero/curve.png";
 import robot from "./hero/robot.jpg";
+import database from "./hero/database.webp";
 import heroBackground from "./hero/hero-background.jpg";
 
 import curve1 from "./collaboration/curve-1.svg";
@@ -78,7 +87,16 @@ import twitter from "./socials/twitter.svg";
 
 export {
   brainwave,
+  cassandra,
+  influx, 
+  mysql,
+  redis,
+  mongo,
+  postgres,
+  nathan,
+  alazar,
   polybase,
+  database,
   check,
   check2,
   loading1,

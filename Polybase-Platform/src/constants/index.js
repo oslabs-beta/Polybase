@@ -4,6 +4,8 @@ USING THROUGHOUT OUR APPLICATION
 */
 
 import {
+    nathan,
+    alazar,
     benefitIcon1,
     benefitIcon2,
     benefitIcon3,
@@ -20,8 +22,6 @@ import {
     homeSmile,
     instagram,
     notification2,
-    notification3,
-    notification4,
     notion,
     photoshop,
     plusSquare,
@@ -39,6 +39,12 @@ import {
     telegram,
     twitter,
     yourlogo,
+    postgres,
+    mysql,
+    redis,
+    cassandra, 
+    influx, 
+    mongo, 
   } from "../../src/assets";
   
   export const navigation = [
@@ -61,7 +67,7 @@ import {
   
   export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
   
-  export const notificationImages = [notification4, notification3, notification2];
+  export const notificationImages = [nathan, alazar, notification2];
   
   export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
   
@@ -137,60 +143,60 @@ import {
   export const collabApps = [
     {
       id: "0",
-      title: "Figma",
-      icon: figma,
-      width: 26,
-      height: 36,
+      title: "postgres",
+      icon: postgres,
+      width: 38,
+      height: 48,
     },
     {
       id: "1",
-      title: "Notion",
-      icon: notion,
+      title: "mysql",
+      icon: mysql,
       width: 34,
       height: 36,
     },
     {
       id: "2",
-      title: "Discord",
-      icon: discord,
-      width: 36,
-      height: 28,
+      title: "redis",
+      icon: redis,
+      width: 32,
+      height: 24,
     },
     {
       id: "3",
-      title: "Slack",
-      icon: slack,
-      width: 34,
-      height: 35,
+      title: "cassandra",
+      icon: cassandra,
+      width: 70,
+      height: 70,
     },
     {
       id: "4",
-      title: "Photoshop",
-      icon: photoshop,
+      title: "influx",
+      icon: influx,
       width: 34,
       height: 34,
     },
     {
       id: "5",
-      title: "Protopie",
-      icon: protopie,
-      width: 34,
-      height: 34,
+      title: "mongo",
+      icon: mongo,
+      width: 40,
+      height: 42,
     },
-    {
-      id: "6",
-      title: "Framer",
-      icon: framer,
-      width: 26,
-      height: 34,
-    },
-    {
-      id: "7",
-      title: "Raindrop",
-      icon: raindrop,
-      width: 38,
-      height: 32,
-    },
+    // {
+    //   id: "6",
+    //   title: "Framer",
+    //   icon: framer,
+    //   width: 26,
+    //   height: 34,
+    // },
+    // {
+    //   id: "7",
+    //   title: "Raindrop",
+    //   icon: raindrop,
+    //   width: 38,
+    //   height: 32,
+    // },
   ];
   
   export const pricing = [
