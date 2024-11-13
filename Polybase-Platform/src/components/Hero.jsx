@@ -27,7 +27,7 @@ const Hero = () => {
         [6rem]"
         >
           <h1 className="h1 mb-6">
-            Explore the Possibilities of &nbsp;Polyglot&nbsp;Environments with{" "}
+            Multi-Database Enviroments Made Seamless with{" "}
             {` `}
             <span className="inline-block relative">
               Polybase{" "}
@@ -44,11 +44,9 @@ const Hero = () => {
             className="body-1 max-w-3xl mx-auto mb-6
           text-n-2 lg:mb-8"
           >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum aut
-            omnis magni iure exercitationem est qui ipsum quam voluptatem
-            possimus sapiente sint aperiam beatae quas culpa.
+            A JavaScript library designed to simplify data integration and synchronization within polyglot environments.
           </p>
-          <Button white>Get Started</Button>
+          <Button white>Install</Button>
         </div>
         <div
           className="relative max-w-[23rem] mx-auto
@@ -88,7 +86,7 @@ const Hero = () => {
                 <ScrollParallax isAbsolutelyPositioned>
                   <Notification
                     className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex"
-                    title="Code generation"
+                    title="Meet the Devs"
                   />
                 </ScrollParallax>
               </div>
