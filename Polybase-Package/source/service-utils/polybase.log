@@ -78,3 +78,115 @@
 
 [2024-10-28T03:08:37.113Z] [INFO] CLI closed. Exiting program. {} 
 
+[2024-11-12T01:19:39.663Z] [INFO] Starting task, active workers: {
+  "activeWorkers": 1
+} 
+
+[2024-11-12T01:19:39.759Z] [INFO] ✔ Connection to MongoDB established. {
+  "database": "polybase_mongo"
+} 
+
+[2024-11-12T01:19:39.760Z] [INFO] Task finished, returning worker {
+  "activeWorkers": 0
+} 
+
+[2024-11-12T01:19:39.760Z] [INFO] Added connection for mongo {
+  "dbType": "mongo"
+} 
+
+[2024-11-12T01:19:39.761Z] [INFO] Set config for mongo {
+  "config": {
+    "uri": "mongodb://localhost:27017",
+    "database": "polybase_mongo"
+  }
+} 
+
+[2024-11-12T01:19:39.967Z] [ERROR] PostgreSQL connection error: Tenant or user not found {
+  "error": {
+    "length": 52,
+    "name": "error",
+    "severity": "FATAL",
+    "code": "XX000"
+  }
+} 
+
+[2024-11-12T01:19:39.969Z] [ERROR] PostgreSQL connection error: Tenant or user not found {
+  "stack": "\"Error: PostgreSQL connection error: Tenant or user not found\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at configurePostgresConnection (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/connection-pool.js:127:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at async configureDatabaseConnections (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:54:34)\\n    at async initPolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:70:24)\\n    at async initializePolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/userRun.js:305:30)\""
+} 
+
+[2024-11-12T01:19:39.970Z] [ERROR] Failed to connect to postgres {
+  "error": {
+    "success": false,
+    "error": {
+      "message": "PostgreSQL connection error: Tenant or user not found",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-12T01:19:39.970Z"
+    }
+  }
+} 
+
+[2024-11-12T01:19:39.970Z] [ERROR] Failed to connect to postgres: undefined {
+  "stack": "\"Error: Failed to connect to postgres: undefined\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at configureDatabaseConnections (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:63:20)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at async initPolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:70:24)\\n    at async initializePolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/userRun.js:305:30)\""
+} 
+
+[2024-11-12T01:19:39.970Z] [INFO] Polybase instance initialized with interfaces {
+  "interfaces": {
+    "success": false,
+    "error": {
+      "message": "Failed to connect to postgres: undefined",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-12T01:19:39.970Z"
+    }
+  }
+} 
+
+[2024-11-12T01:19:39.970Z] [INFO] ✔ Polybase initialized with configured interfaces. {
+  "interfaces": {
+    "success": false,
+    "error": {
+      "message": "Failed to connect to postgres: undefined",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-12T01:19:39.970Z"
+    }
+  }
+} 
+
+[2024-11-12T01:19:39.978Z] [INFO] Polybase initialized successfully. Please fill in the .env file with your database configuration. {} 
+
+[2024-11-12T01:38:33.529Z] [INFO] Processing user command... {
+  "command": "exit"
+} 
+
+[2024-11-12T01:38:33.536Z] [INFO] received query for exit {
+  "query": {
+    "params": []
+  }
+} 
+
+[2024-11-12T01:38:33.540Z] [ERROR] failed to execute query for exit: Cannot read properties of undefined (reading 'forEach') {
+  "stack": "\"Error: failed to execute query for exit: Cannot read properties of undefined (reading 'forEach')\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at execQuery (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/db-interface.js:98:16)\\n    at handleClientRequest (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/cli-interface.js:111:18)\\n    at /Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/cli-interface.js:43:44\\n    at [_onLine] [as _onLine] (node:internal/readline/interface:414:7)\\n    at [_line] [as _line] (node:internal/readline/interface:887:18)\\n    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1265:22)\\n    at ReadStream.onkeypress (node:internal/readline/interface:264:20)\\n    at ReadStream.emit (node:events:518:28)\\n    at emitKeys (node:internal/readline/utils:371:14)\""
+} 
+
+[2024-11-12T01:38:33.541Z] [INFO] CLI command executed {
+  "request": {
+    "dbType": "exit",
+    "query": {
+      "params": []
+    }
+  },
+  "response": {
+    "success": false,
+    "error": {
+      "message": "failed to execute query for exit: Cannot read properties of undefined (reading 'forEach')",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-12T01:38:33.541Z"
+    }
+  }
+} 
+
+[2024-11-12T01:38:40.864Z] [INFO] CLI closed. Exiting program. {} 
+
