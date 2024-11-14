@@ -21,7 +21,10 @@ const stateManager = {
 
     addConnection(dbType, connection) {
         this.state.connections[dbType] = connection;
-        logInfo(`Added connection for ${dbType}`, { dbType, connectionDetails: safeStringify(connection, 2) });
+        logInfo(`Added connection for ${dbType}`, {
+            dbType,
+            connectionDetails: safeStringify(connection, 2)
+        });
     },
 
     getConnection(dbType) {
@@ -54,10 +57,21 @@ function manageState(dbType, connection, config) {
 
 function getState(dbType) {
     try {
-        return {
-            connection: stateManager.getConnection(dbType),
-            config: stateManager.getConfig(dbType)
-        };
+        if (dbType === 'all') {
+            const allStates = {};
+            for (const db of Object.keys(stateManager.state.connections)) {
+                allStates[db] = {
+                    connection: stateManager.getConnection(db) || null,
+                    config: stateManager.getConfig(db) || null
+                };
+            }
+            return allStates; // Return states for all databases
+        }
+
+        const connection = stateManager.getConnection(dbType) || null;
+        const config = stateManager.getConfig(dbType) || null;
+
+        return { connection, config };
     } catch (error) {
         stateManager.handleStateError(dbType, error);
         throw new Error(`Failed to retrieve state for ${dbType}: ${error.message}`);
@@ -68,6 +82,7 @@ function handleConnectionDrop(dbType) {
     try {
         const state = getState(dbType);
         stateManager.handleStateError(dbType, new Error('Connection dropped'));
+        logInfo(`Connection dropped for ${dbType}`, { state });
     } catch (error) {
         stateManager.handleStateError(dbType, error);
         throw new Error(`Failed to handle connection drop for ${dbType}: ${error.message}`);
