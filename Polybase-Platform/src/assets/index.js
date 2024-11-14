@@ -10,6 +10,9 @@ import neo from "./neo.svg";
 import sqlite from "./sqlite.png";
 import nathan from "./nathan.jpeg";
 import alazar from "./alazar.jpeg";
+import gavin from "./gavin.jpg";
+import empty from "./empty.jpg";
+import emptyy from "./empty.webp";
 import polybase from "./polybase.png";
 import check from "./check.svg";
 import brainwaveSymbol from "./brainwave-symbol.svg";
@@ -90,6 +93,9 @@ import twitter from "./socials/twitter.svg";
 
 export {
   brainwave,
+  emptyy,
+  empty,
+  gavin,
   polybased,
   neo,
   sqlite,

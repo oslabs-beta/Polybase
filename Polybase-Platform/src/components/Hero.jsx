@@ -46,7 +46,7 @@ const Hero = () => {
           >
             A JavaScript library designed to simplify data integration and synchronization within polyglot environments.
           </p>
-          <Button white>Install</Button>
+          <Button white><a href="https://www.npmjs.com/">Install</a></Button>
         </div>
         <div
           className="relative max-w-[23rem] mx-auto
@@ -87,6 +87,7 @@ const Hero = () => {
                   <Notification
                     className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex"
                     title="Meet the Devs"
+                    href="#roadmap"
                   />
                 </ScrollParallax>
               </div>

@@ -1,11 +1,13 @@
 import { useLocation } from "react-router-dom";
-import { disablePageScroll, enablePageScroll } from 'scroll-lock';
+import { disablePageScroll, enablePageScroll } from "scroll-lock";
 import { polybase } from "../assets";
 import { navigation } from "../constants";
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
 import { useState } from "react";
+import github from "../assets/github.png";
+import npm from "../assets/npm.png";
 
 const Header = () => {
   const pathname = useLocation();
@@ -22,7 +24,7 @@ const Header = () => {
   };
 
   const handleClick = () => {
-    if(!openNavigation) return;
+    if (!openNavigation) return;
 
     enablePageScroll();
     setOpenNavigation(false);
@@ -35,7 +37,7 @@ const Header = () => {
       }`}
     >
       <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
-        <a className="block w-[12rem] xl:mr-0" href="#hero">
+        <a className="block w-[12rem] ml-0 xl:mr-36" href="#hero">
           <img src={polybase} width={190} height={40} alt="polybase" />
         </a>
 
@@ -48,7 +50,7 @@ const Header = () => {
         >
           <div
             className="relative z-2 flex flex-col
-           items-center justify-center mr-40 lg:flex-row"
+           items-center justify-center mr-40 ml-60 lg:flex-row"
           >
             {navigation.map((item) => (
               <a
@@ -68,15 +70,29 @@ const Header = () => {
               </a>
             ))}
           </div>
+          <div className="flex ml-80">
+            <a
+              href="https://github.com/oslabs-beta/Polybase"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="h-8 w-8 mt-6" src={github} alt="github" />
+            </a>
+            {/* <a
+              href="https://www.npmjs.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="h-14 w-17 mt-4 ml-6" src={npm} alt="npm" />
+            </a> */}
+          </div>
           <HamburgerMenu />
         </nav>
 
         <a
           href="#signup"
           className="button hiden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
-        >
-          
-        </a>
+        ></a>
         <Button className="hidden lg:flex" href="#login">
           Sign In
         </Button>

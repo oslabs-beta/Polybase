@@ -39,6 +39,9 @@ import {
     mongo, 
     sqlite,
     neo, 
+    gavin,
+    emptyy,
+    polybased
   } from "../../src/assets";
   
   export const navigation = [
@@ -61,7 +64,7 @@ import {
   
   export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
   
-  export const notificationImages = [nathan, alazar, notification2];
+  export const notificationImages = [nathan, alazar, gavin];
   
   export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
   
@@ -84,7 +87,8 @@ import {
       id: "0",
       title: "Nathan Patterson",
       //text: "Enable the chatbot to understand and respond to voice commands, making it easier for users to interact with the app hands-free.",
-      imageUrl: roadmap1,
+      imageUrl: nathan,
+      linkedin: "https://www.linkedin.com/in/nathan-patterson-aba798251/",
       colorful: true,
     },
     {
@@ -93,7 +97,8 @@ import {
       // text: "Add game-like elements, such as badges or leaderboards, to incentivize users to engage with the chatbot more frequently.",
       // date: "May 2023",
       // status: "progress",
-      imageUrl: roadmap2,
+      linkedin: "https://www.linkedin.com/in/alazaraklilu/",
+      imageUrl: alazar,
     },
     {
       id: "2",
@@ -101,7 +106,8 @@ import {
       // text: "Allow users to customize the chatbot's appearance and behavior, making it more engaging and fun to interact with.",
       // date: "May 2023",
       // status: "done",
-      imageUrl: roadmap3,
+      linkedin: "https://www.linkedin.com/in/davisknaub/",
+      imageUrl: emptyy,
     },
     {
       id: "3",
@@ -109,7 +115,8 @@ import {
       //text: "Allow the chatbot to access external data sources, such as weather APIs or news APIs, to provide more relevant recommendations.",
       //date: "May 2023",
       //status: "progress",
-      imageUrl: roadmap4,
+      linkedin: "https://www.linkedin.com/in/gavin-shadinger/",
+      imageUrl: gavin,
       colorful: true,
     },
   ];
@@ -137,10 +144,6 @@ import {
     {
       id: "4",
       title: "Connection Pooling & Load Balancing",
-    },
-    {
-      id: "5",
-      title: "Failover & Redundancy Management",
     },
   ];
   
@@ -246,7 +249,7 @@ import {
       text: "Ensures up-to-date and consistent data across multiple databases, reducing latency and improving responsiveness.",
       backgroundUrl: "assets/benefits/card-1.svg",
       iconUrl: benefitIcon1,
-      imageUrl: benefitImage2,
+      imageUrl: polybased,
     },
     {
       id: "1",
@@ -254,7 +257,7 @@ import {
       text: "Provides a single API layer that abstracts away the complexities of each database, simplifying interactions with polyglot environments.",
       backgroundUrl: "assets/benefits/card-2.svg",
       iconUrl: benefitIcon2,
-      imageUrl: benefitImage2,
+      imageUrl: polybased,
       light: true,
     },
     {
@@ -263,7 +266,7 @@ import {
       text: "Includes command-line tools for easier setup, configuration, and monitoring of database connections.",
       backgroundUrl: "assets/benefits/card-3.svg",
       iconUrl: benefitIcon3,
-      imageUrl: benefitImage2,
+      imageUrl: polybased,
     },
     {
       id: "3",
@@ -271,7 +274,7 @@ import {
       text: "Translates and maps data structures between different database types, handling schema discrepancies and data transformation needs.",
       backgroundUrl: "assets/benefits/card-4.svg",
       iconUrl: benefitIcon4,
-      imageUrl: benefitImage2,
+      imageUrl: polybased,
       light: true,
     },
     {
@@ -280,7 +283,7 @@ import {
       text: "Manages multiple database connections for optimal performance, ensuring stability under heavy loads.",
       backgroundUrl: "assets/benefits/card-5.svg",
       iconUrl: benefitIcon1,
-      imageUrl: benefitImage2,
+      imageUrl: polybased,
     },
     {
       id: "5",
@@ -288,7 +291,7 @@ import {
       text: "Automatically redirects queries if one database is down, ensuring high availability and reliability.",
       backgroundUrl: "assets/benefits/card-6.svg",
       iconUrl: benefitIcon2,
-      imageUrl: benefitImage2,
+      imageUrl: polybased,
     },
   ];
   
