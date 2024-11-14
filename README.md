@@ -30,7 +30,9 @@ Checks for Configuration Files:
 
 For Polybase-Config.json:
 
+
 {
+
     "mongo": {
         "url": "url",
         "database": "your-database-name"
@@ -54,43 +56,63 @@ For Polybase-Config.json:
         "username": "your-username",
         "password": "your-password"
     },
-    
+
     "influx": {
         "url": "url",
         "token": "your-token",
         "bucket": "your-bucket",
         "org": "your-org"
     }
+    
 }
 
 For .env:
 
 <b>MongoDB Configuration</b>
+
 MONGO_URI=
+
 MONGO_DATABASE=
 
-# PostgreSQL Configuration
+<b>PostgreSQL Configuration</b>
+
 POSTGRES_USER=
+
 POSTGRES_HOST=
+
 POSTGRES_DATABASE=
+
 POSTGRES_PASSWORD=
+
 POSTGRES_PORT=
 
-# Redis Configuration
+<b>Redis Configuration</b>
+
 REDIS_HOST=
+
 REDIS_PORT=
+
 REDIS_USERNAME=
+
 REDIS_PASSWORD=
 
-# InfluxDB Configuration
+<b>InfluxDB Configuration</b>
+
 INFLUX_URL=
+
 INFLUX_TOKEN=
+
 INFLUX_ORG=
+
 INFLUX_BUCKET=
 
-# Neo4j Configuration
+
+<b>Neo4j Configuration</b>
+
 NEO4J_URI=
+
 NEO4J_USERNAME=
+
 NEO4J_PASSWORD=
 
 Prompts for Manual Configuration: Logs instructions for filling in the placeholder values in the JSON or .env file to set up the required database configurations.
