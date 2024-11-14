@@ -48,16 +48,16 @@ const Roadmap = () => (
                     </div>
                   </div>
 
-                  <div className="mb-10 -my-10 -mx-15">
+                  <div className="mb-2 -my-10 -mx-15">
                     <img
-                      className="w-full"
+                      className=""
                       src={item.imageUrl}
                       width={628}
                       height={426}
                       alt={item.title}
                     />
                   </div>
-                  <h4 className="h4 mb-4">{item.title}</h4>
+                  <h4 className="h4">{item.title}</h4>
                   <p className="body-2 text-n-4">{item.text}</p>
                 </div>
               </div>
