@@ -13,12 +13,12 @@ Polybase is a robust Node.js library designed for seamless integration and synch
 <b>Installation</b>
 
 Install Polybase via npm:
-<b>npm install @osp/polybase</b>
+<b>npm install polybase-package</b>
 
 <b>Usage</b>
 
 Import Polybase in Your Project
-const Polybase = require('@osp/polybase');
+const Polybase = require('polybase-package');
 
 To start the Polybase CLI, use <b>node userRun.js</b>. 
 
