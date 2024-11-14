@@ -30,11 +30,14 @@ Checks for Configuration Files:
 
 For Polybase-Config.json:
 
+
 {
+
     "mongo": {
         "url": "url",
         "database": "your-database-name"
     },
+
     "postgres": {
         "host": "localhost",
         "port": port,
@@ -42,51 +45,74 @@ For Polybase-Config.json:
         "password": "your-password",
         "database": "your-database-name"
     },
+
     "redis": {
         "host": "localhost",
         "port": port
     },
+
     "neo4j": {
         "url": "url",
         "username": "your-username",
         "password": "your-password"
     },
+
     "influx": {
         "url": "url",
         "token": "your-token",
         "bucket": "your-bucket",
         "org": "your-org"
     }
+
 }
 
 For .env:
 
-# MongoDB Configuration
+<b>MongoDB Configuration</b>
+
 MONGO_URI=
+
 MONGO_DATABASE=
 
-# PostgreSQL Configuration
+<b>PostgreSQL Configuration</b>
+
 POSTGRES_USER=
+
 POSTGRES_HOST=
+
 POSTGRES_DATABASE=
+
 POSTGRES_PASSWORD=
+
 POSTGRES_PORT=
 
-# Redis Configuration
+<b>Redis Configuration</b>
+
 REDIS_HOST=
+
 REDIS_PORT=
+
 REDIS_USERNAME=
+
 REDIS_PASSWORD=
 
-# InfluxDB Configuration
+<b>InfluxDB Configuration</b>
+
 INFLUX_URL=
+
 INFLUX_TOKEN=
+
 INFLUX_ORG=
+
 INFLUX_BUCKET=
 
-# Neo4j Configuration
+
+<b>Neo4j Configuration</b>
+
 NEO4J_URI=
+
 NEO4J_USERNAME=
+
 NEO4J_PASSWORD=
 
 Prompts for Manual Configuration: Logs instructions for filling in the placeholder values in the JSON or .env file to set up the required database configurations.
@@ -94,6 +120,7 @@ Prompts for Manual Configuration: Logs instructions for filling in the placehold
 Ready for Commands: Once configurations are provided, the CLI is fully operational, allowing users to run commands like status, retry, configs, and more.
 
 <b>CLI Overview</b>
+
 Polybase includes a CLI for direct database interaction. Run the CLI with: <b>node userRun.js</b>
 
 <b>Available Commands</b>
@@ -113,6 +140,7 @@ Polybase includes a CLI for direct database interaction. Run the CLI with: <b>no
 
 
 <b>Contributing</b>
+
 We welcome contributions! To get started:
 - Fork the repository.
 - Create a new branch: git checkout -b feature-name.
@@ -121,7 +149,9 @@ We welcome contributions! To get started:
 - Submit a pull request.
 
 <b>License</b>
+
 Polybase is licensed under the MIT License. See LICENSE for details.
 
 <b>Acknowledgments</b>
+
 Polybase was developed with a focus on simplifying multi-database operations and enhancing developer productivity. Special thanks to the contributors and supporters who made this project possible.

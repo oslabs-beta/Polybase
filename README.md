@@ -149,6 +149,7 @@ We welcome contributions! To get started:
 - Submit a pull request.
 
 <b>License</b>
+
 Polybase is licensed under the MIT License. See LICENSE for details.
 
 <b>Acknowledgments</b>
