@@ -38,25 +38,25 @@ import {
     influx, 
     mongo, 
     sqlite,
-    oracle, 
+    neo, 
   } from "../../src/assets";
   
   export const navigation = [
     {
       id: "0",
-      title: "Docs",
+      title: "About",
       url: "#features",
     },
     {
       id: "1",
-      title: "Install",
-      url: "#pricing",
-    },
-    {
-      id: "2",
       title: "Devs",
       url: "#roadmap",
     },
+    {
+      id: "2",
+      title: "Docs",
+      url: "https://www.npmjs.com/",
+    }
   ];
   
   export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
@@ -82,55 +82,65 @@ import {
   export const roadmap = [
     {
       id: "0",
-      title: "Voice recognition",
-      text: "Enable the chatbot to understand and respond to voice commands, making it easier for users to interact with the app hands-free.",
-      date: "May 2023",
-      status: "done",
+      title: "Nathan Patterson",
+      //text: "Enable the chatbot to understand and respond to voice commands, making it easier for users to interact with the app hands-free.",
       imageUrl: roadmap1,
       colorful: true,
     },
     {
       id: "1",
-      title: "Gamification",
-      text: "Add game-like elements, such as badges or leaderboards, to incentivize users to engage with the chatbot more frequently.",
-      date: "May 2023",
-      status: "progress",
+      title: "Alazar Aklilu",
+      // text: "Add game-like elements, such as badges or leaderboards, to incentivize users to engage with the chatbot more frequently.",
+      // date: "May 2023",
+      // status: "progress",
       imageUrl: roadmap2,
     },
     {
       id: "2",
-      title: "Chatbot customization",
-      text: "Allow users to customize the chatbot's appearance and behavior, making it more engaging and fun to interact with.",
-      date: "May 2023",
-      status: "done",
+      title: "Davis Knaub",
+      // text: "Allow users to customize the chatbot's appearance and behavior, making it more engaging and fun to interact with.",
+      // date: "May 2023",
+      // status: "done",
       imageUrl: roadmap3,
     },
     {
       id: "3",
-      title: "Integration with APIs",
-      text: "Allow the chatbot to access external data sources, such as weather APIs or news APIs, to provide more relevant recommendations.",
-      date: "May 2023",
-      status: "progress",
+      title: "Gavin Shadinger",
+      //text: "Allow the chatbot to access external data sources, such as weather APIs or news APIs, to provide more relevant recommendations.",
+      //date: "May 2023",
+      //status: "progress",
       imageUrl: roadmap4,
+      colorful: true,
     },
   ];
   
-  export const collabText =
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it.";
+  // export const collabText =
+  // "Polybase is a JavaScript library designed for real-time data synchronization across multiple databases in polyglot environments. It provides a unified interface to connect, manage, and synchronize data between different database types, including MongoDB, Redis, PostgreSQL, Neo4j, and InfluxDB.";
   
   export const collabContent = [
     {
       id: "0",
-      title: "Seamless Integration",
-      text: collabText,
+      title: "Data Synchronization",
     },
     {
       id: "1",
-      title: "Smart Automation",
+      title: "Unified Interface",
     },
     {
       id: "2",
-      title: "Top-notch Security",
+      title: "CLI Management Tools",
+    },
+    {
+      id: "3",
+      title: "Automated Data Mapping",
+    },
+    {
+      id: "4",
+      title: "Connection Pooling & Load Balancing",
+    },
+    {
+      id: "5",
+      title: "Failover & Redundancy Management",
     },
   ];
   
@@ -181,15 +191,15 @@ import {
       id: "6",
       title: "sqlite",
       icon: sqlite,
-      width: 26,
+      width: 33,
       height: 34,
     },
     {
       id: "7",
-      title: "oracle",
-      icon: oracle,
-      width: 46,
-      height: 38,
+      title: "neo",
+      icon: neo,
+      width: 36,
+      height: 30,
     },
   ];
   
@@ -232,16 +242,16 @@ import {
   export const benefits = [
     {
       id: "0",
-      title: "Ask anything",
-      text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+      title: "Data Synchronization",
+      text: "Ensures up-to-date and consistent data across multiple databases, reducing latency and improving responsiveness.",
       backgroundUrl: "assets/benefits/card-1.svg",
       iconUrl: benefitIcon1,
       imageUrl: benefitImage2,
     },
     {
       id: "1",
-      title: "Improve everyday",
-      text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+      title: "Unified Interface",
+      text: "Provides a single API layer that abstracts away the complexities of each database, simplifying interactions with polyglot environments.",
       backgroundUrl: "assets/benefits/card-2.svg",
       iconUrl: benefitIcon2,
       imageUrl: benefitImage2,
@@ -249,16 +259,16 @@ import {
     },
     {
       id: "2",
-      title: "Connect everywhere",
-      text: "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
+      title: "CLI Management",
+      text: "Includes command-line tools for easier setup, configuration, and monitoring of database connections.",
       backgroundUrl: "assets/benefits/card-3.svg",
       iconUrl: benefitIcon3,
       imageUrl: benefitImage2,
     },
     {
       id: "3",
-      title: "Fast responding",
-      text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+      title: "Data Mapping",
+      text: "Translates and maps data structures between different database types, handling schema discrepancies and data transformation needs.",
       backgroundUrl: "assets/benefits/card-4.svg",
       iconUrl: benefitIcon4,
       imageUrl: benefitImage2,
@@ -266,16 +276,16 @@ import {
     },
     {
       id: "4",
-      title: "Ask anything",
-      text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+      title: "Connection Pooling",
+      text: "Manages multiple database connections for optimal performance, ensuring stability under heavy loads.",
       backgroundUrl: "assets/benefits/card-5.svg",
       iconUrl: benefitIcon1,
       imageUrl: benefitImage2,
     },
     {
       id: "5",
-      title: "Improve everyday",
-      text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+      title: "Failover Management",
+      text: "Automatically redirects queries if one database is down, ensuring high availability and reliability.",
       backgroundUrl: "assets/benefits/card-6.svg",
       iconUrl: benefitIcon2,
       imageUrl: benefitImage2,

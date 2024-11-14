@@ -6,7 +6,7 @@ import influx from "./influx.png";
 import mongo from "./mongo.png";
 import mysql from "./mysql.png";
 import redis from "./redis.png";
-import oracle from "./oracle.png";
+import neo from "./neo.svg";
 import sqlite from "./sqlite.png";
 import nathan from "./nathan.jpeg";
 import alazar from "./alazar.jpeg";
@@ -91,7 +91,7 @@ import twitter from "./socials/twitter.svg";
 export {
   brainwave,
   polybased,
-  oracle,
+  neo,
   sqlite,
   cassandra,
   influx, 
