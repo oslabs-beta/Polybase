@@ -63,7 +63,7 @@ For Polybase-Config.json:
         "bucket": "your-bucket",
         "org": "your-org"
     }
-    
+
 }
 
 For .env:
@@ -120,6 +120,7 @@ Prompts for Manual Configuration: Logs instructions for filling in the placehold
 Ready for Commands: Once configurations are provided, the CLI is fully operational, allowing users to run commands like status, retry, configs, and more.
 
 <b>CLI Overview</b>
+
 Polybase includes a CLI for direct database interaction. Run the CLI with: <b>node userRun.js</b>
 
 <b>Available Commands</b>
@@ -139,6 +140,7 @@ Polybase includes a CLI for direct database interaction. Run the CLI with: <b>no
 
 
 <b>Contributing</b>
+
 We welcome contributions! To get started:
 - Fork the repository.
 - Create a new branch: git checkout -b feature-name.
@@ -150,4 +152,5 @@ We welcome contributions! To get started:
 Polybase is licensed under the MIT License. See LICENSE for details.
 
 <b>Acknowledgments</b>
+
 Polybase was developed with a focus on simplifying multi-database operations and enhancing developer productivity. Special thanks to the contributors and supporters who made this project possible.
