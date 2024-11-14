@@ -35,6 +35,7 @@ For Polybase-Config.json:
         "url": "url",
         "database": "your-database-name"
     },
+
     "postgres": {
         "host": "localhost",
         "port": port,
@@ -42,15 +43,18 @@ For Polybase-Config.json:
         "password": "your-password",
         "database": "your-database-name"
     },
+
     "redis": {
         "host": "localhost",
         "port": port
     },
+
     "neo4j": {
         "url": "url",
         "username": "your-username",
         "password": "your-password"
     },
+    
     "influx": {
         "url": "url",
         "token": "your-token",
@@ -61,7 +65,7 @@ For Polybase-Config.json:
 
 For .env:
 
-# MongoDB Configuration
+<b>MongoDB Configuration</b>
 MONGO_URI=
 MONGO_DATABASE=
 
