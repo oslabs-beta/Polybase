@@ -193,6 +193,7 @@ const { logInfo, logError } = require('./service-utils/logging');
 function createEnvFile() {
     const envFilePath = path.resolve(__dirname, '.env');
     const envContent = `
+
 # MongoDB Configuration
 MONGO_URI=
 MONGO_DATABASE=
@@ -220,6 +221,7 @@ INFLUX_BUCKET=
 NEO4J_URI=
 NEO4J_USERNAME=
 NEO4J_PASSWORD=
+
 `;
 
     if (!fs.existsSync(envFilePath)) {

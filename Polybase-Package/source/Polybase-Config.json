@@ -4,7 +4,7 @@
     "database": "polybase_mongo"
   },
   "postgres": {
-    "user": "postgresql://postgres.vjunztugzgtcwovqtcri:Polybase@123@aws-0-us-east-1.pooler.supabase.com:6543/postgres",
+    "user": "postgresql://alazaraklilu.vjunztugzgtcwovqtcri:Polybase@123@aws-0-us-east-1.pooler.supabase.com:6543/postgres",
     "host": "aws-0-us-east-1.pooler.supabase.com",
     "database": "postgres",
     "password": "Polybase@123",
