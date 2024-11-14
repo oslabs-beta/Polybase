@@ -1,34 +1,15 @@
-### For Core Developers
+<b>POLYBASE</b>
 
-1. **Clone root repository:**
+Polybase is a robust Node.js library designed for seamless integration and synchronization across SQL, NoSQL, graph, and time-series databases. With a built-in CLI, developers can easily manage configurations, query databases, and handle cross-database operations efficiently.
 
-   ```bash
-    git clone https://github.com/oslabs-beta/Polybase
-   ```
+<b>Features</b>
+- <b>Multi-Database Support:</b> Handles MongoDB, PostgreSQL, Redis, Neo4j, and InfluxDB with a unified interface.
+- <b>Powerful CLI:</b> Supports 10+ commands (e.g., status, retry, clear) for streamlined debugging and database management.
+- <b>State Management:</b> Tracks connections and configurations for local and remote databases.
+- <b>Circular Dependency Handling:</b> Ensures scalability and maintainability.
+- <b>Robust Rollback Mechanism:</b> Guarantees 100% rollback success for critical commands.
+- <b>Seamless Configuration Loading:</b> Reads JSON and .env files for environment-based setups.
 
-2. **Checkout branch:**
-Make sure to replace`<branch-name>`, with the actual values specific to your project.
-
-   ```bash
-   git checkout <branch-name>
-   ```
-
-3. **Enter directory (package or application):**
-
-   - For the Polybase Package:
-
-     ```bash
-     cd <Polybase-Package>
-     ```
-
-   - For the Polybase Platform:
-
-     ```bash
-     cd <Polybase-Platform>
-     ```
-
-4. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
+<b>Installation</b>
+Install Polybase via npm:
+<b>npm install @osp/polybase</b>
