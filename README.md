@@ -11,10 +11,12 @@ Polybase is a robust Node.js library designed for seamless integration and synch
 - <b>Seamless Configuration Loading:</b> Reads JSON and .env files for environment-based setups.
 
 <b>Installation</b>
+
 Install Polybase via npm:
 <b>npm install @osp/polybase</b>
 
 <b>Usage</b>
+
 Import Polybase in Your Project
 const Polybase = require('@osp/polybase');
 
