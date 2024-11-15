@@ -72,32 +72,32 @@ function createConfigFile() {
     const configContent = `
 {
   "mongo": {
-    "uri": "${process.env.MONGO_URI}",
-    "database": "${process.env.MONGO_DATABASE}"
+    "uri": "",
+    "database": ""
   },
   "postgres": {
-    "user": "${process.env.POSTGRES_USER}",
-    "host": "${process.env.POSTGRES_HOST}",
-    "database": "${process.env.POSTGRES_DATABASE}",
-    "password": "${process.env.POSTGRES_PASSWORD}",
-    "port": ${process.env.POSTGRES_PORT}
+    "user": "",
+    "host": "",
+    "database": "",
+    "password": "",
+    "port": 
   },
   "redis": {
-    "host": "${process.env.REDIS_HOST}",
-    "port": ${process.env.REDIS_PORT},
-    "username": "${process.env.REDIS_USERNAME}",
-    "password": "${process.env.REDIS_PASSWORD}"
+    "host": "",
+    "port": ,
+    "username": "",
+    "password": ""
   },
   "influx": {
-    "url": "${process.env.INFLUX_URL}",
-    "token": "${process.env.INFLUX_TOKEN}",
-    "org": "${process.env.INFLUX_ORG}",
-    "bucket": "${process.env.INFLUX_BUCKET}"
+    "url": "",
+    "token": "",
+    "org": "",
+    "bucket": ""
   },
   "neo4j": {
-    "uri": "${process.env.NEO4J_URI}",
-    "username": "${process.env.NEO4J_USERNAME}",
-    "password": "${process.env.NEO4J_PASSWORD}"
+    "uri": "",
+    "username": "",
+    "password": ""
   }
 }
 `;
@@ -132,7 +132,6 @@ async function initializePolybase() {
         return handleError('Configuration file loading failed. Ensure Polybase-Config.json exists and is correctly formatted.', 500);
     }
 
-    // Proceed to initialize Polybase
     const polybaseInstance = await initPolybase(finalConfig);
 
     if (!polybaseInstance) {
