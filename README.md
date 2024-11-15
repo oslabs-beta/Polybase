@@ -179,7 +179,7 @@ Polybase was developed with a focus on simplifying multi-database operations and
 </head>
 <body>
 
-  <h1>Meet The Devs!/h1>
+  <h1>Meet The Devs!</h1>
   <ul class="name-list">
     <li class="name-item">
       <span>Alazar Aklilu</span>
