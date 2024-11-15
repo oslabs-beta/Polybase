@@ -1,3 +1,48 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Banner Example</title>
+  <style>
+    /* Center banner */
+    .banner {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 800px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.5em;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Push content down to avoid overlap */
+    .content {
+      padding-top: 80px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Banner at the top middle -->
+  <div class="banner">
+    Welcome to Our Website!
+  </div>
+
+  <!-- Main content -->
+  <div class="content">
+    <h1>Page Content</h1>
+    <p>This is where your main page content will go.</p>
+  </div>
+
+</body>
+
+
 <b><h1>POLYBASE</h1></b>
 
 Polybase is a robust Node.js library designed for seamless integration and synchronization across SQL, NoSQL, graph, and time-series databases. With a built-in CLI, developers can easily manage configurations, query databases, and handle cross-database operations efficiently.
@@ -10,7 +55,7 @@ Polybase is a robust Node.js library designed for seamless integration and synch
 - <b>Robust Rollback Mechanism:</b> Guarantees 100% rollback success for critical commands.
 - <b>Seamless Configuration Loading:</b> Reads JSON and .env files for environment-based setups.
 
-<b>Installation</b>
+<h1>Installation</h1>
 
 Install Polybase via npm:
 <b>npm install polybase-package</b>
@@ -157,3 +202,55 @@ Polybase is licensed under the MIT License. See LICENSE for details.
 <b>Acknowledgments</b>
 
 Polybase was developed with a focus on simplifying multi-database operations and enhancing developer productivity. Special thanks to the contributors and supporters who made this project possible.
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List of Names with Badges</title>
+  <style>
+    .name-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .name-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .badges {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>List of Names with Badges</h1>
+  <ul class="name-list">
+    <li class="name-item">
+      <span>Alazar Aklilu</span>
+      <div class="badges">
+        <a href="https://www.linkedin.com/in/alazaraklilu/">
+          <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+        </a>
+      </div>
+    </li>
+    <li class="name-item">
+      <span>Nathan Patterson</span>
+      <div class="badges">
+        <a href="https://www.linkedin.com/in/nathan-patterson-aba798251/">
+          <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+        </a>
+      </div>
+    </li>
+    <li class="name-item">
+      <span>Gavin Shadinger</span>
+      <div class="badges">
+        <a href="https://www.linkedin.com/in/gavin-shadinger/">
+          <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+        </a>
+      </div>
+    </li>
+    <!-- Add more names as needed -->
+  </ul>
+
+</body>
