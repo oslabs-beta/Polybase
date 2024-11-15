@@ -158,25 +158,7 @@ Polybase is licensed under the MIT License. See LICENSE for details.
 
 Polybase was developed with a focus on simplifying multi-database operations and enhancing developer productivity. Special thanks to the contributors and supporters who made this project possible.
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>List of Names with Badges</title>
-  <style>
-    .name-list {
-      list-style-type: none;
-      padding: 0;
-    }
-    .name-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .badges {
-      margin-left: 10px;
-    }
-  </style>
-</head>
+
 <body>
 
   <h1>Meet The Devs!</h1>
