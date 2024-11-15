@@ -10,15 +10,18 @@ export default {
         {
             file: pkg.main,
             format: 'cjs',
+            sourcemap: true
         },
         {
             file: pkg.module,
             format: 'esm',
+            sourcemap: true
         },
         {
-            file: 'dist/index.umd.js',
+            file: pkg.browser,
             format: 'umd',
             name: 'PolybasePackage',
+            sourcemap: true,
             globals: {
                 lodash: '_',
             },
@@ -28,7 +31,9 @@ export default {
     plugins: [
         resolve(),
         commonjs(),
-        typescript(),
+        typescript({
+            tsconfig: './tsconfig.json' // Ensure a valid tsconfig exists
+        }),
         babel({
             exclude: 'node_modules/**',
             babelHelpers: 'bundled',
