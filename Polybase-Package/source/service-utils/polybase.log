@@ -14845,3 +14845,1057 @@
   "stack": "\"Error: Configuration file loading failed. Ensure Polybase-Config.json exists and is correctly formatted.\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at initializePolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/userRun.js:132:16)\\n    at Object.<anonymous> (/Users/zar/Codesmith/Polybase/Polybase-Package/source/userRun.js:158:1)\\n    at Module._compile (node:internal/modules/cjs/loader:1376:14)\\n    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)\\n    at Module.load (node:internal/modules/cjs/loader:1207:32)\\n    at Module._load (node:internal/modules/cjs/loader:1023:12)\\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)\\n    at node:internal/main/run_main_module:28:49\""
 } 
 
+[2024-11-15T03:20:51.703Z] [INFO] Success: The .env file was created with placeholder values. {} 
+
+[2024-11-15T03:20:51.704Z] [INFO] Configuration file created: Polybase-Config.json {} 
+
+[2024-11-15T03:20:51.705Z] [ERROR] Failed to load configuration file: Unexpected token '}', ..."port": 
+  },
+  "redi"... is not valid JSON {} 
+
+[2024-11-15T03:20:51.705Z] [ERROR] Configuration file loading failed. Ensure Polybase-Config.json exists and is correctly formatted. {
+  "stack": "\"Error: Configuration file loading failed. Ensure Polybase-Config.json exists and is correctly formatted.\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at initializePolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/userRun.js:132:16)\\n    at Object.<anonymous> (/Users/zar/Codesmith/Polybase/Polybase-Package/source/userRun.js:157:1)\\n    at Module._compile (node:internal/modules/cjs/loader:1376:14)\\n    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)\\n    at Module.load (node:internal/modules/cjs/loader:1207:32)\\n    at Module._load (node:internal/modules/cjs/loader:1023:12)\\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)\\n    at node:internal/main/run_main_module:28:49\""
+} 
+
+[2024-11-15T03:22:14.089Z] [INFO] Starting task {
+  "activeWorkers": 1
+} 
+
+[2024-11-15T03:22:14.123Z] [INFO] ✔ Connection to MongoDB established. {
+  "database": "polybase_mongo"
+} 
+
+[2024-11-15T03:22:14.123Z] [INFO] Task finished {
+  "activeWorkers": 0
+} 
+
+[2024-11-15T03:22:14.125Z] [INFO] Added connection for mongo {
+  "dbType": "mongo",
+  "connectionDetails": "{\n  \"s\": {\n    \"options\": {\n      \"enableUtf8Validation\": true,\n      \"forceServerObjectId\": false,\n      \"pkFactory\": {},\n      \"raw\": false,\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"retryWrites\": true\n    },\n    \"readPreference\": {\n      \"mode\": \"primary\"\n    },\n    \"bsonOptions\": {\n      \"raw\": false,\n      \"useBigInt64\": false,\n      \"promoteLongs\": true,\n      \"promoteValues\": true,\n      \"promoteBuffers\": false,\n      \"ignoreUndefined\": false,\n      \"bsonRegExp\": false,\n      \"serializeFunctions\": false,\n      \"fieldsAsRaw\": {},\n      \"enableUtf8Validation\": true\n    },\n    \"pkFactory\": \"[Circular]\",\n    \"namespace\": {\n      \"db\": \"polybase_mongo\"\n    }\n  },\n  \"client\": {\n    \"_events\": {},\n    \"_eventsCount\": 0,\n    \"s\": {\n      \"url\": \"mongodb://localhost:27017\",\n      \"bsonOptions\": {\n        \"raw\": false,\n        \"useBigInt64\": false,\n        \"promoteLongs\": true,\n        \"promoteValues\": true,\n        \"promoteBuffers\": false,\n        \"ignoreUndefined\": false,\n        \"bsonRegExp\": false,\n        \"serializeFunctions\": false,\n        \"fieldsAsRaw\": \"[Circular]\",\n        \"enableUtf8Validation\": true\n      },\n      \"namespace\": {\n        \"db\": \"admin\"\n      },\n      \"hasBeenClosed\": false,\n      \"sessionPool\": {\n        \"client\": \"[Circular]\",\n        \"sessions\": {\n          \"count\": 0,\n          \"head\": {\n            \"next\": \"[Circular]\",\n            \"prev\": \"[Circular]\",\n            \"value\": null\n          }\n        }\n      },\n      \"activeSessions\": {},\n      \"authProviders\": {\n        \"existingProviders\": {}\n      },\n      \"options\": {\n        \"hosts\": [\n          {\n            \"host\": \"localhost\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          }\n        ],\n        \"autoSelectFamily\": true,\n        \"compressors\": [\n          \"none\"\n        ],\n        \"connectTimeoutMS\": 30000,\n        \"directConnection\": false,\n        \"driverInfo\": {},\n        \"enableUtf8Validation\": true,\n        \"forceServerObjectId\": false,\n        \"heartbeatFrequencyMS\": 10000,\n        \"loadBalanced\": false,\n        \"localThresholdMS\": 15,\n        \"maxConnecting\": 2,\n        \"maxIdleTimeMS\": 0,\n        \"maxPoolSize\": 10,\n        \"minPoolSize\": 0,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"monitorCommands\": false,\n        \"noDelay\": true,\n        \"pkFactory\": \"[Circular]\",\n        \"raw\": false,\n        \"readPreference\": {\n          \"mode\": \"primary\"\n        },\n        \"retryReads\": true,\n        \"retryWrites\": true,\n        \"serverMonitoringMode\": \"auto\",\n        \"serverSelectionTimeoutMS\": 30000,\n        \"socketTimeoutMS\": 0,\n        \"srvMaxHosts\": 0,\n        \"srvServiceName\": \"mongodb\",\n        \"waitQueueTimeoutMS\": 0,\n        \"zlibCompressionLevel\": 0,\n        \"dbName\": \"test\",\n        \"userSpecifiedAuthSource\": false,\n        \"userSpecifiedReplicaSet\": false,\n        \"mongoLoggerOptions\": {\n          \"componentSeverities\": {\n            \"command\": \"off\",\n            \"topology\": \"off\",\n            \"serverSelection\": \"off\",\n            \"connection\": \"off\",\n            \"client\": \"off\",\n            \"default\": \"off\"\n          },\n          \"maxDocumentLength\": 1000,\n          \"logDestination\": {},\n          \"logDestinationIsStdErr\": true\n        },\n        \"metadata\": {\n          \"driver\": {\n            \"name\": \"nodejs\",\n            \"version\": \"6.9.0\"\n          },\n          \"platform\": \"Node.js v20.11.0, LE\",\n          \"os\": {\n            \"name\": \"darwin\",\n            \"architecture\": \"x64\",\n            \"version\": \"23.3.0\",\n            \"type\": \"Darwin\"\n          }\n        },\n        \"extendedMetadata\": {}\n      },\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"isMongoClient\": true\n    },\n    \"topology\": {\n      \"_events\": {},\n      \"_eventsCount\": 26,\n      \"client\": \"[Circular]\",\n      \"s\": {\n        \"id\": 0,\n        \"options\": \"[Circular]\",\n        \"seedlist\": [\n          \"[Circular]\"\n        ],\n        \"state\": \"connected\",\n        \"description\": {\n          \"type\": \"Single\",\n          \"servers\": {\n            \"localhost:27017\": {\n              \"address\": \"localhost:27017\",\n              \"type\": \"Standalone\",\n              \"hosts\": [],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {},\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 5,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 94939672,\n              \"lastWriteDate\": 0,\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"67354bae87f3f5e3ef1c7503\"\n                },\n                \"counter\": 0\n              },\n              \"setName\": null,\n              \"setVersion\": null,\n              \"electionId\": null,\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": null,\n              \"me\": null,\n              \"$clusterTime\": null\n            }\n          },\n          \"stale\": false,\n          \"compatible\": true,\n          \"heartbeatFrequencyMS\": 10000,\n          \"localThresholdMS\": 15,\n          \"setName\": null,\n          \"maxElectionId\": null,\n          \"maxSetVersion\": null,\n          \"commonWireVersion\": 0,\n          \"logicalSessionTimeoutMinutes\": 30\n        },\n        \"serverSelectionTimeoutMS\": 30000,\n        \"heartbeatFrequencyMS\": 10000,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"servers\": {},\n        \"connectionTimers\": {}\n      },\n      \"component\": \"topology\"\n    }\n  }\n}"
+} 
+
+[2024-11-15T03:22:14.125Z] [INFO] Set config for mongo {
+  "config": {
+    "uri": "mongodb://localhost:27017",
+    "database": "polybase_mongo"
+  }
+} 
+
+[2024-11-15T03:22:14.125Z] [INFO] ✔ Connection to mongo established. {} 
+
+[2024-11-15T03:22:14.328Z] [ERROR] PostgreSQL connection error {
+  "error": {
+    "length": 52,
+    "name": "error",
+    "severity": "FATAL",
+    "code": "XX000"
+  }
+} 
+
+[2024-11-15T03:22:14.329Z] [ERROR] PostgreSQL connection error: Tenant or user not found {
+  "stack": "\"Error: PostgreSQL connection error: Tenant or user not found\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at configurePostgresConnection (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/connection-pool.js:147:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at async configureDatabaseConnections (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:48:34)\\n    at async initPolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:65:28)\\n    at async initializePolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/userRun.js:135:30)\""
+} 
+
+[2024-11-15T03:22:14.329Z] [ERROR] Failed to connect to postgres: undefined {
+  "error": {
+    "success": false,
+    "error": {
+      "message": "PostgreSQL connection error: Tenant or user not found",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-15T03:22:14.329Z"
+    }
+  }
+} 
+
+[2024-11-15T03:22:14.331Z] [INFO] Added connection for redis {
+  "dbType": "redis",
+  "connectionDetails": "{\n  \"options\": {\n    \"host\": \"redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com\",\n    \"port\": 17909,\n    \"username\": \"default\",\n    \"password\": \"9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn\",\n    \"family\": 4,\n    \"connectTimeout\": 10000,\n    \"disconnectTimeout\": 2000,\n    \"keepAlive\": 0,\n    \"noDelay\": true,\n    \"connectionName\": null,\n    \"sentinels\": null,\n    \"name\": null,\n    \"role\": \"master\",\n    \"natMap\": null,\n    \"enableTLSForSentinelMode\": false,\n    \"updateSentinels\": true,\n    \"failoverDetector\": false,\n    \"db\": 0,\n    \"enableOfflineQueue\": true,\n    \"enableReadyCheck\": true,\n    \"autoResubscribe\": true,\n    \"autoResendUnfulfilledCommands\": true,\n    \"lazyConnect\": false,\n    \"keyPrefix\": \"\",\n    \"reconnectOnError\": null,\n    \"readOnly\": false,\n    \"stringNumbers\": false,\n    \"maxRetriesPerRequest\": 20,\n    \"maxLoadingRetryTime\": 10000,\n    \"enableAutoPipelining\": false,\n    \"autoPipeliningIgnoredCommands\": [],\n    \"sentinelMaxConnections\": 10\n  },\n  \"scriptsSet\": {},\n  \"addedBuiltinSet\": {},\n  \"status\": \"connecting\",\n  \"isCluster\": false,\n  \"reconnectTimeout\": null,\n  \"connectionEpoch\": 1,\n  \"retryAttempts\": 0,\n  \"manuallyClosing\": false,\n  \"_autoPipelines\": {},\n  \"_runningAutoPipelines\": {},\n  \"_events\": {},\n  \"_eventsCount\": 2,\n  \"commandQueue\": {\n    \"_head\": 0,\n    \"_tail\": 0,\n    \"_capacityMask\": 3,\n    \"_list\": [\n      null,\n      null,\n      null,\n      null\n    ]\n  },\n  \"offlineQueue\": {\n    \"_head\": 0,\n    \"_tail\": 0,\n    \"_capacityMask\": 3,\n    \"_list\": [\n      null,\n      null,\n      null,\n      null\n    ]\n  },\n  \"connector\": {\n    \"connecting\": true,\n    \"disconnectTimeout\": 2000,\n    \"options\": \"[Circular]\"\n  },\n  \"condition\": {\n    \"select\": 0,\n    \"auth\": [\n      \"default\",\n      \"9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn\"\n    ],\n    \"subscriber\": false\n  }\n}"
+} 
+
+[2024-11-15T03:22:14.331Z] [INFO] Set config for redis {
+  "config": {
+    "host": "redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com",
+    "port": 17909,
+    "username": "default",
+    "password": "9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn"
+  }
+} 
+
+[2024-11-15T03:22:14.331Z] [INFO] ✔ Connection to redis established. {} 
+
+[2024-11-15T03:22:14.333Z] [INFO] ✔ Connection to InfluxDB initialized. {
+  "url": "https://us-east-1-1.aws.cloud2.influxdata.com"
+} 
+
+[2024-11-15T03:22:14.333Z] [INFO] Added connection for influx {
+  "dbType": "influx",
+  "connectionDetails": "{\n  \"_options\": {\n    \"url\": \"https://us-east-1-1.aws.cloud2.influxdata.com\"\n  },\n  \"transport\": {\n    \"chunkCombiner\": {},\n    \"defaultOptions\": {\n      \"timeout\": 10000,\n      \"port\": null,\n      \"protocol\": \"https:\",\n      \"hostname\": \"us-east-1-1.aws.cloud2.influxdata.com\"\n    },\n    \"contextPath\": \"\",\n    \"headers\": {\n      \"User-Agent\": \"influxdb-client-js/1.35.0\"\n    }\n  }\n}"
+} 
+
+[2024-11-15T03:22:14.333Z] [INFO] Set config for influx {
+  "config": {
+    "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
+    "token": "Uvj-fDGE8SoRZadtfffle8cmOV2PajiOmL5szIPuuVPkXMSPMhsT1FkM5E2n9KZg3ECwNVK9Ql7--3l280e8TA==",
+    "org": "polybase-testing",
+    "bucket": "polybase-testing"
+  }
+} 
+
+[2024-11-15T03:22:14.333Z] [INFO] ✔ Connection to influx established. {} 
+
+[2024-11-15T03:22:14.333Z] [INFO] Starting task {
+  "activeWorkers": 1
+} 
+
+[2024-11-15T03:22:14.438Z] [ERROR] Error in worker pool task {
+  "error": {
+    "gqlStatus": "50N42",
+    "gqlStatusDescription": "error: general processing exception - unexpected error. Could not perform discovery. No routing servers available. Known routing table: RoutingTable[database=default database, expirationTime=0, currentTime=1731640934438, routers=[], readers=[], writers=[]]",
+    "diagnosticRecord": {
+      "OPERATION": "",
+      "OPERATION_CODE": "0",
+      "CURRENT_SCHEMA": "/"
+    },
+    "classification": "UNKNOWN",
+    "name": "Neo4jError",
+    "code": "ServiceUnavailable",
+    "retriable": true
+  }
+} 
+
+[2024-11-15T03:22:14.438Z] [INFO] Task finished {
+  "activeWorkers": 0
+} 
+
+[2024-11-15T03:22:14.438Z] [ERROR] Neo4j connection error {
+  "error": {
+    "gqlStatus": "50N42",
+    "gqlStatusDescription": "error: general processing exception - unexpected error. Could not perform discovery. No routing servers available. Known routing table: RoutingTable[database=default database, expirationTime=0, currentTime=1731640934438, routers=[], readers=[], writers=[]]",
+    "diagnosticRecord": {
+      "OPERATION": "",
+      "OPERATION_CODE": "0",
+      "CURRENT_SCHEMA": "/"
+    },
+    "classification": "UNKNOWN",
+    "name": "Neo4jError",
+    "code": "ServiceUnavailable",
+    "retriable": true
+  }
+} 
+
+[2024-11-15T03:22:14.438Z] [ERROR] Neo4j connection error: Could not perform discovery. No routing servers available. Known routing table: RoutingTable[database=default database, expirationTime=0, currentTime=1731640934438, routers=[], readers=[], writers=[]] {
+  "stack": "\"Error: Neo4j connection error: Could not perform discovery. No routing servers available. Known routing table: RoutingTable[database=default database, expirationTime=0, currentTime=1731640934438, routers=[], readers=[], writers=[]]\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at configureNeo4jConnection (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/connection-pool.js:107:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at async configureDatabaseConnections (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:45:34)\\n    at async initPolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/init.js:65:28)\\n    at async initializePolybase (/Users/zar/Codesmith/Polybase/Polybase-Package/source/userRun.js:135:30)\""
+} 
+
+[2024-11-15T03:22:14.439Z] [ERROR] Failed to connect to neo4j: undefined {
+  "error": {
+    "success": false,
+    "error": {
+      "message": "Neo4j connection error: Could not perform discovery. No routing servers available. Known routing table: RoutingTable[database=default database, expirationTime=0, currentTime=1731640934438, routers=[], readers=[], writers=[]]",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-15T03:22:14.439Z"
+    }
+  }
+} 
+
+[2024-11-15T03:22:14.439Z] [INFO] Polybase instance initialized with interfaces {
+  "interfaces": {
+    "mongo": {
+      "s": {
+        "options": {
+          "enableUtf8Validation": true,
+          "forceServerObjectId": false,
+          "pkFactory": {},
+          "raw": false,
+          "readPreference": {
+            "mode": "primary"
+          },
+          "retryWrites": true
+        },
+        "readPreference": {
+          "mode": "primary"
+        },
+        "bsonOptions": {
+          "raw": false,
+          "useBigInt64": false,
+          "promoteLongs": true,
+          "promoteValues": true,
+          "promoteBuffers": false,
+          "ignoreUndefined": false,
+          "bsonRegExp": false,
+          "serializeFunctions": false,
+          "fieldsAsRaw": {},
+          "enableUtf8Validation": true
+        },
+        "pkFactory": "[Circular]",
+        "namespace": {
+          "db": "polybase_mongo"
+        }
+      },
+      "client": {
+        "_events": {},
+        "_eventsCount": 0,
+        "s": {
+          "url": "mongodb://localhost:27017",
+          "bsonOptions": {
+            "raw": false,
+            "useBigInt64": false,
+            "promoteLongs": true,
+            "promoteValues": true,
+            "promoteBuffers": false,
+            "ignoreUndefined": false,
+            "bsonRegExp": false,
+            "serializeFunctions": false,
+            "fieldsAsRaw": "[Circular]",
+            "enableUtf8Validation": true
+          },
+          "namespace": {
+            "db": "admin"
+          },
+          "hasBeenClosed": false,
+          "sessionPool": {
+            "client": "[Circular]",
+            "sessions": {
+              "count": 0,
+              "head": {
+                "next": "[Circular]",
+                "prev": "[Circular]",
+                "value": null
+              }
+            }
+          },
+          "activeSessions": {},
+          "authProviders": {
+            "existingProviders": {}
+          },
+          "options": {
+            "hosts": [
+              {
+                "host": "localhost",
+                "port": 27017,
+                "isIPv6": false
+              }
+            ],
+            "autoSelectFamily": true,
+            "compressors": [
+              "none"
+            ],
+            "connectTimeoutMS": 30000,
+            "directConnection": false,
+            "driverInfo": {},
+            "enableUtf8Validation": true,
+            "forceServerObjectId": false,
+            "heartbeatFrequencyMS": 10000,
+            "loadBalanced": false,
+            "localThresholdMS": 15,
+            "maxConnecting": 2,
+            "maxIdleTimeMS": 0,
+            "maxPoolSize": 10,
+            "minPoolSize": 0,
+            "minHeartbeatFrequencyMS": 500,
+            "monitorCommands": false,
+            "noDelay": true,
+            "pkFactory": "[Circular]",
+            "raw": false,
+            "readPreference": {
+              "mode": "primary"
+            },
+            "retryReads": true,
+            "retryWrites": true,
+            "serverMonitoringMode": "auto",
+            "serverSelectionTimeoutMS": 30000,
+            "socketTimeoutMS": 0,
+            "srvMaxHosts": 0,
+            "srvServiceName": "mongodb",
+            "waitQueueTimeoutMS": 0,
+            "zlibCompressionLevel": 0,
+            "dbName": "test",
+            "userSpecifiedAuthSource": false,
+            "userSpecifiedReplicaSet": false,
+            "mongoLoggerOptions": {
+              "componentSeverities": {
+                "command": "off",
+                "topology": "off",
+                "serverSelection": "off",
+                "connection": "off",
+                "client": "off",
+                "default": "off"
+              },
+              "maxDocumentLength": 1000,
+              "logDestination": {},
+              "logDestinationIsStdErr": true
+            },
+            "metadata": {
+              "driver": {
+                "name": "nodejs",
+                "version": "6.9.0"
+              },
+              "platform": "Node.js v20.11.0, LE",
+              "os": {
+                "name": "darwin",
+                "architecture": "x64",
+                "version": "23.3.0",
+                "type": "Darwin"
+              }
+            },
+            "extendedMetadata": {}
+          },
+          "readPreference": {
+            "mode": "primary"
+          },
+          "isMongoClient": true
+        },
+        "topology": {
+          "_events": {},
+          "_eventsCount": 26,
+          "client": "[Circular]",
+          "s": {
+            "id": 0,
+            "options": "[Circular]",
+            "seedlist": [
+              "[Circular]"
+            ],
+            "state": "connected",
+            "description": {
+              "type": "Single",
+              "servers": {
+                "localhost:27017": {
+                  "address": "localhost:27017",
+                  "type": "Standalone",
+                  "hosts": [],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {},
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 5,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 94939672,
+                  "lastWriteDate": 0,
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "67354bae87f3f5e3ef1c7503"
+                    },
+                    "counter": 0
+                  },
+                  "setName": null,
+                  "setVersion": null,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": null,
+                  "me": null,
+                  "$clusterTime": null
+                }
+              },
+              "stale": false,
+              "compatible": true,
+              "heartbeatFrequencyMS": 10000,
+              "localThresholdMS": 15,
+              "setName": null,
+              "maxElectionId": null,
+              "maxSetVersion": null,
+              "commonWireVersion": 0,
+              "logicalSessionTimeoutMinutes": 30
+            },
+            "serverSelectionTimeoutMS": 30000,
+            "heartbeatFrequencyMS": 10000,
+            "minHeartbeatFrequencyMS": 500,
+            "servers": {},
+            "connectionTimers": {}
+          },
+          "component": "topology"
+        }
+      }
+    },
+    "redis": {
+      "options": {
+        "host": "redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com",
+        "port": 17909,
+        "username": "default",
+        "password": "9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn",
+        "family": 4,
+        "connectTimeout": 10000,
+        "disconnectTimeout": 2000,
+        "keepAlive": 0,
+        "noDelay": true,
+        "connectionName": null,
+        "sentinels": null,
+        "name": null,
+        "role": "master",
+        "natMap": null,
+        "enableTLSForSentinelMode": false,
+        "updateSentinels": true,
+        "failoverDetector": false,
+        "db": 0,
+        "enableOfflineQueue": true,
+        "enableReadyCheck": true,
+        "autoResubscribe": true,
+        "autoResendUnfulfilledCommands": true,
+        "lazyConnect": false,
+        "keyPrefix": "",
+        "reconnectOnError": null,
+        "readOnly": false,
+        "stringNumbers": false,
+        "maxRetriesPerRequest": 20,
+        "maxLoadingRetryTime": 10000,
+        "enableAutoPipelining": false,
+        "autoPipeliningIgnoredCommands": [],
+        "sentinelMaxConnections": 10
+      },
+      "scriptsSet": {},
+      "addedBuiltinSet": {},
+      "status": "connecting",
+      "isCluster": false,
+      "reconnectTimeout": null,
+      "connectionEpoch": 1,
+      "retryAttempts": 0,
+      "manuallyClosing": false,
+      "_autoPipelines": {},
+      "_runningAutoPipelines": {},
+      "_events": {},
+      "_eventsCount": 4,
+      "commandQueue": {
+        "_head": 0,
+        "_tail": 0,
+        "_capacityMask": 3,
+        "_list": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "offlineQueue": {
+        "_head": 0,
+        "_tail": 0,
+        "_capacityMask": 3,
+        "_list": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "connector": {
+        "connecting": true,
+        "disconnectTimeout": 2000,
+        "options": "[Circular]",
+        "stream": {
+          "connecting": true,
+          "_hadError": false,
+          "_parent": null,
+          "_host": "redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com",
+          "_closeAfterHandlingError": false,
+          "_events": {
+            "error": [
+              null,
+              null
+            ],
+            "connect": [
+              null,
+              null,
+              null
+            ]
+          },
+          "_readableState": {
+            "highWaterMark": 16384,
+            "buffer": [],
+            "bufferIndex": 0,
+            "length": 0,
+            "pipes": [],
+            "awaitDrainWriters": null
+          },
+          "_writableState": {
+            "highWaterMark": 16384,
+            "length": 0,
+            "corked": 0,
+            "writelen": 0,
+            "bufferedIndex": 0,
+            "pendingcb": 0
+          },
+          "allowHalfOpen": false,
+          "_eventsCount": 5,
+          "_sockname": null,
+          "_pendingData": null,
+          "_pendingEncoding": "",
+          "server": null,
+          "_server": null,
+          "timeout": 10000
+        }
+      },
+      "condition": {
+        "select": 0,
+        "auth": [
+          "default",
+          "9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn"
+        ],
+        "subscriber": false
+      },
+      "stream": "[Circular]"
+    },
+    "influx": {
+      "_options": {
+        "url": "https://us-east-1-1.aws.cloud2.influxdata.com"
+      },
+      "transport": {
+        "chunkCombiner": {},
+        "defaultOptions": {
+          "timeout": 10000,
+          "port": null,
+          "protocol": "https:",
+          "hostname": "us-east-1-1.aws.cloud2.influxdata.com"
+        },
+        "contextPath": "",
+        "headers": {
+          "User-Agent": "influxdb-client-js/1.35.0"
+        }
+      }
+    }
+  }
+} 
+
+[2024-11-15T03:22:14.439Z] [INFO] ✔ Polybase initialized successfully. {
+  "interfaces": [
+    "mongo",
+    "redis",
+    "influx"
+  ]
+} 
+
+[2024-11-15T03:22:14.442Z] [INFO] Polybase initialized successfully. Please fill in the .env file with your database configuration. {} 
+
+[2024-11-15T03:22:14.458Z] [INFO] ✔ Connection to Redis established. {
+  "host": "redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com",
+  "port": 17909
+} 
+
+[2024-11-15T03:23:52.348Z] [INFO] Starting task {
+  "activeWorkers": 1
+} 
+
+[2024-11-15T03:23:52.354Z] [INFO] ✔ Connection to MongoDB established. {
+  "database": "polybase_mongo"
+} 
+
+[2024-11-15T03:23:52.354Z] [INFO] Task finished {
+  "activeWorkers": 0
+} 
+
+[2024-11-15T03:23:52.355Z] [INFO] Added connection for mongo {
+  "dbType": "mongo",
+  "connectionDetails": "{\n  \"s\": {\n    \"options\": {\n      \"enableUtf8Validation\": true,\n      \"forceServerObjectId\": false,\n      \"pkFactory\": {},\n      \"raw\": false,\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"retryWrites\": true\n    },\n    \"readPreference\": {\n      \"mode\": \"primary\"\n    },\n    \"bsonOptions\": {\n      \"raw\": false,\n      \"useBigInt64\": false,\n      \"promoteLongs\": true,\n      \"promoteValues\": true,\n      \"promoteBuffers\": false,\n      \"ignoreUndefined\": false,\n      \"bsonRegExp\": false,\n      \"serializeFunctions\": false,\n      \"fieldsAsRaw\": {},\n      \"enableUtf8Validation\": true\n    },\n    \"pkFactory\": \"[Circular]\",\n    \"namespace\": {\n      \"db\": \"polybase_mongo\"\n    }\n  },\n  \"client\": {\n    \"_events\": {},\n    \"_eventsCount\": 0,\n    \"s\": {\n      \"url\": \"mongodb://localhost:27017\",\n      \"bsonOptions\": {\n        \"raw\": false,\n        \"useBigInt64\": false,\n        \"promoteLongs\": true,\n        \"promoteValues\": true,\n        \"promoteBuffers\": false,\n        \"ignoreUndefined\": false,\n        \"bsonRegExp\": false,\n        \"serializeFunctions\": false,\n        \"fieldsAsRaw\": \"[Circular]\",\n        \"enableUtf8Validation\": true\n      },\n      \"namespace\": {\n        \"db\": \"admin\"\n      },\n      \"hasBeenClosed\": false,\n      \"sessionPool\": {\n        \"client\": \"[Circular]\",\n        \"sessions\": {\n          \"count\": 0,\n          \"head\": {\n            \"next\": \"[Circular]\",\n            \"prev\": \"[Circular]\",\n            \"value\": null\n          }\n        }\n      },\n      \"activeSessions\": {},\n      \"authProviders\": {\n        \"existingProviders\": {}\n      },\n      \"options\": {\n        \"hosts\": [\n          {\n            \"host\": \"localhost\",\n            \"port\": 27017,\n            \"isIPv6\": false\n          }\n        ],\n        \"autoSelectFamily\": true,\n        \"compressors\": [\n          \"none\"\n        ],\n        \"connectTimeoutMS\": 30000,\n        \"directConnection\": false,\n        \"driverInfo\": {},\n        \"enableUtf8Validation\": true,\n        \"forceServerObjectId\": false,\n        \"heartbeatFrequencyMS\": 10000,\n        \"loadBalanced\": false,\n        \"localThresholdMS\": 15,\n        \"maxConnecting\": 2,\n        \"maxIdleTimeMS\": 0,\n        \"maxPoolSize\": 10,\n        \"minPoolSize\": 0,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"monitorCommands\": false,\n        \"noDelay\": true,\n        \"pkFactory\": \"[Circular]\",\n        \"raw\": false,\n        \"readPreference\": {\n          \"mode\": \"primary\"\n        },\n        \"retryReads\": true,\n        \"retryWrites\": true,\n        \"serverMonitoringMode\": \"auto\",\n        \"serverSelectionTimeoutMS\": 30000,\n        \"socketTimeoutMS\": 0,\n        \"srvMaxHosts\": 0,\n        \"srvServiceName\": \"mongodb\",\n        \"waitQueueTimeoutMS\": 0,\n        \"zlibCompressionLevel\": 0,\n        \"dbName\": \"test\",\n        \"userSpecifiedAuthSource\": false,\n        \"userSpecifiedReplicaSet\": false,\n        \"mongoLoggerOptions\": {\n          \"componentSeverities\": {\n            \"command\": \"off\",\n            \"topology\": \"off\",\n            \"serverSelection\": \"off\",\n            \"connection\": \"off\",\n            \"client\": \"off\",\n            \"default\": \"off\"\n          },\n          \"maxDocumentLength\": 1000,\n          \"logDestination\": {},\n          \"logDestinationIsStdErr\": true\n        },\n        \"metadata\": {\n          \"driver\": {\n            \"name\": \"nodejs\",\n            \"version\": \"6.9.0\"\n          },\n          \"platform\": \"Node.js v20.11.0, LE\",\n          \"os\": {\n            \"name\": \"darwin\",\n            \"architecture\": \"x64\",\n            \"version\": \"23.3.0\",\n            \"type\": \"Darwin\"\n          }\n        },\n        \"extendedMetadata\": {}\n      },\n      \"readPreference\": {\n        \"mode\": \"primary\"\n      },\n      \"isMongoClient\": true\n    },\n    \"topology\": {\n      \"_events\": {},\n      \"_eventsCount\": 26,\n      \"client\": \"[Circular]\",\n      \"s\": {\n        \"id\": 1,\n        \"options\": \"[Circular]\",\n        \"seedlist\": [\n          \"[Circular]\"\n        ],\n        \"state\": \"connected\",\n        \"description\": {\n          \"type\": \"Single\",\n          \"servers\": {\n            \"localhost:27017\": {\n              \"address\": \"localhost:27017\",\n              \"type\": \"Standalone\",\n              \"hosts\": [],\n              \"passives\": [],\n              \"arbiters\": [],\n              \"tags\": {},\n              \"minWireVersion\": 0,\n              \"maxWireVersion\": 21,\n              \"roundTripTime\": 1,\n              \"minRoundTripTime\": 0,\n              \"lastUpdateTime\": 95037901,\n              \"lastWriteDate\": 0,\n              \"error\": null,\n              \"topologyVersion\": {\n                \"processId\": {\n                  \"$oid\": \"67354bae87f3f5e3ef1c7503\"\n                },\n                \"counter\": 0\n              },\n              \"setName\": null,\n              \"setVersion\": null,\n              \"electionId\": null,\n              \"logicalSessionTimeoutMinutes\": 30,\n              \"primary\": null,\n              \"me\": null,\n              \"$clusterTime\": null\n            }\n          },\n          \"stale\": false,\n          \"compatible\": true,\n          \"heartbeatFrequencyMS\": 10000,\n          \"localThresholdMS\": 15,\n          \"setName\": null,\n          \"maxElectionId\": null,\n          \"maxSetVersion\": null,\n          \"commonWireVersion\": 0,\n          \"logicalSessionTimeoutMinutes\": 30\n        },\n        \"serverSelectionTimeoutMS\": 30000,\n        \"heartbeatFrequencyMS\": 10000,\n        \"minHeartbeatFrequencyMS\": 500,\n        \"servers\": {},\n        \"connectionTimers\": {}\n      },\n      \"component\": \"topology\"\n    }\n  }\n}"
+} 
+
+[2024-11-15T03:23:52.356Z] [INFO] Set config for mongo {
+  "config": {
+    "uri": "mongodb://localhost:27017",
+    "database": "polybase_mongo"
+  }
+} 
+
+[2024-11-15T03:23:52.356Z] [INFO] ✔ Connection to mongo established. {} 
+
+[2024-11-15T03:23:52.535Z] [ERROR] PostgreSQL connection error {
+  "error": {
+    "length": 52,
+    "name": "error",
+    "severity": "FATAL",
+    "code": "XX000"
+  }
+} 
+
+[2024-11-15T03:23:52.536Z] [ERROR] PostgreSQL connection error: Tenant or user not found {
+  "stack": "\"Error: PostgreSQL connection error: Tenant or user not found\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at configurePostgresConnection (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/connection-pool.js:147:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at async configureDatabaseConnections (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/db-connections.js:31:34)\\n    at async handleRetryCommand (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/cli-interface.js:192:32)\\n    at async handleCommand (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/cli-interface.js:168:21)\\n    at async /Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/cli-interface.js:206:13\""
+} 
+
+[2024-11-15T03:23:52.536Z] [ERROR] Failed to connect to postgres: undefined {
+  "error": {
+    "success": false,
+    "error": {
+      "message": "PostgreSQL connection error: Tenant or user not found",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-15T03:23:52.536Z"
+    }
+  }
+} 
+
+[2024-11-15T03:23:52.536Z] [INFO] Added connection for redis {
+  "dbType": "redis",
+  "connectionDetails": "{\n  \"options\": {\n    \"host\": \"redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com\",\n    \"port\": 17909,\n    \"username\": \"default\",\n    \"password\": \"9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn\",\n    \"family\": 4,\n    \"connectTimeout\": 10000,\n    \"disconnectTimeout\": 2000,\n    \"keepAlive\": 0,\n    \"noDelay\": true,\n    \"connectionName\": null,\n    \"sentinels\": null,\n    \"name\": null,\n    \"role\": \"master\",\n    \"natMap\": null,\n    \"enableTLSForSentinelMode\": false,\n    \"updateSentinels\": true,\n    \"failoverDetector\": false,\n    \"db\": 0,\n    \"enableOfflineQueue\": true,\n    \"enableReadyCheck\": true,\n    \"autoResubscribe\": true,\n    \"autoResendUnfulfilledCommands\": true,\n    \"lazyConnect\": false,\n    \"keyPrefix\": \"\",\n    \"reconnectOnError\": null,\n    \"readOnly\": false,\n    \"stringNumbers\": false,\n    \"maxRetriesPerRequest\": 20,\n    \"maxLoadingRetryTime\": 10000,\n    \"enableAutoPipelining\": false,\n    \"autoPipeliningIgnoredCommands\": [],\n    \"sentinelMaxConnections\": 10\n  },\n  \"scriptsSet\": {},\n  \"addedBuiltinSet\": {},\n  \"status\": \"connecting\",\n  \"isCluster\": false,\n  \"reconnectTimeout\": null,\n  \"connectionEpoch\": 1,\n  \"retryAttempts\": 0,\n  \"manuallyClosing\": false,\n  \"_autoPipelines\": {},\n  \"_runningAutoPipelines\": {},\n  \"_events\": {},\n  \"_eventsCount\": 2,\n  \"commandQueue\": {\n    \"_head\": 0,\n    \"_tail\": 0,\n    \"_capacityMask\": 3,\n    \"_list\": [\n      null,\n      null,\n      null,\n      null\n    ]\n  },\n  \"offlineQueue\": {\n    \"_head\": 0,\n    \"_tail\": 0,\n    \"_capacityMask\": 3,\n    \"_list\": [\n      null,\n      null,\n      null,\n      null\n    ]\n  },\n  \"connector\": {\n    \"connecting\": true,\n    \"disconnectTimeout\": 2000,\n    \"options\": \"[Circular]\"\n  },\n  \"condition\": {\n    \"select\": 0,\n    \"auth\": [\n      \"default\",\n      \"9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn\"\n    ],\n    \"subscriber\": false\n  }\n}"
+} 
+
+[2024-11-15T03:23:52.537Z] [INFO] Set config for redis {
+  "config": {
+    "host": "redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com",
+    "port": 17909,
+    "username": "default",
+    "password": "9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn"
+  }
+} 
+
+[2024-11-15T03:23:52.537Z] [INFO] ✔ Connection to redis established. {} 
+
+[2024-11-15T03:23:52.538Z] [INFO] ✔ Connection to InfluxDB initialized. {
+  "url": "https://us-east-1-1.aws.cloud2.influxdata.com"
+} 
+
+[2024-11-15T03:23:52.538Z] [INFO] Added connection for influx {
+  "dbType": "influx",
+  "connectionDetails": "{\n  \"_options\": {\n    \"url\": \"https://us-east-1-1.aws.cloud2.influxdata.com\"\n  },\n  \"transport\": {\n    \"chunkCombiner\": {},\n    \"defaultOptions\": {\n      \"timeout\": 10000,\n      \"port\": null,\n      \"protocol\": \"https:\",\n      \"hostname\": \"us-east-1-1.aws.cloud2.influxdata.com\"\n    },\n    \"contextPath\": \"\",\n    \"headers\": {\n      \"User-Agent\": \"influxdb-client-js/1.35.0\"\n    }\n  }\n}"
+} 
+
+[2024-11-15T03:23:52.538Z] [INFO] Set config for influx {
+  "config": {
+    "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
+    "token": "Uvj-fDGE8SoRZadtfffle8cmOV2PajiOmL5szIPuuVPkXMSPMhsT1FkM5E2n9KZg3ECwNVK9Ql7--3l280e8TA==",
+    "org": "polybase-testing",
+    "bucket": "polybase-testing"
+  }
+} 
+
+[2024-11-15T03:23:52.538Z] [INFO] ✔ Connection to influx established. {} 
+
+[2024-11-15T03:23:52.538Z] [INFO] Starting task {
+  "activeWorkers": 1
+} 
+
+[2024-11-15T03:23:52.636Z] [INFO] ✔ Connection to Redis established. {
+  "host": "redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com",
+  "port": 17909
+} 
+
+[2024-11-15T03:23:52.656Z] [ERROR] Error in worker pool task {
+  "error": {
+    "gqlStatus": "50N42",
+    "gqlStatusDescription": "error: general processing exception - unexpected error. Could not perform discovery. No routing servers available. Known routing table: RoutingTable[database=default database, expirationTime=0, currentTime=1731641032656, routers=[], readers=[], writers=[]]",
+    "diagnosticRecord": {
+      "OPERATION": "",
+      "OPERATION_CODE": "0",
+      "CURRENT_SCHEMA": "/"
+    },
+    "classification": "UNKNOWN",
+    "name": "Neo4jError",
+    "code": "ServiceUnavailable",
+    "retriable": true
+  }
+} 
+
+[2024-11-15T03:23:52.656Z] [INFO] Task finished {
+  "activeWorkers": 0
+} 
+
+[2024-11-15T03:23:52.656Z] [ERROR] Neo4j connection error {
+  "error": {
+    "gqlStatus": "50N42",
+    "gqlStatusDescription": "error: general processing exception - unexpected error. Could not perform discovery. No routing servers available. Known routing table: RoutingTable[database=default database, expirationTime=0, currentTime=1731641032656, routers=[], readers=[], writers=[]]",
+    "diagnosticRecord": {
+      "OPERATION": "",
+      "OPERATION_CODE": "0",
+      "CURRENT_SCHEMA": "/"
+    },
+    "classification": "UNKNOWN",
+    "name": "Neo4jError",
+    "code": "ServiceUnavailable",
+    "retriable": true
+  }
+} 
+
+[2024-11-15T03:23:52.657Z] [ERROR] Neo4j connection error: Could not perform discovery. No routing servers available. Known routing table: RoutingTable[database=default database, expirationTime=0, currentTime=1731641032656, routers=[], readers=[], writers=[]] {
+  "stack": "\"Error: Neo4j connection error: Could not perform discovery. No routing servers available. Known routing table: RoutingTable[database=default database, expirationTime=0, currentTime=1731641032656, routers=[], readers=[], writers=[]]\\n    at handleError (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/error-handling.js:22:17)\\n    at configureNeo4jConnection (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/connection-pool.js:107:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at async configureDatabaseConnections (/Users/zar/Codesmith/Polybase/Polybase-Package/source/service-utils/db-connections.js:28:34)\\n    at async handleRetryCommand (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/cli-interface.js:192:32)\\n    at async handleCommand (/Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/cli-interface.js:168:21)\\n    at async /Users/zar/Codesmith/Polybase/Polybase-Package/source/presentation/cli-interface.js:206:13\""
+} 
+
+[2024-11-15T03:23:52.657Z] [ERROR] Failed to connect to neo4j: undefined {
+  "error": {
+    "success": false,
+    "error": {
+      "message": "Neo4j connection error: Could not perform discovery. No routing servers available. Known routing table: RoutingTable[database=default database, expirationTime=0, currentTime=1731641032656, routers=[], readers=[], writers=[]]",
+      "code": 500,
+      "details": "",
+      "timestamp": "2024-11-15T03:23:52.657Z"
+    }
+  }
+} 
+
+[2024-11-15T03:23:52.657Z] [INFO] Polybase instance initialized with interfaces {
+  "interfaces": {
+    "mongo": {
+      "s": {
+        "options": {
+          "enableUtf8Validation": true,
+          "forceServerObjectId": false,
+          "pkFactory": {},
+          "raw": false,
+          "readPreference": {
+            "mode": "primary"
+          },
+          "retryWrites": true
+        },
+        "readPreference": {
+          "mode": "primary"
+        },
+        "bsonOptions": {
+          "raw": false,
+          "useBigInt64": false,
+          "promoteLongs": true,
+          "promoteValues": true,
+          "promoteBuffers": false,
+          "ignoreUndefined": false,
+          "bsonRegExp": false,
+          "serializeFunctions": false,
+          "fieldsAsRaw": {},
+          "enableUtf8Validation": true
+        },
+        "pkFactory": "[Circular]",
+        "namespace": {
+          "db": "polybase_mongo"
+        }
+      },
+      "client": {
+        "_events": {},
+        "_eventsCount": 0,
+        "s": {
+          "url": "mongodb://localhost:27017",
+          "bsonOptions": {
+            "raw": false,
+            "useBigInt64": false,
+            "promoteLongs": true,
+            "promoteValues": true,
+            "promoteBuffers": false,
+            "ignoreUndefined": false,
+            "bsonRegExp": false,
+            "serializeFunctions": false,
+            "fieldsAsRaw": "[Circular]",
+            "enableUtf8Validation": true
+          },
+          "namespace": {
+            "db": "admin"
+          },
+          "hasBeenClosed": false,
+          "sessionPool": {
+            "client": "[Circular]",
+            "sessions": {
+              "count": 0,
+              "head": {
+                "next": "[Circular]",
+                "prev": "[Circular]",
+                "value": null
+              }
+            }
+          },
+          "activeSessions": {},
+          "authProviders": {
+            "existingProviders": {}
+          },
+          "options": {
+            "hosts": [
+              {
+                "host": "localhost",
+                "port": 27017,
+                "isIPv6": false
+              }
+            ],
+            "autoSelectFamily": true,
+            "compressors": [
+              "none"
+            ],
+            "connectTimeoutMS": 30000,
+            "directConnection": false,
+            "driverInfo": {},
+            "enableUtf8Validation": true,
+            "forceServerObjectId": false,
+            "heartbeatFrequencyMS": 10000,
+            "loadBalanced": false,
+            "localThresholdMS": 15,
+            "maxConnecting": 2,
+            "maxIdleTimeMS": 0,
+            "maxPoolSize": 10,
+            "minPoolSize": 0,
+            "minHeartbeatFrequencyMS": 500,
+            "monitorCommands": false,
+            "noDelay": true,
+            "pkFactory": "[Circular]",
+            "raw": false,
+            "readPreference": {
+              "mode": "primary"
+            },
+            "retryReads": true,
+            "retryWrites": true,
+            "serverMonitoringMode": "auto",
+            "serverSelectionTimeoutMS": 30000,
+            "socketTimeoutMS": 0,
+            "srvMaxHosts": 0,
+            "srvServiceName": "mongodb",
+            "waitQueueTimeoutMS": 0,
+            "zlibCompressionLevel": 0,
+            "dbName": "test",
+            "userSpecifiedAuthSource": false,
+            "userSpecifiedReplicaSet": false,
+            "mongoLoggerOptions": {
+              "componentSeverities": {
+                "command": "off",
+                "topology": "off",
+                "serverSelection": "off",
+                "connection": "off",
+                "client": "off",
+                "default": "off"
+              },
+              "maxDocumentLength": 1000,
+              "logDestination": {},
+              "logDestinationIsStdErr": true
+            },
+            "metadata": {
+              "driver": {
+                "name": "nodejs",
+                "version": "6.9.0"
+              },
+              "platform": "Node.js v20.11.0, LE",
+              "os": {
+                "name": "darwin",
+                "architecture": "x64",
+                "version": "23.3.0",
+                "type": "Darwin"
+              }
+            },
+            "extendedMetadata": {}
+          },
+          "readPreference": {
+            "mode": "primary"
+          },
+          "isMongoClient": true
+        },
+        "topology": {
+          "_events": {},
+          "_eventsCount": 26,
+          "client": "[Circular]",
+          "s": {
+            "id": 1,
+            "options": "[Circular]",
+            "seedlist": [
+              "[Circular]"
+            ],
+            "state": "connected",
+            "description": {
+              "type": "Single",
+              "servers": {
+                "localhost:27017": {
+                  "address": "localhost:27017",
+                  "type": "Standalone",
+                  "hosts": [],
+                  "passives": [],
+                  "arbiters": [],
+                  "tags": {},
+                  "minWireVersion": 0,
+                  "maxWireVersion": 21,
+                  "roundTripTime": 1,
+                  "minRoundTripTime": 0,
+                  "lastUpdateTime": 95037901,
+                  "lastWriteDate": 0,
+                  "error": null,
+                  "topologyVersion": {
+                    "processId": {
+                      "$oid": "67354bae87f3f5e3ef1c7503"
+                    },
+                    "counter": 0
+                  },
+                  "setName": null,
+                  "setVersion": null,
+                  "electionId": null,
+                  "logicalSessionTimeoutMinutes": 30,
+                  "primary": null,
+                  "me": null,
+                  "$clusterTime": null
+                }
+              },
+              "stale": false,
+              "compatible": true,
+              "heartbeatFrequencyMS": 10000,
+              "localThresholdMS": 15,
+              "setName": null,
+              "maxElectionId": null,
+              "maxSetVersion": null,
+              "commonWireVersion": 0,
+              "logicalSessionTimeoutMinutes": 30
+            },
+            "serverSelectionTimeoutMS": 30000,
+            "heartbeatFrequencyMS": 10000,
+            "minHeartbeatFrequencyMS": 500,
+            "servers": {},
+            "connectionTimers": {}
+          },
+          "component": "topology"
+        }
+      }
+    },
+    "redis": {
+      "options": {
+        "host": "redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com",
+        "port": 17909,
+        "username": "default",
+        "password": "9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn",
+        "family": 4,
+        "connectTimeout": 10000,
+        "disconnectTimeout": 2000,
+        "keepAlive": 0,
+        "noDelay": true,
+        "connectionName": null,
+        "sentinels": null,
+        "name": null,
+        "role": "master",
+        "natMap": null,
+        "enableTLSForSentinelMode": false,
+        "updateSentinels": true,
+        "failoverDetector": false,
+        "db": 0,
+        "enableOfflineQueue": true,
+        "enableReadyCheck": true,
+        "autoResubscribe": true,
+        "autoResendUnfulfilledCommands": true,
+        "lazyConnect": false,
+        "keyPrefix": "",
+        "reconnectOnError": null,
+        "readOnly": false,
+        "stringNumbers": false,
+        "maxRetriesPerRequest": 20,
+        "maxLoadingRetryTime": 10000,
+        "enableAutoPipelining": false,
+        "autoPipeliningIgnoredCommands": [],
+        "sentinelMaxConnections": 10
+      },
+      "scriptsSet": {},
+      "addedBuiltinSet": {},
+      "status": "connect",
+      "isCluster": false,
+      "reconnectTimeout": null,
+      "connectionEpoch": 1,
+      "retryAttempts": 0,
+      "manuallyClosing": false,
+      "_autoPipelines": {},
+      "_runningAutoPipelines": {},
+      "_events": {},
+      "_eventsCount": 4,
+      "commandQueue": {
+        "_head": 0,
+        "_tail": 2,
+        "_capacityMask": 3,
+        "_list": [
+          {
+            "command": {
+              "name": "auth",
+              "inTransaction": false,
+              "isResolved": false,
+              "transformed": true,
+              "replyEncoding": "utf8",
+              "args": [
+                "default",
+                "9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn"
+              ],
+              "promise": {}
+            },
+            "select": 0
+          },
+          {
+            "command": {
+              "name": "info",
+              "inTransaction": false,
+              "isResolved": false,
+              "transformed": true,
+              "replyEncoding": "utf8",
+              "args": [],
+              "promise": {}
+            },
+            "select": 0
+          },
+          null,
+          null
+        ]
+      },
+      "offlineQueue": {
+        "_head": 0,
+        "_tail": 0,
+        "_capacityMask": 3,
+        "_list": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "connector": {
+        "connecting": true,
+        "disconnectTimeout": 2000,
+        "options": "[Circular]",
+        "stream": {
+          "connecting": false,
+          "_hadError": false,
+          "_parent": null,
+          "_host": "redis-17909.c98.us-east-1-4.ec2.redns.redis-cloud.com",
+          "_closeAfterHandlingError": false,
+          "_events": {
+            "error": [
+              null,
+              null
+            ]
+          },
+          "_readableState": {
+            "highWaterMark": 16384,
+            "buffer": [],
+            "bufferIndex": 0,
+            "length": 0,
+            "pipes": [],
+            "awaitDrainWriters": null
+          },
+          "_writableState": {
+            "highWaterMark": 16384,
+            "length": 0,
+            "corked": 0,
+            "writelen": 0,
+            "bufferedIndex": 0,
+            "pendingcb": 0
+          },
+          "allowHalfOpen": false,
+          "_eventsCount": 5,
+          "_sockname": null,
+          "_pendingData": null,
+          "_pendingEncoding": "",
+          "server": null,
+          "_server": null,
+          "timeout": 0
+        }
+      },
+      "condition": {
+        "select": 0,
+        "auth": [
+          "default",
+          "9TvrVPzXhusXfbJPoXwlsP9UJYtM3VXn"
+        ],
+        "subscriber": false
+      },
+      "stream": "[Circular]"
+    },
+    "influx": {
+      "_options": {
+        "url": "https://us-east-1-1.aws.cloud2.influxdata.com"
+      },
+      "transport": {
+        "chunkCombiner": {},
+        "defaultOptions": {
+          "timeout": 10000,
+          "port": null,
+          "protocol": "https:",
+          "hostname": "us-east-1-1.aws.cloud2.influxdata.com"
+        },
+        "contextPath": "",
+        "headers": {
+          "User-Agent": "influxdb-client-js/1.35.0"
+        }
+      }
+    }
+  }
+} 
+
+[2024-11-15T03:48:36.018Z] [INFO] CLI closed. Exiting program. {} 
+
