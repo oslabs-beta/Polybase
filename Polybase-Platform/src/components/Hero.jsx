@@ -46,7 +46,7 @@ const Hero = () => {
           >
             A JavaScript library designed to simplify data integration and synchronization within polyglot environments.
           </p>
-          <Button white><a href="https://www.npmjs.com/">Install</a></Button>
+          <Button white><a href="https://www.npmjs.com/package/polybase-package">Install</a></Button>
         </div>
         <div
           className="relative max-w-[23rem] mx-auto

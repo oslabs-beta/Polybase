@@ -58,7 +58,7 @@ import {
     {
       id: "2",
       title: "Docs",
-      url: "https://www.npmjs.com/",
+      url: "https://www.npmjs.com/package/polybase-package",
     }
   ];
   
