@@ -145,7 +145,6 @@ async function initializePolybase() {
     return polybaseInstance;
 }
 
-// Function to simulate a query execution for testing in CLI
 async function executeQuery(dbType, collectionName, filter = {}, projection = '') {
     try {
         const result = await find(dbType, collectionName, filter, projection);
