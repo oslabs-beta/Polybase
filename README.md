@@ -1,48 +1,3 @@
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top Banner Example</title>
-  <style>
-    /* Center banner */
-    .banner {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: 800px;
-      background-color: #4CAF50;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 1.5em;
-      z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Push content down to avoid overlap */
-    .content {
-      padding-top: 80px;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Banner at the top middle -->
-  <div class="banner">
-    Welcome to Our Website!
-  </div>
-
-  <!-- Main content -->
-  <div class="content">
-    <h1>Page Content</h1>
-    <p>This is where your main page content will go.</p>
-  </div>
-
-</body>
-
-
 <b><h1>POLYBASE</h1></b>
 
 Polybase is a robust Node.js library designed for seamless integration and synchronization across SQL, NoSQL, graph, and time-series databases. With a built-in CLI, developers can easily manage configurations, query databases, and handle cross-database operations efficiently.
@@ -224,7 +179,7 @@ Polybase was developed with a focus on simplifying multi-database operations and
 </head>
 <body>
 
-  <h1>List of Names with Badges</h1>
+  <h1>Meet The Devs!/h1>
   <ul class="name-list">
     <li class="name-item">
       <span>Alazar Aklilu</span>
