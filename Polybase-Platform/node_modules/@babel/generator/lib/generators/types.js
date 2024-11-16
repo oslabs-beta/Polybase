@@ -23,33 +23,50 @@ exports.SpreadElement = exports.RestElement = RestElement;
 exports.StringLiteral = StringLiteral;
 exports.TopicReference = TopicReference;
 exports.TupleExpression = TupleExpression;
+exports._getRawIdentifier = _getRawIdentifier;
 var _t = require("@babel/types");
 var _jsesc = require("jsesc");
 const {
   isAssignmentPattern,
   isIdentifier
 } = _t;
+let lastRawIdentNode = null;
+let lastRawIdentResult = "";
+function _getRawIdentifier(node) {
+  if (node === lastRawIdentNode) return lastRawIdentResult;
+  lastRawIdentNode = node;
+  const {
+    name
+  } = node;
+  const token = this.tokenMap.find(node, tok => tok.value === name);
+  if (token) {
+    lastRawIdentResult = this._originalCode.slice(token.start, token.end);
+    return lastRawIdentResult;
+  }
+  return lastRawIdentResult = node.name;
+}
 function Identifier(node) {
   var _node$loc;
   this.sourceIdentifierName(((_node$loc = node.loc) == null ? void 0 : _node$loc.identifierName) || node.name);
-  this.word(node.name);
+  this.word(this.tokenMap ? this._getRawIdentifier(node) : node.name);
 }
 function ArgumentPlaceholder() {
   this.tokenChar(63);
 }
 function RestElement(node) {
   this.token("...");
-  this.print(node.argument, node);
+  this.print(node.argument);
 }
 function ObjectExpression(node) {
   const props = node.properties;
   this.tokenChar(123);
   if (props.length) {
-    const exit = this.enterForStatementInit(false);
+    const exit = this.enterDelimited();
     this.space();
-    this.printList(props, node, {
+    this.printList(props, {
       indent: true,
-      statement: true
+      statement: true,
+      printTrailingSeparator: this.shouldPrintTrailingComma("}")
     });
     this.space();
     exit();
@@ -58,44 +75,46 @@ function ObjectExpression(node) {
   this.tokenChar(125);
 }
 function ObjectMethod(node) {
-  this.printJoin(node.decorators, node);
+  this.printJoin(node.decorators);
   this._methodHead(node);
   this.space();
-  this.print(node.body, node);
+  this.print(node.body);
 }
 function ObjectProperty(node) {
-  this.printJoin(node.decorators, node);
+  this.printJoin(node.decorators);
   if (node.computed) {
     this.tokenChar(91);
-    this.print(node.key, node);
+    this.print(node.key);
     this.tokenChar(93);
   } else {
     if (isAssignmentPattern(node.value) && isIdentifier(node.key) && node.key.name === node.value.left.name) {
-      this.print(node.value, node);
+      this.print(node.value);
       return;
     }
-    this.print(node.key, node);
+    this.print(node.key);
     if (node.shorthand && isIdentifier(node.key) && isIdentifier(node.value) && node.key.name === node.value.name) {
       return;
     }
   }
   this.tokenChar(58);
   this.space();
-  this.print(node.value, node);
+  this.print(node.value);
 }
 function ArrayExpression(node) {
   const elems = node.elements;
   const len = elems.length;
   this.tokenChar(91);
-  const exit = this.enterForStatementInit(false);
+  const exit = this.enterDelimited();
   for (let i = 0; i < elems.length; i++) {
     const elem = elems[i];
     if (elem) {
       if (i > 0) this.space();
-      this.print(elem, node);
-      if (i < len - 1) this.tokenChar(44);
+      this.print(elem);
+      if (i < len - 1 || this.shouldPrintTrailingComma("]")) {
+        this.token(",", false, i);
+      }
     } else {
-      this.tokenChar(44);
+      this.token(",", false, i);
     }
   }
   exit();
@@ -119,9 +138,10 @@ function RecordExpression(node) {
   this.token(startToken);
   if (props.length) {
     this.space();
-    this.printList(props, node, {
+    this.printList(props, {
       indent: true,
-      statement: true
+      statement: true,
+      printTrailingSeparator: this.shouldPrintTrailingComma(endToken)
     });
     this.space();
   }
@@ -148,8 +168,10 @@ function TupleExpression(node) {
     const elem = elems[i];
     if (elem) {
       if (i > 0) this.space();
-      this.print(elem, node);
-      if (i < len - 1) this.tokenChar(44);
+      this.print(elem);
+      if (i < len - 1 || this.shouldPrintTrailingComma(endToken)) {
+        this.token(",", false, i);
+      }
     }
   }
   this.token(endToken);
@@ -217,10 +239,10 @@ function TopicReference() {
   }
 }
 function PipelineTopicExpression(node) {
-  this.print(node.expression, node);
+  this.print(node.expression);
 }
 function PipelineBareFunction(node) {
-  this.print(node.callee, node);
+  this.print(node.callee);
 }
 function PipelinePrimaryTopicReference() {
   this.tokenChar(35);
