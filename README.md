@@ -309,3 +309,4 @@ Polybase was developed with a focus on simplifying multi-database operations and
 ## License
 
 Polybase is licensed under the MIT License. See LICENSE for details.
+
