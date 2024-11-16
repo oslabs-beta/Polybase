@@ -68,8 +68,7 @@ To install Polybase via npm, run:
 ```
 npm install polybase-package
 ```
-<hr>
-
+<br>
 
 <b>Usage</b>
 
@@ -196,9 +195,9 @@ Once configurations are provided, the CLI is fully operational, allowing users t
 
 <br>
 
-<body>
+## The Team
 
-  <h1>The Team</h1>
+<body>
 
 <table>
   <tr>
@@ -253,11 +252,51 @@ Once configurations are provided, the CLI is fully operational, allowing users t
 
 We welcome contributions! To get started:
 
-- Fork the repository.
-- Create a new branch: git checkout -b feature-name.
-- Commit your changes: git commit -m 'Add feature'.
-- Push to the branch: git push origin feature-name.
-- Submit a pull request.
+<b>1. Clone the repository:</b>
+
+```
+git clone https://github.com/oslabs-beta/Polybase.git
+```
+
+<b>2. Create a new branch for your work:</b>
+
+```
+git checkout -b feature-name
+```
+
+<b>3. Decide where to contribute:</b>
+
+• Contribute to the Polybase-Package
+
+• Contribute to the Polybase-Platform (Website)
+
+<b>4. Commit your changes:</b>
+
+```
+git commit -m 'Add feature'
+```
+
+Push your branch:
+
+```
+git push origin feature-name
+```
+
+<b>5. Submit a pull request to one of the following branches, depending on your work:</b>
+
+• main (requires review)
+
+• dev (requires review)
+
+
+<b>Note:</b> Please do not push or merge any changes into the following branches: 
+
+• alazar
+
+• nathan
+
+• gavin
+
 
 <br>
 
