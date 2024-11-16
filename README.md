@@ -1,26 +1,69 @@
-![Polybase Logo](./polybase.png)
+![polybase-logo](https://github.com/user-attachments/assets/041ba430-00bc-41bf-8159-dcd3d02a877a)
 
 
-<b><h2>About</h2></b>
+## About
 ___
 
-[![License](https://img.shields.io/badge/License-MIT-orange)](#)
-[![Release](https://img.shields.io/badge/Release-v1.0.3-blue)](#)
-[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](#)
-[![Coverage](https://img.shields.io/badge/Coverage-95%25-yellowgreen)](#)
-[![Contributions](https://img.shields.io/badge/Contributions-Welcome-orange)](#)
+[![License](https://img.shields.io/badge/License-MIT-008CBA)](#)
+[![Release](https://img.shields.io/badge/Release-v1.0.3-00A676)](#)
+[![Contributions](https://img.shields.io/badge/Contributions-Welcome-FFD700)](#)
+[![Polybase Landing Page](https://img.shields.io/badge/Website-polybase.dev-0056D2)](https://www.polybase.dev)
 
 Polybase is a robust Node.js library designed for seamless integration and synchronization across SQL, NoSQL, graph, and time-series databases. With a built-in CLI, developers can easily manage configurations, query databases, and handle cross-database operations efficiently.
 
-<b>Features</b>
-- <b>Multi-Database Support:</b> Handles MongoDB, PostgreSQL, Redis, Neo4j, and InfluxDB with a unified interface.
-- <b>Powerful CLI:</b> Supports 10+ commands (e.g., status, retry, clear) for streamlined debugging and database management.
-- <b>State Management:</b> Tracks connections and configurations for local and remote databases.
-- <b>Circular Dependency Handling:</b> Ensures scalability and maintainability.
-- <b>Robust Rollback Mechanism:</b> Guarantees 100% rollback success for critical commands.
-- <b>Seamless Configuration Loading:</b> Reads JSON and .env files for environment-based setups.
+<br>
 
-<h1>Installation</h1>
+## Technologies 
+___
+
+### Core Backend 
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white)
+![Neo4j](https://img.shields.io/badge/Neo4j-008CC1?logo=neo4j&logoColor=white)
+![InfluxDB](https://img.shields.io/badge/InfluxDB-22ADF6?logo=influxdb&logoColor=white)
+
+
+### Frontend and Presentation
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=react-router&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwind-css&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=white)
+
+
+### Build and Deployment Tools
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?logo=jenkins&logoColor=white)
+![Rollup](https://img.shields.io/badge/Rollup-EC4A3F?logo=rollup.js&logoColor=white)
+![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?logo=webpack&logoColor=black)
+![Babel](https://img.shields.io/badge/Babel-F9DC3E?logo=babel&logoColor=black)
+![NPM](https://img.shields.io/badge/NPM-CB3837?logo=npm&logoColor=white)
+
+<br>
+
+## Features 
+___
+
+<b>• Multi-Database Support:</b> Handles MongoDB, PostgreSQL, Redis, Neo4j, and InfluxDB with a unified interface.
+
+<b>• Powerful CLI:</b> Supports 10+ commands (e.g., status, retry, clear) for streamlined debugging and database management.
+
+<b>• State Management:</b> Tracks connections and configurations for local and remote databases.
+
+<b>• Circular Dependency Handling:</b> Ensures scalability and maintainability.
+
+<b>• Robust Rollback Mechanism:</b> Guarantees 100% rollback success for critical commands.
+
+<b>• Seamless Configuration Loading:</b> Reads JSON and .env files for environment-based setups.
+
+<br>
+
+## Installation 
+___
 
 Install Polybase via npm:
 <b>npm install polybase-package</b>
