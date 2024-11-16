@@ -179,7 +179,7 @@ Once configurations are provided, the CLI is fully operational, allowing users t
 
 <b>• help:</b> Lists all available commands and potential query executions.
 
-<b>In this version 1.0.3 launch, the package functions to set up and check database configurations. We are actively working on additional functionality to allow developers query databases and handle cross-database operations (see 'help' command). More commands coming soon!</b>
+<b>In this version 1.0.3 launch, the package functions to set up and check database configurations. We are actively working on additional functionality to allow developers to query databases and handle cross-database operations (see 'help' command). More commands coming soon!</b>
 
 <br>
 
