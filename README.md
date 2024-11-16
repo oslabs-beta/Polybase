@@ -8,7 +8,7 @@
 [![Contributions](https://img.shields.io/badge/Contributions-Welcome-FFD700)](#)
 [![Polybase Landing Page](https://img.shields.io/badge/Website-polybase.dev-0056D2)](https://www.polybase.dev)
 
-Polybase is a robust Node.js library designed for seamless integration and synchronization across SQL, NoSQL, graph, and time-series databases. With a built-in CLI, developers can easily manage configurations, query databases, and handle cross-database operations efficiently.
+Polybase is a robust Node.js library designed for seamless integration and synchronization across SQL, NoSQL, graph, and time-series databases. With a built-in CLI, developers can easily manage configurations, query databases, and handle cross-database operations efficiently. 
 
 <br>
 
