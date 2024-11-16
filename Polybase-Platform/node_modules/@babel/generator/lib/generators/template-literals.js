@@ -7,9 +7,9 @@ exports.TaggedTemplateExpression = TaggedTemplateExpression;
 exports.TemplateElement = TemplateElement;
 exports.TemplateLiteral = TemplateLiteral;
 function TaggedTemplateExpression(node) {
-  this.print(node.tag, node);
-  this.print(node.typeParameters, node);
-  this.print(node.quasi, node);
+  this.print(node.tag);
+  this.print(node.typeParameters);
+  this.print(node.quasi);
 }
 function TemplateElement() {
   throw new Error("TemplateElement printing is handled in TemplateLiteral");
@@ -21,8 +21,12 @@ function TemplateLiteral(node) {
     partRaw += quasis[i].value.raw;
     if (i + 1 < quasis.length) {
       this.token(partRaw + "${", true);
-      this.print(node.expressions[i], node);
+      this.print(node.expressions[i]);
       partRaw = "}";
+      if (this.tokenMap) {
+        const token = this.tokenMap.findMatching(node, "}", i);
+        if (token) this._catchUpTo(token.loc.start);
+      }
     }
   }
   this.token(partRaw + "`", true);
