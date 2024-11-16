@@ -2,7 +2,6 @@
 
 
 ## About
-___
 
 [![License](https://img.shields.io/badge/License-MIT-008CBA)](#)
 [![Release](https://img.shields.io/badge/Release-v1.0.3-00A676)](#)
@@ -14,7 +13,6 @@ Polybase is a robust Node.js library designed for seamless integration and synch
 <br>
 
 ## Technologies 
-___
 
 ### Core Backend 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
