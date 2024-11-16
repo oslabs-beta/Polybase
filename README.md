@@ -44,7 +44,6 @@ Polybase is a robust Node.js library designed for seamless integration and synch
 <br>
 
 ## Features 
-___
 
 <b>• Multi-Database Support:</b> Handles MongoDB, PostgreSQL, Redis, Neo4j, and InfluxDB with a unified interface.
 
@@ -61,7 +60,6 @@ ___
 <br>
 
 ## Installation 
-___
 
 Install Polybase via npm:
 <b>npm install polybase-package</b>
