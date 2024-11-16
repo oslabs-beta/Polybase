@@ -1,4 +1,14 @@
-<b><h1>POLYBASE</h1></b>
+![Polybase Logo](./polybase.png)
+
+
+<b><h2>About</h2></b>
+___
+
+[![License](https://img.shields.io/badge/License-MIT-orange)](#)
+[![Release](https://img.shields.io/badge/Release-v1.0.3-blue)](#)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](#)
+[![Coverage](https://img.shields.io/badge/Coverage-95%25-yellowgreen)](#)
+[![Contributions](https://img.shields.io/badge/Contributions-Welcome-orange)](#)
 
 Polybase is a robust Node.js library designed for seamless integration and synchronization across SQL, NoSQL, graph, and time-series databases. With a built-in CLI, developers can easily manage configurations, query databases, and handle cross-database operations efficiently.
 
