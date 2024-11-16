@@ -10,7 +10,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Install dependencies for both Polybase-Platform and Polybase-Package
+                  
                     dir('Polybase-Platform') {
                         sh 'npm install'
                     }
@@ -44,7 +44,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // Currently, there are no tests, but the framework is set for when tests are added
+                    
                     dir('Polybase-Platform') {
                         sh 'npm run test || true'
                     }
@@ -61,7 +61,7 @@ pipeline {
             }
             steps {
                 echo "Deploying application from the main branch..."
-                // Add your deployment steps here if applicable
+                
             }
         }
     }
@@ -69,7 +69,7 @@ pipeline {
     post {
         always {
             echo 'Cleaning up...'
-            cleanWs() // Clean up workspace after build
+            cleanWs() 
         }
         success {
             echo 'Build succeeded!'
