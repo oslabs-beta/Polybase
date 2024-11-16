@@ -24,6 +24,7 @@ export default {
             },
         },
     ],
+    external: ['neo4j-driver', 'ioredis', 'mongodb', 'pg', '@influxdata/influxdb-client', 'lodash'],
     plugins: [
         resolve(),
         commonjs(),
@@ -33,5 +34,4 @@ export default {
             babelHelpers: 'bundled',
         }),
     ],
-    external: ['lodash'],
 };
