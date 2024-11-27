@@ -7,7 +7,6 @@ import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
 import { useState } from "react";
 import github from "../assets/github.png";
-import npm from "../assets/npm.png";
 
 const Header = () => {
   const pathname = useLocation();
@@ -78,13 +77,6 @@ const Header = () => {
             >
               <img className="h-8 w-8 mt-6" src={github} alt="github" />
             </a>
-            {/* <a
-              href="https://www.npmjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img className="h-14 w-17 mt-4 ml-6" src={npm} alt="npm" />
-            </a> */}
           </div>
           <HamburgerMenu />
         </nav>

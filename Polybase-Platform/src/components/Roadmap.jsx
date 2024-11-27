@@ -3,7 +3,7 @@ import Heading from "./Heading";
 import Section from "./Section";
 import Tagline from "./Tagline";
 import { roadmap } from "../constants";
-import { check2, grid, loading1 } from "../assets";
+import { grid } from "../assets";
 import { Gradient } from "./design/Roadmap";
 import linkedin from "../assets/linkedin.png";
 
@@ -28,8 +28,6 @@ const Roadmap = () => (
                   <img
                     className="w-full h-full object-cover rounded-full "
                     src={grid}
-                    // width={550}
-                    // height={550}
                     alt="Grid"
                   />
                 </div>
@@ -48,17 +46,6 @@ const Roadmap = () => (
                         />
                       </a>
                     </Tagline>
-
-                    {/* <div className="flex items-center px-4 py-1 bg-n-1 rounded text-n-8">
-                      <img
-                        className="mr-2.5"
-                        src={item.status === "done" ? check2 : loading1}
-                        width={16}
-                        height={16}
-                        alt={status}
-                      />
-                      <div className="tagline">{status}</div>
-                    </div> */}
                   </div>
 
                   <div className="mb-2 -my-30 -mx-15">

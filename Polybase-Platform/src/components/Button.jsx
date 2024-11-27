@@ -20,7 +20,7 @@ const Button = ({ className, href, onClick, children, px, white }) => {
     </a>;
   };
 
-//   conditional rendering based on whether href is present 
+  //   conditional rendering based on whether href is present
   return href ? renderLink() : renderButton();
 };
 
