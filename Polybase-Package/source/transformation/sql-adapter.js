@@ -16,12 +16,13 @@ const { getState } = require('../service-utils/state-utils');
  */
 
 async function postgresQuery(client, operation, params) {
+    const { tableName, condition, fields, updateData } = params;
+
     try {
-        const { tableName, condition, fields, updateData } = params;
         let queryText;
         let values;
 
-        switch (operation) {
+        switch (operation.toLowerCase()) {
             case 'select':
                 //generate the  SELECT query w/ conditions, fields, etc
                 queryText = `SELECT ${fields.join(', ')} FROM ${tableName} WHERE ${condition};`;
