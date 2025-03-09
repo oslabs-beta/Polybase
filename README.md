@@ -26,7 +26,6 @@ Polybase is a robust Node.js library designed for seamless integration and synch
 
 ### Frontend and Presentation
 ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
-![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=react-router&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwind-css&logoColor=white)
